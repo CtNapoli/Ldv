@@ -1,1 +1,27 @@
-@import "bootstrap"
+@import bootstrap
+@import global
+
+.btn
+    border-radius: 5px
+    box-shadow: none
+    font-weight: 700
+    text-transform: uppercase
+    font-size: 12px
+    line-height: 15px
+    padding: 20px 45px
+    border: none
+    color: white
+    letter-spacing: 1.5px
+
+    &.btn-primary
+        background-color: $brandColor
+
+        &:not(:disabled)
+            &:not(:disabled)
+                &:active, &:focus, &:hover
+                    background-color: $brandColor
+                    border: none
+                    box-shadow: none
+    
+    &.btn-secondary
+        background-color: transparent
