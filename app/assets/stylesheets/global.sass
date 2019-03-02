@@ -1,0 +1,60 @@
+@import mixins
+    
+$brandColor: #032A58
+$secondaryColor: #BB9A5B
+
+$xs: 480px
+$sm: 560px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+
+
+.big-text
+    font-size: 60px
+    line-height: 70px
+
+.medium-text
+    font-size: 40px
+    line-height: 50px
+
+.normal-text
+    font-size: 16px
+    line-height: 26px
+
+.small-text
+    font-size: 12px
+    line-height: 16px
+
+
+body
+    font-family: 'Lato', sans-serif
+    
+    +media($lg)
+        margin: 
+            left: 100px
+            right: 100px
+
+    h1,h2,h3,h4,h5,h6,p,span,a,i,label,div,ul,li
+        color: $brandColor
+
+    header
+        padding:
+            top: 20px
+            bottom: 20px
+
+        img
+            width: 46px
+
+        .nav-item
+            margin-left: 50px
+
+            .nav-link
+                font-size: 12px
+                line-height: 16px
+                letter-spacing: 1.5px
+                font-weight: 700
+                text-transform: uppercase
+                padding: 20px
+                
+                
