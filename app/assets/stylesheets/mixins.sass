@@ -1,0 +1,8 @@
+@mixin bg()
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+@mixin media($size)
+  @media screen and (min-width: $size)
+    @content
