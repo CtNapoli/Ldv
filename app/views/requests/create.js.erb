@@ -1,0 +1,5 @@
+<% if(@success) %>
+    $('.request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
+<% else %>
+    $('.request-form .form-respond').html("<p class='text-danger'>Problemi con l'invio della mail. Rirpova</p>")
+<% end %>
