@@ -1,0 +1,25 @@
+footer
+    .container.large
+        .row
+            .col-xl-3.text-center.text-xl-left
+                = image_tag('logo.png')
+                p.small-text P.IVA 1233445577451
+                p.small-text info@ldvhospitality.com
+                p.small-text +3333333333
+
+            .col-xl-6.text-center
+                .social
+                    = link_to '#', class: 'channel facebook', target: '_blank' do
+                        i.fab.fa-facebook-f
+
+                    = link_to '#', class: 'channel instagram', target: '_blank' do
+                        i.fab.fa-instagram
+
+
+            .col-xl-3.text-center.text-xl-right
+                = link_to 'Cookie policy', '#', class: 'small-text text-uppercase cookie'
+
+                = link_to 'Privacy policy', '#', class: 'small-text text-uppercase privacy'
+
+
+        script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
