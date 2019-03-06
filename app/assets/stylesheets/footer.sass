@@ -1,0 +1,47 @@
+@import variables
+@import mixins
+
+body
+    footer
+        padding: 50px 0
+
+        img
+            width: 50px
+            margin-bottom: 30px
+
+        p
+            margin-bottom: 10px
+
+            &:last-child
+                margin-bottom: 0
+
+           
+        .social
+            margin: 40px 0
+
+            +media($xl)
+                margin: 0
+
+            .channel
+                position: relative
+                background-color: $brandColor
+                border-radius: 50%
+                width: 40px
+                height: 40px
+                display: inline-block
+
+                &.facebook
+                    margin-right: 30px
+
+                i
+                    position: absolute
+                    left: 50%
+                    top: 50%
+                    transform: translate(-50%,-50%)
+                    color: white
+
+        .cookie,.privacy 
+            text-decoration: underline
+
+        .cookie
+            margin-right: 40px
