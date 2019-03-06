@@ -4,6 +4,7 @@ class RequestsController < ApplicationController
         @request = Request.new(request_params)
         if @request.save
             @success = true
+            RequestMailer.with(request: @request).request_sent.deliver_now
         end
         respond_to do |format|
             format.js{}
