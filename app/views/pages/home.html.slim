@@ -96,6 +96,58 @@
             .swiper-container
                 .swiper-wrapper
                     = render @areas
+
+
+    #informations.custom-section.invert
+        .container.large
+            .intro-banner.type2
+                .container.reduced
+                    .title-with-text
+                        h3.title Do you need informations?
+                        
+                        h4.text.secondary-font Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+            .request-form.custom-form
+                .container.reduced
+                    .row
+                        .col-xl-5
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+                        .col-xl-1
+
+                        .col-xl-6
+                            = form_with url: send_request_path do |f|
+                                .row
+                                    .col-12
+                                        .form-group
+                                            = f.text_field :name, class: 'form-control', placeholder: "Name"
+
+                                .row
+                                    .col-6
+                                        .form-group
+                                            = f.email_field :email, class: 'form-control', placeholder: "Email"
+
+                                    .col-6
+                                        .form-group
+                                            = f.text_field :phone_number, class: 'form-control', placeholder: "Telefono"
+
+                                .row
+                                    .col-12
+                                        .form-group
+                                            = f.text_area :message, class: 'form-control', placeholder: "Message"
+
+                                .row
+                                    .col-12
+                                        .form-respond
+                                        
+                                        .form-group
+                                            = f.submit class: 'btn btn-secondary'
+
+                                
+
+
+
+
                         
 
 

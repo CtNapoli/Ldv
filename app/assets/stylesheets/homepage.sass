@@ -42,17 +42,6 @@
             position: relative
             +bg
 
-            &:before
-                content: ''
-                position: absolute
-                left: 0
-                top: 0
-                width: 100%
-                height: 100%
-                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, $brandColor 100%)
-                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,$brandColor 100%)
-                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,$brandColor 100%)
-
             .text
                 position: relative
                 padding:
@@ -61,9 +50,29 @@
                     left: 30px
                     right: 30px
 
+                +media($xl)
+                    padding-top: 380px
+
                 h5,p
                     color: white
 
     #informations
-        .intro
+        .intro-banner
             background-image: url(asset_path('homepage/informations.jpg'))
+
+            .title-with-text
+                margin: 0
+                padding-top: 320px
+
+                .text
+                    margin: 0
+
+        .request-form
+            padding-top: 100px
+            background-color: $brandColor
+
+            .btn-secondary
+                margin-top: 60px
+
+            .form-control
+                margin-bottom: 30px
