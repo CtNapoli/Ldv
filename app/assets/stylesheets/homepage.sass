@@ -31,13 +31,12 @@
     #destinations
         .swiper-slide
             width: 260px
-            margin-right: 20px
 
             &:last-child
                 margin-right: 0
 
             +media($xl)
-                width: calc(25% - 20px)
+                //width: calc(25% - 20px)
 
         .destination
             position: relative
@@ -64,3 +63,7 @@
 
                 h5,p
                     color: white
+
+    #informations
+        .intro
+            background-image: url(asset_path('homepage/informations.jpg'))

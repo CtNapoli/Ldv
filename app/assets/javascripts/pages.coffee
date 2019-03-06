@@ -4,6 +4,11 @@
 document.addEventListener 'turbolinks:load', () ->
     areaSwiper = new Swiper('#destinations .swiper-container', {
       slidesPerView: 4,
-      slidesPerView: 'auto'
+      spaceBetween: 20
+      breakpoints: {
+        1200: {
+          slidesPerView: 'auto'
+        }
+      }
     });
 
