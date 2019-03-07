@@ -1,0 +1,42 @@
+@import variables
+@import mixins
+
+#apartments
+    .apartment
+        margin-bottom: 30px
+        +media($md)
+            display: flex
+
+        &:last-child
+            margin-bottom: 0
+
+        .image
+            +bg
+            flex-basis: 30%
+            padding-top: 50%
+
+            +media($md)
+                padding-top: 0
+
+        .info
+            flex-grow: 1
+            padding: 30px
+
+            .name
+                margin-bottom: 15px
+
+            .features
+                display: flex
+                flex-wrap: wrap
+                align-items: center
+                margin-top: 15px
+
+                .dot-separator
+                    &:before
+                        content: ''
+                        display: block
+                        width: 3px
+                        height: 3px
+                        border-radius: 50%
+                        background-color: $brandColor
+                        margin: 0 12px
