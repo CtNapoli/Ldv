@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   post 'send-request' => 'requests#create'
+
+  get 'case'  =>  'apartments#index', as: 'apartments'
 end
