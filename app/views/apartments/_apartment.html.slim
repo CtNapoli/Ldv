@@ -1,0 +1,51 @@
+.apartment.custom-card
+    .image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
+    
+
+    .info
+        h3.name.secondary-font.font-italic.text-medium = apartment.name
+        p.address.small-text
+            |
+            => apartment.city
+            | |
+            =< apartment.address
+            | ,
+            =<> apartment.postal_code
+            | (
+            = apartment.province
+            | )
+
+        .features
+            .feature
+                span.normal-text
+                    |
+                    => apartment.capacity
+                    | guests
+
+            .dot-separator
+
+            .feature
+                span.normal-text
+                    |
+                    => apartment.rooms
+                    | rooms
+
+            .dot-separator
+
+            .feature
+                span.normal-text
+                    |
+                    => apartment.bedrooms
+                    | bedrooms
+
+            .dot-separator
+
+            .feature
+                span.normal-text
+                    |
+                    => apartment.toilette
+                    | toilette
+
+
+
+
