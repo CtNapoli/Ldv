@@ -1,7 +1,6 @@
 .apartment.custom-card
     .image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
     
-
     .info
         h3.name.secondary-font.font-italic.text-medium = apartment.name
         p.address.small-text
@@ -45,6 +44,10 @@
                     |
                     => apartment.toilette
                     | toilette
+
+        .price
+            p.secondary-font.font-italic a partire da
+            p.digit.secondary-font.font-italic 120€
 
 
 
