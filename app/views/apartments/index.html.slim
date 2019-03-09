@@ -1,9 +1,25 @@
 #apartments
     .container.large
         .row
-            .col-lg-9
+            .col-lg-9.list
                 = render @apartments
 
             .col-lg-3
+                .search-form.custom-card
+                    = form_with url: apartments_path, method: :get do |f|
+                        .form-group
+                            label Where
+                            = select_tag(:where, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
+
+                        .form-group
+                            label Dates
+                            = select_tag(:dates, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
+
+                        .form-group.no-border.no-margin
+                            label Guests
+                            = select_tag(:guests, options_for_select([['1 guest', 1], ['2 guests', 2], ['3 guests', 3]]), class: 'custom-select secondary-font')
+
+                        = f.submit 'Search', class: 'btn btn-primary'
+
 
 
