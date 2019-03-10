@@ -11,7 +11,7 @@
                             label Where
                             = select_tag(:where, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
 
-                        .form-group
+                        //.form-group
                             label Dates
                             = select_tag(:dates, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
 
