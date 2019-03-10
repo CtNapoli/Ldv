@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   post 'send-request' => 'requests#create'
 
-  get 'case'  =>  'apartments#index', as: 'apartments'
+  get 'appartamenti'  =>  'apartments#index', as: 'apartments'
+  get 'appartamenti/:id'  =>  'apartments#show', as: 'apartment'
 end

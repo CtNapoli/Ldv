@@ -11,4 +11,8 @@ class ApartmentsController < ApplicationController
             format.js
         end
     end
+
+    def show
+        @apartment = Apartment.find(params[:id])
+    end
 end
