@@ -1,0 +1,4 @@
+it:
+ capacity:
+  one: "1 ospite"
+  other: "%{count} ospiti"
