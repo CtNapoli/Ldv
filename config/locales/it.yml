@@ -2,3 +2,15 @@ it:
  capacity:
   one: "1 ospite"
   other: "%{count} ospiti"
+
+ room:
+  one: "1 camera"
+  other: "%{count} camere"
+
+ bedroom:
+  one: "1 camera da letto"
+  other: "%{count} camere da letto"
+
+ toilette:
+  one: "1 bagno"
+  other: "%{count} bagni"
