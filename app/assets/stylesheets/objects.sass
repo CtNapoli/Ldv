@@ -167,3 +167,33 @@
 
     .btn
         width: 100%
+
+
+.gallery.swiper-container
+    .swiper-slide
+        .image
+            padding-top: 650px
+            +bg
+
+    .navigation
+        width: 60px
+        height: 60px
+        background-color: rgba(white,0.5)
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        z-index: 99
+        cursor: pointer
+
+        img
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+            width: 12px
+
+        &.prev
+            left: 50px
+
+        &.next
+            right: 50px
