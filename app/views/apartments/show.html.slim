@@ -1,1 +1,53 @@
-= @apartment.id
+#apartment
+    .swiper-container.gallery
+        .swiper-wrapper
+            - @apartment.images.each do |image|
+                .swiper-slide
+                    .image style="background-image: url('#{rails_blob_path(image)}')"
+
+        .navigation.prev
+            = image_tag('navigation-arrow-left.png')
+
+        .navigation.next
+            = image_tag('navigation-arrow-right.png')
+            
+    .container
+        .row
+            .col-lg-8
+                h1.secondary-font.big-text.font-italic = @apartment.name
+                h2.address.normal-text
+                    |
+                    => @apartment.city
+                    | |
+                    =< @apartment.address
+                    | ,
+                    =<> @apartment.postal_code
+                    | (
+                    = @apartment.province
+                    | )
+                .properties
+                    .property
+                        = image_tag('apartments/capacity.png')
+                        h3 = t('capacity', count: @apartment.capacity)
+                           
+
+                    .property
+                        = image_tag('apartments/square_meters.png')
+                        h3
+                            |
+                            = @apartment.square_meters
+                            | mq
+
+                    .property
+                        = image_tag('apartments/rooms.png')
+                        h3 = t('room', count: @apartment.rooms)
+
+                    .property
+                        = image_tag('apartments/bedrooms.png')
+                        h3 = t('bedroom', count: @apartment.bedrooms)
+
+                    .property
+                        = image_tag('apartments/toilette.png')
+                        h3 = t('toilette', count: @apartment.toilette)
+
+            .col-lg-4
