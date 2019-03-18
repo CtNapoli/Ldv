@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_114540) do
+ActiveRecord::Schema.define(version: 2019_03_12_072829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,33 @@ ActiveRecord::Schema.define(version: 2019_03_06_114540) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "apartments", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "postal_code"
+    t.string "city"
+    t.string "province"
+    t.float "lat"
+    t.float "lng"
+    t.integer "capacity"
+    t.integer "square_meters"
+    t.integer "rooms"
+    t.integer "bedrooms"
+    t.integer "toilette"
+    t.integer "in_evidence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "area_id"
+    t.index ["area_id"], name: "index_apartments_on_area_id"
+  end
+
+  create_table "apartments_services", force: :cascade do |t|
+    t.bigint "apartment_id"
+    t.bigint "service_id"
+    t.index ["apartment_id"], name: "index_apartments_services_on_apartment_id"
+    t.index ["service_id"], name: "index_apartments_services_on_service_id"
+  end
+
   create_table "areas", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -51,6 +78,13 @@ ActiveRecord::Schema.define(version: 2019_03_06_114540) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_services_on_name"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -128,3 +128,75 @@
 
             &::placeholder
                 color: white
+
+.custom-card
+    box-shadow: rgba(black, 0.05) 0 10px 25px
+
+.search-form
+    padding: 30px
+
+    .form-group
+        padding-bottom: 30px
+        margin-bottom: 30px
+        border-bottom: solid 1px rgba($brandColor,0.3)
+
+        &.no-border
+            border: none
+
+        &.no-margin
+            margin: 0
+
+    label
+        margin-bottom: 10px
+
+    select
+        text-transform: capitalize
+        border: none
+        cursor: pointer
+        padding-left: 0
+
+        &:active,&:focus,&:hover
+            border: none
+            box-shadow: none
+
+    .btn
+        width: 100%
+
+
+.gallery.swiper-container
+    .swiper-slide
+        .image
+            padding-top: 650px
+            +bg
+
+    .navigation
+        width: 60px
+        height: 60px
+        background-color: rgba(white,0.5)
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        z-index: 99
+        cursor: pointer
+
+        img
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+            width: 12px
+
+        &.prev
+            left: 50px
+
+        &.next
+            right: 50px
+
+.tag
+    text-transform: uppercase
+    font-weight: 700
+    color: $secondaryColor
+    font-size: 12px
+    line-height: 22px
+    display: block
+    letter-spacing: 1.5px

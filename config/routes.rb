@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   post 'send-request' => 'requests#create'
+
+  get 'appartamenti'  =>  'apartments#index', as: 'apartments'
+  get 'appartamenti/:id'  =>  'apartments#show', as: 'apartment'
 end

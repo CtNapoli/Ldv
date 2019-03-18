@@ -1,0 +1,7 @@
+<% if(@apartments.any?) %>
+    $('#apartments .list').html('<%= j render @apartments %>');
+<% else %>
+    $('#apartments .list').html('<p> Non ci sono appartamenti disponibili per i criteri di ricerca selezionati</p>')
+<% end %>
+
+

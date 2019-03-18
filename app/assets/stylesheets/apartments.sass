@@ -1,0 +1,96 @@
+@import variables
+@import mixins
+
+#apartments
+    .apartment
+        text-decoration: none
+        margin-bottom: 30px
+        transition: all .2s linear
+
+        +media($md)
+            display: flex
+
+        &:hover,&:active,&:focus
+            opacity: 0.8
+
+        &:last-child
+            margin-bottom: 0
+
+        .image
+            +bg
+            flex-basis: 30%
+            padding-top: 50%
+
+            +media($md)
+                padding-top: 0
+
+        .info
+            flex-grow: 1
+            padding: 30px
+
+            .name
+                margin-bottom: 15px
+
+            .features
+                display: flex
+                flex-wrap: wrap
+                align-items: center
+                margin: 
+                    top: 15px
+                    bottom: 30px
+
+                .dot-separator
+                    &:before
+                        content: ''
+                        display: block
+                        width: 3px
+                        height: 3px
+                        border-radius: 50%
+                        background-color: $brandColor
+                        margin: 0 12px
+
+            .price
+                p
+                    font-size: 14px
+                    line-height: 24px
+                    color: $secondaryColor
+
+                    &.digit
+                        font-size: 32px
+                        line-height: 42px
+
+#apartment
+    h1
+        margin:
+            top: 70px 
+            bottom: 20px
+
+    .properties
+        display: flex
+        justify-content: space-between
+        margin: 40px 0
+
+        .property
+            text-align: center
+
+            img
+                width: 40px
+
+            h3
+                font-size: 18px
+                line-height: 28px
+
+    .services
+        display: flex
+        margin-top: 20px
+
+        .service
+            display: flex
+            align-items: center
+            flex-basis: 25%
+
+            img
+                width: 15px
+                margin-right: 10px
+
+
