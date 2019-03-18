@@ -8,7 +8,7 @@
                 .search-form.custom-card
                     = form_with url: apartments_path, method: :get do |f|
                         .form-group
-                            label Where
+                            label.tag = t('where')
                             = select_tag(:where, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
 
                         //.form-group
@@ -16,7 +16,7 @@
                             = select_tag(:dates, options_for_select(Area.all.map{|area| [area.name, area.id]}), class: 'custom-select secondary-font')
 
                         .form-group.no-border.no-margin
-                            label Guests
+                            label.tag = t('guests')
                             = select_tag(:guests, options_for_select([['1 guest', 1], ['2 guests', 2], ['3 guests', 3]]), class: 'custom-select secondary-font')
 
                         = f.submit 'Search', class: 'btn btn-primary'
