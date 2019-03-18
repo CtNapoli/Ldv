@@ -50,4 +50,14 @@
                         = image_tag('apartments/toilette.png')
                         h3 = t('toilette', count: @apartment.toilette)
 
+                h4.tag = t('services')
+
+                .services
+                    - @apartment.services.each do |s|
+                        .service
+                            .icon
+                                = image_tag('check.png')
+                            .text
+                                h5.normal-text = s.name
+
             .col-lg-4
