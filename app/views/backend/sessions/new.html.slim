@@ -1,1 +1,11 @@
-h1 login
+
+h1 Accedi
+= form_with url: backend_login_path, local: true do |f|
+    label Username
+    = f.text_field :username
+
+    label Password
+    = f.password_field :password
+
+    
+    = f.button 'Accedi'
