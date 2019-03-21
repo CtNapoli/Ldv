@@ -6,4 +6,10 @@ Rails.application.routes.draw do
 
   get 'appartamenti'  =>  'apartments#index', as: 'apartments'
   get 'appartamenti/:id'  =>  'apartments#show', as: 'apartment'
+
+  namespace :backend do
+    get     'login'   => 'sessions#new'
+    post    'login'   => 'sessions#create'
+    delete  'logout'  => 'sessions#destroy'
+  end
 end
