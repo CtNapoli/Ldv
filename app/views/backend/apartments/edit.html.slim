@@ -1,0 +1,52 @@
+#apartment
+    = form_with url: backend_update_apartment_path(@apartment), model: @apartment, method: :patch do |f|
+        .form-group
+            label Nome
+            = f.text_field :name, class: 'form-control'
+
+        .form-group
+            label Indirizzo
+            = f.text_field :name, class: 'form-control'
+
+        .form-group
+            label Codice postale
+            = f.text_field :postal_code, class: 'form-control'
+
+        .form-group
+            label Città
+            = f.text_field :city, class: 'form-control'
+
+        .form-group
+            label Provincia
+            = f.text_field :province, class: 'form-control'
+
+        .form-group
+            label Latitudine
+            = f.number_field :name, step: 0.01, class: 'form-control'
+
+        .form-group
+            label Longitudine
+            = f.number_field :name, step: 0.01, class: 'form-control'
+
+        .form-group
+            label Capacità
+            = f.number_field :capacity, class: 'form-control'
+
+        .form-group
+            label Metri quadrati
+            = f.number_field :square_meters, class: 'form-control'
+
+        .form-group
+            label Camere
+            = f.number_field :rooms, class: 'form-control'
+
+        .form-group
+            label Camere da letto
+            = f.number_field :bedrooms, class: 'form-control'
+
+        .form-group
+            label Bagni
+            = f.number_field :toilette, class: 'form-control'
+
+        .form-group
+            = f.submit 'Invia', class: 'btn btn-primary' 
