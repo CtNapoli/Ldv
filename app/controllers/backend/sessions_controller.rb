@@ -1,4 +1,6 @@
-class Backend::SessionsController < BackendController
+class Backend::SessionsController < ApplicationController
+    layout 'admin'
+
     def new
         @admin = Admin.new
     end
@@ -7,7 +9,7 @@ class Backend::SessionsController < BackendController
         admin = Admin.find_by(username: params[:username])
         if admin && admin.authenticate(params[:password])
             session[:admin_id] = admin.id
-            redirect_to backend_businesses_path
+            redirect_to backend_apartments_path
         else
             flash.now.alert = 'Nome utente o password errati'
             render :new
