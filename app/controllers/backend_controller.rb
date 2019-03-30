@@ -1,3 +1,5 @@
 class BackendController < ApplicationController
-    layout 'backend'
+    #layout 'backend'
+
+    
 end
