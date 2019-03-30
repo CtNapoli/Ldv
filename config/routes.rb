@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     post    'login'   => 'sessions#create'
     delete  'logout'  => 'sessions#destroy'
 
-    get     'appartamenti' =>  'apartments#index', as: 'apartments'
+    get     'appartamenti'            =>  'apartments#index', as: 'all_apartments'
+    get     'appartamento/:id/edit'   =>  'apartments#edit', as: 'edit_apartment'
+    get     'appartamento/new'        =>  'apartments#new', as: 'new_apartment'
+    post    'appartamenti'            =>  'apartments#create', as: 'create_apartment'
+    delete  'appartamento/:id'        =>  'apartments#destroy', as: 'destroy_apartment'
+    patch   'appartamento/:id'        =>  'apartments#update', as: 'update_apartment'
   end
 end
