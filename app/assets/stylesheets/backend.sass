@@ -1,4 +1,5 @@
 @import variables
+@import mixins
 
 #backend-login
     background-color: white
@@ -43,3 +44,11 @@
             &.active
                 background-color: white
                 color: $brandColor
+
+
+    .all-previews
+        .box-preview
+            width: 150px
+            height: 150px
+            +bg
+
