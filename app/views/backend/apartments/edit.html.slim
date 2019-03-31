@@ -30,6 +30,11 @@
             = error_messages(@apartment, :images)
 
     .form-group
+        label Servizi
+        div
+            = f.collection_check_boxes :service_ids, Service.all, :id, :name
+
+    .form-group
         label Area
         = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
 
