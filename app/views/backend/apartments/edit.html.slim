@@ -30,6 +30,17 @@
             = error_messages(@apartment, :images)
 
     .form-group
+        label Visibilità
+        div
+            div
+                label pubblico
+                = f.radio_button :published, true
+
+                label privato
+                = f.radio_button :published, false
+
+
+    .form-group
         label Servizi
         div
             = f.collection_check_boxes :service_ids, Service.all, :id, :name
