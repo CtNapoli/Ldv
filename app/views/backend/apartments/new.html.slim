@@ -1,52 +1,79 @@
-#apartment
-    = form_with url: backend_create_apartment_path, model: @apartment do |f|
-        .form-group
-            label Nome
-            = f.text_field :name, class: 'form-control'
+= form_with url: backend_create_apartment_path, model: @apartment, local: true do |f|
+    .form-group
+        label Nome
+        = f.text_field :name, class: 'form-control'
+        = error_messages(@apartment, :name)
 
-        .form-group
-            label Indirizzo
-            = f.text_field :name, class: 'form-control'
+    .form-group
+        label Immagine principale
+        div
+            = f.file_field :main_image
+        = error_messages(@apartment, :main_image)
 
-        .form-group
-            label Codice postale
-            = f.text_field :postal_code, class: 'form-control'
+    .form-group
+        label Gallery
+        div
+            = f.file_field :images, multiple: true
+        = error_messages(@apartment, :images)
 
-        .form-group
-            label Città
-            = f.text_field :city, class: 'form-control'
+    .form-group
+        label Area
+        = f.collection_select :area_id, Area.all, :id, :name, {:selected => Area.first}, {class: 'form-control'}
 
-        .form-group
-            label Provincia
-            = f.text_field :province, class: 'form-control'
+    .form-group
+        label Indirizzo
+        = f.text_field :address, class: 'form-control'
+        = error_messages(@apartment, :address)
 
-        .form-group
-            label Latitudine
-            = f.number_field :name, step: 0.01, class: 'form-control'
+    .form-group
+        label Codice postale
+        = f.text_field :postal_code, class: 'form-control'
+        = error_messages(@apartment, :postal_code)
 
-        .form-group
-            label Longitudine
-            = f.number_field :name, step: 0.01, class: 'form-control'
+    .form-group
+        label Città
+        = f.text_field :city, class: 'form-control'
+        = error_messages(@apartment, :city)
 
-        .form-group
-            label Capacità
-            = f.number_field :capacity, class: 'form-control'
+    .form-group
+        label Provincia
+        = f.text_field :province, class: 'form-control'
+        = error_messages(@apartment, :province)
 
-        .form-group
-            label Metri quadrati
-            = f.number_field :square_meters, class: 'form-control'
+    .form-group
+        label Latitudine
+        = f.number_field :lat, step: 0.01, class: 'form-control'
+        = error_messages(@apartment, :lat)
 
-        .form-group
-            label Camere
-            = f.number_field :rooms, class: 'form-control'
+    .form-group
+        label Longitudine
+        = f.number_field :lng, step: 0.01, class: 'form-control'
+        = error_messages(@apartment, :lng)
 
-        .form-group
-            label Camere da letto
-            = f.number_field :bedrooms, class: 'form-control'
+    .form-group
+        label Capacità
+        = f.number_field :capacity, class: 'form-control'
+        = error_messages(@apartment, :capacity)
 
-        .form-group
-            label Bagni
-            = f.number_field :toilette, class: 'form-control'
+    .form-group
+        label Metri quadrati
+        = f.number_field :square_meters, class: 'form-control'
+        = error_messages(@apartment, :square_meters)
 
-        .form-group
-            = f.submit 'Invia', class: 'btn btn-primary' 
+    .form-group
+        label Camere
+        = f.number_field :rooms, class: 'form-control'
+        = error_messages(@apartment, :rooms)
+
+    .form-group
+        label Camere da letto
+        = f.number_field :bedrooms, class: 'form-control'
+        = error_messages(@apartment, :bedrooms)
+
+    .form-group
+        label Bagni
+        = f.number_field :toilette, class: 'form-control'
+        = error_messages(@apartment, :toilette)
+
+    .form-group
+        = f.submit 'Invia', class: 'btn btn-primary' 
