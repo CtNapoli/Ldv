@@ -47,12 +47,12 @@ class Backend::ApartmentsController < BackendController
 
 
     def load_apartment
-        @apartment = Apartment.find(params[:id])
+        @apartment = Apartment.friendly.find(params[:id])
     end
 
     private
 
     def apartment_params
-        params.require(:apartment).permit(:name, :address, :postal_code, :city, :province, :lat, :lng, :capacity, :square_meters, :rooms, :bedrooms, :toilette, :area_id, :main_image, :published, :images => [], :service_ids => [])
+        params.require(:apartment).permit(:name, :address, :postal_code, :city, :province, :lat, :lng, :capacity, :square_meters, :rooms, :bedrooms, :toilette, :area_id, :main_image, :in_evidence, :published, :images => [], :service_ids => [])
     end
 end
