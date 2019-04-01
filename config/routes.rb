@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     patch   'appartamento/:id'              =>  'apartments#update', as: 'update_apartment'
     delete  'appartamento/:id/edit/remove-main-photo' =>  'apartments#remove_main_photo', as: 'remove_main_photo'
     delete  'appartamento/:id/edit/remove-photo' =>  'apartments#remove_photo', as: 'remove_photo'
+
+    get 'servizi'                           =>  'services#index', as: 'services'
   end
 end

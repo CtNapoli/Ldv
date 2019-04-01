@@ -1,0 +1,4 @@
+tr
+    td = service.name
+    td = link_to 'Modifica', ''
+    td = link_to 'Elimina', '', method: :delete, data: {confirm:  "Sei sicuro di volere eliminare #{service.name}?"}
