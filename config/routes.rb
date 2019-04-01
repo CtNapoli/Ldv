@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
     get     'servizi'                       =>  'services#index', as: 'services'
     get     'servizi/nuovo'                 =>  'services#new', as: 'new_service'
-    post    'servizi'                       =>  'services#create', as: 'create_service'  
+    get     'servizi/:id/modifica'          =>  'services#edit', as: 'edit_service'
+    post    'servizi'                       =>  'services#create', as: 'create_service'
+    patch   'servizio/:id'                  =>  'services#update', as: 'update_service' 
   end
 end
