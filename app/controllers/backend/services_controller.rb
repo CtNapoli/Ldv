@@ -1,2 +1,2 @@
-class Backend::ServicesController < ApplicationController
+class Backend::ServicesController < BackendController
 end
