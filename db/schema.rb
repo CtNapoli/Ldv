@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_164826) do
+ActiveRecord::Schema.define(version: 2019_03_31_174743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,9 @@ ActiveRecord::Schema.define(version: 2019_03_31_164826) do
     t.bigint "area_id"
     t.boolean "published", default: true
     t.boolean "in_evidence", default: false
+    t.string "slug"
     t.index ["area_id"], name: "index_apartments_on_area_id"
+    t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end
 
   create_table "apartments_services", force: :cascade do |t|
@@ -78,6 +80,17 @@ ActiveRecord::Schema.define(version: 2019_03_31_164826) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.index ["name"], name: "index_areas_on_name"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "requests", force: :cascade do |t|
