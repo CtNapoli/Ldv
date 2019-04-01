@@ -28,11 +28,15 @@
 
 #backend
     margin: 0
-    display: flex
+
+    .custom-wrap
+        padding: 15px
 
     header
-        flex-basis: 300px
-        flex-shrink: 0
+        position: fixed
+        left: 0
+        top: 0
+        width: 300px
         height: 100vh
         background-color: $brandColor
 
@@ -45,8 +49,14 @@
                 background-color: white
                 color: $brandColor
 
+    main
+        margin-left: 300px
+
 
     .all-previews
+        display: flex
+        flex-wrap: wrap
+
         .box-preview
             width: 150px
             height: 150px
