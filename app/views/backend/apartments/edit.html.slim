@@ -1,97 +1,123 @@
 = form_with url: backend_update_apartment_path(@apartment), model: @apartment, method: :patch, local: true do |f|
-    .form-group
-        label Nome
-        = f.text_field :name, class: 'form-control'
+    .row
+        .col-8
+            h1 Modifica appartamento
 
-    #main-image.form-group
-        label Immagine principale
-        div
-            = f.file_field :main_image
+        .col-4.text-right
+            .form-group
+                = f.submit 'Modifica', class: 'btn btn-primary' 
+    .row
+        .col-8
+            .form-group
+                label Nome
+                = f.text_field :name, class: 'form-control'
+                = error_messages(@apartment, :name)
 
-        .all-previews
-            - if @apartment.main_image.attached?
-                .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
-                    = link_to 'delete', backend_remove_main_photo_path, method: :delete, remote: true
+            .form-group
+                label Indirizzo
+                = f.text_field :address, class: 'form-control'
+                = error_messages(@apartment, :address)
+
+            .form-group
+                label Codice postale
+                = f.text_field :postal_code, class: 'form-control'
+                = error_messages(@apartment, :postal_code)
+
+            .form-group
+                label Città
+                = f.text_field :city, class: 'form-control'
+                = error_messages(@apartment, :city)
+
+            .form-group
+                label Provincia
+                = f.text_field :province, class: 'form-control'
+                = error_messages(@apartment, :province)
+
+            .form-group
+                label Latitudine
+                = f.number_field :lat, step: 0.01, class: 'form-control'
+                = error_messages(@apartment, :lat)
+
+            .form-group
+                label Longitudine
+                = f.number_field :lng, step: 0.01, class: 'form-control'
+                = error_messages(@apartment, :lng)
+
+            .form-group
+                label Capacità
+                = f.number_field :capacity, class: 'form-control'
+                = error_messages(@apartment, :capacity)
+
+            .form-group
+                label Metri quadrati
+                = f.number_field :square_meters, class: 'form-control'
+                = error_messages(@apartment, :square_meters)
+
+            .form-group
+                label Camere
+                = f.number_field :rooms, class: 'form-control'
+                = error_messages(@apartment, :rooms)
+
+            .form-group
+                label Camere da letto
+                = f.number_field :bedrooms, class: 'form-control'
+                = error_messages(@apartment, :bedrooms)
+
+            .form-group
+                label Bagni
+                = f.number_field :toilette, class: 'form-control'
+                = error_messages(@apartment, :toilette)
 
 
-        = error_messages(@apartment, :main_image)
+        .col-4
+            .form-group
+                label Visibilità
+                div
+                    label pubblico
+                    = f.radio_button :published, true
 
-    #images.form-group
-        label Gallery
-        div
-            = f.file_field :images, multiple: true
+                    label privato
+                    = f.radio_button :published, false
 
-        .all-previews
-            - if @apartment.images.attached?
-                - @apartment.images.each do |i|
-                    .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
-                        = link_to 'delete', backend_remove_photo_path(image_id: i.id), method: :delete, remote: true
+            .form-group
+                label In evidenza
+                div
+                    label si
+                    = f.radio_button :in_evidence, true
 
-            = error_messages(@apartment, :images)
+                    label no
+                    = f.radio_button :in_evidence, false
 
-    .form-group
-        label Visibilità
-        div
-            div
-                label pubblico
-                = f.radio_button :published, true
+            .form-group
+                label Area
+                = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
 
-                label privato
-                = f.radio_button :published, false
+            .form-group
+                label Servizi
+                div
+                    = f.collection_check_boxes :service_ids, Service.all, :id, :name
 
+            #main-image.form-group
+                label Immagine principale
+                div
+                    = f.file_field :main_image
 
-    .form-group
-        label Servizi
-        div
-            = f.collection_check_boxes :service_ids, Service.all, :id, :name
+                .all-previews
+                    - if @apartment.main_image.attached?
+                        .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
+                            = link_to 'delete', backend_remove_main_photo_path, method: :delete, remote: true
 
-    .form-group
-        label Area
-        = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
+                = error_messages(@apartment, :main_image)
 
-    .form-group
-        label Indirizzo
-        = f.text_field :address, class: 'form-control'
+            #images.form-group
+                label Gallery
+                div
+                    = f.file_field :images, multiple: true
 
-    .form-group
-        label Codice postale
-        = f.text_field :postal_code, class: 'form-control'
+                .all-previews
+                    - if @apartment.images.attached?
+                        - @apartment.images.each do |i|
+                            .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                = link_to 'delete', backend_remove_photo_path(image_id: i.id), method: :delete, remote: true
 
-    .form-group
-        label Città
-        = f.text_field :city, class: 'form-control'
-
-    .form-group
-        label Provincia
-        = f.text_field :province, class: 'form-control'
-
-    .form-group
-        label Latitudine
-        = f.number_field :lat, step: 0.01, class: 'form-control'
-
-    .form-group
-        label Longitudine
-        = f.number_field :lng, step: 0.01, class: 'form-control'
-
-    .form-group
-        label Capacità
-        = f.number_field :capacity, class: 'form-control'
-
-    .form-group
-        label Metri quadrati
-        = f.number_field :square_meters, class: 'form-control'
-
-    .form-group
-        label Camere
-        = f.number_field :rooms, class: 'form-control'
-
-    .form-group
-        label Camere da letto
-        = f.number_field :bedrooms, class: 'form-control'
-
-    .form-group
-        label Bagni
-        = f.number_field :toilette, class: 'form-control'
-
-    .form-group
-        = f.submit 'Invia', class: 'btn btn-primary' 
+                = error_messages(@apartment, :images)
