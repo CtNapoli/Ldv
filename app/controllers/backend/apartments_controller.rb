@@ -34,7 +34,8 @@ class Backend::ApartmentsController < BackendController
     end
 
     def destroy
-        
+        @apartment.destroy
+        redirect_to backend_all_apartments_path
     end
 
     def remove_main_photo
