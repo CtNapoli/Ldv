@@ -1,6 +1,6 @@
 class Backend::ServicesController < BackendController
     before_action :authenticate_admin!
-    before_action :load_service, only: [:edit, :update]
+    before_action :load_service, only: [:edit, :update, :destroy]
 
     def index
         @services = Service.all
@@ -27,10 +27,15 @@ class Backend::ServicesController < BackendController
     def update
         if @service.update(service_params)
             flash.notice = 'Servizio modificato con successo'
-            redirect_to backend_edit_service_path(@service)
+            redirect_to backend_services_path
         else
             render :edit
         end
+    end
+
+    def destroy
+        @service.destroy
+        redirect_to backend_services_path
     end
 
     def load_service

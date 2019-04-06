@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     get     'servizi/:id/modifica'          =>  'services#edit', as: 'edit_service'
     post    'servizi'                       =>  'services#create', as: 'create_service'
     patch   'servizio/:id'                  =>  'services#update', as: 'update_service' 
+    delete  'servizio/:id'                  =>  'services#destroy', as: 'destroy_service'
   end
 end
