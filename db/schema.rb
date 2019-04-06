@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_182931) do
+ActiveRecord::Schema.define(version: 2019_04_06_102129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_182931) do
     t.boolean "published", default: true
     t.boolean "in_evidence", default: false
     t.string "slug"
+    t.text "content"
     t.index ["area_id"], name: "index_apartments_on_area_id"
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end
