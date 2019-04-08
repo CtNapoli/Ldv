@@ -1,0 +1,21 @@
+.row
+    .col-8
+        h1 Aree
+
+    .col-4.text-right
+
+table.table
+    thead
+        tr
+            th
+                label Nome
+
+            th
+                label Descrizione
+
+            th
+
+            
+    tbody
+        - if @areas.any?
+            = render @areas
