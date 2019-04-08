@@ -1,0 +1,21 @@
+.row
+    .col-8
+        h1 Servizi
+
+    .col-4.text-right
+        = link_to 'Crea nuovo servizio', backend_new_service_path, class: 'btn btn-primary'
+
+table.table
+    thead
+        tr
+            th
+                label Nome
+
+            th
+
+            th
+
+            
+    tbody
+        - if @services.any?
+            = render @services

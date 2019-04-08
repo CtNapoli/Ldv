@@ -1,0 +1,64 @@
+@import variables
+@import mixins
+
+#backend-login
+    background-color: white
+    height: 100vh
+
+    h1
+        margin-bottom: 20px
+
+    .logo
+        margin-bottom: 40px
+
+        img
+            width: 100px
+
+    .box
+        max-width: 400px
+        width: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        padding: 15px
+
+    .custom-card
+        padding: 40px
+
+#backend
+    margin: 0
+
+    .custom-wrap
+        padding: 15px
+
+    header
+        position: fixed
+        left: 0
+        top: 0
+        width: 300px
+        height: 100vh
+        background-color: $brandColor
+
+        a
+            display: block
+            color: white
+            padding: 20px
+
+            &.active
+                background-color: white
+                color: $brandColor
+
+    main
+        margin-left: 300px
+
+
+    .all-previews
+        display: flex
+        flex-wrap: wrap
+
+        .box-preview
+            width: 150px
+            height: 150px
+            +bg
+

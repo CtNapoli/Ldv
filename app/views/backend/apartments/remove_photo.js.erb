@@ -1,0 +1,2 @@
+<% @apartment.images.find(params[:image_id]).purge %>
+$('#images .all-previews .box-preview#image-' + "<%= params[:image_id] %>").remove();

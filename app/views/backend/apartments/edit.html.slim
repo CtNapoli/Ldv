@@ -1,0 +1,158 @@
+= form_with url: backend_update_apartment_path(@apartment), model: @apartment, method: :patch, local: true do |f|
+    .row
+        .col-8
+            h1 Modifica appartamento
+
+        .col-4.text-right
+            .form-group
+                = f.submit 'Modifica', class: 'btn btn-primary', '@click': 'updateParagraphs'
+    .row
+        .col-8
+            .form-group
+                label Nome
+                = f.text_field :name, class: 'form-control'
+                = error_messages(@apartment, :name)
+
+            label Informazione località
+            .row
+                .col-4
+                    .form-group
+                        label Indirizzo
+                        = f.text_field :address, class: 'form-control'
+                        = error_messages(@apartment, :address)
+
+                .col-4
+                    .form-group
+                        label Codice postale
+                        = f.text_field :postal_code, class: 'form-control'
+                        = error_messages(@apartment, :postal_code)
+
+                .col-4
+                    .form-group
+                        label Città
+                        = f.text_field :city, class: 'form-control'
+                        = error_messages(@apartment, :city)
+
+                .col-4
+                    .form-group
+                        label Provincia
+                        = f.text_field :province, class: 'form-control'
+                        = error_messages(@apartment, :province)
+
+                .col-4
+                    .form-group
+                        label Latitudine
+                        = f.number_field :lat, step: 0.01, class: 'form-control'
+                        = error_messages(@apartment, :lat)
+
+                .col-4
+                    .form-group
+                        label Longitudine
+                        = f.number_field :lng, step: 0.01, class: 'form-control'
+                        = error_messages(@apartment, :lng)
+
+            label Informazioni appartamento
+            .row
+                .col-4
+                    .form-group
+                        label Capacità
+                        = f.number_field :capacity, class: 'form-control'
+                        = error_messages(@apartment, :capacity)
+
+                .col-4
+                    .form-group
+                        label Metri quadrati
+                        = f.number_field :square_meters, class: 'form-control'
+                        = error_messages(@apartment, :square_meters)
+
+                .col-4
+                    .form-group
+                        label Camere
+                        = f.number_field :rooms, class: 'form-control'
+                        = error_messages(@apartment, :rooms)
+
+                .col-4
+                    .form-group
+                        label Camere da letto
+                        = f.number_field :bedrooms, class: 'form-control'
+                        = error_messages(@apartment, :bedrooms)
+
+                .col-4
+                    .form-group
+                        label Bagni
+                        = f.number_field :toilette, class: 'form-control'
+                        = error_messages(@apartment, :toilette)
+
+            #paragraphs
+                .paragraph v-for="(p, index) in paragraphs"
+                    .paragraph-title.form-group
+                        label Titolo
+                        = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title", '@change': 'updateParagraphs'
+                    
+                    .paragraph-text.form-group
+                        label Paragrafo
+                        = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text", '@change': 'updateParagraphs'
+
+                    p @click="removeParagraph(index)"
+                        | delete
+
+
+                p.add_paragraph @click='addParagraph()'
+                    | AGGIUNGI PARAGRAFO
+                    
+
+                = f.hidden_field :content
+
+
+        .col-4
+            .form-group
+                label Visibilità
+                div
+                    label pubblico
+                    = f.radio_button :published, true
+
+                    label privato
+                    = f.radio_button :published, false
+
+            .form-group
+                label In evidenza
+                div
+                    label si
+                    = f.radio_button :in_evidence, true
+
+                    label no
+                    = f.radio_button :in_evidence, false
+
+            .form-group
+                label Area
+                = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
+
+            .form-group
+                label Servizi
+                div
+                    = f.collection_check_boxes :service_ids, Service.all, :id, :name
+
+            #main-image.form-group
+                label Immagine principale
+                div
+                    = f.file_field :main_image
+
+                .all-previews
+                    - if @apartment.main_image.attached?
+                        .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
+                            = link_to 'delete', backend_remove_main_photo_path, method: :delete, remote: true
+
+                = error_messages(@apartment, :main_image)
+
+            #images.form-group
+                label Gallery
+                div
+                    = f.file_field :images, multiple: true
+
+                .all-previews
+                    - if @apartment.images.attached?
+                        - @apartment.images.each do |i|
+                            .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                = link_to 'delete', backend_remove_photo_path(image_id: i.id), method: :delete, remote: true
+
+                = error_messages(@apartment, :images)

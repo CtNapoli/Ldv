@@ -1,0 +1,39 @@
+.row
+    .col-8
+        h1 Appartamenti
+
+    .col-4.text-right
+        = link_to 'Crea nuovo appartamento', backend_new_apartment_path, class: 'btn btn-primary'
+
+table.table
+    thead
+        tr
+            th
+                label Nome
+
+            th
+                label Indirizzo
+
+            th
+                label Capienza
+
+            th
+                label Metri quadrati
+
+            th
+                label Camere
+
+            th
+                label Camere da letto
+
+            th
+                label Bagni
+
+            th
+
+            th
+
+            
+    tbody
+        - if @apartments.any?
+            = render @apartments
