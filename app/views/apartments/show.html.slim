@@ -1,15 +1,20 @@
 #apartment
-    .swiper-container.gallery
-        .swiper-wrapper
-            - @apartment.images.each do |image|
-                .swiper-slide
-                    .image style="background-image: url('#{rails_blob_path(image)}')"
+    .gallery
+        - if @apartment.images.any?
+            .swiper-container
+                .swiper-wrapper
+                    - @apartment.images.each do |image|
+                        .swiper-slide
+                            .image style="background-image: url('#{rails_blob_path(image)}')"
 
-        .navigation.prev
-            = image_tag('navigation-arrow-left.png')
+                .navigation.prev
+                    = image_tag('navigation-arrow-left.png')
 
-        .navigation.next
-            = image_tag('navigation-arrow-right.png')
+                .navigation.next
+                    = image_tag('navigation-arrow-right.png')
+
+        - else
+            .image style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
             
     .container
         .row
@@ -50,14 +55,24 @@
                         = image_tag('apartments/toilette.png')
                         h3 = t('toilette', count: @apartment.toilette)
 
-                h4.tag = t('services')
 
-                .services
-                    - @apartment.services.each do |s|
-                        .service
-                            .icon
-                                = image_tag('check.png')
-                            .text
-                                h5.normal-text = s.name
+                - if @apartment.services.any?
+                    h4.tag = t('services')
+
+                    .services
+                        - @apartment.services.each do |s|
+                            .service
+                                .icon
+                                    = image_tag('check.png')
+                                .text
+                                    h5.normal-text = s.name
+
+                - if @paragraphs.any?
+                    .content
+                        - @paragraphs.each do |p|
+                            .paragraph
+                                h4.tag = p['title']
+                                p = p['text']
+
 
             .col-lg-4
