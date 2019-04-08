@@ -11,16 +11,16 @@ class Backend::AreasController < ApplicationController
     end
 
     def update
-        if @apartment.update(apartment_params)
-            flash.notice = 'Appartamento modificato con successo'
-            redirect_to backend_edit_apartment_path(@apartment)
+        if @area.update(area_params)
+            flash.notice = 'Area modificata con successo'
+            redirect_to backend_areas_path(@area)
         else
             render :edit
         end
     end
 
     def remove_main_photo
-        @id = @apartment.main_image.id
+        @id = @area.image.id
     end
 
     def remove_photo
