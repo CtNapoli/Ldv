@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_150523) do
+ActiveRecord::Schema.define(version: 2019_04_08_160239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(version: 2019_04_08_150523) do
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end
 
+  create_table "apartments_prices", force: :cascade do |t|
+    t.bigint "apartment_id"
+    t.bigint "price_id"
+    t.index ["apartment_id"], name: "index_apartments_prices_on_apartment_id"
+    t.index ["price_id"], name: "index_apartments_prices_on_price_id"
+  end
+
   create_table "apartments_services", force: :cascade do |t|
     t.bigint "apartment_id"
     t.bigint "service_id"
@@ -95,6 +102,14 @@ ActiveRecord::Schema.define(version: 2019_04_08_150523) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.date "start"
+    t.date "end"
+    t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|

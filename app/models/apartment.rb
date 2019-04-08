@@ -6,6 +6,7 @@ class Apartment < ApplicationRecord
     has_one_attached :main_image
     has_many_attached :images
     has_and_belongs_to_many :services, -> { distinct }
+    has_and_belongs_to_many :prices, -> { distinct }
 
     validates :name, presence: true
     validates :address, presence: true
