@@ -87,11 +87,11 @@
                 .paragraph v-for="(p, index) in paragraphs"
                     .paragraph-title.form-group
                         label Titolo
-                        = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title"
+                        = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title", '@change': 'updateParagraphs'
                     
                     .paragraph-text.form-group
                         label Paragrafo
-                        = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text"
+                        = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text", '@change': 'updateParagraphs'
 
                     p @click="removeParagraph(index)"
                         | delete
