@@ -23,6 +23,34 @@ document.addEventListener 'turbolinks:load', () ->
                 e.preventDefault()
                 $('#backend #images input[type=file]').val('')
                 $('#backend #images .all-previews .box-preview#image-' + key).remove()
+                
         )
+
+    #PARAGRAPHS VUE APP
+    if $('#paragraphs').length
+        allParagraphs = JSON.parse($('#paragraphs input[type=hidden]').val())
+
+        paragraphsApp = new Vue({
+            el: '#paragraphs',
+            data: {
+                paragraphs: allParagraphs || []
+            },
+            methods: {
+                addParagraph: () ->
+                    this.paragraphs.push(
+                        {'title': 'Titolo qui...','text': 'Testo qui...'}
+                    )
+                    this.updateParagraphs()
+
+                removeParagraph: (index) ->
+                    this.paragraphs.splice(index,1)
+                    this.updateParagraphs()
+                    
+
+
+                updateParagraphs: () ->
+                    $('#paragraphs input[type=hidden]').val(JSON.stringify(this.paragraphs))
+            }
+        })
 
     
