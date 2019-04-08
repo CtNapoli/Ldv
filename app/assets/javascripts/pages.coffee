@@ -13,3 +13,18 @@ document.addEventListener 'turbolinks:load', () ->
         }
       });
 
+    if $('#featured-apartments').length
+      featuredApartmentsSwiper = new Swiper('#featured-apartments .swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 15
+        navigation: {
+          nextEl: '#featured-apartments .nav.next',
+          prevEl: '#featured-apartments .nav.prev',
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 'auto'
+          }
+        }
+      });
+

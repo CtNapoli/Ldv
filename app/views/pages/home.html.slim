@@ -27,6 +27,27 @@
                 .col-lg-3
                     p.normal-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
+    #featured-apartments.custom-section
+        .container
+            .swiper-container
+                .title-with-text.with-navigation
+                    .text
+                        h3.title Do you know where do you want to go?
+
+                        h4.text.secondary-font Let us inspire you
+
+                    .text-right
+
+                        .nav.prev.dark
+                            = image_tag('navigation-arrow-right-white.png')
+
+                        .nav.next.dark
+                            = image_tag('navigation-arrow-left-white.png')
+
+            
+                .swiper-wrapper
+                    = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
+
 
     #our-services.custom-section
         .container

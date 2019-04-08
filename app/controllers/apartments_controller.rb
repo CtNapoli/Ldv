@@ -13,9 +13,7 @@ class ApartmentsController < ApplicationController
     end
 
     def show
-        @apartment = Apartment.find(params[:id])
-
+        @apartment = Apartment.friendly.find(params[:id])
         @paragraphs = JSON.parse @apartment.content
-
     end
 end

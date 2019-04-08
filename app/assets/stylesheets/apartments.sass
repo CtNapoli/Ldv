@@ -49,15 +49,35 @@
                         background-color: $brandColor
                         margin: 0 12px
 
-            .price
-                p
-                    font-size: 14px
-                    line-height: 24px
-                    color: $secondaryColor
+.apartment
+    display: block
 
-                    &.digit
-                        font-size: 32px
-                        line-height: 42px
+    &:hover,&:active,&:focus
+        text-decoration: none
+
+    .box-image
+        width: 100%
+        height: 300px
+        +bg
+            
+
+    .box-text
+        padding: 20px 10px
+        display: flex
+        align-items: flex-start
+
+        .info
+            flex-grow: 1
+
+    .price
+        p
+            font-size: 14px
+            line-height: 24px
+            color: $secondaryColor
+
+            &.digit
+                font-size: 32px
+                line-height: 42px
 
 #apartment
     h1
@@ -101,5 +121,10 @@
 
             h4
                 margin-bottom: 20px
+
+
+#featured-apartments
+    .swiper-slide
+        width: 300px
 
 

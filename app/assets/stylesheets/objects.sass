@@ -96,6 +96,40 @@
 .title-with-text
     margin-bottom: 40px
     position: relative
+
+    &.with-navigation
+        display: flex
+        align-items: flex-end
+
+        .nav
+            width: 60px
+            height: 60px
+            background-color: $brandColor
+            border-radius: 50%
+            position: relative
+            cursor: pointer
+            transition: all .2s linear
+            display: none
+
+            +media($xl)
+                display: inline-block
+
+            img
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%,-50%)
+                width: 12px
+
+            &.next
+                margin-left: 40px
+
+            &.swiper-button-disabled
+                opacity: 0.5
+
+        .text
+            flex-grow: 1
+
     
     .title
         color: $secondaryColor

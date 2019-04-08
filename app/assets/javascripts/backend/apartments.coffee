@@ -17,6 +17,7 @@ document.addEventListener 'turbolinks:load', () ->
                 removeParagraph: (index) ->
                     this.paragraphs.splice(index,1)
                     this.updateParagraphs()
+                    
 
 
                 updateParagraphs: () ->

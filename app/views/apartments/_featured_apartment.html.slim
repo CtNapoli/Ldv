@@ -1,0 +1,15 @@
+.swiper-slide
+    = link_to apartment_path(apartment), class: 'apartment' do
+        .box-image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
+
+        .box-text
+            .info
+                h5.normal-text = apartment.area.name
+                h4.medium-text.secondary-font.font-italic = apartment.name
+
+
+            .price.text-right
+                p.secondary-font.font-italic a partire da
+                p.digit.secondary-font.font-italic 120€
+
+    
