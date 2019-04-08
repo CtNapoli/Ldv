@@ -28,8 +28,10 @@ Rails.application.routes.draw do
     patch   'servizio/:id'                  =>  'services#update', as: 'update_service' 
     delete  'servizio/:id'                  =>  'services#destroy', as: 'destroy_service'
 
-    get     'aree'                          =>  'areas#index', as: 'areas'
-    get     'aree/:id/modifica'             =>  'areas#edit', as: 'edit_area'
-    patch   'area/:id'                      =>  'areas#update', as: 'update_area'
+    get     'aree'                                          =>  'areas#index', as: 'areas'
+    get     'aree/:id/modifica'                             =>  'areas#edit', as: 'edit_area'
+    patch   'area/:id'                                      =>  'areas#update', as: 'update_area'
+    delete  'area/:id/modifica/rimuovi-immagine-principale' =>  'areas#remove_main_photo', as: 'remove_main_image_area'
+    delete  'area/:id/modifica/rimuovi-immagine'            =>  'areas#remove_photo', as: 'remove_photo_area'
   end
 end
