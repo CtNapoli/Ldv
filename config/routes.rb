@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   post 'send-request' => 'requests#create'
 
-  get 'appartamenti'  =>  'apartments#index', as: 'apartments'
+  get 'appartamenti'      =>  'apartments#index', as: 'apartments'
   get 'appartamenti/:id'  =>  'apartments#show', as: 'apartment'
+  get 'aree/:id'          =>  'areas#show', as: 'area'
 
   namespace :backend do
     get     'login'   => 'sessions#new'
