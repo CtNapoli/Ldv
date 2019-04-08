@@ -27,5 +27,9 @@ Rails.application.routes.draw do
     post    'servizi'                       =>  'services#create', as: 'create_service'
     patch   'servizio/:id'                  =>  'services#update', as: 'update_service' 
     delete  'servizio/:id'                  =>  'services#destroy', as: 'destroy_service'
+
+    get     'aree'                          =>  'areas#index', as: 'areas'
+    get     'aree/:id/modifica'             =>  'areas#edit', as: 'edit_area'
+    patch   'area/:id'                      =>  'areas#update', as: 'update_area'
   end
 end
