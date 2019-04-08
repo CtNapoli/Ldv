@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_160239) do
+ActiveRecord::Schema.define(version: 2019_04_08_154756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,13 +66,6 @@ ActiveRecord::Schema.define(version: 2019_04_08_160239) do
     t.text "content"
     t.index ["area_id"], name: "index_apartments_on_area_id"
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
-  end
-
-  create_table "apartments_prices", force: :cascade do |t|
-    t.bigint "apartment_id"
-    t.bigint "price_id"
-    t.index ["apartment_id"], name: "index_apartments_prices_on_apartment_id"
-    t.index ["price_id"], name: "index_apartments_prices_on_price_id"
   end
 
   create_table "apartments_services", force: :cascade do |t|
