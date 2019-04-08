@@ -1,11 +1,11 @@
-= form_with url: backend_update_service_path, model: @service, local: true do |f|
+= form_with url: backend_service_path, model: @service, local: true, method: :patch do |f|
     .row
         .col-8
-            h1 Creazione servizio
+            h1 Modifica servizio
 
         .col-4.text-right
             .form-group
-                = f.submit 'Crea', class: 'btn btn-primary' 
+                = f.submit 'Modifica', class: 'btn btn-primary' 
 
     .row
         .col-12

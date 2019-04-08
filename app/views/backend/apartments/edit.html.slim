@@ -1,4 +1,4 @@
-= form_with url: backend_update_apartment_path(@apartment), model: @apartment, method: :patch, local: true do |f|
+= form_with url: backend_apartment_path(@apartment), model: @apartment, method: :patch, local: true do |f|
     .row
         .col-8
             h1 Modifica appartamento
@@ -140,7 +140,7 @@
                 .all-previews
                     - if @apartment.main_image.attached?
                         .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
-                            = link_to 'delete', backend_remove_main_photo_path, method: :delete, remote: true
+                            = link_to 'delete', remove_main_photo_backend_apartment_path, method: :delete, remote: true
 
                 = error_messages(@apartment, :main_image)
 
@@ -153,6 +153,6 @@
                     - if @apartment.images.attached?
                         - @apartment.images.each do |i|
                             .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
-                                = link_to 'delete', backend_remove_photo_path(image_id: i.id), method: :delete, remote: true
+                                = link_to 'delete', remove_photo_backend_apartment_path(image_id: i.id), method: :delete, remote: true
 
                 = error_messages(@apartment, :images)
