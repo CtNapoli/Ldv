@@ -1,9 +1,9 @@
-class Backend::AreasController < ApplicationController
+class Backend::AreasController < BackendController
     before_action :authenticate_admin!
     before_action :load_area, only: [:edit, :update, :remove_main_photo, :remove_photo]
 
     def index
-        @area = Area.all
+        @areas = Area.all
     end
 
     def edit
@@ -34,6 +34,6 @@ class Backend::AreasController < ApplicationController
     private
 
     def area_params
-        params.require(:apartment).permit(:name, :description, :content, :image, :images => [])
+        params.require(:area).permit(:name, :description, :content, :image, :images => [])
     end
 end
