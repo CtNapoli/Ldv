@@ -14,7 +14,7 @@ class Backend::ApartmentsController < BackendController
         @apartment = Apartment.new(apartment_params)
         if @apartment.save
             flash.notice = 'Appartamento creato con successo'
-            redirect_to backend_all_apartments_path
+            redirect_to backend_apartments_path
         else
             render :new
         end
@@ -27,7 +27,7 @@ class Backend::ApartmentsController < BackendController
     def update
         if @apartment.update(apartment_params)
             flash.notice = 'Appartamento modificato con successo'
-            redirect_to backend_edit_apartment_path(@apartment)
+            redirect_to backend_apartments_path
         else
             render :edit
         end
@@ -35,7 +35,7 @@ class Backend::ApartmentsController < BackendController
 
     def destroy
         @apartment.destroy
-        redirect_to backend_all_apartments_path
+        redirect_to backend_apartments_path
     end
 
     def remove_main_photo

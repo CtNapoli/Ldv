@@ -1,4 +1,4 @@
-= form_with url: backend_update_area_path(@area), model: @area, method: :patch, local: true do |f|
+= form_with url: backend_area_path(@area), model: @area, method: :patch, local: true do |f|
     .row
         .col-8
             h1 Modifica area
@@ -48,7 +48,7 @@
                 .all-previews
                     - if @area.image.attached?
                         .box-preview id="image-#{@area.image.id}" style="background-image: url('#{rails_blob_path(@area.image)}')"
-                            = link_to 'delete', backend_remove_main_photo_path, method: :delete, remote: true
+                            = link_to 'delete', remove_main_image_area_backend_area_path, method: :delete, remote: true
 
                 = error_messages(@area, :image)
 
@@ -61,6 +61,6 @@
                     - if @area.images.attached?
                         - @area.images.each do |i|
                             .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
-                                = link_to 'delete', backend_remove_photo_path(image_id: i.id), method: :delete, remote: true
+                                = link_to 'delete', remove_photo_area_backend_area_path(image_id: i.id), method: :delete, remote: true
 
                 = error_messages(@area, :images)
