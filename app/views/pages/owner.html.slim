@@ -1,0 +1,84 @@
+#owner
+    .intro-banner.type1
+        .container
+            h2.text.font-italic.giant-text.secondary-font
+                |
+                = t('owner.section_0.title.part_1')
+                br
+                = t('owner.section_0.title.part_2')
+
+    #properties.custom-section
+        .container
+            .row
+                .col-lg-4
+                    .property
+                        = image_tag 'owner/guest-icon.png', alt: 'Guest'
+                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_1.title')
+                        p.normal-text = t('owner.section_1.properties.property_1.text')
+
+                .col-lg-4
+                    .property
+                        = image_tag 'owner/key-icon.png', alt: 'Key'
+                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_2.title')
+                        p.normal-text = t('owner.section_1.properties.property_2.text')
+
+                .col-lg-4
+                    .property
+                        = image_tag 'owner/money-icon.png', alt: 'Money'
+                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_3.title')
+                        p.normal-text = t('owner.section_1.properties.property_3.text')
+
+    #making.custom-section
+        .container
+            .title-with-text
+                h3.title = t('owner.section_2.title')
+                
+                h4.text.secondary-font
+                    | 
+                    = t('owner.section_2.subtitle.part_1') 
+                    br
+                    = t('owner.section_2.subtitle.part_2')
+
+            #services
+                .row.first
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/local-market.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_1.title')
+                            p.normal-text = t('owner.section_2.services.service_1.text')
+
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/website.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_2.title')
+                            p.normal-text = t('owner.section_2.services.service_2.text')
+
+                    
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/mobile.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_3.title')
+                            p.normal-text = t('owner.section_2.services.service_3.text')
+
+                .row.second
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/reservation.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_4.title')
+                            p.normal-text = t('owner.section_2.services.service_4.text')
+
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/concierge.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_5.title')
+                            p.normal-text = t('owner.section_2.services.service_5.text')
+
+                    .col-lg-4
+                        .service
+                            = image_tag 'owner/services/billing.jpg'
+                            h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_6.title')
+                            p.normal-text = t('owner.section_2.services.service_6.text')
+
+    #questions.custom-section
+
+

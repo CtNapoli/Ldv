@@ -3,4 +3,8 @@ class PagesController < ApplicationController
         @areas = Area.all
         @featured_apartments = Apartment.where(in_evidence: true).order(created_at: :desc)
     end
+
+    def owner
+        
+    end
 end

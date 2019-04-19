@@ -78,6 +78,58 @@ it:
         phone_number: 'Numero di telefono'
         message: 'Messaggio'
 
+  owner:
+    section_0:
+      title: 
+        part_1: Collaborazione con
+        part_2: LDV Homes Collection
+
+    section_1:
+      properties:
+        property_1:
+          title: Gli ospiti giusti
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        property_2:
+          title: Semplifica la tua vita
+          text: Come società di noleggio di vacanze a servizio completo, ti forniamo una soluzione di prenotazione chiavi in mano, semplificando la comunicazione ad ogni passo.
+
+        property_3:
+          title: Nessuna proposta di rischi
+          text: Crediamo in un modello pay-for-performance, quindi non ci sono costi di iscrizione o costi. Abbiamo successo quando hai successo.
+
+    section_2:
+      title: Making it works for you
+      subtitle:
+        part_1: A fully-integrated
+        part_2: luxury hospitality company
+
+      services:
+        service_1:
+          title: Presenza sul mercato locale
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_2:
+          title: Presenza sul sito
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_3:
+          title: Pronto per il cellulare
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_4:
+          title: Servizio di prenotazione
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_5:
+          title: Servizi di portineria
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_6:
+          title: Fatturazione e pagamento
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+
 
   apartment:
     guests: 'ospiti'
