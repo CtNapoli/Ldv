@@ -1,33 +1,102 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  header:
+    menu:
+      about: About
+      services: Services
+      destinations: Destinations
+      houses: Houses
+
+  homepage:
+    section_0:
+      title:
+        part_1: Best vacations,
+        part_2: best locations
+
+    section_1:
+      title: 'About us'
+      subtitle:
+        part_1: 10 years of experience 
+        part_2: in touristic accommodation
+
+      text_1: Lorem ipsum dolor sit amet
+      text_2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text_3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+    section_2:
+      title: Do you know where do you want to go?
+      subtitle: Let us inspire you
+
+    section_3:
+      title: Our services
+      subtitle:
+        part_1: Everything we think
+        part_2: It’s about you
+
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      services:
+        service_1:
+          title: Service 1
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_2:
+          title: Service 2
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_3:
+          title: Service 3
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_4:
+          title: Service 4
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_5:
+          title: Service 5
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_6:
+          title: Service 6
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    section_4:
+      title: Destinations
+      subtitle:
+        part_1: Lorem ipsum
+        part_2: dolor sit amet
+
+    section_5:
+      title: Do you need informations?
+      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      form:
+        name: 'Name'
+        email: 'Email'
+        phone_number: 'Phone number'
+        message: 'Messaggio'
+
+  apartment:
+    guests: 'guests'
+
+    capacity:
+      one: "1 guest"
+      other: "%{count} guests"
+
+    room:
+      one: "1 room"
+      other: "%{count} rooms"
+
+    bedroom:
+      one: "1 bedroom"
+      other: "%{count} bedrooms"
+
+    toilette:
+      one: "1 toilette"
+      other: "%{count} toilette"
+
+    where: 'where'
+
+    services: "services"
+
+    

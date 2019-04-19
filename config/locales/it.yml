@@ -1,21 +1,103 @@
 it:
-  capacity:
-    one: "1 ospite"
-    other: "%{count} ospiti"
+  header:
+    menu:
+      about: About
+      services: Servizi
+      destinations: Destinazioni
+      houses: Case
 
-  room:
-    one: "1 camera"
-    other: "%{count} camere"
 
-  bedroom:
-    one: "1 camera da letto"
-    other: "%{count} camere da letto"
 
-  toilette:
-    one: "1 bagno"
-    other: "%{count} bagni"
+  homepage:
+    section_0:
+      title:
+        part_1: Le migliori vacanze,
+        part_2: le migliori locations
 
-  where: 'Dove'
-  guests: 'ospiti'
+    section_1:
+      title: Chi siamo
+      subtitle:
+        part_1: 10 anni di esperienza
+        part_2: in alloggio turistico
 
-  services: "servizi"
+      text_1: Lorem ipsum dolor sit amet
+      text_2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text_3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+    section_2:
+      title: Sai dove vuoi andare?
+      subtitle: Lasciati ispirare
+
+    section_3:
+      title: I nostri servizi
+      subtitle:
+        part_1: Tutto ciò che pensiamo
+        part_2: Ti riguarda
+
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      services:
+        service_1:
+          title: Servizio 1
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_2:
+          title: Servizio 2
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_3:
+          title: Servizio 3
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_4:
+          title: Servizio 4
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_5:
+          title: Servizio 5
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_6:
+          title: Servizio 6
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    section_4:
+      title: Destinazioni
+      subtitle:
+        part_1: Lorem ipsum
+        part_2: dolor sit amet
+
+    section_5:
+      title: Hai bisogno di informazioni?
+      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      form:
+        name: 'Nome'
+        email: 'Email'
+        phone_number: 'Numero di telefono'
+        message: 'Messaggio'
+
+
+  apartment:
+    guests: 'ospiti'
+
+    capacity:
+      one: "1 ospite"
+      other: "%{count} ospiti"
+
+    room:
+      one: "1 camera"
+      other: "%{count} camere"
+
+    bedroom:
+      one: "1 camera da letto"
+      other: "%{count} camere da letto"
+
+    toilette:
+      one: "1 bagno"
+      other: "%{count} bagni"
+
+    where: 'dove'
+    
+    services: "servizi"

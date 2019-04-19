@@ -2,39 +2,41 @@
     .intro-banner.type1
         .container
             h2.text.font-italic.giant-text.secondary-font
-                | Best vacations,
+                |
+                = t('homepage.section_0.title.part_1')
                 br
-                | Best locations
+                = t('homepage.section_0.title.part_2')
 
 
     #about-us.custom-section
         .container
             .title-with-text
-                h3.title About us
+                h3.title = t('homepage.section_1.title')
                 
                 h4.text.secondary-font
-                    | 10 years of experience 
+                    | 
+                    = t('homepage.section_1.subtitle.part_1') 
                     br
-                    | in touristic accommodation
+                    = t('homepage.section_1.subtitle.part_2')
 
             .row
                 .col-lg-6
-                    p.medium-text.font-italic.secondary-font Lorem ipsum dolor sit amet
+                    p.medium-text.font-italic.secondary-font = t('homepage.section_1.text_1')
 
                 .col-lg-3
-                    p.normal-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    p.normal-text = t('homepage.section_1.text_2')
 
                 .col-lg-3
-                    p.normal-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    p.normal-text = t('homepage.section_1.text_3')
 
     #featured-apartments.custom-section
         .container
             .swiper-container
                 .title-with-text.with-navigation
                     .text
-                        h3.title Do you know where do you want to go?
+                        h3.title = t('homepage.section_2.title')
 
-                        h4.text.secondary-font Let us inspire you
+                        h4.text.secondary-font = t('homepage.section_2.subtitle')
 
                     .text-right
 
@@ -54,14 +56,16 @@
             .row
                 .col-lg-5
                     .title-with-text
-                        h3.title Our services
+                        h3.title = t('homepage.section_2.title')
                 
                         h4.text.secondary-font
-                            | Everything we think 
+                            |
+                            = t('homepage.section_3.subtitle.part_1') 
                             br
-                            | It’s about you
+                            |
+                            = t('homepage.section_3.subtitle.part_2') 
 
-                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    p = t('homepage.section_3.text') 
 
                 .col-lg-1
 
@@ -70,49 +74,50 @@
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_1.title') 
+                                p = t('homepage.section_3.services.service_1.text')
 
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_2.title')
+                                p = t('homepage.section_3.services.service_2.text')
 
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_3.title')
+                                p = t('homepage.section_3.services.service_3.text')
 
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_4.title')
+                                p = t('homepage.section_3.services.service_4.text')
 
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_5.title')
+                                p = t('homepage.section_3.services.service_5.text')
 
                         .col-sm-6.col-xl-4
                             .service
                                 = image_tag('homepage/service-fake.png')
-                                h4.normal-text Service 1
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                h4.normal-text = t('homepage.section_3.services.service_6.title')
+                                p = t('homepage.section_3.services.service_6.text')
 
 
     #destinations.custom-section
         .container
             .title-with-text
-                h3.title Destinations
+                h3.title = t('homepage.section_4.title')
                 
                 h4.text.secondary-font
-                    | Lorem ipsum 
+                    |
+                    = t('homepage.section_4.subtitle.part_1')
                     br
-                    | dolor sit amet
+                    = t('homepage.section_4.subtitle.part_2')
 
             .swiper-container
                 .swiper-wrapper
@@ -123,15 +128,15 @@
         .intro-banner.type2
             .container
                 .title-with-text
-                    h3.title Do you need informations?
+                    h3.title = t('homepage.section_5.title')
                     
-                    h4.text.secondary-font Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    h4.text.secondary-font = t('homepage.section_5.subtitle')
 
         .request-form.custom-form
             .container
                 .row
                     .col-xl-5
-                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        p = t('homepage.section_5.text')
 
                     .col-xl-1
 
@@ -140,21 +145,21 @@
                             .row
                                 .col-12
                                     .form-group
-                                        = f.text_field :name, class: 'form-control', placeholder: "Name"
+                                        = f.text_field :name, class: 'form-control', placeholder: t('homepage.section_5.form.name')
 
                             .row
                                 .col-6
                                     .form-group
-                                        = f.email_field :email, class: 'form-control', placeholder: "Email"
+                                        = f.email_field :email, class: 'form-control', placeholder: t('homepage.section_5.form.email')
 
                                 .col-6
                                     .form-group
-                                        = f.text_field :phone_number, class: 'form-control', placeholder: "Telefono"
+                                        = f.text_field :phone_number, class: 'form-control', placeholder: t('homepage.section_5.form.phone_number')
 
                             .row
                                 .col-12
                                     .form-group
-                                        = f.text_area :message, class: 'form-control', placeholder: "Message"
+                                        = f.text_area :message, class: 'form-control', placeholder: t('homepage.section_5.form.message')
 
                             .row
                                 .col-12

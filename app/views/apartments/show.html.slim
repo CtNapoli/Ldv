@@ -33,7 +33,7 @@
                 .properties
                     .property
                         = image_tag('apartments/capacity.png')
-                        h3 = t('capacity', count: @apartment.capacity)
+                        h3 = t('apartment.capacity', count: @apartment.capacity)
                            
 
                     .property
@@ -45,19 +45,19 @@
 
                     .property
                         = image_tag('apartments/rooms.png')
-                        h3 = t('room', count: @apartment.rooms)
+                        h3 = t('apartment.room', count: @apartment.rooms)
 
                     .property
                         = image_tag('apartments/bedrooms.png')
-                        h3 = t('bedroom', count: @apartment.bedrooms)
+                        h3 = t('apartment.bedroom', count: @apartment.bedrooms)
 
                     .property
                         = image_tag('apartments/toilette.png')
-                        h3 = t('toilette', count: @apartment.toilette)
+                        h3 = t('apartment.toilette', count: @apartment.toilette)
 
 
                 - if @apartment.services.any?
-                    h4.tag = t('services')
+                    h4.tag = t('apartment.services')
 
                     .services
                         - @apartment.services.each do |s|
