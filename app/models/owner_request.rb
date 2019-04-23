@@ -1,0 +1,2 @@
+class OwnerRequest < ApplicationRecord
+end
