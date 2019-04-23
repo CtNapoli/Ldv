@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root 'pages#home'
   
     post 'send-request' => 'requests#create'
-    get 'owner'         => 'pages#owner'
+    get 'owners'         => 'pages#owners'
 
     resources :apartments, only: [:index, :show]
     

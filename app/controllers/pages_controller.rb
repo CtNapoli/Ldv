@@ -4,7 +4,7 @@ class PagesController < ApplicationController
         @featured_apartments = Apartment.where(in_evidence: true).order(created_at: :desc)
     end
 
-    def owner
-        
+    def owners
+        @questions = Question.order(created_at: :desc)
     end
 end
