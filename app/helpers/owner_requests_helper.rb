@@ -1,0 +1,2 @@
+module OwnerRequestsHelper
+end
