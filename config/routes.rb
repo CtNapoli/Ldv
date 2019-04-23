@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope "(:locale)", locale: /en|it/  do
     root 'pages#home'
-  
-    post 'send-request' => 'requests#create'
+
     get 'owners'         => 'pages#owners'
+
+    resources :requests, only: [:create]
+
+    resources :owner_requests, only: [:create]
 
     resources :apartments, only: [:index, :show]
     

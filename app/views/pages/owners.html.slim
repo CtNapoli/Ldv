@@ -89,3 +89,51 @@
             #questions-accordion.accordion
                 = render @questions
 
+    #owner-request.custom-section.invert.form-section
+        .intro-banner.type2
+            .container
+                .title-with-text
+                    h3.title = t('owner.section_4.title')
+                    
+                    h4.text.secondary-font = t('owner.section_4.subtitle')
+
+        .request-form.custom-form
+            .container
+                .row
+                    .col-xl-5
+                        p = t('owner.section_4.text')
+
+                    .col-xl-1
+
+                    .col-xl-6
+                        = form_with url: owner_requests_path do |f|
+                            .row
+                                .col-xl-6
+                                    .form-group
+                                        = f.text_field :name, class: 'form-control', placeholder: t('owner.section_4.form.name')
+
+                                .col-xl-6
+                                    .form-group
+                                        = f.text_field :city, class: 'form-control', placeholder: t('owner.section_4.form.city')
+
+                            .row
+                                .col-xl-6
+                                    .form-group
+                                        = f.email_field :email, class: 'form-control', placeholder: t('owner.section_4.form.email')
+
+                                .col-xl-6
+                                    .form-group
+                                        = f.text_field :phone_number, class: 'form-control', placeholder: t('owner.section_4.form.phone_number')
+
+                            .row
+                                .col-xl-12
+                                    .form-group
+                                        = f.text_area :message, class: 'form-control', placeholder: t('owner.section_4.form.message')
+
+                            .row
+                                .col-xl-12
+                                    .form-respond
+                                    
+                                    .form-group
+                                        = f.submit t('owner.section_4.form.submit'), class: 'btn btn-secondary'
+
