@@ -1,7 +1,7 @@
 class OwnerRequestsController < ApplicationController
     def create
         @success = false
-        @owner_request = Request.new(owner_request_params)
+        @owner_request = OwnerRequest.new(owner_request_params)
         if @owner_request.save
             @success = true
             OwnerRequestMailer.with(owner_request: @owner_request).owner_request_sent.deliver_now

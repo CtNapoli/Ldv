@@ -1,5 +1,5 @@
 class RequestMailer < ApplicationMailer
-    default from: "from@example.com"
+    default from: "ldvwebsite1@gmail.com"
 
     def request_sent
         @request = params[:request]
