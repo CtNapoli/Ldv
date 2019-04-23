@@ -127,6 +127,10 @@ en:
           title: Billing and payment
           text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
 
+    section_3:
+      title: Faq
+      subtitle: Frequent Asked Questions
+
 
   apartment:
     guests: 'guests'
