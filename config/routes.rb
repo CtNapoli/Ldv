@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  scope "(:locale)", locale: /en|it/  do
+  scope "(:locale)", locale: /en|/  do
     root 'pages#home'
 
     get 'owners'         => 'pages#owners'
