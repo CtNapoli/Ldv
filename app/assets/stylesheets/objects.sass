@@ -187,7 +187,7 @@
         text-transform: capitalize
         border: none
         cursor: pointer
-        padding-left: 0
+        //padding-left: 0
 
         &:active,&:focus,&:hover
             border: none
@@ -234,3 +234,41 @@
     line-height: 22px
     display: block
     letter-spacing: 1.5px
+
+.form-section
+    .intro-banner
+        .title-with-text
+            margin: 0
+            padding-top: 140px
+
+            +media($xl)
+                padding-top: 320px
+
+            .text
+                margin: 0
+
+    .request-form
+        padding-top: 70px
+        padding-bottom: 70px
+        background-color: $brandColor
+
+        +media($xl)
+            padding: 
+                top: 100px
+                bottom: 100px
+
+        .btn-secondary
+            margin-top: 60px
+            width: 100%
+
+            +media($xl)
+                width: auto
+
+        .form-control
+            margin-bottom: 30px
+
+        form
+            margin-top: 70px
+
+            +media($lg)
+                margin-top: 0

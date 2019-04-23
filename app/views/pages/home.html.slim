@@ -124,7 +124,7 @@
                     = render @areas
 
 
-    #informations.custom-section.invert
+    #informations.custom-section.invert.form-section
         .intro-banner.type2
             .container
                 .title-with-text
@@ -141,7 +141,7 @@
                     .col-xl-1
 
                     .col-xl-6
-                        = form_with url: send_request_path do |f|
+                        = form_with url: requests_path do |f|
                             .row
                                 .col-12
                                     .form-group
