@@ -4,9 +4,8 @@ it:
       about: About
       services: Servizi
       destinations: Destinazioni
+      owners: Proprietari
       houses: Case
-
-
 
   homepage:
     section_0:
@@ -139,11 +138,11 @@ it:
       text: We select only the finest properties to be a part of our exclusive LDV Homes Collection. If you think your vacation home would be a good fit, please send us more details so that we might evaluate your property. Note that only a very select number of properties will be invited in any given destination to ensure that each of our vacation rental partners receives the exposure and attention they deserve.
 
       form:
-        name: 'Nome'
-        city: 'Città'
-        email: 'Email'
-        phone_number: 'Numero di telefono'
-        message: 'Messaggio'
+        name: 'Nome (richiesto)'
+        city: 'Città (richiesta)'
+        email: 'Email (richiesta)'
+        phone_number: 'Telefono'
+        message: 'Messaggio (richiesto)'
         submit: 'Invia richiesta'
 
 
