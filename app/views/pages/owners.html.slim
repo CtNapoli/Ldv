@@ -109,26 +109,31 @@
                         = form_with url: owner_requests_path do |f|
                             .row
                                 .col-xl-6
-                                    .form-group
+                                    #name-container.form-group
                                         = f.text_field :name, class: 'form-control', placeholder: t('owner.section_4.form.name')
+                                        .errors
 
                                 .col-xl-6
-                                    .form-group
+                                    #city-container.form-group
                                         = f.text_field :city, class: 'form-control', placeholder: t('owner.section_4.form.city')
+                                        .errors
 
                             .row
                                 .col-xl-6
-                                    .form-group
+                                    #email-container.form-group
                                         = f.email_field :email, class: 'form-control', placeholder: t('owner.section_4.form.email')
+                                        .errors
 
                                 .col-xl-6
-                                    .form-group
+                                    #phone-number-container.form-group
                                         = f.text_field :phone_number, class: 'form-control', placeholder: t('owner.section_4.form.phone_number')
+                                        .errors
 
                             .row
                                 .col-xl-12
-                                    .form-group
+                                    #message-container.form-group
                                         = f.text_area :message, class: 'form-control', placeholder: t('owner.section_4.form.message')
+                                        .errors
 
                             .row
                                 .col-xl-12

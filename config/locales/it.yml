@@ -76,10 +76,11 @@ it:
       text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
       form:
-        name: 'Nome'
-        email: 'Email'
+        name: 'Nome (richiesto)'
+        email: 'Email (richiesto)'
         phone_number: 'Numero di telefono'
-        message: 'Messaggio'
+        message: 'Messaggio (richiesto)'
+        submit: 'Invia richiesta'
 
   owner:
     section_0:
@@ -149,9 +150,6 @@ it:
         message: 'Messaggio (richiesto)'
         submit: 'Invia richiesta'
 
-
-
-
   apartment:
     guests: 'ospiti'
 
@@ -174,3 +172,37 @@ it:
     where: 'dove'
     
     services: "servizi"
+
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            name:
+              blank: "Nome richiesto"
+
+            email:
+              blank: "Email richiesta"
+
+            phone_number:
+              invalid: "Formato non valido"
+
+            message:
+              blank: "Messaggio richiesto"
+
+        owner_request:
+          attributes:
+            name:
+              blank: "Nome richiesto"
+
+            city:
+              blank: "Città richiesta"
+
+            email:
+              blank: "Email richiesta"
+
+            phone_number:
+              invalid: "Formato non valido"
+
+            message:
+              blank: "Messaggio richiesto"

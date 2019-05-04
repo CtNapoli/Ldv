@@ -1,5 +1,27 @@
+$('#informations input[type="submit"]').prop('disabled', true);
+$('#informations #name-container .errors' ).text('');
+$('#informations #email-container .errors' ).text('');
+$('#informations #phone-number-container .errors' ).text('');
+$('#informations #message-container .errors' ).text('');
+
 <% if(@success) %>
-    $('.request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
+    $('#informations .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
 <% else %>
-    $('.request-form .form-respond').html("<p class='text-danger'>Problemi con l'invio della mail. Rirpova</p>")
+    <% if(@request.errors[:name].any?) %>
+        $('#informations #name-container .errors' ).html('<%= error_messages(@request, :name) %>')
+    <% end %>
+
+    <% if(@request.errors[:email].any?) %>
+        $('#informations #email-container .errors' ).html('<%= error_messages(@request, :email) %>')
+    <% end %>
+
+    <% if(@request.errors[:phone_number].any?) %>
+        $('#informations #phone-number-container .errors' ).html('<%= error_messages(@request, :phone_number) %>')
+    <% end %>
+
+    <% if(@request.errors[:message].any?) %>
+        $('#informations #message-container .errors' ).html('<%= error_messages(@request, :message) %>')
+    <% end %>
 <% end %>
+
+$('#informations input[type="submit"]').prop('disabled', false);

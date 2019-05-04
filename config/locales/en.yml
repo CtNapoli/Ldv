@@ -76,10 +76,11 @@ en:
       text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
       form:
-        name: 'Name'
-        email: 'Email'
+        name: 'Name (required)'
+        email: 'Email (required)'
         phone_number: 'Phone number'
-        message: 'Messaggio'
+        message: 'Messaggio (required)'
+        submit: 'Send request'
 
   owner:
     section_0:
@@ -172,5 +173,39 @@ en:
     where: 'where'
 
     services: "services"
+
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            name:
+              blank: "Name required"
+
+            email:
+              blank: "Email required"
+
+            phone_number:
+              invalid: "Invalid format"
+
+            message:
+              blank: "Message required"
+
+        owner_request:
+          attributes:
+            name:
+              blank: "Name required"
+
+            city:
+              blank: "Città required"
+
+            email:
+              blank: "Email required"
+
+            phone_number:
+              invalid: "Invalid format"
+
+            message:
+              blank: "Message required"
 
     

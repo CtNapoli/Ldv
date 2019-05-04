@@ -3,7 +3,13 @@ class RequestMailer < ApplicationMailer
 
     def request_sent
         @request = params[:request]
-        @to = 'info@ldv.it'
+
+        if Rails.env.production?
+            @to = 'info@ldv.it'
+        else
+            @to = 'criscialfonso92@gmail.com'
+        end
+        
         @subject = 'Richiesta da website'
         mail(to: @to, subject: @subject)
     end
