@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
     def default_url_options
         if I18n.locale == :it
-            return { locale: '' }
+            return { locale: '.' }
         end
         { locale: I18n.locale }
     end
