@@ -167,10 +167,5 @@ document.addEventListener 'turbolinks:load', () ->
 
     if $('#apartments-map').length
         apartments = markerPreload()
-
-        if apartments.length == 1
-            window.map = initMap(apartments)
-        else
-            window.map = initMap()
-        
+        window.map = initMap(apartments)
         setMarkers(map, apartments)

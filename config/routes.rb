@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     resources :apartments, only: [:index, :show]
     
-    resources :areas, path: 'aree', only: [:show]
+    resources :areas, only: [:show]
 
     namespace :backend do
       get     'login'   => 'sessions#new'

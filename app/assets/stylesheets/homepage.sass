@@ -39,8 +39,14 @@
                 //width: calc(25% - 20px)
 
         .destination
+            display: block
             position: relative
             +bg
+            transition: all .2s ease-out
+
+            &:hover
+                opacity: 0.8
+                text-decoration: none
 
             .text
                 position: relative
@@ -55,6 +61,7 @@
 
                 h5,p
                     color: white
+                    //text-decoration: none
 
     #informations
         .intro-banner
