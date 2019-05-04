@@ -60,6 +60,10 @@ it:
           title: Servizio 6
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
+    section_map:
+      title: LDV mappa
+      subtitle: Lorem ipsum dolor sit amet
+
     section_4:
       title: Destinazioni
       subtitle:

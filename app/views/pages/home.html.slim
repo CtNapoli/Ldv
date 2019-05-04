@@ -123,6 +123,21 @@
                 .swiper-wrapper
                     = render @areas
 
+    #apartments-map.custom-section
+        .container
+            .title-with-text
+                h3.title = t('homepage.section_map.title')
+                
+                h4.text.secondary-font
+                    |
+                    = t('homepage.section_map.subtitle')
+
+            #preload
+                - @apartments.each do |a|
+                    .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
+
+            #map
+
 
     #informations.custom-section.invert.form-section
         .intro-banner.type2

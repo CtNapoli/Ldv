@@ -74,5 +74,11 @@
                                 h4.tag = p['title']
                                 p = p['text']
 
+                #apartments-map
+                    #preload
+                        .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{rails_blob_path(@apartment.main_image)}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.room', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}"
+
+                    #map
+
 
             .col-lg-4

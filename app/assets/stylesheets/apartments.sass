@@ -2,6 +2,9 @@
 @import mixins
 
 #apartments
+    #apartments-map
+        margin-bottom: 70px
+        
     .apartment
         text-decoration: none
         margin-bottom: 30px
@@ -30,24 +33,6 @@
 
             .name
                 margin-bottom: 15px
-
-            .features
-                display: flex
-                flex-wrap: wrap
-                align-items: center
-                margin: 
-                    top: 15px
-                    bottom: 30px
-
-                .dot-separator
-                    &:before
-                        content: ''
-                        display: block
-                        width: 3px
-                        height: 3px
-                        border-radius: 50%
-                        background-color: $brandColor
-                        margin: 0 12px
 
 .apartment
     display: block
@@ -122,9 +107,32 @@
             h4
                 margin-bottom: 20px
 
+    #apartments-map
+        margin-top: 40px
+
 
 #featured-apartments
     .swiper-slide
         width: 300px
+
+
+.info
+    .features
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        margin: 
+            top: 15px
+            bottom: 30px
+
+        .dot-separator
+            &:before
+                content: ''
+                display: block
+                width: 3px
+                height: 3px
+                border-radius: 50%
+                background-color: $brandColor
+                margin: 0 12px
 
 
