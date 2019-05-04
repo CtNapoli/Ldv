@@ -1,0 +1,24 @@
+.row
+    .col-8
+        h1 Faq
+
+    .col-4.text-right
+        = link_to 'Crea nuova FAQ', new_backend_question_path, class: 'btn btn-primary'
+
+table.table
+    thead
+        tr
+            th
+                label Domanda
+
+            th
+                label Risposta
+
+            th
+
+            th
+
+            
+    tbody
+        - if @questions.any?
+            = render @questions

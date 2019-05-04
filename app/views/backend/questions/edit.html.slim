@@ -1,0 +1,20 @@
+= form_with url: backend_question_path, model: @question, local: true, method: :patch do |f|
+    .row
+        .col-8
+            h1 Modifica FAQ
+
+        .col-4.text-right
+            .form-group
+                = f.submit 'Modifica', class: 'btn btn-primary' 
+
+    .row
+        .col-12
+            .form-group
+                label Domanda
+                = f.text_field :request, class: 'form-control'
+                = error_messages(@question, :request)
+
+            .form-group
+                label Risposta
+                = f.text_field :reply, class: 'form-control'
+                = error_messages(@question, :reply)

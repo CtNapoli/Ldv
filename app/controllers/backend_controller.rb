@@ -1,5 +1,6 @@
 class BackendController < ApplicationController
-    #layout 'backend'
-
+    def default_url_options
+        {}
+    end
     
 end

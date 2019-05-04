@@ -1,0 +1,22 @@
+= form_with url: backend_questions_path, model: @question, local: true do |f|
+    .row
+        .col-8
+            h1 Creazione FAQ
+
+        .col-4.text-right
+            .form-group
+                = f.submit 'Crea', class: 'btn btn-primary' 
+
+    .row
+        .col-12
+            .form-group
+                label Domanda
+                = f.text_field :request, class: 'form-control'
+                = error_messages(@question, :request)
+
+            .form-group
+                label Risposta
+                = f.text_area :reply, class: 'form-control'
+                = error_messages(@question, :reply)
+
+            
