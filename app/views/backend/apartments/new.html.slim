@@ -1,7 +1,9 @@
 = form_with url: backend_apartments_path, model: @apartment, local: true do |f|
     .row
-        .col-8
-            h1 Creazione appartamento
+        .col-7
+            h1.secondary-font.font-italic Creazione appartamento
+
+        .col-1
 
         .col-4.text-right
             .form-group
@@ -9,156 +11,187 @@
 
 
     .row
-        .col-8
-            .form-group
-                label Nome
-                = f.text_field :name, class: 'form-control'
-                = error_messages(@apartment, :name)
+        .col-7
+            .section
+                .form-group
+                    label Nome
+                    = f.text_field :name, class: 'form-control'
+                    = error_messages(@apartment, :name)
 
-            label Informazione località
-            .row
-                .col-4
-                    .form-group
-                        label Indirizzo
-                        = f.text_field :address, class: 'form-control'
-                        = error_messages(@apartment, :address)
+            .section
+                label.big Informazioni località
+                .row
+                    .col-12
+                        .form-group
+                            label Indirizzo
+                            = f.text_field :address, class: 'form-control'
+                            = error_messages(@apartment, :address)
 
-                .col-4
-                    .form-group
-                        label Codice postale
-                        = f.text_field :postal_code, class: 'form-control'
-                        = error_messages(@apartment, :postal_code)
+                    .col-4
+                        .form-group
+                            label CAP
+                            = f.text_field :postal_code, class: 'form-control'
+                            = error_messages(@apartment, :postal_code)
 
-                .col-4
-                    .form-group
-                        label Città
-                        = f.text_field :city, class: 'form-control'
-                        = error_messages(@apartment, :city)
+                    .col-4
+                        .form-group
+                            label Città
+                            = f.text_field :city, class: 'form-control'
+                            = error_messages(@apartment, :city)
 
-                .col-4
-                    .form-group
-                        label Provincia
-                        = f.text_field :province, class: 'form-control'
-                        = error_messages(@apartment, :province)
+                    .col-4
+                        .form-group
+                            label Provincia
+                            = f.text_field :province, class: 'form-control'
+                            = error_messages(@apartment, :province)
 
-                .col-4
-                    .form-group
-                        label Latitudine
-                        = f.number_field :lat, step: 0.01, class: 'form-control'
-                        = error_messages(@apartment, :lat)
+                    .col-6
+                        .form-group
+                            label Latitudine
+                            = f.number_field :lat, step: 0.01, class: 'form-control'
+                            = error_messages(@apartment, :lat)
 
-                .col-4
-                    .form-group
-                        label Longitudine
-                        = f.number_field :lng, step: 0.01, class: 'form-control'
-                        = error_messages(@apartment, :lng)
+                    .col-6
+                        .form-group
+                            label Longitudine
+                            = f.number_field :lng, step: 0.01, class: 'form-control'
+                            = error_messages(@apartment, :lng)
 
-            label Informazioni appartamento
-            .row
-                .col-4
-                    .form-group
-                        label Capacità
-                        = f.number_field :capacity, class: 'form-control'
-                        = error_messages(@apartment, :capacity)
+            .section
+                label.big Informazioni appartamento
+                .row
+                    .col-2
+                        .form-group
+                            label Capacità
+                            = f.number_field :capacity, class: 'form-control'
+                            = error_messages(@apartment, :capacity)
 
-                .col-4
-                    .form-group
-                        label Metri quadrati
-                        = f.number_field :square_meters, class: 'form-control'
-                        = error_messages(@apartment, :square_meters)
+                    .col-3
+                        .form-group
+                            label Metri quadrati
+                            = f.number_field :square_meters, class: 'form-control'
+                            = error_messages(@apartment, :square_meters)
 
-                .col-4
-                    .form-group
-                        label Camere
-                        = f.number_field :rooms, class: 'form-control'
-                        = error_messages(@apartment, :rooms)
+                    .col-2
+                        .form-group
+                            label Camere
+                            = f.number_field :rooms, class: 'form-control'
+                            = error_messages(@apartment, :rooms)
 
-                .col-4
-                    .form-group
-                        label Camere da letto
-                        = f.number_field :bedrooms, class: 'form-control'
-                        = error_messages(@apartment, :bedrooms)
+                    .col-3
+                        .form-group
+                            label Camere da letto
+                            = f.number_field :bedrooms, class: 'form-control'
+                            = error_messages(@apartment, :bedrooms)
 
-                .col-4
-                    .form-group
-                        label Bagni
-                        = f.number_field :toilette, class: 'form-control'
-                        = error_messages(@apartment, :toilette)
+                    .col-2
+                        .form-group
+                            label Bagni
+                            = f.number_field :toilette, class: 'form-control'
+                            = error_messages(@apartment, :toilette)
 
-            #paragraphs
-                .paragraph v-for="(p, index) in paragraphs"
-                    .paragraph-title.form-group
-                        label Titolo
-                        = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title"
+            .section
+                label.big Descrizione
+                #paragraphs
+                    .paragraph v-for="(p, index) in paragraphs"
+                        .paragraph-title.form-group
+                            label Titolo paragrafo
+                            = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title"
+                        
+                        .paragraph-text.form-group
+                            label Testo paragrafo
+                            = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text"
+
+                        .delete.text-right
+                            .btn.btn-delete.btn-small @click="removeParagraph(index)" Elimina
+
+
+                    .cta
+                        p Vuoi aggiungere un paragrafo?
+                        .btn.btn-primary.btn-small.add_paragraph @click='addParagraph()' Aggiungi
+
+                    = f.hidden_field :content, value: '[]'
                     
-                    .paragraph-text.form-group
-                        label Paragrafo
-                        = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text"
 
-                    p @click="removeParagraph(index)"
-                        | delete
-
-
-                p.add_paragraph @click='addParagraph()'
-                    | AGGIUNGI PARAGRAFO
-
-                = f.hidden_field :content, value: '[]'
-                    
-
+        .col-1
 
         .col-4
-            .form-group
-                label Visibilità
-                div
-                    label pubblico
-                    = f.radio_button :published, true
+            .sidebar
+                .form-group
+                    label.medium Visibilità
+                    .custom-marker-collection
+                        .custom-marker
+                            label for="apartment_published_true"
+                                = f.radio_button :published, true
+                                .marker.radio
+                                span pubblico
 
-                    label privato
-                    = f.radio_button :published, false
+                        .custom-marker
+                            label for="apartment_published_false"
+                                = f.radio_button :published, false
+                                .marker.radio
+                                span privato
 
-            .form-group
-                label In evidenza
-                div
-                    label si
-                    = f.radio_button :in_evidence, true
+                .form-group
+                    label.medium In evidenza
+                    .custom-marker-collection
+                        .custom-marker
+                            label for="apartment_in_evidence_true"
+                                = f.radio_button :in_evidence, true
+                                .marker.radio
+                                span si
 
-                    label no
-                    = f.radio_button :in_evidence, false
+                        .custom-marker
+                            label for="apartment_in_evidence_false"
+                                = f.radio_button :in_evidence, false
+                                .marker.radio
+                                span no
 
-            .form-group
-                label Area
-                = f.collection_select :area_id, Area.all, :id, :name, {:selected => Area.first}, {class: 'form-control'}
+                .form-group
+                    label.medium Area
+                    = f.collection_select :area_id, Area.all, :id, :name, {:selected => Area.first}, {class: 'form-control'}
 
-            .form-group
-                label Servizi
-                div
-                    = f.collection_check_boxes :service_ids, Service.all, :id, :name
+                #services.form-group
+                    label.medium Servizi
+                    .custom-marker-collection
+                        = f.collection_check_boxes :service_ids, Service.all, :id, :name do |s|
+                            .custom-marker
+                                = s.label for: "apartment_service_ids_#{s.object.id}"do
+                                    = s.check_box
+                                    .marker.checkbox
+                                    span = s.object.name
 
-            #main-image.form-group
-                label Immagine principale
-                div
-                    = f.file_field :main_image
+                #main-image.form-group data-icon-delete="#{image_path('close.png')}"
+                    .head-file
+                        label.medium Immagine principale
+                        .choose_file
+                            .btn.btn-primary.btn-small Carica
+                            = f.file_field :main_image
 
-                .all-previews
-                    - if @apartment.main_image.attached?
-                        .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
-                            = link_to 'delete', remove_main_photo_backend_apartment_path, method: :delete, remote: true
+                    .all-previews
+                        - if @apartment.main_image.attached?
+                            .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
+                                = link_to remove_main_photo_backend_apartment_path, method: :delete, remote: true do
+                                    .round = image_tag 'close.png', alt: 'Close'
 
-                = error_messages(@apartment, :main_image)
+                    = error_messages(@apartment, :main_image)
 
-            
-            #images.form-group
-                label Gallery
-                div
-                    = f.file_field :images, multiple: true
+                
+                #images.form-group
+                    .head-file
+                        label.medium Gallery
+                        .choose_file
+                            .btn.btn-primary.btn-small Carica
+                            = f.file_field :images, multiple: true
 
-                .all-previews
-                    - if @apartment.images.attached?
-                        - @apartment.images.each do |i|
-                            .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
-                                = link_to 'delete', remove_photo_backend_apartment_path(image_id: i.id), method: :delete, remote: true
+                    .all-previews
+                        - if @apartment.images.attached?
+                            - @apartment.images.each do |i|
+                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                    = link_to remove_photo_backend_apartment_path(image_id: i.id), method: :delete, remote: true do
+                                        .round = image_tag 'close.png', alt: 'Close'
 
-                = error_messages(@apartment, :images)
+                    = error_messages(@apartment, :images)
 
     
 

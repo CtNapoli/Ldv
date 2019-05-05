@@ -34,8 +34,12 @@
         line-height: 70px
 
 .big-text
-    font-size: 40px
-    line-height: 50px
+    font-size: 24px
+    line-height: 34px
+
+    +media($md)
+        font-size: 40px
+        line-height: 50px
 
 .medium-text
     font-size: 18px
@@ -48,6 +52,10 @@
 .normal-text
     font-size: 16px
     line-height: 26px
+
+.mid-text
+    font-size: 14px
+    line-height: 24px
 
 .small-text
     font-size: 12px
@@ -167,7 +175,8 @@
     box-shadow: rgba(black, 0.05) 0 10px 25px
 
 .custom-form
-    padding: 30px
+    +media($md)
+        padding: 30px
 
     .form-group
         padding-bottom: 30px
@@ -199,32 +208,58 @@
 
 .gallery
     .image
-        padding-top: 650px
+        padding-top: 250px
         +bg
+
+        +media($md)
+            padding-top: 350px
+
+        +media($md)
+            padding-top: 450px
+
+        +media($lg)
+            padding-top: 550px
+
+        +media($xl)
+            padding-top: 650px
 
 .swiper-container
     .navigation
-        width: 60px
-        height: 60px
+        width: 30px
+        height: 30px
         background-color: rgba(white,0.5)
         border-radius: 50%
         position: absolute
-        top: 50%
+        top: 40%
         z-index: 99
         cursor: pointer
+
+        +media($md)
+            top: 45%
+            width: 60px
+            height: 60px
 
         img
             position: absolute
             left: 50%
             top: 50%
             transform: translate(-50%,-50%)
-            width: 12px
+            width: 6px
+
+            +media($md)
+                width: 12px
 
         &.prev
-            left: 50px
+            left: 10px
+
+            +media($md)
+                left: 50px
 
         &.next
-            right: 50px
+            right: 10px
+
+            +media($md)
+                right: 50px
 
 .tag
     text-transform: uppercase

@@ -1,6 +1,6 @@
 #apartment
     .gallery
-        - if @apartment.images.any?
+        - if @apartment.images.count > 1
             .swiper-container
                 .swiper-wrapper
                     - @apartment.images.each do |image|

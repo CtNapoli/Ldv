@@ -65,18 +65,38 @@
                 line-height: 42px
 
 #apartment
+    .container
+        padding: 0
+
+        +media($md)
+            padding: 0 15px
+
     h1
         margin:
-            top: 70px 
-            bottom: 20px
+            top: 25px
+            bottom: 10px
+
+        +media($md)
+            margin:
+                top: 70px 
+                bottom: 20px
 
     .properties
         display: flex
-        justify-content: space-between
+        flex-wrap: wrap
         margin: 40px 0
 
+        +media($md)
+            justify-content: space-between
+
+
         .property
+            flex-basis: 33.3%
             text-align: center
+            margin-bottom: 20px
+
+            +media($md)
+                flex-basis: auto
 
             img
                 width: 40px
@@ -87,12 +107,18 @@
 
     .services
         display: flex
+        flex-wrap: wrap
         margin-top: 20px
 
         .service
             display: flex
+            flex-basis: 50%
             align-items: center
-            margin-right: 30px
+            margin-bottom: 10px
+
+            +media($md)
+                margin-right: 30px
+                flex-basis: auto
 
             img
                 width: 15px
