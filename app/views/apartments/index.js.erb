@@ -1,16 +1,20 @@
+$('.mobile-modal').removeClass('opened');
+
+$('#apartments-map #preload').html('');
+
+<% @apartments.each do |a| %>
+    apartment = $("<div class='apartment' data-lat='<%= a.lat %>' data-lng='<%= a.lng %>' data-name='<%= a.name %>' data-image='<%= rails_blob_path(a.main_image) %>' data-capacity='<%= t('apartment.capacity', count: a.capacity) %>' data-bedrooms='<%= t('apartment.bedroom', count: a.bedrooms) %>' data-rooms='<%= t('apartment.room', count: a.rooms) %>' data-toilette='<%= t('apartment.toilette', count: a.toilette) %>'></div>");
+
+    $('#apartments-map #preload').append(apartment);
+<% end %>
+
+deleteMarkers();
+apartments = markerPreload();
+setMarkers(window.map, apartments)
+
+
 <% if(@apartments.any?) %>
     $('#apartments .list').html('<%= j render @apartments %>');
-    $('#apartments-map #preload').html('');
-
-    <% @apartments.each do |a| %>
-        apartment = $("<div class='apartment' data-lat='<%= a.lat %>' data-lng='<%= a.lng %>' data-name='<%= a.name %>' data-image='<%= rails_blob_path(a.main_image) %>' data-capacity='<%= t('apartment.capacity', count: a.capacity) %>' data-bedrooms='<%= t('apartment.bedroom', count: a.bedrooms) %>' data-rooms='<%= t('apartment.room', count: a.rooms) %>' data-toilette='<%= t('apartment.toilette', count: a.toilette) %>'></div>");
-
-        $('#apartments-map #preload').append(apartment);
-    <% end %>
-
-    deleteMarkers();
-    apartments = markerPreload();
-    setMarkers(window.map, apartments)
 <% else %>
     $('#apartments .list').html('<p> Non ci sono appartamenti disponibili per i criteri di ricerca selezionati</p>')
 <% end %>

@@ -312,4 +312,90 @@
             +media($lg)
                 margin-top: 0
 
+.mobile-modal
+    display: block
+    position: fixed
+    width: 100%
+    left: 0
+    top: 100vh
+    height: 100vh
+    background-color: white
+    z-index: 9999
+    transition: all .3s linear
+    padding: 20px 35px
+
+    &.opened
+        top: 0
+
+    +media($md)
+        display: none
+
+    img
+        width: 40px
+
+    .btn
+        width: calc(100% - 40px)
+        bottom: 20px
+        left: 20px
+        position: absolute
+
+    .close-modal
+        cursor: pointer
+        margin-bottom: 30px
+
+    .map-container
+        #map
+            height: calc(100vh - 120px)
+
+
+.search-form
+    padding: 30px
+
+    .form-group
+        margin-bottom: 30px
+    
+    &.mobile
+        display: block
+
+        +media($md)
+            display: none
+
+    &.desktop
+        display: none
+
+        +media($md)
+            display: block
+
+#map-and-filters-mobile
+    position: fixed
+    z-index: 99
+    bottom: 25px
+    left: 0
+    width: 100%
+    background-color: transparent
+    display: flex
+    align-items: center
+    justify-content: center
+
+    .icon-container
+        cursor: pointer
+        background-color: white
+        border-radius: 40px
+        padding: 12px 20px
+        display: flex
+        align-items: center
+        font-size: 14px
+
+        .icon
+            margin-right: 8px
+
+        &.map-icon
+            margin-right: 40px
+
+        img
+            width: 15px
+
+    +media($md)
+        display: none
+
             

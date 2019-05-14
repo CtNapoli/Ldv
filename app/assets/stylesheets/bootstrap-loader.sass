@@ -50,3 +50,30 @@
     &.btn-delete
         background-color: $gadgetColor
         color: $brandColor
+
+.dropdown
+    .dropdown-button
+        display: flex
+        align-items: center
+        cursor: pointer
+        padding-bottom: 30px
+        padding-top: 15px
+        border-bottom: solid 1px rgba($brandColor, 0.3)
+
+        span
+            flex-grow: 1
+            font-size: 18px
+
+        .icon img
+            width: 8px
+
+    .dropdown-menu
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px
+        border: none
+
+        .dropdown-item
+            cursor: pointer
+            font-size: 19px
+
+            &:hover,&:focus,&:active
+                background-color: white

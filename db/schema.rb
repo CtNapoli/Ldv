@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_152225) do
+ActiveRecord::Schema.define(version: 2019_05_09_170230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2019_05_04_152225) do
     t.index ["username"], name: "index_admins_on_username"
   end
 
+  create_table "apartment_translations", force: :cascade do |t|
+    t.bigint "apartment_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "content"
+    t.index ["apartment_id"], name: "index_apartment_translations_on_apartment_id"
+    t.index ["locale"], name: "index_apartment_translations_on_locale"
+  end
+
   create_table "apartments", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -73,6 +84,18 @@ ActiveRecord::Schema.define(version: 2019_05_04_152225) do
     t.bigint "service_id"
     t.index ["apartment_id"], name: "index_apartments_services_on_apartment_id"
     t.index ["service_id"], name: "index_apartments_services_on_service_id"
+  end
+
+  create_table "area_translations", force: :cascade do |t|
+    t.bigint "area_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.text "content"
+    t.index ["area_id"], name: "index_area_translations_on_area_id"
+    t.index ["locale"], name: "index_area_translations_on_locale"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -115,6 +138,17 @@ ActiveRecord::Schema.define(version: 2019_05_04_152225) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_translations", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "request"
+    t.string "reply"
+    t.index ["locale"], name: "index_question_translations_on_locale"
+    t.index ["question_id"], name: "index_question_translations_on_question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "request"
     t.text "reply"
@@ -131,6 +165,16 @@ ActiveRecord::Schema.define(version: 2019_05_04_152225) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "service_translations", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["locale"], name: "index_service_translations_on_locale"
+    t.index ["service_id"], name: "index_service_translations_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|

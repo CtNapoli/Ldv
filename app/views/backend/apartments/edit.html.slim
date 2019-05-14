@@ -1,99 +1,99 @@
 = form_with url: backend_apartment_path(@apartment), model: @apartment, method: :patch, local: true do |f|
     .row
         .col-7
-            h1 Modifica appartamento
+            h1 = t('backend.apartments.edit.title')
 
         .col-1
 
         .col-4.text-right
             .form-group
-                = f.submit 'Modifica', class: 'btn btn-primary', '@click': 'updateParagraphs'
+                = f.submit t('backend.save'), class: 'btn btn-primary', '@click': 'updateParagraphs'
     .row
         .col-7
             .section
                 .form-group
-                    label Nome
+                    label = t('backend.apartments.edit.name')
                     = f.text_field :name, class: 'form-control'
                     = error_messages(@apartment, :name)
 
             .section
-                label.big Informazione località
+                label.big = t('backend.apartments.location_informations')
                 .row
                     .col-12
                         .form-group
-                            label Indirizzo
+                            label = t('backend.apartments.edit.address')
                             = f.text_field :address, class: 'form-control'
                             = error_messages(@apartment, :address)
 
                     .col-4
                         .form-group
-                            label Codice postale
+                            label = t('backend.apartments.edit.postal_code')
                             = f.text_field :postal_code, class: 'form-control'
                             = error_messages(@apartment, :postal_code)
 
                     .col-4
                         .form-group
-                            label Città
+                            label = t('backend.apartments.edit.city')
                             = f.text_field :city, class: 'form-control'
                             = error_messages(@apartment, :city)
 
                     .col-4
                         .form-group
-                            label Provincia
+                            label = t('backend.apartments.edit.province')
                             = f.text_field :province, class: 'form-control'
                             = error_messages(@apartment, :province)
 
                     .col-6
                         .form-group
-                            label Latitudine
+                            label = t('backend.apartments.edit.lat')
                             = f.number_field :lat, step: 0.01, class: 'form-control'
                             = error_messages(@apartment, :lat)
 
                     .col-6
                         .form-group
-                            label Longitudine
+                            label = t('backend.apartments.edit.lng')
                             = f.number_field :lng, step: 0.01, class: 'form-control'
                             = error_messages(@apartment, :lng)
 
             .section
-                label.big Informazioni appartamento
+                label.big = t('backend.apartments.apartment_informations')
                 .row
                     .col-2
                         .form-group
-                            label Capacità
+                            label = t('backend.apartments.edit.capacity')
                             = f.number_field :capacity, class: 'form-control'
                             = error_messages(@apartment, :capacity)
 
                     .col-3
                         .form-group
-                            label Metri quadrati
+                            label = t('backend.apartments.edit.square_meters')
                             = f.number_field :square_meters, class: 'form-control'
                             = error_messages(@apartment, :square_meters)
 
                     .col-2
                         .form-group
-                            label Camere
+                            label = t('backend.apartments.edit.rooms')
                             = f.number_field :rooms, class: 'form-control'
                             = error_messages(@apartment, :rooms)
 
                     .col-3
                         .form-group
-                            label Camere da letto
+                            label = t('backend.apartments.edit.bedrooms')
                             = f.number_field :bedrooms, class: 'form-control'
                             = error_messages(@apartment, :bedrooms)
 
                     .col-2
                         .form-group
-                            label Bagni
+                            label = t('backend.apartments.edit.bathrooms')
                             = f.number_field :toilette, class: 'form-control'
                             = error_messages(@apartment, :toilette)
 
             .section
-                label.big Descrizione
+                label.big = t('backend.apartments.description')
                 #paragraphs
                     .paragraph v-for="(p, index) in paragraphs"
                         .paragraph-title.form-group
-                            label Titolo
+                            label = t('backend.apartments.new.title_par')
                             = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title", '@change': 'updateParagraphs'
                         
                         .paragraph-text.form-group
@@ -101,33 +101,34 @@
                             = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text", '@change': 'updateParagraphs'
 
                         .delete.text-right
-                            .btn.btn-delete.btn-small @click="removeParagraph(index)" Elimina
+                            .btn.btn-delete.btn-small @click="removeParagraph(index)" = t('backend.delete')
 
 
                     .cta
-                        p Vuoi aggiungere un paragrafo?
-                        .btn.btn-primary.btn-small.add_paragraph @click='addParagraph()' Aggiungi
+                        p = t('backend.add_text')
+                        .btn.btn-primary.btn-small.add_paragraph @click='addParagraph()' = t('backend.add')
                         
 
                     = f.hidden_field :content
 
 
+        .col-1
         .col-4
             .sidebar
                 .form-group
-                    label.medium Visibilità
+                    label.medium = t('backend.apartments.visibility')
                     .custom-marker-collection
                         .custom-marker
                             label for="apartment_published_true"
                                 = f.radio_button :published, true
                                 .marker.radio
-                                span pubblico
+                                span = t('backend.apartments.public')
 
                         .custom-marker
                             label for="apartment_published_false"
                                 = f.radio_button :published, false
                                 .marker.radio
-                                span privato
+                                span = t('backend.apartments.private')
 
                 .form-group
                     label.medium In evidenza
@@ -136,20 +137,20 @@
                             label for="apartment_in_evidence_true"
                                 = f.radio_button :in_evidence, true
                                 .marker.radio
-                                span si
+                                span = t('backend.apartments.y')
 
                         .custom-marker
                             label for="apartment_in_evidence_false"
                                 = f.radio_button :in_evidence, false
                                 .marker.radio
-                                span no
+                                span = t('backend.apartments.no')
 
                 .form-group
-                    label.medium Area
+                    label.medium = t('backend.area')
                     = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
 
                 #services.form-group
-                    label.medium Servizi
+                    label.medium = t('backend.apartments.services')
                     .custom-marker-collection
                         = f.collection_check_boxes :service_ids, Service.all, :id, :name do |s|
                             .custom-marker
@@ -160,9 +161,9 @@
 
                 #main-image.form-group data-icon-delete="#{image_path('close.png')}"
                     .head-file
-                        label.medium Immagine principale
+                        label.medium = t('backend.apartments.main_image')
                         .choose_file
-                            .btn.btn-primary.btn-small Carica
+                            .btn.btn-primary.btn-small = t('backend.load')
                             = f.file_field :main_image
 
                     .all-previews
@@ -175,9 +176,9 @@
 
                 #images.form-group
                     .head-file
-                        label.medium Gallery
+                        label.medium = t('backend.apartments.gallery')
                         .choose_file
-                            .btn.btn-primary.btn-small Carica
+                            .btn.btn-primary.btn-small = t('backend.load')
                             = f.file_field :images, multiple: true
 
                     .all-previews

@@ -4,6 +4,12 @@
     #map
         height: 150px
 
+        &.desktop
+            display: none
+
+            +media($md)
+                display: block
+
         +media($md)
             height: 400px
 

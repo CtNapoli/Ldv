@@ -6,12 +6,12 @@ document.addEventListener 'turbolinks:load', () ->
         if apartments.length == 1
             centerPoint = {lat: parseFloat(apartments[0].lat), lng: parseFloat(apartments[0].lng)}
         else
-            centerPoint = {lat: -25.344, lng: 131.036}
+            centerPoint = {lat: 40.628119, lng: 14.375022}
 
         map = new google.maps.Map(
-            document.getElementById('map'), 
+            document.querySelector('#map'), 
             {
-                zoom: 4, 
+                zoom: 6, 
                 center: centerPoint,
                 styles: [
                     {
@@ -165,7 +165,7 @@ document.addEventListener 'turbolinks:load', () ->
 
         return apartments
 
-    if $('#apartments-map').length
+    if $('#map').length
         apartments = markerPreload()
         window.map = initMap(apartments)
         setMarkers(map, apartments)

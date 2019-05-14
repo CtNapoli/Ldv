@@ -1,33 +1,33 @@
 .row
     .col-8
-        h1 Appartamenti
+        h1 = t('backend.apartments.index.title')
 
     .col-4.text-right
-        = link_to 'Crea nuovo appartamento', new_backend_apartment_path, class: 'btn btn-primary'
+        = link_to t('backend.apartments.index.cta'), new_backend_apartment_path, class: 'btn btn-primary'
 
 table.table
     thead
         tr
             th
-                label Nome
+                label = t('backend.apartments.index.name')
 
             th
-                label Indirizzo
+                label = t('backend.apartments.index.address')
 
             th
-                label Capienza
+                label = t('backend.apartments.index.capacity')
 
             th
-                label Metri quadrati
+                label = t('backend.apartments.index.square_meters')
 
             th
-                label Camere
+                label = t('backend.apartments.index.rooms')
 
             th
-                label Camere da letto
+                label = t('backend.apartments.index.bedrooms')
 
             th
-                label Bagni
+                label = t('backend.apartments.index.bathrooms')
 
             th
 

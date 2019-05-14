@@ -6,5 +6,5 @@ tr
     td = apartment.rooms
     td = apartment.bedrooms
     td = apartment.toilette
-    td = link_to 'Modifica', edit_backend_apartment_path(apartment)
-    td = link_to 'Elimina', backend_apartment_path(apartment), method: :delete, data: {confirm:  "Sei sicuro di volere eliminare #{apartment.name}?"}
+    td = link_to t('backend.edit'), edit_backend_apartment_path(apartment)
+    td = link_to t('backend.delete'), backend_apartment_path(apartment), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} #{apartment.name}?"}

@@ -1,6 +1,7 @@
 class Apartment < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: :slugged
+    translates :name, :content
 
     belongs_to :area
     has_one_attached :main_image

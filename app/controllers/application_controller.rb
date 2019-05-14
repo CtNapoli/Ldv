@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :set_locale
+    before_action :max_guests
  
     def set_locale
         I18n.locale = params[:locale].presence || I18n.default_locale
@@ -23,5 +24,9 @@ class ApplicationController < ActionController::Base
             return { locale: '.' }
         end
         { locale: I18n.locale }
+    end
+
+    def max_guests
+        @max_guests = Apartment.maximum("capacity")
     end
 end

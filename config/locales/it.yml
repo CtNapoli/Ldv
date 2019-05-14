@@ -173,6 +173,131 @@ it:
     
     services: "servizi"
 
+  mobile_buttons:
+    filters: 'Filtri'
+    map: 'Mappa'
+
+  search_form:
+    where: Dove
+    guests: Ospiti
+    search: Cerca
+
+  backend:
+    menu:
+      apartments: Appartamenti
+      services: Servizi
+      areas: Aree
+      faq: Faq
+
+    services:
+      index:
+        title: Servizi
+        name: Nome
+        cta: Nuovo servizio
+
+      new: 
+        title: Nuovo servizio
+        name: Nome
+
+      edit:
+        title: Modifica servizio
+
+    areas:
+      index:
+        title: Aree
+        name: Nome
+        description: Descrizione
+
+      edit:
+        title: Modifica area
+        name: Nome
+        description: Descrizione
+        title_par: Titolo
+        text_par: Paragrafo
+        content: Contenuto
+
+    questions:
+      index:
+        title: FAQ
+        cta: Nuova FAQ
+        request: Domanda
+        reply: Risposta
+
+      edit:
+        title: Modifica FAQ
+        request: Domanda
+        reply: Risposta
+
+    apartments:
+      index:
+        title: Appartamenti
+        cta: Nuovo appartamento
+        name: Nome
+        address: Indirizzo
+        capacity: Capienze
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+
+      new:
+        title: Nuovo appartamento
+        name: Nome
+        address: Indirizzo
+        postal_code: CAP
+        city: Città
+        province: Provincia
+        lat: Latitudine
+        lng: Longitudine
+        capacity: Capienza
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+        title_par: Titolo
+        text_par: Paragrafo
+
+      edit:
+        title: Modifica appartamento
+        name: Nome
+        address: Indirizzo
+        postal_code: CAP
+        city: Città
+        province: Provincia
+        lat: Latitudine
+        lng: Longitudine
+        capacity: Capienza
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+        title_par: Titolo
+        text_par: Paragrafo
+
+      location_informations: Informazioni località
+      apartment_informations: Informazioni appartamento
+      description: Descrizione
+      visibility: Visibilità
+      public: Pubblico
+      private: Privato
+      in_evidence: In evidenza
+      y: "si"
+      no: "no"
+      area: Area
+      services: Servizi
+      
+
+    
+    edit: Modifica
+    delete: Elimina
+    delete_alert: Sei sicuro di volere eliminare
+    save: Salva
+    add_text: Vuoi aggiungere un paragrafo?
+    add: Aggiungi
+    main_image: Immagine principale
+    load: Carica
+    gallery: Gallery
+
   activerecord:
     errors:
       models:

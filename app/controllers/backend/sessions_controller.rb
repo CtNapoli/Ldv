@@ -1,4 +1,4 @@
-class Backend::SessionsController < ApplicationController
+class Backend::SessionsController < BackendController
     layout 'admin'
 
     def new

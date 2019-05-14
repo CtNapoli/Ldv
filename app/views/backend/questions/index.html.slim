@@ -1,18 +1,18 @@
 .row
     .col-8
-        h1 Faq
+        h1 = t('backend.questions.index.title')
 
     .col-4.text-right
-        = link_to 'Crea nuova FAQ', new_backend_question_path, class: 'btn btn-primary'
+        = link_to t('backend.questions.index.cta'), new_backend_question_path, class: 'btn btn-primary'
 
 table.table
     thead
         tr
             th
-                label Domanda
+                label = t('backend.questions.index.request')
 
             th
-                label Risposta
+                label = t('backend.questions.index.reply')
 
             th
 

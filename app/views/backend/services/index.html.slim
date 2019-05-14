@@ -1,15 +1,15 @@
 .row
     .col-8
-        h1 Servizi
+        h1 = t('backend.services.index.title')
 
     .col-4.text-right
-        = link_to 'Crea nuovo servizio', new_backend_service_path, class: 'btn btn-primary'
+        = link_to t('backend.services.index.cta'), new_backend_service_path, class: 'btn btn-primary'
 
 table.table
     thead
         tr
             th
-                label Nome
+                label = t('backend.services.index.name')
 
             th
 

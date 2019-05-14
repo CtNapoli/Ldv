@@ -1,5 +1,5 @@
 tr
     td = question.request
     td = question.reply
-    td = link_to 'Modifica', edit_backend_question_path(question)
-    td = link_to 'Elimina', backend_question_path(question), method: :delete, data: {confirm:  "Sei sicuro di volere eliminare #{question.request}?"}
+    td = link_to t('backend.edit'), edit_backend_question_path(question)
+    td = link_to t('backend.delete'), backend_question_path(question), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} '#{question.request}'?"}

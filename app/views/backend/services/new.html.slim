@@ -1,15 +1,15 @@
 = form_with url: backend_services_path, model: @service, local: true do |f|
     .row
         .col-8
-            h1 Creazione servizio
+            h1 = t('backend.services.new.title')
 
         .col-4.text-right
             .form-group
-                = f.submit 'Crea', class: 'btn btn-primary' 
+                = f.submit t('backend.save'), class: 'btn btn-primary' 
 
     .row
         .col-12
             .form-group
-                label Nome
+                label = t('backend.services.new.name')
                 = f.text_field :name, class: 'form-control'
                 = error_messages(@service, :name)

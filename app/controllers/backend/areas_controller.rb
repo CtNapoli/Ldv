@@ -1,4 +1,5 @@
 class Backend::AreasController < BackendController
+    skip_before_action :verify_authenticity_token, only: [:update]
     before_action :authenticate_admin!
     before_action :load_area, only: [:edit, :update, :remove_main_photo, :remove_photo]
 
@@ -13,7 +14,7 @@ class Backend::AreasController < BackendController
     def update
         if @area.update(area_params)
             flash.notice = 'Area modificata con successo'
-            redirect_to backend_areas_path(@area)
+            redirect_to backend_areas_path
         else
             render :edit
         end
