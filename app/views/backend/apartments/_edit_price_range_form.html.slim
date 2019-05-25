@@ -1,0 +1,16 @@
+label.big 
+    | Modifica prezzo 
+    br
+    | Periodo:
+    =<> l(@price.start, format: '%d/%m/%Y')
+    | -
+    =<> l(@price.end, format: '%d/%m/%Y')
+
+= form_with url: update_price_range_backend_apartment_path(price_id: @price), model: @price, method: :patch do |f|
+    #price-value-modal.form-group
+        = f.number_field :value, class: 'form-control'
+        .errors
+
+    .form-group.actions
+        = link_to 'Annulla', '', class: 'btn btn-delete', 'data-dismiss': 'modal'
+        = f.button t('backend.edit'), class: 'btn btn-primary'

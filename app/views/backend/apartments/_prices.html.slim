@@ -1,0 +1,7 @@
+- @apartment.prices.order(:start).each do |p|
+    .price
+        p = l(p.start, format: '%d/%m/%Y')
+        p = l(p.end, format: '%d/%m/%Y')
+        p = p.value
+        = link_to 'Delete', remove_price_range_backend_apartment_path(price_id: p.id), remote: true, method: :delete, data: {confirm: "#{t('backend.delete_alert')} questo range di prezzo?"}
+        = link_to 'Modifica', edit_price_range_backend_apartment_path(price_id: p.id), remote: true

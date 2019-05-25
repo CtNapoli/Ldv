@@ -1,0 +1,2 @@
+module Backend::PricesHelper
+end
