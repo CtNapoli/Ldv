@@ -111,6 +111,8 @@
 
                     = f.hidden_field :content
 
+           
+
 
         .col-1
         .col-4
@@ -189,3 +191,36 @@
                                         .round = image_tag 'close.png', alt: 'Close'
 
                     = error_messages(@apartment, :images)
+
+#prices.section
+    label.big = t('backend.apartments.prices')
+
+    .all
+        = render 'prices'
+        
+    .new
+        = form_with url: add_price_range_backend_apartment_path do |f|
+            .row
+                .col-7
+                    .row
+                        .col-4
+                            #price-start.form-group
+                                label = t('backend.apartments.edit.prices.start')
+                                = f.date_field :start, class: 'form-control'
+                                .errors
+
+                        .col-4
+                            #price-end.form-group
+                                label = t('backend.apartments.edit.prices.end')
+                                = f.date_field :end, class: 'form-control'
+                                .errors
+
+                        .col-4
+                            #price-value.form-group
+                                label = t('backend.apartments.edit.prices.value')
+                                = f.number_field :value, class: 'form-control'
+                                .errors
+
+                        .col-12
+                            .form-group
+                                = f.button 'Aggiungi range prezzo', class: 'btn btn-primary btn-small'

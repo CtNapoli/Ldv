@@ -275,8 +275,14 @@ en:
         title_par: Title
         text_par: Paragraph
 
+        prices:
+          start: Inizio
+          end: Fine
+          value: Valore
+
       location_informations: Location informations
       apartment_informations: Apartment informations
+      prices: Prices
       description: Description
       visibility: Visibility
       public: Public
@@ -331,5 +337,20 @@ en:
 
             message:
               blank: "Message required"
+
+        price:
+          attributes:
+            start: 
+              blank: Start date required
+              start_greater_end: Start date after end date
+              range_already_exist: Data range already existing
+
+
+            end: 
+              blank: End date required
+
+            value: 
+              blank: Value required
+
 
     

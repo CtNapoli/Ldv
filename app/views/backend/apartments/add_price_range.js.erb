@@ -1,0 +1,19 @@
+$('#price-start .errors').html('');
+$('#price-end .errors').html('');
+$('#price-value .errors').html('');
+
+<% if(@success) %>
+    $('#prices .all').html('<%= j render('prices') %>')
+<% else %>
+    <% if(@price.errors[:start].any?) %>
+        $('#price-start .errors' ).html('<%= error_messages(@price, :start) %>')
+    <% end %>
+
+    <% if(@price.errors[:end].any?) %>
+        $('#price-end .errors' ).html('<%= error_messages(@price, :end) %>')
+    <% end %>
+
+    <% if(@price.errors[:value].any?) %>
+        $('#price-value .errors' ).html('<%= error_messages(@price, :value) %>')
+    <% end %>
+<% end %>

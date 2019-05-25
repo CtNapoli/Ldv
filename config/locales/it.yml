@@ -274,8 +274,14 @@ it:
         title_par: Titolo
         text_par: Paragrafo
 
+        prices:
+          start: Inizio
+          end: Fine
+          value: Valore
+
       location_informations: Informazioni località
       apartment_informations: Informazioni appartamento
+      prices: Prezzi
       description: Descrizione
       visibility: Visibilità
       public: Pubblico
@@ -331,3 +337,16 @@ it:
 
             message:
               blank: "Messaggio richiesto"
+
+        price:
+          attributes:
+            start: 
+              blank: Data di inizio richiesta
+              start_greater_end: Data inizio successiva a data fine
+              range_already_exist: Range data già esistente
+
+            end: 
+              blank: Data di fine richiesta
+
+            value: 
+              blank: Valore richiesto

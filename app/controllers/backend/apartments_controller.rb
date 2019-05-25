@@ -1,6 +1,6 @@
 class Backend::ApartmentsController < BackendController
     before_action :authenticate_admin!
-    before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo]
+    before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo, :add_price_range, :remove_price_range, :edit_price_range, :update_price_range]
     
     def index
         @apartments = Apartment.all
@@ -46,6 +46,43 @@ class Backend::ApartmentsController < BackendController
     
     end
 
+    def add_price_range
+        @success = false
+        @price = Price.new(start: params[:start], end: params[:end], value: params[:value], apartment_id: @apartment.id)
+
+        @success = @price.save unless @price.range_already_exist?(@apartment)
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def remove_price_range
+        @price = @apartment.prices.find_by_id(params[:price_id])
+        @price.delete
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def edit_price_range
+        @price = @apartment.prices.find_by_id(params[:price_id])
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def update_price_range
+        @price = @apartment.prices.find_by_id(params[:price_id])
+
+        @success = @price.update(value: params[:price][:value])
+        
+        respond_to do |format|
+            format.js
+        end
+    end
 
     def load_apartment
         @apartment = Apartment.friendly.find(params[:id])
