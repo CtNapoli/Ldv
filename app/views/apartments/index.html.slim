@@ -1,15 +1,39 @@
 #apartments
     #apartments-map
         #preload
-            - @apartments.each do |a|
-                .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
+            - if @apartments.any?
+                - @apartments.each do |a|
+                    .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
 
         #map.desktop
 
     .container
         .row
             .col-lg-9.list
-                = render @apartments
+                - if @apartments.any?
+                    = render @apartments
+
+                #calendar
+                    .calendar
+                        .header
+                            a.arrow @click='movePreviousYear' &laquo;
+                            a.arrow @click='movePreviousMonth' &lsaquo;
+                            
+                            span.title @click='moveThisMonth'
+                                | {{ header.label }}
+                           
+
+                            a.arrow @click='moveNextMonth' &rsaquo;
+                            a.arrow @click='moveNextYear' &raquo;
+
+                        .weekdays
+                            .weekday v-for='weekday in weekdays'
+                                | {{ weekday.label }}
+
+                        .week v-for='week in weeks'
+                            .day :class='{ today: day.isToday }' v-for='day in week'
+                                | {{ day.label }}
+
 
             .col-lg-3
                 #apartments-form.search-form.custom-card.desktop
@@ -34,6 +58,9 @@
                                     - Area.all.each do |a|
                                         .dropdown-item data-value="#{a.name}" = a.name
 
+                        .form-group
+                            
+
                         .form-group.no-border.no-margin
                             label.tag = t('search_form.guests')
                             #guests_dropdown.dropdown
@@ -50,11 +77,10 @@
                                     .icon = image_tag 'dropdown-arrow.png'
                                     
                                 .dropdown-menu aria-labelledby="guests"
-                                    - @max_guests.times do |a|
+                                    - @max_guests&.times do |a|
                                         .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
                         = f.submit t('search_form.search'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
-                        
 
 
     #map-and-filters-mobile
@@ -107,7 +133,7 @@
                             .icon = image_tag 'dropdown-arrow.png'
                             
                         .dropdown-menu aria-labelledby="guests"
-                            - @max_guests.times do |a|
+                            - @max_guests&.times do |a|
                                 .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
                 = f.submit t('search_form.search'), class: 'btn btn-primary full'
