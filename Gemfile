@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.3'
+ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -73,3 +73,9 @@ gem 'active_link_to'
 gem 'friendly_id'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
+
+
+gem 'capistrano', '3.8.2'
+gem 'capistrano-passenger'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
