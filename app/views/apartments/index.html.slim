@@ -13,7 +13,7 @@
                 - if @apartments.any?
                     = render @apartments
 
-                #calendar
+                //#calendar
                     .calendar
                         .header
                             a.arrow @click='movePreviousYear' &laquo;
@@ -23,14 +23,14 @@
                                 | {{ header.label }}
                            
 
-                            a.arrow @click='moveNextMonth' &rsaquo;
-                            a.arrow @click='moveNextYear' &raquo;
+                            //a.arrow @click='moveNextMonth' &rsaquo;
+                            //a.arrow @click='moveNextYear' &raquo;
 
-                        .weekdays
+                        //.weekdays
                             .weekday v-for='weekday in weekdays'
                                 | {{ weekday.label }}
 
-                        .week v-for='week in weeks'
+                        //.week v-for='week in weeks'
                             .day :class='{ today: day.isToday }' v-for='day in week'
                                 | {{ day.label }}
 
