@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     def max_guests
         @max_guests = Apartment.maximum("capacity")
     end
+
+    def featured_apartments?
+        @featured_apartments = Apartment.where(in_evidence: true)
+    end
 end
