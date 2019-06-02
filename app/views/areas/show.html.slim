@@ -35,7 +35,7 @@
                         .form-group
                             label.tag = t('search_form.where')
                             #area_dropdown.dropdown
-                                = f.hidden_field :where, value: @area.id, class: 'form-control'
+                                = f.hidden_field :where, value: @area.name, class: 'form-control'
 
                                 #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
                                     span = @area.name
