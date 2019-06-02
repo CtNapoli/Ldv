@@ -10,6 +10,6 @@ module ApplicationHelper
     end
 
     def price(value)
-      return "#{value}€"
+      return "#{value.round(0)}€"
     end
 end
