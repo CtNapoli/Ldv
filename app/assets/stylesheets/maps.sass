@@ -23,13 +23,16 @@
     padding: 0 !important
 
 .window-marker-container
-    display: flex
+    +media($lg)
+        display: flex
 
     .window-marker-image
         .image
             +bg
-            width: 130px
             height: 130px
+
+            +media($lg)
+                width: 130px
 
     .window-marker-info
         padding: 20px
