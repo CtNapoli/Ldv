@@ -1,5 +1,6 @@
 class ApartmentsController < ApplicationController
-    before_action :load_areas, only: [:index]
+    before_action :load_areas, only: [:index, :show]
+    before_action :load_apartments, only: [:show]
     
     def index 
         if params[:where] || params[:guests]
