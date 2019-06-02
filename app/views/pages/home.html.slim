@@ -29,26 +29,27 @@
                 .col-lg-3
                     p.normal-text = t('homepage.section_1.text_3')
 
-    #featured-apartments.custom-section
-        .container
-            .swiper-container
-                .title-with-text.with-navigation
-                    .text
-                        h3.title = t('homepage.section_2.title')
+    - if @apartments.any?
+        #featured-apartments.custom-section
+            .container
+                .swiper-container
+                    .title-with-text.with-navigation
+                        .text
+                            h3.title = t('homepage.section_2.title')
 
-                        h4.text.secondary-font = t('homepage.section_2.subtitle')
+                            h4.text.secondary-font = t('homepage.section_2.subtitle')
 
-                    .text-right
+                        .text-right
 
-                        .nav.prev.dark
-                            = image_tag('navigation-arrow-right-white.png')
+                            .nav.prev.dark
+                                = image_tag('navigation-arrow-right-white.png')
 
-                        .nav.next.dark
-                            = image_tag('navigation-arrow-left-white.png')
+                            .nav.next.dark
+                                = image_tag('navigation-arrow-left-white.png')
 
-            
-                .swiper-wrapper
-                    = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
+                
+                    .swiper-wrapper
+                        = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
 
 
     #our-services.custom-section
@@ -108,35 +109,37 @@
                                 p = t('homepage.section_3.services.service_6.text')
 
 
-    #destinations.custom-section
-        .container
-            .title-with-text
-                h3.title = t('homepage.section_4.title')
-                
-                h4.text.secondary-font
-                    |
-                    = t('homepage.section_4.subtitle.part_1')
-                    br
-                    = t('homepage.section_4.subtitle.part_2')
+    - if @areas.any?
+        #destinations.custom-section
+            .container
+                .title-with-text
+                    h3.title = t('homepage.section_4.title')
+                    
+                    h4.text.secondary-font
+                        |
+                        = t('homepage.section_4.subtitle.part_1')
+                        br
+                        = t('homepage.section_4.subtitle.part_2')
 
-            .swiper-container
-                .swiper-wrapper
-                    = render @areas
+                .swiper-container
+                    .swiper-wrapper
+                        = render @areas
 
-    #apartments-map.custom-section
-        .container
-            .title-with-text
-                h3.title = t('homepage.section_map.title')
-                
-                h4.text.secondary-font
-                    |
-                    = t('homepage.section_map.subtitle')
+    - if @apartments.any?
+        #apartments-map.custom-section
+            .container
+                .title-with-text
+                    h3.title = t('homepage.section_map.title')
+                    
+                    h4.text.secondary-font
+                        |
+                        = t('homepage.section_map.subtitle')
 
-            #preload
-                - @apartments.each do |a|
-                    .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
+                #preload
+                    - @apartments.each do |a|
+                        .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
 
-            #map
+                #map
 
 
     #informations.custom-section.invert.form-section

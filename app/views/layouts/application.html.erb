@@ -47,15 +47,19 @@
                 <li class="nav-item">
                   <%= active_link_to t('header.menu.services'), root_path + '#our-services', class: 'nav-link' %>
                 </li>
-                <li class="nav-item">
-                  <%= active_link_to t('header.menu.destinations'), root_path + '#destinations', class: 'nav-link' %>
-                </li>
+                <% if @areas.any? %>
+                  <li class="nav-item">
+                    <%= active_link_to t('header.menu.destinations'), root_path + '#destinations', class: 'nav-link' %>
+                  </li>
+                <% end %>
                 <li class="nav-item">
                   <%= active_link_to t('header.menu.owners'), owners_path, class: 'nav-link' %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to t('header.menu.houses'), apartments_path, class: 'btn btn-primary'%>
-                </li>
+                <% if @apartments.any? %>
+                  <li class="nav-item">
+                    <%= link_to t('header.menu.houses'), apartments_path, class: 'btn btn-primary'%>
+                  </li>
+                <% end %>
                 <li class="nav-item">
                   <% if I18n.locale == :it  %>
                     <%= link_to "ENG", url_for(locale: :en), class: "nav-link" %>
