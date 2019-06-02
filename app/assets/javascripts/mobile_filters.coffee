@@ -15,3 +15,6 @@ document.addEventListener 'turbolinks:load', () ->
         mapDetached = $('.mobile-modal #map').detach()
         $('#apartments-map').append(mapDetached)
         $('.mobile-modal').removeClass('opened')
+
+    $('.mobile-modal .btn').on 'click', () ->
+        $('.mobile-modal').removeClass('opened')

@@ -3,7 +3,12 @@
 
 #apartments
     #apartments-map
-        margin-bottom: 70px
+        position: absolute
+        top: -100vh
+
+        +media($lg)
+            position: static
+            margin-bottom: 70px
         
     .apartment
         text-decoration: none

@@ -353,18 +353,6 @@
 
     .form-group
         margin-bottom: 30px
-    
-    &.mobile
-        display: block
-
-        +media($md)
-            display: none
-
-    &.desktop
-        display: none
-
-        +media($md)
-            display: block
 
 #map-and-filters-mobile
     position: fixed
@@ -398,4 +386,16 @@
     +media($md)
         display: none
 
+
+.mobile
+    display: block
+
+    +media($md)
+        display: none
+
+.desktop
+    display: none
+
+    +media($md)
+        display: block
             
