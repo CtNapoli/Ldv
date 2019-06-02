@@ -33,4 +33,12 @@ class ApplicationController < ActionController::Base
     def featured_apartments?
         @featured_apartments = Apartment.where(in_evidence: true)
     end
+
+    def load_areas
+        @areas = Area.all
+    end
+
+    def load_apartments
+        @apartments = Apartment.all
+    end
 end

@@ -1,4 +1,6 @@
 class ApartmentsController < ApplicationController
+    before_action :load_areas, only: [:index]
+    
     def index 
         if params[:where] || params[:guests]
             @where = Area.where("name ILIKE ?", "%#{params[:where]}%").first
@@ -9,6 +11,9 @@ class ApartmentsController < ApplicationController
             @apartments = Apartment.where(published: true)
         end
 
+        @start_date = params[:date] || Date.current
+        @date_range = (@start_date.to_date.beginning_of_month..@start_date.to_date.end_of_month).to_a
+
         respond_to do |format|
             format.html
             format.js
@@ -18,5 +23,13 @@ class ApartmentsController < ApplicationController
     def show
         @apartment = Apartment.friendly.find(params[:id])
         @paragraphs = JSON.parse @apartment.content
+    end
+
+    def select_day
+        
+    
+        respond_to do |format|
+          format.js
+        end
     end
 end
