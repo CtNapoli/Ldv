@@ -16,39 +16,26 @@
 
         .features
             .feature
-                span.normal-text
-                    |
-                    => apartment.capacity
-                    | 
-                    = t('apartment.guests')
+                span.normal-text = t('apartment.capacity', count: apartment.capacity)
 
             .dot-separator
 
             .feature
-                span.normal-text
-                    |
-                    => apartment.rooms
-                    | rooms
+                span.normal-text = t('apartment.rooms', count: apartment.rooms)
 
             .dot-separator
 
             .feature
-                span.normal-text
-                    |
-                    => apartment.bedrooms
-                    | bedrooms
+                span.normal-text = t('apartment.bedrooms', count: apartment.bedrooms)
 
             .dot-separator
 
             .feature
-                span.normal-text
-                    |
-                    => apartment.toilette
-                    | toilette
+                span.normal-text = t('apartment.toilette', count: apartment.toilette)
 
         .price
-            p.secondary-font.font-italic a partire da
-            p.digit.secondary-font.font-italic 120€
+            p.secondary-font.font-italic = t('apartment.price')
+            p.digit.secondary-font.font-italic = price(apartment.prices.minimum(:value))
 
 
 

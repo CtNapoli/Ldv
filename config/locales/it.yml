@@ -157,11 +157,11 @@ it:
       one: "1 ospite"
       other: "%{count} ospiti"
 
-    room:
+    rooms:
       one: "1 camera"
       other: "%{count} camere"
 
-    bedroom:
+    bedrooms:
       one: "1 camera da letto"
       other: "%{count} camere da letto"
 
@@ -172,6 +172,8 @@ it:
     where: 'dove'
     
     services: "servizi"
+
+    price: "a partire da"
 
   mobile_buttons:
     filters: 'Filtri'

@@ -158,11 +158,11 @@ en:
       one: "1 guest"
       other: "%{count} guests"
 
-    room:
+    rooms:
       one: "1 room"
       other: "%{count} rooms"
 
-    bedroom:
+    bedrooms:
       one: "1 bedroom"
       other: "%{count} bedrooms"
 
@@ -173,6 +173,8 @@ en:
     where: 'where'
 
     services: "services"
+
+    price: starting from
 
   mobile_buttons:
     filters: 'Filters'
