@@ -6,6 +6,11 @@ $('#owner-request #phone-number-container .errors' ).text('');
 $('#owner-request #message-container .errors' ).text('');
 
 <% if(@success) %>
+    $('#owner-request #name' ).val('');
+    $('#owner-request #email' ).val('');
+    $('#owner-request #phone-number' ).val('');
+    $('#owner-request #message').val('');
+
     $('#owner-request .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
 <% else %>
     <% if(@owner_request.errors[:name].any?) %>

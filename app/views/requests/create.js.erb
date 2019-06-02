@@ -5,7 +5,12 @@ $('#informations #phone-number-container .errors' ).text('');
 $('#informations #message-container .errors' ).text('');
 
 <% if(@success) %>
-    $('#informations .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
+    $('#informations #name' ).val('');
+    $('#informations #email' ).val('');
+    $('#informations #phone-number' ).val('');
+    $('#informations #message').val('');
+
+    $('#informations .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>');
 <% else %>
     <% if(@request.errors[:name].any?) %>
         $('#informations #name-container .errors' ).html('<%= error_messages(@request, :name) %>')
