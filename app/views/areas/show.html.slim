@@ -66,7 +66,66 @@
                 #apartments-map
                     #preload
                         - @area.apartments.each do |a|
-                            .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedroom', count: a.bedrooms)}" data-rooms="#{t('apartment.room', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}"
+                            .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}"
 
-                    #map
+                    #map.desktop
+
+
+    #map-and-filters-mobile
+        .map-icon.icon-container
+            .icon = image_tag 'map-mobile.png', alt: 'Map'
+            .text = t('mobile_buttons.map')
+
+        .filters-icon.icon-container
+            .icon = image_tag 'filters-mobile.png', alt: 'Filters'
+            .text = t('mobile_buttons.filters')
+
+
+    .mobile-modal
+        = image_tag 'close-modal.png', alt: 'Close', class: 'close-modal'
+        .search-form.mobile
+            = form_with url: apartments_path, method: :get do |f|
+                .form-group
+                    label.tag = t('search_form.where')
+                    #area_dropdown.dropdown
+                        - if @where.present?
+                            = f.hidden_field :where, value: @where.id, class: 'form-control'
+                        - else
+                            = f.hidden_field :where, class: 'form-control'
+
+                        #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            - if @where.present?
+                                span = @where.name
+                            - else
+                                span Seleziona
+
+                            .icon = image_tag 'dropdown-arrow.png'
+                            
+                        .dropdown-menu aria-labelledby="area"
+                            - Area.all.each do |a|
+                                .dropdown-item data-value="#{a.name}" = a.name
+
+                .form-group.no-border.no-margin
+                    label.tag = t('search_form.guests')
+                    #guests_dropdown.dropdown
+                        - if @guests.present?
+                            = f.hidden_field :guests, value: @guests, class: 'form-control'
+                        - else
+                            = f.hidden_field :guests, class: 'form-control'
+
+                        #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            - if @guests.present?
+                                span = t('apartment.capacity', count: @guests)
+                            - else
+                                span Seleziona
+                            .icon = image_tag 'dropdown-arrow.png'
+                            
+                        .dropdown-menu aria-labelledby="guests"
+                            - @max_guests&.times do |a|
+                                .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+
+                = f.submit t('search_form.search'), class: 'btn btn-primary full'
+                        
+
+        .map-container
         
