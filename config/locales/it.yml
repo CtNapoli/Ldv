@@ -275,9 +275,9 @@ it:
         text_par: Paragrafo
 
         prices:
-          start: Inizio
-          end: Fine
-          value: Valore
+          start: Valido da
+          end: Valido fino a
+          value: Prezzo per notte
 
       location_informations: Informazioni località
       apartment_informations: Informazioni appartamento

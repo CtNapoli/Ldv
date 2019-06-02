@@ -1,7 +1,23 @@
-- @apartment.prices.order(:start).each do |p|
-    .price
-        p = l(p.start, format: '%d/%m/%Y')
-        p = l(p.end, format: '%d/%m/%Y')
-        p = p.value
-        = link_to 'Delete', remove_price_range_backend_apartment_path(price_id: p.id), remote: true, method: :delete, data: {confirm: "#{t('backend.delete_alert')} questo range di prezzo?"}
-        = link_to 'Modifica', edit_price_range_backend_apartment_path(price_id: p.id), remote: true
+- if @apartment.prices.any?
+    - @apartment.prices.order(:start).each do |p|
+        .price
+            p
+                = t('backend.apartments.edit.prices.value')
+                =< price(p.value)
+
+            p 
+                = t('backend.apartments.edit.prices.start')
+                =< l(p.start, format: '%d/%m/%Y')
+
+            p 
+                = t('backend.apartments.edit.prices.end')
+                =< l(p.end, format: '%d/%m/%Y')
+
+            .actions
+                = link_to edit_price_range_backend_apartment_path(price_id: p.id), remote: true do
+                    = fa_icon "edit"
+                    
+
+                = link_to remove_price_range_backend_apartment_path(price_id: p.id), remote: true, method: :delete, data: {confirm: "#{t('backend.delete_alert')} questo range di prezzo?"} do
+                    = fa_icon "trash"
+                        

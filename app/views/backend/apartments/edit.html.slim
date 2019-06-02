@@ -202,25 +202,25 @@
         = form_with url: add_price_range_backend_apartment_path do |f|
             .row
                 .col-7
-                    .row
-                        .col-4
+                    .row.align-items-end
+                        .col-2
                             #price-start.form-group
                                 label = t('backend.apartments.edit.prices.start')
                                 = f.date_field :start, class: 'form-control'
                                 .errors
 
-                        .col-4
+                        .col-2
                             #price-end.form-group
                                 label = t('backend.apartments.edit.prices.end')
                                 = f.date_field :end, class: 'form-control'
                                 .errors
 
-                        .col-4
+                        .col-2
                             #price-value.form-group
                                 label = t('backend.apartments.edit.prices.value')
                                 = f.number_field :value, class: 'form-control'
                                 .errors
 
-                        .col-12
+                        .col-4
                             .form-group
                                 = f.button 'Aggiungi range prezzo', class: 'btn btn-primary btn-small'
