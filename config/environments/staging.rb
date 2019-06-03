@@ -101,5 +101,7 @@ Rails.application.configure do
       password:             'ldvitalia2019',
       authentication:       'plain',
       enable_starttls_auto: true }
+
+    config.action_mailer.asset_host = '68.183.215.32:8080'
   end
   

@@ -1,19 +1,19 @@
-p 
-    | Name:
-    strong =< @owner_request.name
+.header
+    = image_tag 'logo.png'
 
-p 
-    | City:
-    strong =< @owner_request.city
+.intro
+    p.title Richiesta partnership
 
-p
-    | Email:
-    strong =< @owner_request.email
+.content
+    p = @owner_request.message
 
-p
-    | Telephone:
-    strong =< @owner_request.phone_number
-
-p
-    | Message:
-    strong =< @owner_request.message
+.footer
+    p 
+        | Nome
+        b =< @owner_request.name
+        | , città
+        b =< @owner_request.city
+        | , email
+        b =< @owner_request.email
+        | , numero di telefono
+        b =< @owner_request.phone_number
