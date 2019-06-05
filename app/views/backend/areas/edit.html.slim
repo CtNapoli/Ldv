@@ -17,7 +17,7 @@
                 .form-group
                     label = t('backend.areas.edit.description')
                     = f.text_field :description, class: 'form-control'
-                    = error_messages(@area, :name)
+                    = error_messages(@area, :description)
 
             .section
                 label.big = t('backend.areas.edit.content')
