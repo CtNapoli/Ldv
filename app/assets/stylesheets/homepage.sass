@@ -43,22 +43,19 @@
             position: relative
             +bg
             transition: all .2s ease-out
+            height: 500px
+            
 
             &:hover
                 opacity: 0.8
                 text-decoration: none
 
             .text
-                position: relative
-                padding:
-                    top: 280px
-                    bottom: 40px
-                    left: 30px
-                    right: 30px
-
-                +media($xl)
-                    padding-top: 380px
-
+                padding: 0 30px
+                position: absolute
+                bottom: 30px
+                left: 0
+                
                 h5,p
                     color: white
                     //text-decoration: none
