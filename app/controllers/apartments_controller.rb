@@ -4,10 +4,10 @@ class ApartmentsController < ApplicationController
     
     def index 
         if params[:where] || params[:guests]
-            @where = Area.where("name ILIKE ?", "%#{params[:where]}%").first
+            @where = Area.with_translations(I18n.locale).where("cast(area_translations as text) ilike ?", "%#{params[:where]}%").last
             @guests = params[:guests].to_i
 
-            @apartments = Apartment.where(area_id: @where).where('capacity >= ?', @guests).where(published: true)
+            @apartments = Apartment.where(area_id: @where.id, published: true)
         else
             @apartments = Apartment.where(published: true)
         end
