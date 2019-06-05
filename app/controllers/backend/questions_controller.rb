@@ -1,4 +1,5 @@
 class Backend::QuestionsController < BackendController
+    skip_before_action :verify_authenticity_token, only: [:create, :update]
     before_action :authenticate_admin!
     before_action :load_question, only: [:edit, :update, :destroy]
 

@@ -1,5 +1,5 @@
 class Backend::ApartmentsController < BackendController
-    skip_before_action :verify_authenticity_token, only: [:create]
+    skip_before_action :verify_authenticity_token, only: [:create, :update]
     before_action :authenticate_admin!
     before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo, :add_price_range, :remove_price_range, :edit_price_range, :update_price_range]
     
