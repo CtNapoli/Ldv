@@ -87,7 +87,8 @@
                 h4.text.secondary-font = t('owner.section_3.subtitle') 
                     
             #questions-accordion.accordion
-                = render @questions
+                - if @questions.any?
+                    = render @questions
 
     #owner-request.custom-section.invert.form-section
         .intro-banner.type2
