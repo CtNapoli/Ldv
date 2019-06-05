@@ -75,6 +75,7 @@ gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
 gem "font-awesome-rails"
 gem 'premailer-rails'
+gem 'friendly_id-globalize'
 
 
 gem 'capistrano', '3.8.2'
