@@ -79,15 +79,15 @@
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_6.title')
                             p.normal-text = t('owner.section_2.services.service_6.text')
 
-    #questions.custom-section
-        .container
-            .title-with-text
-                h3.title = t('owner.section_3.title')
-                
-                h4.text.secondary-font = t('owner.section_3.subtitle') 
+    - if @questions.any?
+        #questions.custom-section
+            .container
+                .title-with-text
+                    h3.title = t('owner.section_3.title')
                     
-            #questions-accordion.accordion
-                - if @questions.any?
+                    h4.text.secondary-font = t('owner.section_3.subtitle') 
+                        
+                #questions-accordion.accordion
                     = render @questions
 
     #owner-request.custom-section.invert.form-section
