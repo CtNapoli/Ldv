@@ -1,0 +1,19 @@
+.header
+    = image_tag 'logo.png'
+
+.intro
+    p.title Richiesta partnership
+
+.content
+    p = @owner_request.message
+
+.footer
+    p 
+        | Nome
+        b =< @owner_request.name
+        | , città
+        b =< @owner_request.city
+        | , email
+        b =< @owner_request.email
+        | , numero di telefono
+        b =< @owner_request.phone_number

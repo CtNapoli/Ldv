@@ -1,0 +1,77 @@
+= form_with url: backend_area_path, model: @area, method: :patch, local: true do |f|
+    .row
+        .col-8
+            h1 = t('backend.areas.edit.title')
+
+        .col-4.text-right
+            .form-group
+                = f.submit t('backend.save'), class: 'btn btn-primary', '@click': 'updateParagraphs'
+    .row
+        .col-8
+            .section
+                .form-group
+                    label = t('backend.areas.edit.name')
+                    = f.text_field :name, class: 'form-control'
+                    = error_messages(@area, :name)
+
+                .form-group
+                    label = t('backend.areas.edit.description')
+                    = f.text_field :description, class: 'form-control'
+                    = error_messages(@area, :description)
+
+            .section
+                label.big = t('backend.areas.edit.content')
+                #paragraphs
+                    .paragraph v-for="(p, index) in paragraphs"
+                        .paragraph-title.form-group
+                            label = t('backend.areas.edit.title_par')
+                            = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title", '@change': 'updateParagraphs'
+                        
+                        .paragraph-text.form-group
+                            label = t('backend.areas.edit.text_par')
+                            = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text", '@change': 'updateParagraphs'
+
+                        .delete.text-right
+                            .btn.btn-delete.btn-small @click="removeParagraph(index)" = t('backend.delete')
+
+
+                    .cta
+                        p = t('backend.add_text')
+                        .btn.btn-primary.btn-small.add_paragraph @click='addParagraph()' = t('backend.add')
+                        
+
+                    = f.hidden_field :content
+
+
+        .col-4
+            .sidebar
+                #main-image.form-group
+                    .head-file
+                        label.medium = t('backend.main_image')
+                        .choose_file
+                            .btn.btn-primary.btn-small = t('backend.load')
+                            = f.file_field :image
+
+                    .all-previews
+                        - if @area.image.attached?
+                            .box-preview id="image-#{@area.image.id}" style="background-image: url('#{rails_blob_path(@area.image)}')"
+                                = link_to remove_main_image_area_backend_area_path, method: :delete, remote: true
+                                    .round = image_tag 'close.png', alt: 'Close'
+
+                    = error_messages(@area, :image)
+
+                #images.form-group
+                    .head-file
+                        label.medium = t('backend.gallery')
+                        .choose_file
+                            .btn.btn-primary.btn-small = t('backend.load')
+                            = f.file_field :images, multiple: true
+
+                    .all-previews
+                        - if @area.images.attached?
+                            - @area.images.each do |i|
+                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                    = link_to remove_photo_area_backend_area_path(image_id: i.id), method: :delete, remote: true
+                                        .round = image_tag 'close.png', alt: 'Close'
+
+                    = error_messages(@area, :images)

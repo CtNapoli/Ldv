@@ -1,0 +1,18 @@
+.box
+    .logo.text-center
+        = image_tag 'logo.png'
+
+    
+
+    h1.medium-text Accesso amministratore
+    = form_with url: backend_login_path, local: true do |f|
+        .form-group
+            label.tag Username
+            = f.text_field :username, class: 'form-control'
+
+        .form-group
+            label.tag Password
+            = f.password_field :password, class: 'form-control'
+
+        
+        = f.button 'Accedi', class: 'btn btn-primary full'

@@ -1,0 +1,253 @@
+@import variables
+@import mixins
+
+#backend-login
+    background-color: white
+    height: 100vh
+
+    h1
+        margin-bottom: 20px
+
+    .logo
+        margin-bottom: 40px
+
+        img
+            width: 100px
+
+    .box
+        max-width: 400px
+        width: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        padding: 15px
+
+    .custom-card
+        padding: 40px
+
+#backend
+    margin: 0
+
+    .custom-wrap
+        padding: 15px
+
+    header
+        position: fixed
+        left: 0
+        top: 0
+        width: 215px
+        height: 100vh
+        background-color: $brandColor
+        padding: 0
+
+        #logo
+            margin:
+                top: 20px 
+                bottom: 60px
+
+            img
+                width: 90px
+
+        a
+            display: block
+            color: white
+            padding: 15px
+            text-decoration: none
+
+            &.active
+                background-color: white
+                color: $brandColor
+
+        .foot
+            position: absolute
+            bottom: 0
+            left: 0
+
+            .languages
+                display: flex
+                margin-bottom: 40px
+                padding-left: 15px
+
+                a
+                    &.active
+                        border-radius: 10px
+
+    main
+        margin-left: 215px
+        padding: 20px 80px
+        height: 100vh
+
+        h1
+            font-size: 32px
+            line-height: 42px
+
+        label
+            font-size: 10px
+            line-height: 20px
+            font-weight: 700
+            text-transform: uppercase
+
+            &.big
+                margin-bottom: 30px
+                font-size: 24px
+                line-height: 34px
+                font-weight: 400
+                text-transform: none
+
+        .section
+            margin:
+                bottom: 80px
+
+        .sidebar
+            background-color: $lightBgColor
+            padding: 30px
+            border-radius: 10px
+
+            label
+                &.medium
+                    text-transform: none
+                    font-size: 14px
+                    line-height: 24px
+                    font-weight: 400
+                    margin-bottom: 10px
+
+
+    .all-previews
+        display: flex
+        flex-wrap: wrap
+
+        .box-preview
+            width: 50%
+            height: 100px
+            +bg
+            position: relative
+
+            .round
+                width: 20px
+                height: 20px
+                background-color: white
+                border-radius: 50%
+                position: absolute
+                right: 8px
+                top: 8px
+                cursor: pointer
+
+                img
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+
+
+    #paragraphs
+        .cta
+            display: flex
+            align-items: center
+
+            .btn
+                margin-left: 15px
+                
+
+        .btn
+            cursor: pointer
+
+    .custom-marker-collection
+        display: flex
+        flex-wrap: wrap
+
+        .custom-marker
+            flex-basis: 50%
+
+            label
+                cursor: pointer
+                display: flex
+                align-items: center
+
+            input
+                display: none
+
+                &:checked + .marker
+                    &:before
+                        background-color: $brandColor
+                
+
+            .marker
+                width: 20px
+                height: 20px
+                border: solid 1px $brandColor
+                background-color: white
+                position: relative
+                margin-right: 8px
+
+                &.radio
+                    border-radius: 50%
+
+                    &:before
+                        border-radius: 50%
+            
+
+                &:before
+                    content: ''
+                    display: block
+                    background-color: transparent
+                    position: absolute
+                    left: 50%
+                    top: 50%
+                    transform: translate(-50%,-50%)
+                    transition: all .2s ease-out
+                    width: 14px
+                    height: 14px
+
+    #services
+        .custom-marker
+            margin-bottom: 20px
+
+    #main-image
+        margin-bottom: 40px
+
+    .head-file
+        display: flex
+        align-items: center
+        margin-bottom: 20px
+
+        label
+            flex-grow: 1
+            margin-bottom: 0
+
+    .choose_file
+        position: relative
+        cursor: pointer
+
+        input[type="file"]
+            -webkit-appearance: none
+            position: absolute
+            top: 0
+            left: 0
+            opacity: 0
+            height: 40px
+
+
+    #prices
+        .all
+            display: flex
+            flex-wrap: wrap
+            margin-bottom: 20px
+
+            .price
+                background-color: $gadgetColor
+                padding: 15px
+                border-radius: 10px
+                flex-basis: 250px
+                position: relative
+                margin-right: 20px
+
+            .actions
+                position: absolute
+                top: 15px
+                right: 15px
+
+                a
+                    display: block
+                    
+

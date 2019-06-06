@@ -1,0 +1,21 @@
+.row
+    .col-8
+        h1 = t('backend.services.index.title')
+
+    .col-4.text-right
+        = link_to t('backend.services.index.cta'), new_backend_service_path, class: 'btn btn-primary'
+
+table.table
+    thead
+        tr
+            th
+                label = t('backend.services.index.name')
+
+            th
+
+            th
+
+            
+    tbody
+        - if @services.any?
+            = render @services

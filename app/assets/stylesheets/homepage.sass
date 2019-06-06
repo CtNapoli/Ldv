@@ -1,0 +1,67 @@
+@import variables
+@import mixins
+
+#homepage
+    .intro-banner
+        background-image: url(asset_path('homepage/intro.jpg'))
+
+    #about-us
+        .medium-text
+            margin-bottom: 30px
+
+
+    #our-services
+        .services
+            margin-top: 40px
+
+            +media($xl)
+                margin-top: 0
+
+            .service
+                margin-bottom: 70px
+
+                img
+                    width: 46px
+                    margin-bottom: 25px
+
+                h4
+                    font-weight: 700
+                    margin-bottom: 10px
+
+    #destinations
+        .swiper-slide
+            width: 260px
+
+            &:last-child
+                margin-right: 0
+
+            +media($xl)
+                //width: calc(25% - 20px)
+
+        .destination
+            display: block
+            position: relative
+            +bg
+            transition: all .2s ease-out
+            height: 500px
+            
+
+            &:hover
+                opacity: 0.8
+                text-decoration: none
+
+            .text
+                padding: 0 30px
+                position: absolute
+                bottom: 30px
+                left: 0
+                
+                h5,p
+                    color: white
+                    //text-decoration: none
+
+    #informations
+        .intro-banner
+            background-image: url(asset_path('homepage/informations.jpg'))
+
+                

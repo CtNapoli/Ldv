@@ -1,0 +1,37 @@
+$('#owner-request input[type="submit"]').prop('disabled', true);
+$('#owner-request #name-container .errors' ).text('');
+$('#owner-request #city-container .errors' ).text('');
+$('#owner-request #email-container .errors' ).text('');
+$('#owner-request #phone-number-container .errors' ).text('');
+$('#owner-request #message-container .errors' ).text('');
+
+<% if(@success) %>
+    $('#owner-request #name' ).val('');
+    $('#owner-request #email' ).val('');
+    $('#owner-request #phone-number' ).val('');
+    $('#owner-request #message').val('');
+
+    $('#owner-request .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
+<% else %>
+    <% if(@owner_request.errors[:name].any?) %>
+        $('#owner-request #name-container .errors' ).html('<%= error_messages(@owner_request, :name) %>')
+    <% end %>
+
+    <% if(@owner_request.errors[:city].any?) %>
+        $('#owner-request #city-container .errors' ).html('<%= error_messages(@owner_request, :city) %>')
+    <% end %>
+
+    <% if(@owner_request.errors[:email].any?) %>
+        $('#owner-request #email-container .errors' ).html('<%= error_messages(@owner_request, :email) %>')
+    <% end %>
+
+    <% if(@owner_request.errors[:phone_number].any?) %>
+        $('#owner-request #phone-number-container .errors' ).html('<%= error_messages(@owner_request, :phone_number) %>')
+    <% end %>
+
+    <% if(@owner_request.errors[:message].any?) %>
+        $('#owner-request #message-container .errors' ).html('<%= error_messages(@owner_request, :message) %>')
+    <% end %>
+<% end %>
+
+$('#owner-request input[type="submit"]').prop('disabled', false);

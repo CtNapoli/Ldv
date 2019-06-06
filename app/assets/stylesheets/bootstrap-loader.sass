@@ -1,0 +1,95 @@
+@import bootstrap
+@import global
+
+.container
+    &.reduced
+        max-width: 1200px
+    &.large
+        max-width: 1600px
+
+.btn
+    border-radius: 5px
+    box-shadow: none
+    font-weight: 700
+    text-transform: uppercase
+    font-size: 12px
+    line-height: 15px
+    padding: 20px 45px
+    border: none
+    color: white
+    letter-spacing: 1.5px
+
+    &.btn-primary
+        background-color: $brandColor
+
+        &:not(:disabled)
+            &:not(:disabled)
+                &:active, &:focus, &:hover
+                    background-color: $brandColor
+                    border: none
+                    box-shadow: none
+    
+    &.btn-secondary
+        background-color: transparent
+        border: solid 1px white
+
+        &:not(:disabled)
+            &:not(:disabled)
+                &:active, &:focus, &:hover
+                    background-color: transparent
+                    border: solid 1px white
+
+    &.full
+        width: 100%
+
+    &.btn-small
+        padding: 10px 20px
+        font-size: 10px
+        line-height: 20px
+
+    &.btn-delete
+        background-color: $gadgetColor
+        color: $brandColor
+
+.dropdown
+    .dropdown-button
+        display: flex
+        align-items: center
+        cursor: pointer
+        padding-bottom: 30px
+        padding-top: 15px
+        border-bottom: solid 1px rgba($brandColor, 0.3)
+
+        span
+            flex-grow: 1
+            font-size: 18px
+
+        .icon img
+            width: 8px
+
+    .dropdown-menu
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px
+        border: none
+
+        .dropdown-item
+            cursor: pointer
+            font-size: 19px
+
+            &:hover,&:focus,&:active
+                background-color: white
+
+
+.modal
+    .modal-dialog
+        .modal-content
+            padding: 40px
+
+            .actions
+                display: flex
+
+                a
+                    margin-right: 20px
+
+                .btn
+                    flex-basis: 50%
+

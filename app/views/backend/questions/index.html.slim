@@ -1,0 +1,24 @@
+.row
+    .col-8
+        h1 = t('backend.questions.index.title')
+
+    .col-4.text-right
+        = link_to t('backend.questions.index.cta'), new_backend_question_path, class: 'btn btn-primary'
+
+table.table
+    thead
+        tr
+            th
+                label = t('backend.questions.index.request')
+
+            th
+                label = t('backend.questions.index.reply')
+
+            th
+
+            th
+
+            
+    tbody
+        - if @questions.any?
+            = render @questions

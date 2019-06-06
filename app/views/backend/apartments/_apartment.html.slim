@@ -1,0 +1,10 @@
+tr
+    td = apartment.name
+    td = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
+    td = apartment.capacity
+    td = apartment.square_meters
+    td = apartment.rooms
+    td = apartment.bedrooms
+    td = apartment.toilette
+    td = link_to t('backend.edit'), edit_backend_apartment_path(apartment)
+    td = link_to t('backend.delete'), backend_apartment_path(apartment), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} #{apartment.name}?"}

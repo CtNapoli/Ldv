@@ -1,0 +1,84 @@
+#apartment
+    .gallery
+        - if @apartment.images.count > 1
+            .swiper-container
+                .swiper-wrapper
+                    - @apartment.images.each do |image|
+                        .swiper-slide
+                            .image style="background-image: url('#{rails_blob_path(image)}')"
+
+                .navigation.prev
+                    = image_tag('navigation-arrow-left.png')
+
+                .navigation.next
+                    = image_tag('navigation-arrow-right.png')
+
+        - else
+            .image style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
+            
+    .container
+        .row
+            .col-lg-8
+                h1.secondary-font.big-text.font-italic = @apartment.name
+                h2.address.normal-text
+                    |
+                    => @apartment.city
+                    | |
+                    =< @apartment.address
+                    | ,
+                    =<> @apartment.postal_code
+                    | (
+                    = @apartment.province
+                    | )
+                .properties
+                    .property
+                        = image_tag('apartments/capacity.png')
+                        h3 = t('apartment.capacity', count: @apartment.capacity)
+                           
+
+                    .property
+                        = image_tag('apartments/square_meters.png')
+                        h3
+                            |
+                            = @apartment.square_meters
+                            | mq
+
+                    .property
+                        = image_tag('apartments/rooms.png')
+                        h3 = t('apartment.room', count: @apartment.rooms)
+
+                    .property
+                        = image_tag('apartments/bedrooms.png')
+                        h3 = t('apartment.bedroom', count: @apartment.bedrooms)
+
+                    .property
+                        = image_tag('apartments/toilette.png')
+                        h3 = t('apartment.toilette', count: @apartment.toilette)
+
+
+                - if @apartment.services.any?
+                    h4.tag = t('apartment.services')
+
+                    .services
+                        - @apartment.services.each do |s|
+                            .service
+                                .icon
+                                    = image_tag('check.png')
+                                .text
+                                    h5.normal-text = s.name
+
+                - if @paragraphs.any?
+                    .content
+                        - @paragraphs.each do |p|
+                            .paragraph
+                                h4.tag = p['title']
+                                p = p['text']
+
+                #apartments-map
+                    #preload
+                        .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{rails_blob_path(@apartment.main_image)}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.rooms', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}" data-minimumprice="#{price(@apartment.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}"
+
+                    #map
+
+
+            .col-lg-4

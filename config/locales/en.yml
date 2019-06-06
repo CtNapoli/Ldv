@@ -1,0 +1,358 @@
+en:
+  header:
+    menu:
+      about: About
+      services: Services
+      destinations: Destinations
+      owners: Owners
+      houses: Houses
+
+  homepage:
+    section_0:
+      title:
+        part_1: Best vacations,
+        part_2: best locations
+
+    section_1:
+      title: 'About us'
+      subtitle:
+        part_1: 10 years of experience 
+        part_2: in touristic accommodation
+
+      text_1: Lorem ipsum dolor sit amet
+      text_2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text_3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+    section_2:
+      title: Do you know where do you want to go?
+      subtitle: Let us inspire you
+
+    section_3:
+      title: Our services
+      subtitle:
+        part_1: Everything we think
+        part_2: It’s about you
+
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      services:
+        service_1:
+          title: Service 1
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_2:
+          title: Service 2
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_3:
+          title: Service 3
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_4:
+          title: Service 4
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_5:
+          title: Service 5
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_6:
+          title: Service 6
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    section_map:
+      title: LDV map
+      subtitle: Lorem ipsum dolor sit amet
+
+    section_4:
+      title: Destinations
+      subtitle:
+        part_1: Lorem ipsum
+        part_2: dolor sit amet
+
+    section_5:
+      title: Do you need informations?
+      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      form:
+        name: 'Name (required)'
+        email: 'Email (required)'
+        phone_number: 'Phone number'
+        message: 'Messaggio (required)'
+        submit: 'Send request'
+
+  owner:
+    section_0:
+      title: 
+        part_1: Partnering with
+        part_2: LDV Homes Collection
+
+    section_1:
+      properties:
+        property_1:
+          title: The right guests
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        property_2:
+          title: Simplify your life
+          text: As a full-service vacation rental company, we provide you with a turnkey booking solution, streamlining communication at every step.
+
+        property_3:
+          title: No risks proposition
+          text: We believe in a pay-for-performance model so there are no sign-up fees or costs. We’re successful when you’re successful.
+
+    section_2:
+      title: Making it works for you
+      subtitle:
+        part_1: A fully-integrated
+        part_2: luxury hospitality company
+
+      services:
+        service_1:
+          title: Local market presence
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        service_2:
+          title: Website presence
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        service_3:
+          title: Mobile ready
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        service_4:
+          title: Reservation service
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        service_5:
+          title: Concierge services
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+        service_6:
+          title: Billing and payment
+          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+
+    section_3:
+      title: Faq
+      subtitle: Frequent Asked Questions
+
+    section_4:
+      title: Application form
+      subtitle: Interested? Apply to the Collection
+      text: We select only the finest properties to be a part of our exclusive LDV Homes Collection. If you think your vacation home would be a good fit, please send us more details so that we might evaluate your property. Note that only a very select number of properties will be invited in any given destination to ensure that each of our vacation rental partners receives the exposure and attention they deserve.
+
+      form:
+        name: 'Name (required)'
+        city: 'City (required)'
+        email: 'Email (required)'
+        phone_number: 'Telephone'
+        message: 'Message (required)'
+        submit: 'Send request'
+
+
+  apartment:
+    guests: 'guests'
+
+    capacity:
+      one: "1 guest"
+      other: "%{count} guests"
+
+    rooms:
+      one: "1 room"
+      other: "%{count} rooms"
+
+    bedrooms:
+      one: "1 bedroom"
+      other: "%{count} bedrooms"
+
+    toilette:
+      one: "1 toilette"
+      other: "%{count} toilette"
+
+    where: 'where'
+
+    services: "services"
+
+    price: starting from
+
+  mobile_buttons:
+    filters: 'Filters'
+    map: 'Map'
+
+  search_form:
+    where: Where
+    guests: Guests
+    search: Search
+
+  backend:
+    menu:
+      apartments: Apartments
+      services: Services
+      areas: Areas
+      faq: Faq
+
+    services:
+      index:
+        title: Services
+        name: Name
+        cta: New service
+
+      new: 
+        title: New service
+        name: Name
+
+      edit:
+        title: Edit service
+
+    areas:
+      index:
+        title: Areas
+        name: Name
+        description: Description
+
+      edit:
+        title: Edit area
+        name: Name
+        description: Description
+        title_par: Title
+        text_par: Paragraph
+        content: Content
+
+    questions:
+      index:
+        title: FAQ
+        cta: New FAQ
+        request: Request
+        reply: Reply
+
+      edit:
+        title: Edit FAQ
+        request: Request
+        reply: Reply
+
+    apartments:
+      index:
+        title: Apartments
+        cta: New apartment
+        name: Name
+        address: Address
+        capacity: Capacity
+        square_meters: Square meters
+        rooms: Rooms
+        bedrooms: Bedrooms
+        bathrooms: Bathrooms
+
+      new:
+        title: New apartment
+        name: Name
+        address: Address
+        postal_code: ZIP CODE
+        city: City
+        province: Province
+        lat: Latitude
+        lng: Longitude
+        capacity: Capacity
+        square_meters: Square meters
+        rooms: Rooms
+        bedrooms: Bedrooms
+        bathrooms: Bathrooms
+        title_par: Title
+        text_par: Paragraph
+
+      edit:
+        title: Edit apartment
+        name: Name
+        address: Address
+        postal_code: ZIP CODE
+        city: City
+        province: Province
+        lat: Latitude
+        lng: Longitude
+        capacity: Capacity
+        square_meters: Square meters
+        rooms: Rooms
+        bedrooms: Bedrooms
+        bathrooms: Bathrooms
+        title_par: Title
+        text_par: Paragraph
+
+        prices:
+          start: Valid from
+          end: Valido until
+          value: Price for night
+
+      location_informations: Location informations
+      apartment_informations: Apartment informations
+      prices: Prices
+      description: Description
+      visibility: Visibility
+      public: Public
+      private: Private
+      in_evidence: In evidence
+      y: "yes"
+      no: "no"
+      area: Area
+      services: Services
+
+
+    edit: Edit
+    delete: Delete
+    delete_alert: Are you sure you want to delete
+    save: Save
+    add_text: Do you want to add a paragraph?
+    add: Add
+    main_image: Main image
+    load: Load
+    gallery: Gallery
+
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            name:
+              blank: "Name required"
+
+            email:
+              blank: "Email required"
+
+            phone_number:
+              invalid: "Invalid format"
+
+            message:
+              blank: "Message required"
+
+        owner_request:
+          attributes:
+            name:
+              blank: "Name required"
+
+            city:
+              blank: "Città required"
+
+            email:
+              blank: "Email required"
+
+            phone_number:
+              invalid: "Invalid format"
+
+            message:
+              blank: "Message required"
+
+        price:
+          attributes:
+            start: 
+              blank: Start date required
+              start_greater_end: Start date after end date
+              range_already_exist: Data range already existing
+
+
+            end: 
+              blank: End date required
+
+            value: 
+              blank: Value required
+
+
+    

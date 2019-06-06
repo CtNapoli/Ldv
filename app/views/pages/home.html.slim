@@ -1,0 +1,201 @@
+#homepage
+    .intro-banner.type1
+        .container
+            h2.text.font-italic.giant-text.secondary-font
+                |
+                = t('homepage.section_0.title.part_1')
+                br
+                = t('homepage.section_0.title.part_2')
+
+
+    #about-us.custom-section
+        .container
+            .title-with-text
+                h3.title = t('homepage.section_1.title')
+                
+                h4.text.secondary-font
+                    | 
+                    = t('homepage.section_1.subtitle.part_1') 
+                    br
+                    = t('homepage.section_1.subtitle.part_2')
+
+            .row
+                .col-lg-6
+                    p.medium-text.font-italic.secondary-font = t('homepage.section_1.text_1')
+
+                .col-lg-3
+                    p.normal-text = t('homepage.section_1.text_2')
+
+                .col-lg-3
+                    p.normal-text = t('homepage.section_1.text_3')
+
+    - if @featured_apartments.any?
+        #featured-apartments.custom-section
+            .container
+                .swiper-container
+                    .title-with-text.with-navigation
+                        .text
+                            h3.title = t('homepage.section_2.title')
+
+                            h4.text.secondary-font = t('homepage.section_2.subtitle')
+
+                        .text-right
+
+                            .nav.prev.dark
+                                = image_tag('navigation-arrow-right-white.png')
+
+                            .nav.next.dark
+                                = image_tag('navigation-arrow-left-white.png')
+
+                
+                    .swiper-wrapper
+                        = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
+
+
+    #our-services.custom-section
+        .container
+            .row
+                .col-lg-5
+                    .title-with-text
+                        h3.title = t('homepage.section_2.title')
+                
+                        h4.text.secondary-font
+                            |
+                            = t('homepage.section_3.subtitle.part_1') 
+                            br
+                            |
+                            = t('homepage.section_3.subtitle.part_2') 
+
+                    p = t('homepage.section_3.text') 
+
+                .col-lg-1
+
+                .col-lg-6
+                    .row.services
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_1.title') 
+                                p = t('homepage.section_3.services.service_1.text')
+
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_2.title')
+                                p = t('homepage.section_3.services.service_2.text')
+
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_3.title')
+                                p = t('homepage.section_3.services.service_3.text')
+
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_4.title')
+                                p = t('homepage.section_3.services.service_4.text')
+
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_5.title')
+                                p = t('homepage.section_3.services.service_5.text')
+
+                        .col-sm-6.col-xl-4
+                            .service
+                                = image_tag('homepage/service-fake.png')
+                                h4.normal-text = t('homepage.section_3.services.service_6.title')
+                                p = t('homepage.section_3.services.service_6.text')
+
+
+    - if @areas.any?
+        #destinations.custom-section
+            .container
+                .title-with-text
+                    h3.title = t('homepage.section_4.title')
+                    
+                    h4.text.secondary-font
+                        |
+                        = t('homepage.section_4.subtitle.part_1')
+                        br
+                        = t('homepage.section_4.subtitle.part_2')
+
+                .swiper-container
+                    .swiper-wrapper
+                        = render @areas
+
+    - if @apartments.any?
+        #apartments-map.custom-section.desktop
+            .container
+                .title-with-text
+                    h3.title = t('homepage.section_map.title')
+                    
+                    h4.text.secondary-font
+                        |
+                        = t('homepage.section_map.subtitle')
+
+                #preload
+                    - @apartments.each do |a|
+                        .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}"
+
+                #map
+
+
+    #informations.custom-section.invert.form-section
+        .intro-banner.type2
+            .container
+                .title-with-text
+                    h3.title = t('homepage.section_5.title')
+                    
+                    h4.text.secondary-font = t('homepage.section_5.subtitle')
+
+        .request-form.custom-form
+            .container
+                .row
+                    .col-xl-5
+                        p = t('homepage.section_5.text')
+
+                    .col-xl-1
+
+                    .col-xl-6
+                        = form_with url: requests_path do |f|
+                            .row
+                                .col-12
+                                    #name-container.form-group
+                                        = f.text_field :name, class: 'form-control', placeholder: t('homepage.section_5.form.name')
+                                        .errors
+
+                            .row
+                                .col-6
+                                    #email-container.form-group
+                                        = f.email_field :email, class: 'form-control', placeholder: t('homepage.section_5.form.email')
+                                        .errors
+
+                                .col-6
+                                    #phone-number-container.form-group
+                                        = f.text_field :phone_number, class: 'form-control', placeholder: t('homepage.section_5.form.phone_number')
+                                        .errors
+
+                            .row
+                                .col-12
+                                    #message-container.form-group
+                                        = f.text_area :message, class: 'form-control', placeholder: t('homepage.section_5.form.message')
+                                        .errors
+
+                            .row
+                                .col-12
+                                    .form-respond
+                                    
+                                    .form-group
+                                        = f.submit t('homepage.section_5.form.submit'), class: 'btn btn-secondary'
+
+                                
+
+
+
+
+                        
+
+
+

@@ -1,0 +1,169 @@
+@import variables
+@import mixins
+
+#apartments
+    #apartments-map
+        position: absolute
+        top: -100vh
+
+        +media($lg)
+            position: static
+            margin-bottom: 70px
+        
+    .apartment
+        text-decoration: none
+        margin-bottom: 30px
+        transition: all .2s linear
+
+        +media($md)
+            display: flex
+
+        &:hover,&:active,&:focus
+            opacity: 0.8
+
+        &:last-child
+            margin-bottom: 0
+
+        .image
+            +bg
+            flex-basis: 30%
+            padding-top: 50%
+
+            +media($md)
+                padding-top: 0
+
+        .info
+            flex-grow: 1
+            padding: 30px
+
+            .name
+                margin-bottom: 15px
+
+.apartment
+    display: block
+
+    &:hover,&:active,&:focus
+        text-decoration: none
+
+    .box-image
+        width: 100%
+        height: 300px
+        +bg
+            
+
+    .box-text
+        padding: 20px 10px
+        display: flex
+        align-items: flex-start
+
+        .info
+            flex-grow: 1
+
+    .price
+        p
+            font-size: 14px
+            line-height: 24px
+            color: $secondaryColor
+
+            &.digit
+                font-size: 32px
+                line-height: 42px
+
+#apartment
+    .container
+        padding: 0
+
+        +media($md)
+            padding: 0 15px
+
+    h1
+        margin:
+            top: 25px
+            bottom: 10px
+
+        +media($md)
+            margin:
+                top: 70px 
+                bottom: 20px
+
+    .properties
+        display: flex
+        flex-wrap: wrap
+        margin: 40px 0
+
+        +media($md)
+            justify-content: space-between
+
+
+        .property
+            flex-basis: 33.3%
+            text-align: center
+            margin-bottom: 20px
+
+            +media($md)
+                flex-basis: auto
+
+            img
+                width: 40px
+
+            h3
+                font-size: 18px
+                line-height: 28px
+
+    .services
+        display: flex
+        flex-wrap: wrap
+        margin-top: 20px
+
+        .service
+            display: flex
+            flex-basis: 50%
+            align-items: center
+            margin-bottom: 10px
+
+            +media($md)
+                margin-right: 30px
+                flex-basis: auto
+
+            img
+                width: 15px
+                margin-right: 10px
+
+    .content
+        margin-top: 40px
+
+        .paragraph
+            margin-bottom: 20px
+
+            h4
+                margin-bottom: 20px
+
+    #apartments-map
+        margin-top: 40px
+
+
+#featured-apartments
+    .swiper-slide
+        width: 300px
+
+
+.info
+    .features
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        margin: 
+            top: 15px
+            bottom: 30px
+
+        .dot-separator
+            &:before
+                content: ''
+                display: block
+                width: 3px
+                height: 3px
+                border-radius: 50%
+                background-color: $brandColor
+                margin: 0 12px
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ldv</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    
+
+    <% if Rails.env.development? %>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <% elsif Rails.env.production? %>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <% end %>
+
+  </head>
+
+  <body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+          <div id="toggle-menu">
+            <span class="line long"></span>
+            <span class="line"></span>
+          </div>
+
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag('logo.png') %>
+          <% end %>
+          
+          <div class="desktop">
+            <div class="collapse navbar-collapse justify-content-end" id="main-menu">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.about'), root_path + '#about-us', class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.services'), root_path + '#our-services', class: 'nav-link' %>
+                </li>
+                <% if @areas.any? %>
+                  <li class="nav-item">
+                    <%= active_link_to t('header.menu.destinations'), root_path + '#destinations', class: 'nav-link' %>
+                  </li>
+                <% end %>
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.owners'), owners_path, class: 'nav-link' %>
+                </li>
+                <% if @apartments.any? %>
+                  <li class="nav-item">
+                    <%= link_to t('header.menu.houses'), apartments_path, class: 'btn btn-primary'%>
+                  </li>
+                <% end %>
+                <li class="nav-item">
+                  <% if I18n.locale == :it  %>
+                    <%= link_to "ENG", url_for(locale: :en), class: "nav-link" %>
+                  <% elsif I18n.locale == :en %>
+                    <%= link_to "ITA", url_for(locale: ''), class: "nav-link" %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mobile">
+            <div id="main-menu-mobile" class="text-center">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.about'), root_path + '#about-us', class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.services'), root_path + '#our-services', class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.destinations'), root_path + '#destinations', class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= active_link_to t('header.menu.owners'), owners_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to t('header.menu.houses'), apartments_path, class: 'btn btn-primary'%>
+                </li>
+                <li class="nav-item">
+                  <% if I18n.locale == :it  %>
+                    <%= link_to "ENG", url_for(locale: :en), class: "nav-link" %>
+                  <% elsif I18n.locale == :en %>
+                    <%= link_to "ITA", url_for(locale: ''), class: "nav-link" %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main class="custom-wrap">
+      <%= yield %>
+      <%= render "pages/footer" %>
+    </main>
+  </body>
+</html>

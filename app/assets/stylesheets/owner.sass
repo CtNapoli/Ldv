@@ -1,0 +1,68 @@
+@import global
+
+#owner
+    .intro-banner
+        background-image: url(asset_path('owner/intro.jpg'))
+
+    #properties
+        .property
+            margin-bottom: 45px
+
+            img
+                width: 60px
+                margin-bottom: 35px
+
+            h3
+                margin-bottom: 10px
+
+            +media($lg)
+                margin-bottom: 0
+
+    #making
+        #services
+            .first
+                margin-bottom: 80px
+
+            .service
+                margin-bottom: 40px
+
+                +media($lg)
+                    margin-bottom: 0
+
+                img
+                    width: 100%
+                    border-radius: 5px
+                    margin-bottom: 30px
+
+                h4
+                    margin-bottom: 10px
+
+    #questions
+        .accordion
+            .request
+                display: flex
+                align-items: center
+                cursor: pointer
+                padding: 30px 0
+                border-bottom: solid 1px rgba($brandColor, 0.3)
+
+                &[aria-expanded=true]
+                    border-bottom-color: transparent
+
+                    .icon
+                        transform: rotate(180deg)
+
+                .icon
+                    margin-right: 20px
+                    transition: all .1s ease-in-out
+
+                    img
+                        width: 30px
+
+            .reply
+                padding-bottom: 30px
+                border-bottom: solid 1px rgba($brandColor, 0.3)
+
+    #owner-request
+        .intro-banner
+            background-image: url(asset_path('owner/request.jpg'))

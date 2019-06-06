@@ -1,0 +1,354 @@
+it:
+  header:
+    menu:
+      about: About
+      services: Servizi
+      destinations: Destinazioni
+      owners: Proprietari
+      houses: Case
+
+  homepage:
+    section_0:
+      title:
+        part_1: Le migliori vacanze,
+        part_2: le migliori locations
+
+    section_1:
+      title: Chi siamo
+      subtitle:
+        part_1: 10 anni di esperienza
+        part_2: in alloggio turistico
+
+      text_1: Lorem ipsum dolor sit amet
+      text_2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text_3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+    section_2:
+      title: Sai dove vuoi andare?
+      subtitle: Lasciati ispirare
+
+    section_3:
+      title: I nostri servizi
+      subtitle:
+        part_1: Tutto ciò che pensiamo
+        part_2: Ti riguarda
+
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      services:
+        service_1:
+          title: Servizio 1
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_2:
+          title: Servizio 2
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_3:
+          title: Servizio 3
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_4:
+          title: Servizio 4
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_5:
+          title: Servizio 5
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        service_6:
+          title: Servizio 6
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    section_map:
+      title: LDV mappa
+      subtitle: Lorem ipsum dolor sit amet
+
+    section_4:
+      title: Destinazioni
+      subtitle:
+        part_1: Lorem ipsum
+        part_2: dolor sit amet
+
+    section_5:
+      title: Hai bisogno di informazioni?
+      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+      form:
+        name: 'Nome (richiesto)'
+        email: 'Email (richiesto)'
+        phone_number: 'Numero di telefono'
+        message: 'Messaggio (richiesto)'
+        submit: 'Invia richiesta'
+
+  owner:
+    section_0:
+      title: 
+        part_1: Collaborazione con
+        part_2: LDV Homes Collection
+
+    section_1:
+      properties:
+        property_1:
+          title: Gli ospiti giusti
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        property_2:
+          title: Semplifica la tua vita
+          text: Come società di noleggio di vacanze a servizio completo, ti forniamo una soluzione di prenotazione chiavi in mano, semplificando la comunicazione ad ogni passo.
+
+        property_3:
+          title: Nessuna proposta di rischi
+          text: Crediamo in un modello pay-for-performance, quindi non ci sono costi di iscrizione o costi. Abbiamo successo quando hai successo.
+
+    section_2:
+      title: Making it works for you
+      subtitle:
+        part_1: A fully-integrated
+        part_2: luxury hospitality company
+
+      services:
+        service_1:
+          title: Presenza sul mercato locale
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_2:
+          title: Presenza sul sito
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_3:
+          title: Pronto per il cellulare
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_4:
+          title: Servizio di prenotazione
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_5:
+          title: Servizi di portineria
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+        service_6:
+          title: Fatturazione e pagamento
+          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+
+    section_3:
+      title: Faq
+      subtitle: Domande frequenti
+
+    section_4:
+      title: Modulo di domanda
+      subtitle: Sei interessato? Diventa partner
+      text: We select only the finest properties to be a part of our exclusive LDV Homes Collection. If you think your vacation home would be a good fit, please send us more details so that we might evaluate your property. Note that only a very select number of properties will be invited in any given destination to ensure that each of our vacation rental partners receives the exposure and attention they deserve.
+
+      form:
+        name: 'Nome (richiesto)'
+        city: 'Città (richiesta)'
+        email: 'Email (richiesta)'
+        phone_number: 'Telefono'
+        message: 'Messaggio (richiesto)'
+        submit: 'Invia richiesta'
+
+  apartment:
+    guests: 'ospiti'
+
+    capacity:
+      one: "1 ospite"
+      other: "%{count} ospiti"
+
+    rooms:
+      one: "1 camera"
+      other: "%{count} camere"
+
+    bedrooms:
+      one: "1 camera da letto"
+      other: "%{count} camere da letto"
+
+    toilette:
+      one: "1 bagno"
+      other: "%{count} bagni"
+
+    where: 'dove'
+    
+    services: "servizi"
+
+    price: "a partire da"
+
+  mobile_buttons:
+    filters: 'Filtri'
+    map: 'Mappa'
+
+  search_form:
+    where: Dove
+    guests: Ospiti
+    search: Cerca
+
+  backend:
+    menu:
+      apartments: Appartamenti
+      services: Servizi
+      areas: Aree
+      faq: Faq
+
+    services:
+      index:
+        title: Servizi
+        name: Nome
+        cta: Nuovo servizio
+
+      new: 
+        title: Nuovo servizio
+        name: Nome
+
+      edit:
+        title: Modifica servizio
+
+    areas:
+      index:
+        title: Aree
+        name: Nome
+        description: Descrizione
+
+      edit:
+        title: Modifica area
+        name: Nome
+        description: Descrizione
+        title_par: Titolo
+        text_par: Paragrafo
+        content: Contenuto
+
+    questions:
+      index:
+        title: FAQ
+        cta: Nuova FAQ
+        request: Domanda
+        reply: Risposta
+
+      edit:
+        title: Modifica FAQ
+        request: Domanda
+        reply: Risposta
+
+    apartments:
+      index:
+        title: Appartamenti
+        cta: Nuovo appartamento
+        name: Nome
+        address: Indirizzo
+        capacity: Capienze
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+
+      new:
+        title: Nuovo appartamento
+        name: Nome
+        address: Indirizzo
+        postal_code: CAP
+        city: Città
+        province: Provincia
+        lat: Latitudine
+        lng: Longitudine
+        capacity: Capienza
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+        title_par: Titolo
+        text_par: Paragrafo
+
+      edit:
+        title: Modifica appartamento
+        name: Nome
+        address: Indirizzo
+        postal_code: CAP
+        city: Città
+        province: Provincia
+        lat: Latitudine
+        lng: Longitudine
+        capacity: Capienza
+        square_meters: Metri quadrati
+        rooms: Camere
+        bedrooms: Camere da letto
+        bathrooms: Bagni
+        title_par: Titolo
+        text_par: Paragrafo
+
+        prices:
+          start: Valido da
+          end: Valido fino a
+          value: Prezzo per notte
+
+      location_informations: Informazioni località
+      apartment_informations: Informazioni appartamento
+      prices: Prezzi
+      description: Descrizione
+      visibility: Visibilità
+      public: Pubblico
+      private: Privato
+      in_evidence: In evidenza
+      y: "si"
+      no: "no"
+      area: Area
+      services: Servizi
+      
+
+    
+    edit: Modifica
+    delete: Elimina
+    delete_alert: Sei sicuro di volere eliminare
+    save: Salva
+    add_text: Vuoi aggiungere un paragrafo?
+    add: Aggiungi
+    main_image: Immagine principale
+    load: Carica
+    gallery: Gallery
+
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            name:
+              blank: "Nome richiesto"
+
+            email:
+              blank: "Email richiesta"
+
+            phone_number:
+              invalid: "Formato non valido"
+
+            message:
+              blank: "Messaggio richiesto"
+
+        owner_request:
+          attributes:
+            name:
+              blank: "Nome richiesto"
+
+            city:
+              blank: "Città richiesta"
+
+            email:
+              blank: "Email richiesta"
+
+            phone_number:
+              invalid: "Formato non valido"
+
+            message:
+              blank: "Messaggio richiesto"
+
+        price:
+          attributes:
+            start: 
+              blank: Data di inizio richiesta
+              start_greater_end: Data inizio successiva a data fine
+              range_already_exist: Range data già esistente
+
+            end: 
+              blank: Data di fine richiesta
+
+            value: 
+              blank: Valore richiesto

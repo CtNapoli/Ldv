@@ -1,0 +1,6 @@
+.request id="heading_#{question_counter}" data-toggle="collapse" data-target="#collapse_#{question_counter}" aria-controls="collapse_#{question_counter}"
+    .icon = image_tag 'owner/faq-closed-icon', alt: 'Close'
+    h5.secondary-font.font-italic = question.request
+
+.reply id="collapse_#{question_counter}" class="collapse" aria-labelledby="heading_#{question_counter}" data-parent="#questions-accordion"
+    p = question.reply

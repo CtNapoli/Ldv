@@ -1,0 +1,21 @@
+.row
+    .col-8
+        h1 = t('backend.areas.index.title')
+
+    .col-4.text-right
+
+table.table
+    thead
+        tr
+            th
+                label = t('backend.areas.index.name')
+
+            th
+                label = t('backend.areas.index.description')
+
+            th
+
+            
+    tbody
+        - if @areas.any?
+            = render @areas
