@@ -120,7 +120,7 @@ document.addEventListener 'turbolinks:load', () ->
                                             <div class='apartment' style='margin-top: 20px;'>
                                                 <div class='price'>
                                                     <p class='secondary-font font-italic'>" + markers[i].minimumpricestring + "</p>
-                                                    <p class='digit secondary-font font-italic'>" + markers[i].minimumprice + "</p>
+                                                    <p class='digit secondary-font font-italic'>" + markers[i].defaultprice + "</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,6 +168,7 @@ document.addEventListener 'turbolinks:load', () ->
                 toilette: $(this).data('toilette')
                 minimumpricestring: $(this).data('minimumpricestring')
                 minimumprice: $(this).data('minimumprice')
+                defaultprice: $(this).data('defaultprice')
             }
         ).get()
 

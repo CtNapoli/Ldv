@@ -1,0 +1,23 @@
+$('#booking-form #name .errors').html('');
+$('#booking-form #email .errors').html('');
+$('#booking-form #phone_number .errors').html('');
+$('#booking-form #more_info .errors').html('');
+$('#success').html('');
+
+<% unless(@success) %>
+    <% if(@reservation.errors[:name].any?) %>
+        $('#booking-form #name .errors').html('<%= error_messages(@reservation, :name) %>');
+    <% end %>
+
+    <% if(@reservation.errors[:email].any?) %>
+        $('#booking-form #email .errors').html('<%= error_messages(@reservation, :email) %>');
+    <% end %>
+
+    <% if(@reservation.errors[:phone_number].any?) %>
+        $('#booking-form #phone_number .errors').html('<%= error_messages(@reservation, :phone_number) %>');
+    <% end %>
+
+    <% if(@reservation.errors[:more_info].any?) %>
+        $('#booking-form #more_info .errors').html('<%= error_messages(@reservation, :more_info) %>');
+    <% end %>
+<% end %>

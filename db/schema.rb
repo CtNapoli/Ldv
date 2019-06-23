@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_171333) do
+ActiveRecord::Schema.define(version: 2019_06_23_080213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_06_06_171333) do
     t.boolean "in_evidence", default: false
     t.string "slug"
     t.text "content"
+    t.float "price_default"
+    t.float "price_cleaning_service"
     t.index ["area_id"], name: "index_apartments_on_area_id"
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end
@@ -167,6 +169,21 @@ ActiveRecord::Schema.define(version: 2019_06_06_171333) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "guests"
+    t.integer "accepted", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "apartment_id"
+    t.string "name"
+    t.string "email"
+    t.string "phone_number"
+    t.text "more_info"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.index ["apartment_id"], name: "index_reservations_on_apartment_id"
   end
 
   create_table "service_translations", force: :cascade do |t|

@@ -1,5 +1,7 @@
 {
   "name": "ldv",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "vue2-datepicker": "^2.11.2"
+  }
 }

@@ -8,6 +8,7 @@ class Apartment < ApplicationRecord
     has_many_attached :images
     has_and_belongs_to_many :services, -> { distinct }
     has_many :prices
+    has_many :reservations
 
     validates :name, presence: true
     validates :address, presence: true
@@ -21,8 +22,18 @@ class Apartment < ApplicationRecord
     validates :rooms, presence: true
     validates :bedrooms, presence: true
     validates :toilette, presence: true
+    validates :price_default, presence: true
+    validates :price_cleaning_service, presence: true
 
     validate :main_image_presence
+
+    def busy_in_this_range?(from, to)
+        self.reservations.where(accepted: 'yes', date_start: from.beginning_of_day..to.end_of_day).any?
+    end
+
+    def has_prices?
+        self.prices.any?
+    end
 
     private
 

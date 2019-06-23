@@ -76,6 +76,7 @@ gem 'activemodel-serializers-xml'
 gem "font-awesome-rails"
 gem 'premailer-rails'
 gem 'friendly_id-globalize'
+#gem 'webpacker', '~> 4.x'
 
 
 gem 'capistrano', '3.8.2'

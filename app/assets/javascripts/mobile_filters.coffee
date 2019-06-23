@@ -1,7 +1,15 @@
 document.addEventListener 'turbolinks:load', () ->
     $('#map-and-filters-mobile .filters-icon').on 'click', () ->
+        searchForm = $('.form-apartment-desktop-container .search-form-container').detach()
+        $('.mobile-modal .form-apartment-mobile-container').append(searchForm)
         $('.mobile-modal .search-form').show()
         $('.mobile-modal .map-container').hide()
+        $('.mobile-modal').toggleClass('opened')
+
+    $('#map-and-filters-mobile .btn').on 'click', () ->
+        bookingForm = $('#desktop-booking-container #booking-form-container').detach()
+        $('.mobile-modal .booking-form-container').append(bookingForm)
+        $('.mobile-modal').show()
         $('.mobile-modal').toggleClass('opened')
 
     $('#map-and-filters-mobile .map-icon').on 'click', () ->
@@ -13,8 +21,22 @@ document.addEventListener 'turbolinks:load', () ->
 
     $('.mobile-modal .close-modal').on 'click', () ->
         mapDetached = $('.mobile-modal #map').detach()
+        bookingForm = $('.mobile-modal #booking-form-container').detach()
+        searchForm = $('.mobile-modal .form-apartment-mobile-container .search-form-container').detach()
+        $('.form-apartment-desktop-container').append(searchForm)
         $('#apartments-map').append(mapDetached)
+        $('#desktop-booking-container').append(bookingForm)
         $('.mobile-modal').removeClass('opened')
 
-    $('.mobile-modal .btn').on 'click', () ->
-        $('.mobile-modal').removeClass('opened')
+    # $('.mobile-modal .btn').on 'click', () ->
+    #     $('.mobile-modal').removeClass('opened')
+
+    $(window).on 'resize', () ->
+        if $(this).width <= 992
+            bookingForm = $('#desktop-booking-container #booking-form-container').detach()
+            $('.mobile-modal .booking-form-container').append(bookingForm)
+        else
+            $('.mobile-modal').removeClass('opened')
+            bookingForm = $('.mobile-modal #booking-form-container').detach()
+            $('#desktop-booking-container').append(bookingForm)
+            

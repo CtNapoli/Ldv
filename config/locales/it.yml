@@ -175,6 +175,15 @@ it:
 
     price: "a partire da"
 
+    cleaning_cost: Costo pulizia
+    service_cost: Costo del servizio
+    total: Totale
+
+    check_availability: Controlla disponibilità
+
+  booking:
+    success: Richiesta prenotazione inviata con successo
+
   mobile_buttons:
     filters: 'Filtri'
     map: 'Mappa'
@@ -183,6 +192,7 @@ it:
     where: Dove
     guests: Ospiti
     search: Cerca
+    dates: Date
 
   backend:
     menu:
@@ -293,6 +303,8 @@ it:
       no: "no"
       area: Area
       services: Servizi
+      price_default: Prezzo per notte
+      price_cleaning_service: Prezzo servizio pulizia
       
 
     
@@ -352,3 +364,14 @@ it:
 
             value: 
               blank: Valore richiesto
+
+        reservation:
+          attributes:
+            name:
+              blank: Nome richiesto
+
+            email:
+              blank: Email richiesta
+
+            phone_number:
+              blank: Numero di telefono richiesto
