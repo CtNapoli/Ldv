@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
     resources :owner_requests, only: [:create]
 
-    resources :apartments, only: [:index, :show]
+    resources :apartments, only: [:index, :show] do
+      resources :reservations, only: [:create]
+    end
     
     resources :areas, only: [:show]
 

@@ -3,8 +3,11 @@ class Reservation < ApplicationRecord
 
     enum accepted: { no: 0, yes: 50 }
 
-    validates :date, presence: true
+    validates :date_start, presence: true
+    validates :date_end, presence: true
     validates :guests, presence: true
-    validates :accepted, presence: true
+    validates :name, presence: true
+    validates :email, presence: true
+    validates :phone_number, presence: true
 
 end

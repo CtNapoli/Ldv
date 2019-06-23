@@ -176,6 +176,16 @@ en:
 
     price: starting from
 
+    cleaning_cost: Cleaning cost
+    service_cost: Service cost
+    total: Total
+
+    check_availability: Check availability
+
+  booking:
+    success: Booking request sent successfully
+
+
   mobile_buttons:
     filters: 'Filters'
     map: 'Map'
@@ -184,6 +194,7 @@ en:
     where: Where
     guests: Guests
     search: Search
+    dates: Dates
 
   backend:
     menu:
@@ -294,6 +305,8 @@ en:
       no: "no"
       area: Area
       services: Services
+      price_default: Price for night
+      price_cleaning_service: Cleaning service price
 
 
     edit: Edit
@@ -353,6 +366,18 @@ en:
 
             value: 
               blank: Value required
+
+
+        reservation:
+          attributes:
+            name:
+              blank: Name is required
+
+            email:
+              blank: Email is required
+
+            phone_number:
+              blank: Phone number is required
 
 
     

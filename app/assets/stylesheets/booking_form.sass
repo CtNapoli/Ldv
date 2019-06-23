@@ -1,0 +1,59 @@
+@import variables
+
+#booking-form
+    #apartment-prices
+        .price
+            display: flex
+            margin-bottom: 20px
+
+            .value
+                flex-grow: 1
+                text-align: right
+
+            &.strong
+                p
+                    font-weight: 700
+
+    #collapseTwo
+        label
+            margin-bottom: 40px
+
+    .back
+        display: inline-block
+        cursor: pointer
+        margin-top: 20px
+        font-weight: 700
+        text-transform: uppercase
+        text-decoration: underline
+
+    .form-group
+        .form-control
+            border: none
+            border-bottom: solid 1px $gadgetColor
+            padding: 20px 0
+
+            &:hover, &:focus, &:active
+                box-shadow: none
+
+        textarea
+            max-height: 150px
+
+.mobile-modal
+    #booking-form
+        display: block
+        box-shadow: none
+        padding: 0
+
+        .btn-primary
+            position: static
+
+        #accordionExample
+            .btn-primary
+                width: 100%
+
+        .action
+            display: flex
+            flex-direction: row-reverse
+
+            button,div
+                flex-basis: 50%
