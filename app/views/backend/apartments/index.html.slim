@@ -1,39 +1,84 @@
-.row
+
+.row.heading
     .col-8
-        h1 = t('backend.apartments.index.title')
+        h1.secondary-font.font-italic = t('backend.apartments.index.title')
+        
 
     .col-4.text-right
         = link_to t('backend.apartments.index.cta'), new_backend_apartment_path, class: 'btn btn-primary'
 
-table.table
-    thead
-        tr
-            th
-                label = t('backend.apartments.index.name')
 
-            th
-                label = t('backend.apartments.index.address')
+.row.searching
+    .col-12
+        = form_with url: backend_apartments_path, method: :get, local: true do |f|
+            .row.align-items-end
+                .col-lg-3
+                    .form-group
+                        label = t('backend.apartments.search_form.apartment_name')
+                        = f.text_field :apartment_name, class: 'form-control', value: @apartment_name
 
-            th
-                label = t('backend.apartments.index.capacity')
+                .col-lg-3
+                    .form-group
+                        label = t('backend.apartments.search_form.apartment_area')
+                        #area_dropdown.dropdown.backend_version
+                            = f.hidden_field :apartment_area, class: 'form-control', value: @apartment_area
 
-            th
-                label = t('backend.apartments.index.square_meters')
+                            #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                - if @apartment_area.present?
+                                    span.small-text = @apartment_area
+                                - else
+                                    span.small-text = t('backend.reservations.status.all')
+                                .icon = image_tag 'dropdown-arrow.png'
+                                
+                            .dropdown-menu aria-labelledby="area"
+                                .dropdown-item.small-text data-value="" = t("backend.reservations.status.all")
+                                - @all_areas.each do |a|
+                                    .dropdown-item.small-text data-value="#{a.name}" = a.name
 
-            th
-                label = t('backend.apartments.index.rooms')
+                .col-lg-3
+                    .form-group
+                        label = t('backend.apartments.search_form.apartment_status')
+                        #status_dropdown.dropdown.backend_version
+                            - if @apartment_status.nil?
+                                = f.hidden_field :apartment_status, class: 'form-control', value: ''
 
-            th
-                label = t('backend.apartments.index.bedrooms')
+                            - if @apartment_status == false
+                                = f.hidden_field :apartment_status, class: 'form-control', value: '0'
 
-            th
-                label = t('backend.apartments.index.bathrooms')
+                            - if @apartment_status == true
+                                = f.hidden_field :apartment_status, class: 'form-control', value: '1'
 
-            th
+                            #status.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                - if @apartment_status == true
+                                    span.small-text  = t('backend.apartments.public')
+                                - elsif @apartment_status == false
+                                    span.small-text  = t('backend.apartments.private')
+                                - else
+                                    span.small-text = t('backend.reservations.status.all')
+                                .icon = image_tag 'dropdown-arrow.png'
+                                
+                            .dropdown-menu aria-labelledby="status"
+                                .dropdown-item.small-text data-value="" = t("backend.reservations.status.all")
+                                .dropdown-item.small-text data-value="1" = t('backend.apartments.public')
+                                .dropdown-item.small-text data-value="0" = t('backend.apartments.private')
 
-            th
+                .col-lg-2
+                    .form-group
+                        = f.button t('backend.search_form.search'), class: 'btn btn-primary btn-small'
 
-            
-    tbody
-        - if @apartments.any?
-            = render @apartments
+.row
+    .col-12
+        = alert_messages
+
+- if @apartments.any?  
+    .row
+        = render @apartments
+
+    .row
+        .col-12
+            .custom-paginator
+                = paginate @apartments
+
+- else
+    p = t('messages.apartments.no-found')
+

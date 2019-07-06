@@ -6,7 +6,7 @@
         position: absolute
         top: -100vh
 
-        +media($lg)
+        +media($xl)
             position: static
             margin-bottom: 70px
         
@@ -59,16 +59,6 @@
         .info
             flex-grow: 1
 
-    .price
-        p
-            font-size: 14px
-            line-height: 24px
-            color: $secondaryColor
-
-            &.digit
-                font-size: 32px
-                line-height: 42px
-
 #apartment
     .container
         padding: 0
@@ -77,14 +67,10 @@
             padding: 0 15px
 
     h1
-        margin:
-            top: 25px
-            bottom: 10px
+        margin-bottom: 10px
 
         +media($md)
-            margin:
-                top: 70px 
-                bottom: 20px
+            margin-bottom: 20px
 
     .properties
         display: flex
@@ -109,6 +95,9 @@
             h3
                 font-size: 18px
                 line-height: 28px
+
+    .gallery
+        margin-bottom: 70px
 
     .services
         display: flex

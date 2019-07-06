@@ -1,21 +1,37 @@
-.row
+.row.heading
     .col-8
-        h1 = t('backend.services.index.title')
+        h1.secondary-font.font-italic = t('backend.services.index.title')
+        
 
     .col-4.text-right
         = link_to t('backend.services.index.cta'), new_backend_service_path, class: 'btn btn-primary'
 
-table.table
-    thead
-        tr
-            th
-                label = t('backend.services.index.name')
 
-            th
+.row.searching
+    .col-12
+        = form_with url: backend_services_path, method: :get, local: true do |f|
+            .row.align-items-end
+                .col-lg-3
+                    .form-group
+                        label = t('backend.services.search_form.service_name')
+                        = f.text_field :service_name, class: 'form-control', value: @service_name
 
-            th
+                .col-lg-2
+                    .form-group
+                        = f.button t('backend.search_form.search'), class: 'btn btn-primary btn-small'
 
-            
-    tbody
-        - if @services.any?
-            = render @services
+.row
+    .col-12
+        = alert_messages
+
+- if @services.any?  
+    .row
+        = render @services
+
+    .row
+        .col-12
+            .custom-paginator
+                = paginate @services
+
+- else
+    p = t('messages.services.no-found')

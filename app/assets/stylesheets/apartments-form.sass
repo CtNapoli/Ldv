@@ -1,4 +1,54 @@
+@import variables
+
 #apartments-form
+    .homepage
+        position: relative
+        background-color: white
+        border-radius: 5px
+        margin-top: -80px
+        width: 100%
+        padding: 30px
+        box-shadow: rgba(black, 0.05) 0 10px 25px
+
+        .form-groups
+            display: flex
+
+            .form-group
+                margin: 0
+                flex-basis: 25%
+                padding: 10px 50px
+
+                &.middle
+                    border-left: solid 1px $gadgetColor
+                    border-right: solid 1px $gadgetColor
+
+            .tag
+                margin-bottom: 15px
+
+        .dropdown
+            .dropdown-button
+                border: none
+                padding: 0
+
+.from_to
+    position: relative
+
+    span
+        font-size: 18px
+
+    .popover-container
+        position: static !important
+        
+        input
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            margin-top: 
+            opacity: 0
+            width: 100%
+
+.search-form-container
     .btn.btn-primary
         pointer-events: none
         opacity: .5

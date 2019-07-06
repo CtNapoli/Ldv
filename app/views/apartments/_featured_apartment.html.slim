@@ -1,6 +1,7 @@
 .swiper-slide
     = link_to apartment_path(apartment), class: 'apartment' do
-        .box-image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
+        .box
+            .box-image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
 
         .box-text
             .info
@@ -9,7 +10,11 @@
 
 
             .price.text-right
-                p.secondary-font.font-italic a partire da
-                p.digit.secondary-font.font-italic 120€
+                p.secondary-font.font-italic = t('apartment.price')
+                p.digit.secondary-font.font-italic 
+                    - if apartment.has_prices?
+                        = price(apartment.prices.minimum(:value))
+                    - else
+                        = price(apartment.price_default)
 
     

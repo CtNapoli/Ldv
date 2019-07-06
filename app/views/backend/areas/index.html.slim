@@ -1,21 +1,18 @@
-.row
+.row.heading
     .col-8
-        h1 = t('backend.areas.index.title')
+        h1.secondary-font.font-italic = t('backend.areas.index.title')
+        
 
     .col-4.text-right
 
-table.table
-    thead
-        tr
-            th
-                label = t('backend.areas.index.name')
 
-            th
-                label = t('backend.areas.index.description')
+.row
+    .col-12
+        = alert_messages
 
-            th
+- if @areas.any?
+    .row
+        = render @areas
 
-            
-    tbody
-        - if @areas.any?
-            = render @areas
+- else
+    p = t('messages.areas.no-found')

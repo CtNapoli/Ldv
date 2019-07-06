@@ -28,6 +28,19 @@
                     font-weight: 700
                     margin-bottom: 10px
 
+    #featured-apartments
+        .apartment
+            .box
+                overflow: hidden
+
+                .box-image
+                    transition: all .3s ease-out
+
+            &:hover
+                .box
+                    .box-image
+                        transform: scale(1.3)
+
     #destinations
         .swiper-slide
             width: 260px
@@ -41,14 +54,20 @@
         .destination
             display: block
             position: relative
-            +bg
-            transition: all .2s ease-out
-            height: 500px
-            
+            height: 400px
+            overflow: hidden
+
+            +media($md)
+                height: 500px
 
             &:hover
-                opacity: 0.8
-                text-decoration: none
+                .bg
+                    transform: scale(1.3)
+
+            .bg
+                transition: all .3s ease-out
+                height: 100%
+                +bg
 
             .text
                 padding: 0 30px

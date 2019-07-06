@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :set_locale
     before_action :max_guests
+    before_action :waiting_reservations
  
     def set_locale
         I18n.locale = params[:locale].presence || I18n.default_locale
@@ -36,6 +37,10 @@ class ApplicationController < ActionController::Base
 
     def load_areas
         @areas = Area.all
+    end
+
+    def waiting_reservations
+        @waiting_reservations = Reservation.where(status: 'waiting').where('date_start >= ?', Time.now).count
     end
 
     def load_apartments

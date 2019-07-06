@@ -3,16 +3,7 @@
     
     .info
         h3.name.secondary-font.font-italic.text-medium = apartment.name
-        p.address.small-text
-            |
-            => apartment.city
-            | |
-            =< apartment.address
-            | ,
-            =<> apartment.postal_code
-            | (
-            = apartment.province
-            | )
+        p.address.small-text = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
 
         .features
             .feature
@@ -35,7 +26,12 @@
 
         .price
             p.secondary-font.font-italic = t('apartment.price')
-            p.digit.secondary-font.font-italic = price(apartment.prices.minimum(:value))
+            p.digit.secondary-font.font-italic 
+                - if apartment.has_prices?
+                    = price(apartment.prices.minimum(:value))
+                - else
+                    = price(apartment.price_default)
+                    
 
 
 

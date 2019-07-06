@@ -4,7 +4,10 @@ class Backend::ServicesController < BackendController
     before_action :load_service, only: [:edit, :update, :destroy]
 
     def index
-        @services = Service.all
+        @service_name = params[:service_name]
+
+        @services = Service.order('created_at DESC').page params[:page]
+        @services = Service.with_translations(I18n.locale).where("service_translations.name ILIKE ?", "%#{@service_name}%") if @service_name.present?
     end
 
     def new
@@ -14,7 +17,7 @@ class Backend::ServicesController < BackendController
     def create
         @service = Service.new(service_params)
         if @service.save
-            flash.notice = 'Servizio creato con successo'
+            flash.notice = t('backend.services.created', service: @service.name)
             redirect_to backend_services_path
         else
             render :new
@@ -27,7 +30,7 @@ class Backend::ServicesController < BackendController
 
     def update
         if @service.update(service_params)
-            flash.notice = 'Servizio modificato con successo'
+            flash.notice = t('backend.services.edited', service: @service.name)
             redirect_to backend_services_path
         else
             render :edit
@@ -36,6 +39,7 @@ class Backend::ServicesController < BackendController
 
     def destroy
         @service.destroy
+        flash.alert = t('backend.services.removed', service: @service.name)
         redirect_to backend_services_path
     end
 

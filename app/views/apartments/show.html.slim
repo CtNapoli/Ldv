@@ -18,18 +18,13 @@
             
     .container
         .row
+            .col-12
+                = alert_messages
+                
+        .row
             .col-lg-8
                 h1.secondary-font.big-text.font-italic = @apartment.name
-                h2.address.normal-text
-                    |
-                    => @apartment.city
-                    | |
-                    =< @apartment.address
-                    | ,
-                    =<> @apartment.postal_code
-                    | (
-                    = @apartment.province
-                    | )
+                h2.address.normal-text = full_address(@apartment.address, @apartment.city, @apartment.postal_code, @apartment.province)
                 .properties
                     .property
                         = image_tag('apartments/capacity.png')
@@ -76,9 +71,130 @@
 
                 #apartments-map
                     #preload
-                        .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{rails_blob_path(@apartment.main_image)}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.rooms', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}" data-minimumprice="#{price(@apartment.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}"
+                        .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{rails_blob_path(@apartment.main_image)}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.rooms', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}" data-minimumprice="#{price(@apartment.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(@apartment.price_default)}"
 
                     #map
 
+            .col-lg-1
+            .col-lg-3
+                #desktop-booking-container
+                    #booking-form-container
+                        #apartment-properties data-dates=@busy_days data-prices=@prices data-defaultprice=@apartment.price_default data-pricecleaningservice=@apartment.price_cleaning_service
+                        #booking-form.search-form.custom-card.desktop 
+                            #accordionExample.accordion
+                                = form_with url: apartment_reservations_path(apartment_id: @apartment.id) do |f|
+                                    #collapseOne.collapse.show data-parent="#accordionExample"
+                                        .form-group
+                                            label.tag = t('search_form.dates')
+                                            = f.hidden_field :date_start, 'v-model': 'selectedDate.start' 
+                                            = f.hidden_field :date_end, 'v-model': 'selectedDate.end'
+                                            = f.hidden_field :total_price, 'v-model': 'total'
 
-            .col-lg-4
+                                            .from_to
+                                                .row.align-items-center
+                                                    .col-3
+                                                        p.small-text = t('search_form.from')
+                                                    
+                                                    .col-9.text-right
+                                                        span.secondary-font.font-italic
+                                                            | {{selectedDate.start | formatDate}}
+
+                                                .row.align-items-center
+                                                    .col-3
+                                                        p.small-text = t('search_form.to')
+
+                                                    .col-9.text-right
+                                                        span.secondary-font.font-italic
+                                                            | {{selectedDate.end | formatDate}}
+
+                                                v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                        
+
+                                        .form-group.no-border.no-margin
+                                            label.tag = t('search_form.guests')
+                                            #guests_dropdown.dropdown
+                                                = f.hidden_field :guests, value: @guests_limit, class: 'form-control', 'v-model': 'guests' 
+
+                                                #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                    span = t('apartment.capacity', count: @guests_limit)
+                                                    .icon = image_tag 'dropdown-arrow.png'
+                                                    
+                                                .dropdown-menu aria-labelledby="guests"
+                                                    - @guests_limit&.times do |a|
+                                                        .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+
+                                        #apartment-prices.form-group v-if="nights > 0"
+                                            .price-row
+                                                .title
+                                                    p
+                                                        | {{nightsString}}
+
+                                                .value
+                                                    p
+                                                        | {{priceForNightsFixed}}
+
+                                            .price-row
+                                                .title
+                                                    p = t('apartment.cleaning_cost')
+
+                                                .value
+                                                    p
+                                                        | {{priceCleaningServiceFixed}}
+
+                                            .price-row
+                                                .title
+                                                    p = t('apartment.service_cost')
+
+                                                .value
+                                                    p
+                                                        | {{servicePriceFixed}}
+
+                                            .price-row.strong
+                                                .title
+                                                    p = t('apartment.total')
+
+                                                .value
+                                                    p
+                                                        | {{totalFixed}}
+
+
+                                        .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" Request booking
+
+                                    #collapseTwo.collapse. data-parent="#accordionExample"
+                                        label.tag Completa la tua prenotazione
+
+                                        #name.form-group
+                                            = f.text_field :name, class: 'form-control', placeholder: 'Nome'
+
+                                            .errors
+
+                                        #email.form-group
+                                            = f.email_field :email, class: 'form-control', placeholder: 'Email'
+
+                                            .errors
+
+                                        #phone_number.form-group
+                                            = f.text_field :phone_number, class: 'form-control', placeholder: 'Telefono'
+
+                                            .errors
+
+                                        #more_info.form-group
+                                            = f.text_area :more_info, class: 'form-control', placeholder: 'Hai domande? Scrivi qui!'
+
+                                            .errors
+
+                                        .form-group.action
+                                            = f.button 'Invia richiesta', class: 'btn btn-primary small full'
+
+                                            .text-center
+                                                a.back.small-text data-toggle="collapse" role="button" aria-controls="collapseOne" aria-expanded="true" data-target="#collapseOne" Back
+
+
+    #map-and-filters-mobile.single
+        .btn.btn-primary.full = t('apartment.check_availability')
+
+
+    .mobile-modal
+        = image_tag 'close-modal.png', alt: 'Close', class: 'close-modal'
+
+        .booking-form-container

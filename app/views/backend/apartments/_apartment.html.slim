@@ -1,10 +1,63 @@
-tr
-    td = apartment.name
-    td = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
-    td = apartment.capacity
-    td = apartment.square_meters
-    td = apartment.rooms
-    td = apartment.bedrooms
-    td = apartment.toilette
-    td = link_to t('backend.edit'), edit_backend_apartment_path(apartment)
-    td = link_to t('backend.delete'), backend_apartment_path(apartment), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} #{apartment.name}?"}
+.col-lg-6.col-xl-4
+    .apartment.backend-card class=('public' if apartment.published)
+        .head
+            .row
+                .col-lg-6
+                    = link_to apartment.name, apartment_path(apartment), class: 'big-text underline secondary-font font-italic', target: '_blank'
+                    p.small-text = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
+
+                .col-lg-6.text-right
+                    .status
+                        - if apartment.published
+                            span.mini-text.bold-font = t("backend.apartments.public")
+                        - else
+                            span.mini-text.bold-font = t("backend.apartments.private")
+                        .round
+
+        .body
+            .row
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.area')
+                    p.normal-text = apartment.area.name
+
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.capacity')
+                    p.normal-text = apartment.capacity
+
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.square_meters')
+                    p.normal-text = apartment.square_meters
+
+            .row
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.rooms')
+                    p.normal-text = apartment.rooms
+
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.bedrooms')
+                    p.normal-text = apartment.bedrooms
+
+                .col-lg-4
+                    label.tag = t('backend.apartments.new.bathrooms')
+                    p.normal-text = apartment.toilette
+
+
+        .foot
+            .row.align-items-center
+                .col-lg-4
+                    .price
+                        p.secondary-font.font-italic = t('backend.apartments.new.price_base')
+                        p.digit.secondary-font.font-italic= price(apartment.price_default)
+
+                .col-lg-8.text-right
+                    = link_to t('backend.delete'), backend_apartment_path(apartment), method: :delete, class: 'btn btn-secondary bordered btn-small', data: {confirm:  "#{t('backend.delete_alert')} #{apartment.name}?"}
+                    = link_to t('backend.edit'), edit_backend_apartment_path(apartment), class: 'btn btn-primary btn-small'
+
+
+
+
+
+                
+
+                    
+

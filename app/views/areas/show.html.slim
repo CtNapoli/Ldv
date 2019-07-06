@@ -66,7 +66,7 @@
                 #apartments-map
                     #preload
                         - @area.apartments.each do |a|
-                            .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}"
+                            .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(a.price_default)}"
 
                     #map.desktop
 
@@ -84,7 +84,7 @@
     .mobile-modal
         = image_tag 'close-modal.png', alt: 'Close', class: 'close-modal'
         .search-form.mobile
-            = form_with url: apartments_path, method: :get do |f|
+            = form_with url: apartments_path, method: :get, local: true do |f|
                 .form-group
                     label.tag = t('search_form.where')
                     #area_dropdown.dropdown
@@ -124,7 +124,7 @@
                             - @max_guests&.times do |a|
                                 .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
-                = f.submit t('search_form.search'), class: 'btn btn-primary full'
+                = f.button t('search_form.search'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
                         
 
         .map-container

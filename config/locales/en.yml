@@ -176,6 +176,18 @@ en:
 
     price: starting from
 
+    cleaning_cost: Cleaning cost
+    service_cost: Service cost
+    total: Total
+
+    check_availability: Check availability
+
+  booking:
+    success: "Booking request sent to %{apartment} for the following dates: %{from} - %{to}"
+    reservation_success: "Reservation confirmed for %{apartment} on the following dates: %{from} - %{to}"
+    reservation_reject: "Reservation refused for %{apartment} on the following dates: %{from} - %{to}"
+
+
   mobile_buttons:
     filters: 'Filters'
     map: 'Map'
@@ -184,19 +196,66 @@ en:
     where: Where
     guests: Guests
     search: Search
+    dates: Dates
+    check_availability: Check availability
+    from: FROM
+    to: TO
+    select: Select
 
   backend:
     menu:
       apartments: Apartments
       services: Services
       areas: Areas
+      reservations: Reservations
       faq: Faq
+
+    search_form:
+      search: Search
+
+    apartments:
+      search_form:
+        apartment_name: Search by apartment
+        apartment_area: Filter by area
+
+    reservations:
+      index: 
+        title: Booking requests
+
+      name: Name
+      guests: Guests
+      dates: Dates
+      contacts: Contacts
+      message: Message
+      reject: Reject
+      accept: Accept
+      total: Total
+      reject_alert: Are you sure to reject this reservation?
+      from: From
+      to: To
+      status:
+        all: 'All'
+        refused: 'Rejected'
+        waiting: 'Waiting'
+        confirmed: 'Confirmed'
+
+      search_form:
+        apartment_name: Search by apartment
+        reservation_status: Filter by request
+
 
     services:
       index:
         title: Services
         name: Name
         cta: New service
+
+      search_form:
+        service_name: Search by service name
+
+      created: "Service %{service} successfully created"
+      edited: "Service %{service} successfully edited"
+      removed: "Service %{service} successfully removed"
 
       new: 
         title: New service
@@ -219,6 +278,8 @@ en:
         text_par: Paragraph
         content: Content
 
+      edited: "Area %{area} successfully edited"
+
     questions:
       index:
         title: FAQ
@@ -226,10 +287,17 @@ en:
         request: Request
         reply: Reply
 
+      search_form:
+        question: Search by question
+
       edit:
         title: Edit FAQ
         request: Request
         reply: Reply
+
+      created: "FAQ %{question} successfully created"
+      edited: "FAQ %{question} successfully edited"
+      removed: "FAQ %{question} successfully removed"
 
     apartments:
       index:
@@ -259,6 +327,12 @@ en:
         bathrooms: Bathrooms
         title_par: Title
         text_par: Paragraph
+        area: Area
+        price_base: Base price
+
+      created: "Apartment %{apartment} successfully created"
+      edited: "Apartment %{apartment} successfully edited"
+      removed: "Apartment %{apartment} successfully removed"
 
       edit:
         title: Edit apartment
@@ -294,9 +368,18 @@ en:
       no: "no"
       area: Area
       services: Services
+      price_default: Price for night
+      price_cleaning_service: Cleaning service price
+
+      search_form:
+        apartment_name: Search by apartment
+        apartment_area: Filter by area
+        apartment_status: Filter by apartment state
 
 
     edit: Edit
+    edit_eng: Edit in ENG
+    edit_ita: Edit in ITA
     delete: Delete
     delete_alert: Are you sure you want to delete
     save: Save
@@ -353,6 +436,25 @@ en:
 
             value: 
               blank: Value required
+
+
+        reservation:
+          attributes:
+            name:
+              blank: Name is required
+
+            email:
+              blank: Email is required
+
+            phone_number:
+              blank: Phone number is required
+
+  messages:
+    apartments:
+      no-found: There are no apartments for the selected search criteria
+
+    questions:
+      no-found: There are no questions for the selected search criteria
 
 
     

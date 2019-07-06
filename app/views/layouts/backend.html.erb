@@ -24,13 +24,19 @@
       <div class="#menu">
         <%= active_link_to t('backend.menu.apartments'), backend_apartments_path, class: 'item mid-text' %>
         <%= active_link_to t('backend.menu.services'), backend_services_path, class: 'item mid-text' %>
+        <%= active_link_to backend_reservations_path, class: 'item mid-text multiple-elements' do %>
+          <span><%= t('backend.menu.reservations') %></span>
+          <% unless @waiting_reservations.zero? %>
+            <div class="round"><i><%= @waiting_reservations %></i></div>
+          <% end %>
+        <% end %>
         <%= active_link_to t('backend.menu.areas'), backend_areas_path, class: 'item mid-text' %>
         <%= active_link_to t('backend.menu.faq'), backend_questions_path, class: 'item mid-text' %>
       </div>
 
       <div class="foot">
         <div class="languages">
-          <%= link_to "ITA", url_for(locale: ''), class:('active' if I18n.locale == :it)%>
+          <%= link_to "ITA", url_for(locale: nil), class:('active' if I18n.locale == :it)%>
           <%= link_to "ENG", url_for(locale: :en), class:('active' if I18n.locale == :en) %>
         </div>
         <div class="actions">

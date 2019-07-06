@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag "window.locale = #{I18n.locale.to_s.inspect};" %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8"></script>
@@ -16,6 +17,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'>
+    <script src='https://unpkg.com/vue/dist/vue.js'></script>
+    <script src='https://unpkg.com/v-calendar'></script>
+    <script src="https://unpkg.com/moment@2.24.0"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl" />
+    
     
 
     <% if Rails.env.development? %>
@@ -26,9 +34,11 @@
 
   </head>
 
-  <body>
+  <body class="site">
+    <%= render 'layouts/social_banner' %>
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <nav class="navbar navbar-expand-xl">
           <div id="toggle-menu">
             <span class="line long"></span>
             <span class="line"></span>
@@ -64,7 +74,7 @@
                   <% if I18n.locale == :it  %>
                     <%= link_to "ENG", url_for(locale: :en), class: "nav-link" %>
                   <% elsif I18n.locale == :en %>
-                    <%= link_to "ITA", url_for(locale: ''), class: "nav-link" %>
+                    <%= link_to "ITA", url_for(locale: nil), class: "nav-link" %>
                   <% end %>
                 </li>
               </ul>
@@ -100,6 +110,7 @@
             </div>
           </div>
         </nav>
+        </div>
     </header>
     <main class="custom-wrap">
       <%= yield %>
