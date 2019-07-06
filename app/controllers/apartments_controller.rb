@@ -30,7 +30,7 @@ class ApartmentsController < ApplicationController
         @paragraphs = JSON.parse @apartment.content
         @guests_limit = @apartment.capacity
 
-        days = @apartment.reservations.where(accepted: 'yes').select{|a| a.date_start.present?}
+        days = @apartment.reservations.where(status: 'confirmed').select{|a| a.date_start.present?}
 
         @busy_days = []
         days.each do |range|

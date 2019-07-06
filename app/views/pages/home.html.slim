@@ -7,6 +7,74 @@
                 br
                 = t('homepage.section_0.title.part_2')
 
+    #apartments-form.desktop
+        .form-apartment-desktop-container
+            .search-form-container
+                .container
+                    .homepage
+                        = form_with url: apartments_path, method: :get, local: true do |f|
+                            .form-groups
+                                .form-group
+                                    label.tag = t('search_form.where')
+                                    #area_dropdown.dropdown
+                                        = f.hidden_field :where, class: 'form-control'
+
+                                        #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            span = t('search_form.select')
+
+                                            .icon = image_tag 'dropdown-arrow.png'
+                                            
+                                        .dropdown-menu aria-labelledby="area"
+                                            - Area.all.each do |a|
+                                                .dropdown-item data-value="#{a.name}" 
+                                                    p = a.name
+
+                                .form-group.middle
+                                    label.tag = t('search_form.dates')
+                                    = f.hidden_field :start, class: 'form-control', 'v-model': 'selectedDate.start' 
+                                    = f.hidden_field :end, class: 'form-control', 'v-model': 'selectedDate.end'
+
+                                    .from_to
+                                        .row.align-items-center
+                                            .col-3
+                                                p.small-text = t('search_form.from')
+                                            
+                                            .col-9.text-right
+                                                span.secondary-font.font-italic
+                                                    | {{selectedDate.start | formatDate}}
+
+                                        .row.align-items-center
+                                            .col-3
+                                                p.small-text = t('search_form.to')
+
+                                            .col-9.text-right
+                                                span.secondary-font.font-italic
+                                                    | {{selectedDate.end | formatDate}}
+
+                                        v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
+
+                                .form-group
+                                    label.tag = t('search_form.guests')
+                                    #guests_dropdown.dropdown
+                                        - if @guests.present?
+                                            = f.hidden_field :guests, value: @guests, class: 'form-control'
+                                        - else
+                                            = f.hidden_field :guests, class: 'form-control'
+
+                                        #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            - if @guests.present?
+                                                span = t('apartment.capacity', count: @guests)
+                                            - else
+                                                span = t('search_form.select')
+                                            .icon = image_tag 'dropdown-arrow.png'
+                                            
+                                        .dropdown-menu aria-labelledby="guests"
+                                            - @max_guests&.times do |a|
+                                                .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+
+                                .form-group
+                                    = f.submit t('search_form.check_availability'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
+
 
     #about-us.custom-section
         .container
@@ -189,10 +257,23 @@
                                     
                                     .form-group
                                         = f.submit t('homepage.section_5.form.submit'), class: 'btn btn-secondary'
-
                                 
 
+    #map-and-filters-mobile
+            .map-icon.icon-container
+                .icon = image_tag 'map-mobile.png', alt: 'Map'
+                .text = t('mobile_buttons.map')
 
+            .filters-icon.icon-container
+                .icon = image_tag 'filters-mobile.png', alt: 'Filters'
+                .text = t('mobile_buttons.filters')
+
+
+    .mobile-modal
+        = image_tag 'close-modal.png', alt: 'Close', class: 'close-modal'
+        .form-apartment-mobile-container
+
+            .map-container
 
 
                         

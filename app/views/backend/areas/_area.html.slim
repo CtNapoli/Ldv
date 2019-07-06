@@ -1,4 +1,12 @@
-tr
-    td = area.name
-    td = area.description
-    td = link_to t('backend.edit'), edit_backend_area_path(area)
+.col-lg-6.col-xl-4
+    .area.backend-card
+        .head
+            .row
+                .col-12
+                    = link_to area.name, area_path(area), class: 'big-text underline secondary-font font-italic', target: '_blank'
+                    p.small-text = area.description
+
+        .foot
+            .row.align-items-center
+                .col-12
+                    = link_to t('backend.edit'), edit_backend_area_path(area), class: 'btn btn-secondary bordered btn-small'

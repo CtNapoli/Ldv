@@ -83,3 +83,5 @@ gem 'capistrano', '3.8.2'
 gem 'capistrano-passenger'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
+
+gem 'kaminari'

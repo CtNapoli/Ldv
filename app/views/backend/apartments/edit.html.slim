@@ -8,6 +8,11 @@
         .col-4.text-right
             .form-group
                 = f.submit t('backend.save'), class: 'btn btn-primary', '@click': 'updateParagraphs'
+
+    .row
+        .col-12
+            = alert_messages
+
     .row
         .col-7
             .section
@@ -89,17 +94,6 @@
                             = error_messages(@apartment, :toilette)
 
             .section
-                .form-group
-                    label.big = t('backend.apartments.price_default')
-                    = f.number_field :price_default, class: 'form-control'
-                    = error_messages(@apartment, :price_default)
-
-                .form-group
-                    label.big = t('backend.apartments.price_cleaning_service')
-                    = f.number_field :price_cleaning_service, class: 'form-control'
-                    = error_messages(@apartment, :price_cleaning_service)
-
-            .section
                 label.big = t('backend.apartments.description')
                 #paragraphs
                     .paragraph v-for="(p, index) in paragraphs"
@@ -119,12 +113,9 @@
                         p = t('backend.add_text')
                         .btn.btn-primary.btn-small.add_paragraph @click='addParagraph()' = t('backend.add')
                         
-
                     = f.hidden_field :content
 
            
-
-
         .col-1
         .col-4
             .sidebar
@@ -161,6 +152,19 @@
                 .form-group
                     label.medium = t('backend.area')
                     = f.collection_select :area_id, Area.all, :id, :name, {:selected => @apartment.area_id}, {class: 'form-control'}
+
+                .row
+                    .col-lg-6
+                        .form-group
+                            label.medium = t('backend.apartments.price_default')
+                            = f.number_field :price_default, class: 'form-control'
+                            = error_messages(@apartment, :price_default)
+
+                    .col-lg-6
+                        .form-group
+                            label.medium = t('backend.apartments.price_cleaning_service')
+                            = f.number_field :price_cleaning_service, class: 'form-control'
+                            = error_messages(@apartment, :price_cleaning_service)
 
                 #services.form-group
                     label.medium = t('backend.apartments.services')
@@ -205,33 +209,33 @@
 
 #prices.section
     label.big = t('backend.apartments.prices')
-
-    .all
-        = render 'prices'
         
     .new
         = form_with url: add_price_range_backend_apartment_path do |f|
             .row
-                .col-7
+                .col-12
                     .row.align-items-end
-                        .col-2
+                        .col-lg-2
                             #price-start.form-group
                                 label = t('backend.apartments.edit.prices.start')
                                 = f.date_field :start, class: 'form-control'
                                 .errors
 
-                        .col-2
+                        .col-lg-2
                             #price-end.form-group
                                 label = t('backend.apartments.edit.prices.end')
                                 = f.date_field :end, class: 'form-control'
                                 .errors
 
-                        .col-2
+                        .col-lg-2
                             #price-value.form-group
                                 label = t('backend.apartments.edit.prices.value')
                                 = f.number_field :value, class: 'form-control'
                                 .errors
 
-                        .col-4
+                        .col-lg-4
                             .form-group
                                 = f.button 'Aggiungi range prezzo', class: 'btn btn-primary btn-small'
+
+    .all
+        = render 'prices'

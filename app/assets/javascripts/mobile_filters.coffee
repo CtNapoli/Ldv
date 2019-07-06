@@ -6,7 +6,7 @@ document.addEventListener 'turbolinks:load', () ->
         $('.mobile-modal .map-container').hide()
         $('.mobile-modal').toggleClass('opened')
 
-    $('#map-and-filters-mobile .btn').on 'click', () ->
+    $('#map-and-filters-mobile .btn-primary').on 'click', () ->
         bookingForm = $('#desktop-booking-container #booking-form-container').detach()
         $('.mobile-modal .booking-form-container').append(bookingForm)
         $('.mobile-modal').show()
@@ -28,11 +28,8 @@ document.addEventListener 'turbolinks:load', () ->
         $('#desktop-booking-container').append(bookingForm)
         $('.mobile-modal').removeClass('opened')
 
-    # $('.mobile-modal .btn').on 'click', () ->
-    #     $('.mobile-modal').removeClass('opened')
-
     $(window).on 'resize', () ->
-        if $(this).width <= 992
+        if $(this).width <= 1200
             bookingForm = $('#desktop-booking-container #booking-form-container').detach()
             $('.mobile-modal .booking-form-container').append(bookingForm)
         else

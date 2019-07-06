@@ -47,6 +47,10 @@ document.addEventListener 'turbolinks:load', () ->
                     this.servicePrice = (this.priceForNights/parseFloat(this.servicePerc))
                     this.total = (this.priceForNights + this.servicePrice + this.priceCleaningService)
 
+                    $('#start').val(this.selectedDate.start)
+                    $('#end').val(this.selectedDate.end)
+                    $('#total_price').val(this.total)
+
 
 
                 enabled: () ->
@@ -80,6 +84,10 @@ document.addEventListener 'turbolinks:load', () ->
 
                 totalFixed: () ->
                     return this.total.toFixed(2) + '€'
+            },
+            filters: {
+                formatDate: (value) ->
+                    return moment(String(value)).format('DD/MM/YYYY') if (value)
             },
             mounted: () ->
                 this.disabledDates = $('#apartment-properties').data('dates')

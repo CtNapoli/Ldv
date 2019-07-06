@@ -15,7 +15,7 @@ setMarkers(window.map, apartments)
 <% if(@apartments.any?) %>
     $('#apartments .list').html('<%= j render @apartments %>');
 <% else %>
-    $('#apartments .list').html('<p> Non ci sono appartamenti disponibili per i criteri di ricerca selezionati</p>')
+    $('#apartments .list').html("<p class='text-center'><%= t('messages.apartments.no-found') %></p>")
 <% end %>
 
 

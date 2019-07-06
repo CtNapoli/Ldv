@@ -91,17 +91,6 @@
                             = error_messages(@apartment, :toilette)
 
             .section
-                .form-group
-                    label.big = t('backend.apartments.price_default')
-                    = f.number_field :price_default, class: 'form-control'
-                    = error_messages(@apartment, :price_default)
-
-                .form-group
-                    label.big = t('backend.apartments.price_cleaning_service')
-                    = f.number_field :price_cleaning_service, class: 'form-control'
-                    = error_messages(@apartment, :price_cleaning_service)
-
-            .section
                 label.big = t('backend.apartments.description')
                 #paragraphs
                     .paragraph v-for="(p, index) in paragraphs"
@@ -161,6 +150,20 @@
                 .form-group
                     label.medium = t('backend.area')
                     = f.collection_select :area_id, Area.all, :id, :name, {:selected => Area.first}, {class: 'form-control'}
+                    
+
+                .row
+                    .col-lg-6
+                        .form-group
+                            label.medium = t('backend.apartments.price_default')
+                            = f.number_field :price_default, class: 'form-control'
+                            = error_messages(@apartment, :price_default)
+
+                    .col-lg-6
+                        .form-group
+                            label.medium = t('backend.apartments.price_cleaning_service')
+                            = f.number_field :price_cleaning_service, class: 'form-control'
+                            = error_messages(@apartment, :price_cleaning_service)
 
                 #services.form-group
                     label.medium = t('backend.apartments.services')
@@ -174,7 +177,7 @@
 
                 #main-image.form-group data-icon-delete="#{image_path('close.png')}"
                     .head-file
-                        label.medium = t('backend.apartments.main_image')
+                        label.medium = t('backend.main_image')
                         .choose_file
                             .btn.btn-primary.btn-small = t('backend.load')
                             = f.file_field :main_image
@@ -190,7 +193,7 @@
                 
                 #images.form-group
                     .head-file
-                        label.medium = t('backend.apartments.gallery')
+                        label.medium = t('backend.gallery')
                         .choose_file
                             .btn.btn-primary.btn-small = t('backend.load')
                             = f.file_field :images, multiple: true

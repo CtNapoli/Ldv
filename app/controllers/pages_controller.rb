@@ -7,6 +7,6 @@ class PagesController < ApplicationController
     end
 
     def owners
-        @questions = Question.order(created_at: :desc)
+        @questions = Question.with_translations(I18n.locale).order(created_at: :desc)
     end
 end

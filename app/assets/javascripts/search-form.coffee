@@ -26,6 +26,10 @@ document.addEventListener 'turbolinks:load', () ->
                 where: () ->
                     this.enabled()
                    
+            },
+            filters: {
+                formatDate: (value) ->
+                    return moment(String(value)).format('DD/MM/YYYY') if (value)
             }
         })
 

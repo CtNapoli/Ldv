@@ -18,18 +18,13 @@
             
     .container
         .row
+            .col-12
+                = alert_messages
+                
+        .row
             .col-lg-8
                 h1.secondary-font.big-text.font-italic = @apartment.name
-                h2.address.normal-text
-                    |
-                    => @apartment.city
-                    | |
-                    =< @apartment.address
-                    | ,
-                    =<> @apartment.postal_code
-                    | (
-                    = @apartment.province
-                    | )
+                h2.address.normal-text = full_address(@apartment.address, @apartment.city, @apartment.postal_code, @apartment.province)
                 .properties
                     .property
                         = image_tag('apartments/capacity.png')
@@ -91,9 +86,28 @@
                                     #collapseOne.collapse.show data-parent="#accordionExample"
                                         .form-group
                                             label.tag = t('search_form.dates')
-                                            = f.hidden_field :date_start, class: 'form-control', 'v-model': 'selectedDate.start' 
-                                            = f.hidden_field :date_end, class: 'form-control', 'v-model': 'selectedDate.end' 
-                                            v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                            = f.hidden_field :date_start, 'v-model': 'selectedDate.start' 
+                                            = f.hidden_field :date_end, 'v-model': 'selectedDate.end'
+                                            = f.hidden_field :total_price, 'v-model': 'total'
+
+                                            .from_to
+                                                .row.align-items-center
+                                                    .col-3
+                                                        p.small-text = t('search_form.from')
+                                                    
+                                                    .col-9.text-right
+                                                        span.secondary-font.font-italic
+                                                            | {{selectedDate.start | formatDate}}
+
+                                                .row.align-items-center
+                                                    .col-3
+                                                        p.small-text = t('search_form.to')
+
+                                                    .col-9.text-right
+                                                        span.secondary-font.font-italic
+                                                            | {{selectedDate.end | formatDate}}
+
+                                                v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
                                         
 
                                         .form-group.no-border.no-margin
@@ -110,7 +124,7 @@
                                                         .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
                                         #apartment-prices.form-group v-if="nights > 0"
-                                            .price
+                                            .price-row
                                                 .title
                                                     p
                                                         | {{nightsString}}
@@ -119,7 +133,7 @@
                                                     p
                                                         | {{priceForNightsFixed}}
 
-                                            .price
+                                            .price-row
                                                 .title
                                                     p = t('apartment.cleaning_cost')
 
@@ -127,7 +141,7 @@
                                                     p
                                                         | {{priceCleaningServiceFixed}}
 
-                                            .price
+                                            .price-row
                                                 .title
                                                     p = t('apartment.service_cost')
 
@@ -135,7 +149,7 @@
                                                     p
                                                         | {{servicePriceFixed}}
 
-                                            .price.strong
+                                            .price-row.strong
                                                 .title
                                                     p = t('apartment.total')
 

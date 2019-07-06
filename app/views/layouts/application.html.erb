@@ -21,6 +21,7 @@
     <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'>
     <script src='https://unpkg.com/vue/dist/vue.js'></script>
     <script src='https://unpkg.com/v-calendar'></script>
+    <script src="https://unpkg.com/moment@2.24.0"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl" />
     
     
@@ -33,9 +34,11 @@
 
   </head>
 
-  <body>
+  <body class="site">
+    <%= render 'layouts/social_banner' %>
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <nav class="navbar navbar-expand-xl">
           <div id="toggle-menu">
             <span class="line long"></span>
             <span class="line"></span>
@@ -71,7 +74,7 @@
                   <% if I18n.locale == :it  %>
                     <%= link_to "ENG", url_for(locale: :en), class: "nav-link" %>
                   <% elsif I18n.locale == :en %>
-                    <%= link_to "ITA", url_for(locale: ''), class: "nav-link" %>
+                    <%= link_to "ITA", url_for(locale: nil), class: "nav-link" %>
                   <% end %>
                 </li>
               </ul>
@@ -107,6 +110,7 @@
             </div>
           </div>
         </nav>
+        </div>
     </header>
     <main class="custom-wrap">
       <%= yield %>

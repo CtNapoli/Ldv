@@ -3,16 +3,7 @@
     
     .info
         h3.name.secondary-font.font-italic.text-medium = apartment.name
-        p.address.small-text
-            |
-            => apartment.city
-            | |
-            =< apartment.address
-            | ,
-            =<> apartment.postal_code
-            | (
-            = apartment.province
-            | )
+        p.address.small-text = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
 
         .features
             .feature

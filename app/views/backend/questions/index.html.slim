@@ -1,24 +1,37 @@
-.row
+.row.heading
     .col-8
-        h1 = t('backend.questions.index.title')
+        h1.secondary-font.font-italic = t('backend.questions.index.title')
+        
 
     .col-4.text-right
         = link_to t('backend.questions.index.cta'), new_backend_question_path, class: 'btn btn-primary'
 
-table.table
-    thead
-        tr
-            th
-                label = t('backend.questions.index.request')
+.row.searching
+    .col-12
+        = form_with url: backend_questions_path, method: :get, local: true do |f|
+            .row.align-items-end
+                .col-lg-3
+                    .form-group
+                        label = t('backend.questions.search_form.question')
+                        = f.text_field :question, class: 'form-control', value: @question
 
-            th
-                label = t('backend.questions.index.reply')
+                .col-lg-2
+                    .form-group
+                        = f.button t('backend.search_form.search'), class: 'btn btn-primary btn-small'
 
-            th
 
-            th
+.row
+    .col-12
+        = alert_messages
 
-            
-    tbody
-        - if @questions.any?
-            = render @questions
+- if @questions.any?
+    .row
+        = render @questions
+
+    .row
+        .col-12
+            .custom-paginator
+                = paginate @questions
+
+- else
+    p = t('messages.questions.no-found')

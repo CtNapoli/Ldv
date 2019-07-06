@@ -103,10 +103,10 @@ it:
           text: Crediamo in un modello pay-for-performance, quindi non ci sono costi di iscrizione o costi. Abbiamo successo quando hai successo.
 
     section_2:
-      title: Making it works for you
+      title: Funzionale per te
       subtitle:
-        part_1: A fully-integrated
-        part_2: luxury hospitality company
+        part_1: Una compagnia di ospitalità, 
+        part_2: di lusso, completamente integrata
 
       services:
         service_1:
@@ -182,7 +182,11 @@ it:
     check_availability: Controlla disponibilità
 
   booking:
-    success: Richiesta prenotazione inviata con successo
+    success: "Richiesta prenotazione inviata a %{apartment} per le seguenti date: %{from} - %{to}"
+    reservation_success: "Prenotazione confermata per %{apartment} per le seguenti date: %{from} - %{to}"
+    reservation_reject: "Prenotazione rifiutata per %{apartment} per le seguenti date: %{from} - %{to}"
+  
+
 
   mobile_buttons:
     filters: 'Filtri'
@@ -193,23 +197,63 @@ it:
     guests: Ospiti
     search: Cerca
     dates: Date
+    check_availability: Verifica disponibilità
+    from: DA
+    to: A
+    select: Seleziona
 
   backend:
     menu:
       apartments: Appartamenti
       services: Servizi
       areas: Aree
-      faq: Faq
+      reservations: Prenotazioni
+      faq: FAQ
 
+    search_form:
+      search: Cerca
+
+    reservations:
+      index: 
+        title: Richieste di prenotazione
+
+      name: Nome
+      guests: Ospiti
+      dates: Date
+      contacts: Contatti
+      message: Messaggio
+      reject: Rifiuta
+      accept: Accetta
+      total: Totale
+      reject_alert: Sei sicuro di rifiutare questa prenotazione?
+      from: Da
+      to: A
+      status:
+        all: 'Tutte'
+        refused: 'Rifiutata'
+        waiting: 'In attesa'
+        confirmed: 'Confermata'
+
+      search_form:
+        apartment_name: Cerca per appartamento
+        reservation_status: Filtra per stato richiesta
+      
     services:
       index:
         title: Servizi
         name: Nome
         cta: Nuovo servizio
+        
+      search_form:
+        service_name: Cerca per nome servizio
 
       new: 
         title: Nuovo servizio
         name: Nome
+
+      created: "Servizio %{service} creato con successo"
+      edited: "Servizio %{service} modificato con successo"
+      removed: "Servizio %{service} rimosso con successo"
 
       edit:
         title: Modifica servizio
@@ -228,6 +272,8 @@ it:
         text_par: Paragrafo
         content: Contenuto
 
+      edited: "Area %{area} modificata con successo"
+
     questions:
       index:
         title: FAQ
@@ -235,10 +281,17 @@ it:
         request: Domanda
         reply: Risposta
 
+      search_form:
+        question: Cerca per domanda
+
       edit:
         title: Modifica FAQ
         request: Domanda
         reply: Risposta
+
+      created: "FAQ %{question} creata con successo"
+      edited: "FAQ %{question} modificata con successo"
+      removed: "FAQ %{question} rimossa con successo"
 
     apartments:
       index:
@@ -268,6 +321,12 @@ it:
         bathrooms: Bagni
         title_par: Titolo
         text_par: Paragrafo
+        area: Area
+        price_base: Prezzo base
+
+      created: "Appartamento %{apartment} creato con successo"
+      edited: "Appartamento %{apartment} modificato con successo"
+      removed: "Appartamento %{apartment} rimosso con successo"
 
       edit:
         title: Modifica appartamento
@@ -291,6 +350,10 @@ it:
           end: Valido fino a
           value: Prezzo per notte
 
+        search_form:
+          apartment_name: Cerca per appartamento
+          apartment_area: Filtra per area
+
       location_informations: Informazioni località
       apartment_informations: Informazioni appartamento
       prices: Prezzi
@@ -305,10 +368,17 @@ it:
       services: Servizi
       price_default: Prezzo per notte
       price_cleaning_service: Prezzo servizio pulizia
+
+      search_form:
+        apartment_name: Cerca per appartamnto
+        apartment_area: Filtra per area
+        apartment_status: Filtra per stato appartamento
       
 
     
     edit: Modifica
+    edit_eng: Modifica in ENG
+    edit_ita: Modifica in ITA
     delete: Elimina
     delete_alert: Sei sicuro di volere eliminare
     save: Salva
@@ -321,6 +391,53 @@ it:
   activerecord:
     errors:
       models:
+        apartment:
+          attributes:
+            name:
+              blank: Nome richiesto
+
+            address:
+              blank: Indirizzo richiesto
+
+            postal_code:
+              blank: CAP richiesto
+
+            city:
+              blank: Città richiesta
+
+            province:
+              blank: Provincia richiesta
+
+            lat:
+              blank: Latitudine richiesta
+
+            lng:
+              blank: Longitudine richiesta
+
+            capacity:
+              blank: Capienza richiesta
+
+            square_meters:
+              blank: Metri quadrati richiesti
+
+            rooms:
+              blank: Camere richieste
+
+            bedrooms:
+              blank: Camere da letto richieste
+
+            toilette:
+              blank: Bagni richiesti
+
+            price_default:
+              blank: Prezzo default richiesto
+
+            price_cleaning_service:
+              blank: Prezzo servizio pulizia richiesto
+
+            main_image:
+              blank: Immagine principale richiesta
+
         request:
           attributes:
             name:
@@ -375,3 +492,30 @@ it:
 
             phone_number:
               blank: Numero di telefono richiesto
+
+
+  messages:
+    apartments:
+      no-found: Non sono presenti appartamenti per i criteri di ricerca selezionati
+
+    questions:
+      no-found: Non sono presenti domande per i criteri di ricerca selezionati
+
+
+
+  views:
+    pagination:
+      first: Prima
+      last: Ultima
+      previous: Precedente
+      next: Prossima
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"

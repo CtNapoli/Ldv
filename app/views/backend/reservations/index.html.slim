@@ -1,0 +1,55 @@
+
+.row.heading
+    .col-8
+        h1.secondary-font.font-italic = t('backend.reservations.index.title')
+        
+
+    .col-4.text-right
+
+
+.row.searching
+    .col-12
+        = form_with url: backend_reservations_path, method: :get, local: true do |f|
+            .row.align-items-end
+                .col-lg-4
+                    .form-group
+                        label = t('backend.reservations.search_form.apartment_name')
+                        = f.text_field :apartment_name, class: 'form-control', value: @apartment_name
+
+                .col-lg-4
+                    .form-group
+                        label = t('backend.reservations.search_form.reservation_status')
+                        #status_dropdown.dropdown.backend_version
+                            = f.hidden_field :reservation_status, class: 'form-control'
+
+                            #status.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                - if @reservation_status.present?
+                                    span.small-text = t("backend.reservations.status.#{@reservation_status}")
+                                - else
+                                    span.small-text = t('backend.reservations.status.all')
+                                .icon = image_tag 'dropdown-arrow.png'
+                                
+                            .dropdown-menu aria-labelledby="status"
+                                .dropdown-item.small-text data-value="" = t("backend.reservations.status.all")
+                                - Reservation.statuses.keys.each do |s|
+                                    .dropdown-item.small-text data-value="#{s}" = t("backend.reservations.status.#{s}")
+
+                .col-lg-2
+                    .form-group
+                        = f.button t('backend.search_form.search'), class: 'btn btn-primary btn-small'
+
+.row
+    .col-12
+        = alert_messages
+
+- if @reservations.any?  
+    .row
+        = render @reservations
+
+    .row
+        .col-12
+            .custom-paginator
+                = paginate @reservations
+
+- else
+    p Non sono presenti prenotazioni al momento

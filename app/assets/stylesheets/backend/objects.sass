@@ -1,0 +1,94 @@
+@import variables
+
+#backend
+    .big-text
+        font-size: 24px
+        line-height: 34px
+
+    .normal-text
+        font-size: 14px
+        line-height: 24px
+
+    .small-text
+        font-size: 12px
+        line-height: 22px
+
+    .mini-text
+        font-size: 10px
+        line-height: 20px
+
+    .bold-font
+        font-weight: 700
+
+    .underline
+        text-decoration: underline
+
+    .heading
+        margin-bottom: 70px
+
+    .searching
+        margin-bottom: 70px
+
+
+    .backend-card
+        box-shadow: rgba(black, 0.05) 0 10px 25px
+        border-radius: 10px
+        padding: 25px
+        margin-bottom: 40px
+
+        .body
+            margin: 30px 0
+
+            a
+                display: block
+                word-break: break-all
+
+        .foot
+            .btn-primary
+                margin-left: 20px
+
+        .row
+            margin-bottom: 20px
+
+
+        .status
+            display: flex
+            align-items: center
+            justify-content: flex-end
+
+            span
+                text-transform: uppercase
+
+            .round
+                width: 18px
+                height: 18px
+                border-radius: 50%
+                display: inline-block
+                background-color: $gadgetColor
+                margin-left: 10px
+
+
+        &.apartment 
+            &.public
+                .status .round
+                    background-color: $brandColor
+
+
+
+        &.reservation
+            &.waiting
+                .status .round
+                    background-color: $waitingColor
+
+            &.refused
+                .status .round
+                    background-color: $refusedColor
+
+            &.confirmed
+                .status .round
+                    background-color: $confirmedColor
+
+            &.past
+                opacity: 0.5
+                pointer-events: none
+            

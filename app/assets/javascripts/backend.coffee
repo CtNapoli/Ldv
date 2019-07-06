@@ -1,7 +1,7 @@
 document.addEventListener 'turbolinks:load', () ->
     iconDelete = $('#main-image').data('icon-delete');
     $('#backend #main-image input[type=file]').on 'change', () ->
-        $('#backend #main-image .all-previews').append('<div id="image-0" class="box-preview" style="background-image: url(' + URL.createObjectURL($(this).prop('files')[0]) + ')"></div>')
+        $('#backend #main-image .all-previews').html('<div id="image-0" class="box-preview" style="background-image: url(' + URL.createObjectURL($(this).prop('files')[0]) + ')"></div>')
 
         boxImage = $('#backend #main-image .all-previews .box-preview#image-0')
 

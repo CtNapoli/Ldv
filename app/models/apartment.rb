@@ -8,7 +8,7 @@ class Apartment < ApplicationRecord
     has_many_attached :images
     has_and_belongs_to_many :services, -> { distinct }
     has_many :prices
-    has_many :reservations
+    has_many :reservations, dependent: :delete_all
 
     validates :name, presence: true
     validates :address, presence: true
@@ -28,7 +28,7 @@ class Apartment < ApplicationRecord
     validate :main_image_presence
 
     def busy_in_this_range?(from, to)
-        self.reservations.where(accepted: 'yes', date_start: from.beginning_of_day..to.end_of_day).any?
+        self.reservations.where(status: 'confirmed', date_start: from.beginning_of_day..to.end_of_day).any?
     end
 
     def has_prices?

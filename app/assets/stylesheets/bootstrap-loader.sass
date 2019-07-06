@@ -18,6 +18,10 @@
     border: none
     color: white
     letter-spacing: 1.5px
+    white-space: normal
+
+    &:hover, &:active, &:focus, &:visited
+        box-shadow: none
 
     &.btn-primary
         background-color: $brandColor
@@ -64,6 +68,15 @@
             opacity: 1
             pointer-events: auto
 
+    &.bordered
+        border: solid 1px $gadgetColor
+        color: $brandColor
+
+        &:hover, &:active, &:focus, &:visited
+            border: solid 1px $gadgetColor  !important
+            color: $brandColor !important
+
+
 
 .dropdown
     .dropdown-button
@@ -84,13 +97,21 @@
     .dropdown-menu
         box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px
         border: none
+        width: 100%
 
         .dropdown-item
             cursor: pointer
             font-size: 19px
+            white-space: normal
 
             &:hover,&:focus,&:active
                 background-color: white
+
+    &.backend_version
+        .dropdown-button
+            border: solid 1px $gadgetColor
+            border-radius: 3px
+            padding: 5px 15px
 
 
 .modal
@@ -106,4 +127,17 @@
 
                 .btn
                     flex-basis: 50%
+
+
+.alert
+    color: white
+    border: none
+    padding: 20px
+
+    &.alert-success
+        background-color: $alertSuccess
+
+    &.alert-danger
+        background-color: $alertError
+        
 

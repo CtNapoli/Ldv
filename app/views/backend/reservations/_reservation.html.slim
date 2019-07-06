@@ -1,0 +1,66 @@
+.col-lg-6.col-xl-4
+    .reservation.backend-card class="#{reservation.status}" data-reservation-id="#{reservation.id}" class=('past' unless reservation.future?)
+        .head
+            .row
+                .col-lg-6
+                    = link_to reservation.apartment.name, apartment_path(reservation.apartment), class: 'big-text underline secondary-font font-italic', target: '_blank'
+                    p.small-text = full_address(reservation.apartment.address, reservation.apartment.city, reservation.apartment.postal_code, reservation.apartment.province)
+
+                .col-lg-6
+                    .status 
+                        span.mini-text.bold-font = t("backend.reservations.status.#{reservation.status}")
+                        .round
+
+        .body
+            .row
+                .col-lg-6
+                    label.tag = t('backend.reservations.name')
+                    p.normal-text = reservation.name
+
+                .col-lg-6
+                    label.tag = t('backend.reservations.guests')
+                    p.normal-text = reservation.guests
+
+            .row
+                .col-lg-6
+                    label.tag = t('backend.reservations.dates')
+                    p.normal-text
+                        = t('backend.reservations.from')
+                        |
+                        =< l(reservation.date_start, format: "%d %b %Y")
+
+                    p.normal-text
+                        = t('backend.reservations.to')
+                        |
+                        =< l(reservation.date_end, format: "%d %b %Y")
+
+                .col-lg-6
+                    label.tag = t('backend.reservations.contacts')
+                    = link_to reservation.email, "mailto:#{reservation.email}", class: 'underline normal-text', target: '_blank'
+                    = link_to reservation.phone_number, "mailto:#{reservation.phone_number}", class: 'underline normal-text', target: '_blank'
+
+            .row
+                .col-12
+                    label.tag = t('backend.reservations.message')
+                    p.normal-text = reservation.more_info
+
+        .foot
+            .row.align-items-center
+                .col-lg-3
+                    .price
+                        p.secondary-font.font-italic = t('backend.reservations.total')
+                        p.digit.secondary-font.font-italic= price(reservation.total_price)
+
+                .col-lg-9.text-right
+                    - if reservation.future? && reservation.status != 'refused'
+                        = link_to t('backend.reservations.reject'), backend_reservation_reject_path(reservation_id: reservation), method: :patch, class: 'btn btn-secondary bordered btn-small', data: {confirm: t('backend.reservations.reject_alert')}
+                        - unless reservation.status == 'confirmed'
+                            = link_to t('backend.reservations.accept'), backend_reservation_accept_path(reservation_id: reservation), method: :patch, class: 'btn btn-primary btn-small'
+
+
+
+
+
+                
+
+                    

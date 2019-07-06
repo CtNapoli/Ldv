@@ -3,20 +3,25 @@ footer
         .row
             .col-xl-3.text-center.text-xl-left
                 = image_tag('logo.png')
-                p.small-text P.IVA 1233445577451
-                p.small-text info@ldvhospitality.com
-                p.small-text +3333333333
+                p.small-text
+                    | M&M HOSPITALITY LTD
+                    br
+                    | Company number 11349988
+                    br
+                    | 184 Berglen Court, 7 Branch Road, London E14 7JZ
+                p.small-text = link_to 'info@ldvhomes.com', 'mailto:info@ldvhomes.com', target: '_blank'
+                p.small-text = link_to '+39 339 866 6097', 'tel:+393398666097', target: '_blank'
 
             .col-xl-6.text-center
                 .social
-                    = link_to '#', class: 'channel facebook', target: '_blank' do
+                    = link_to 'https://www.facebook.com/ldvhomes/', class: 'channel facebook', target: '_blank' do
                         i.fab.fa-facebook-f
 
-                    = link_to '#', class: 'channel instagram', target: '_blank' do
+                    = link_to 'https://www.instagram.com/ldvhomes/', class: 'channel instagram', target: '_blank' do
                         i.fab.fa-instagram
 
 
             .col-xl-3.text-center.text-xl-right
-                = link_to 'Cookie policy', '#', class: 'small-text text-uppercase cookie'
+                = link_to 'Cookie policy', 'http://www.aboutcookies.org.uk/', class: 'small-text text-uppercase cookie', target: '_blank'
 
-                = link_to 'Privacy policy', '#', class: 'small-text text-uppercase privacy'
+                = link_to 'Privacy policy', 'http://www.aboutcookies.org.uk/', class: 'small-text text-uppercase privacy', target: '_blank'

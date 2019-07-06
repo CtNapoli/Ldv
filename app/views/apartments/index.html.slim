@@ -8,16 +8,14 @@
         #map
 
     .container
-        = alert_messages
-        
         .row
-            .col-lg-9.list
+            .col-xl-9.list
                 - if @apartments.any?
                     = render @apartments
                 - else
-                    p Non ci sono appartamenti per i criteri di ricerca selezionati
+                    p = t('messages.apartments.no-found')
 
-            .col-lg-3
+            .col-xl-3
                 #apartments-form.search-form.custom-card.desktop
                     .form-apartment-desktop-container
                         .search-form-container
@@ -34,7 +32,7 @@
                                             - if @where.present?
                                                 span = @where.name
                                             - else 
-                                                span Seleziona
+                                                span = t('search_form.select')
 
                                             .icon = image_tag 'dropdown-arrow.png'
                                             
@@ -45,8 +43,26 @@
                                 .form-group
                                     label.tag = t('search_form.dates')
                                     = f.hidden_field :start, class: 'form-control', 'v-model': 'selectedDate.start' 
-                                    = f.hidden_field :end, class: 'form-control', 'v-model': 'selectedDate.end' 
-                                    v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                    = f.hidden_field :end, class: 'form-control', 'v-model': 'selectedDate.end'
+
+                                    .from_to
+                                        .row.align-items-center
+                                            .col-3
+                                                p.small-text = t('search_form.from')
+                                            
+                                            .col-9.text-right
+                                                span.secondary-font.font-italic
+                                                    | {{selectedDate.start | formatDate}}
+
+                                        .row.align-items-center
+                                            .col-3
+                                                p.small-text = t('search_form.to')
+
+                                            .col-9.text-right
+                                                span.secondary-font.font-italic
+                                                    | {{selectedDate.end | formatDate}}
+
+                                        v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
                                 
 
                                 .form-group.no-border.no-margin
@@ -61,14 +77,14 @@
                                             - if @guests.present?
                                                 span = t('apartment.capacity', count: @guests)
                                             - else
-                                                span Seleziona
+                                                span = t('search_form.select')
                                             .icon = image_tag 'dropdown-arrow.png'
                                             
                                         .dropdown-menu aria-labelledby="guests"
                                             - @max_guests&.times do |a|
                                                 .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
-                                = f.submit t('search_form.search'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
+                                = f.submit t('search_form.check_availability'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable == true }"
 
 
     #map-and-filters-mobile

@@ -1,4 +1,13 @@
-tr
-    td = service.name
-    td = link_to t('backend.edit'), edit_backend_service_path(service)
-    td = link_to t('backend.delete'), backend_service_path(service), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} #{service.name}?"}
+.col-lg-6.col-xl-4
+    .service.backend-card
+        .head
+            .row
+                .col-12
+                    h3.big-text.underline.secondary-font.font-italic = service.name
+
+        .foot
+            .row.align-items-center
+                .col-12
+                    = link_to t('backend.edit'), edit_backend_service_path(service), class: 'btn btn-secondary bordered btn-small'
+                    
+                    = link_to t('backend.delete'), backend_service_path(service), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} #{service.name}?"}, class: 'btn btn-primary btn-small'

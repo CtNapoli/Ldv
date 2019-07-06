@@ -13,7 +13,7 @@ class Backend::AreasController < BackendController
 
     def update
         if @area.update(area_params)
-            flash.notice = 'Area modificata con successo'
+            flash.notice = t('backend.areas.created', area: @area.name)
             redirect_to backend_areas_path
         else
             render :edit

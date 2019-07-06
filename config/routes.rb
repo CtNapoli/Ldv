@@ -30,6 +30,11 @@ Rails.application.routes.draw do
           patch   '/aggiorna-range-prezzo/:price_id'      =>  'apartments#update_price_range', as: 'update_price_range'
         end
       end
+
+      resources :reservations, only: [:index] do
+        patch 'reject'  =>  'reservations#reject'
+        patch 'accept'  =>  'reservations#accept'
+      end
       
       resources :services
   

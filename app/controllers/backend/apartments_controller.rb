@@ -1,10 +1,50 @@
 class Backend::ApartmentsController < BackendController
     skip_before_action :verify_authenticity_token, only: [:create, :update]
     before_action :authenticate_admin!
+    before_action :load_all_areas, only: [:index]
     before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo, :add_price_range, :remove_price_range, :edit_price_range, :update_price_range]
     
     def index
-        @apartments = Apartment.all
+        @apartment_area = params[:apartment_area]
+        @founded_area = Area.with_translations(I18n.locale).where("cast(area_translations as text) ilike ?", "%#{@apartment_area}%").last
+        @apartment_name = params[:apartment_name]
+        
+        @apartment_status = true if params[:apartment_status] == "1" 
+        @apartment_status = false if params[:apartment_status] == "0"
+        @apartment_status = "" if params[:apartment_status] == ""
+
+
+        if params[:apartment_area] && params[:apartment_name] && params[:apartment_status]
+            @apartments = Apartment.with_translations(I18n.locale).order('created_at DESC').page params[:page]
+
+            if @apartment_area.present? && @apartment_name.present? && @apartment_status != ""
+                @apartments = @apartments.where('apartment_translations.name ILIKE ?', "%#{@apartment_name}%").where(area_id: @founded_area, published: @apartment_status)
+            end
+    
+            if @apartment_area.present? && @apartment_name.blank? && @apartment_status == ""
+                @apartments = @apartments.where(area_id: @founded_area)
+            end
+            
+            if @apartment_name.present? && @apartment_area.blank? && @apartment_status == ""
+                @apartments = @apartments.where('apartment_translations.name ILIKE ?', "%#{@apartment_name}%")
+            end
+    
+            if @apartment_status != "" && @apartment_name.blank? && @apartment_area.blank?
+                @apartments = @apartments.where(published: @apartment_status)
+            end
+    
+            if @apartment_status != "" && @apartment_name.present? && @apartment_area.blank?
+                @apartments = @apartments.where('apartment_translations.name ILIKE ?', "%#{@apartment_name}%").where(published: @apartment_status)
+            end
+    
+            if @apartment_status != "" && @apartment_area.present? && @apartment_name.blank? 
+                @apartments = @apartments.where(area_id: @founded_area, published: @apartment_status)
+            end
+        else
+            @apartments = Apartment.all.order('created_at DESC').page params[:page]
+        end
+
+        
     end
 
     def new
@@ -14,8 +54,8 @@ class Backend::ApartmentsController < BackendController
     def create
         @apartment = Apartment.new(apartment_params)
         if @apartment.save
-            flash.notice = 'Appartamento creato con successo'
-            redirect_to backend_apartments_path
+            flash.notice = t('backend.apartments.created', apartment: @apartment.name)
+            redirect_to edit_backend_apartment_path(@apartment)
         else
             render :new
         end
@@ -27,7 +67,7 @@ class Backend::ApartmentsController < BackendController
 
     def update
         if @apartment.update(apartment_params)
-            flash.notice = 'Appartamento modificato con successo'
+            flash.notice = t('backend.apartments.edited', apartment: @apartment.name)
             redirect_to backend_apartments_path
         else
             render :edit
@@ -36,6 +76,7 @@ class Backend::ApartmentsController < BackendController
 
     def destroy
         @apartment.destroy
+        flash.alert = t('backend.apartments.removed', apartment: @apartment.name)
         redirect_to backend_apartments_path
     end
 
@@ -87,6 +128,10 @@ class Backend::ApartmentsController < BackendController
 
     def load_apartment
         @apartment = Apartment.friendly.find(params[:id])
+    end
+
+    def load_all_areas
+        @all_areas = Area.with_translations(I18n.locale).all
     end
 
     private

@@ -1,5 +1,16 @@
-tr
-    td = question.request
-    td = question.reply
-    td = link_to t('backend.edit'), edit_backend_question_path(question)
-    td = link_to t('backend.delete'), backend_question_path(question), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} '#{question.request}'?"}
+.col-lg-6
+    .question.backend-card
+        .head
+            .row
+                .col-12
+                    h3.big-text.underline.secondary-font.font-italic = question.request
+                    p.small-text = question.reply
+
+        .foot
+            .row.align-items-center
+                .col-lg-4
+
+                .col-8.text-right
+                    = link_to t('backend.delete'), backend_question_path(question), method: :delete, data: {confirm:  "#{t('backend.delete_alert')} '#{question.request}'?"}, class: 'btn btn-secondary bordered btn-small'
+                    = link_to t('backend.edit'), edit_backend_question_path(question), class: 'btn btn-primary btn-small'
+                    

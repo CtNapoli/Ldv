@@ -4,10 +4,19 @@
 body
     font-family: 'Lato', sans-serif
 
-    +media($md)
-        margin:
-            left: 50px
-            right: 50px
+    &.site
+        max-width: 1440px
+        width: 100%
+        margin: 0 auto
+
+        +media($md)
+            padding:
+                left: 100px
+                right: 100px
+
+        header
+            max-width: 1440px
+            margin: 0 auto
 
     h1,h2,h3,h4,h5,h6,p,span,a,i,label,div,ul,li,select,textarea
         color: $brandColor
@@ -18,20 +27,20 @@ body
         padding: 20px
 
         +media($md)
-            padding: 20px 50px
+            padding: 20px 0
 
         .navbar
             padding: 0
             justify-content: center
 
-            +media($lg)
+            +media($xl)
                 justify-content: space-between
 
             img
                 width: 90px
 
             .nav-item
-                +media($lg)
+                +media($xl)
                     margin-left: 50px
 
                 .nav-link
@@ -49,7 +58,7 @@ body
                 cursor: pointer
                 padding: 5px
 
-                +media($lg)
+                +media($xl)
                     display: none
                 
 
@@ -94,13 +103,13 @@ body
         .desktop
             display: none
 
-            +media($lg)
+            +media($xl)
                 display: block
 
         .mobile
             display: block
 
-            +media($lg)
+            +media($xl)
                 display: none
 
             .navbar-nav
