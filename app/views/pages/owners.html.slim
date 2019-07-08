@@ -1,7 +1,7 @@
 #owner
     .intro-banner.type1
         .container
-            h2.text.font-italic.giant-text.secondary-font
+            h1.text.font-italic.giant-text.secondary-font
                 |
                 = t('owner.section_0.title.part_1')
                 br
@@ -12,28 +12,28 @@
             .row
                 .col-lg-4
                     .property
-                        = image_tag 'owner/guest-icon.png', alt: 'Guest'
-                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_1.title')
+                        = image_tag 'owner/guest-icon.png', alt: t('owner.section_1.properties.property_1.title')
+                        h2.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_1.title')
                         p.normal-text = t('owner.section_1.properties.property_1.text')
 
                 .col-lg-4
                     .property
-                        = image_tag 'owner/key-icon.png', alt: 'Key'
-                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_2.title')
+                        = image_tag 'owner/key-icon.png', alt: t('owner.section_1.properties.property_2.title')
+                        h2.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_2.title')
                         p.normal-text = t('owner.section_1.properties.property_2.text')
 
                 .col-lg-4
                     .property
-                        = image_tag 'owner/money-icon.png', alt: 'Money'
-                        h3.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_3.title')
+                        = image_tag 'owner/money-icon.png', alt: t('owner.section_1.properties.property_3.title')
+                        h2.secondary-font.medium-text.font-italic = t('owner.section_1.properties.property_3.title')
                         p.normal-text = t('owner.section_1.properties.property_3.text')
 
     #making.custom-section
         .container
             .title-with-text
-                h3.title = t('owner.section_2.title')
+                h2.title = t('owner.section_2.title')
                 
-                h4.text.secondary-font
+                h3.text.secondary-font
                     | 
                     = t('owner.section_2.subtitle.part_1') 
                     br
@@ -43,39 +43,39 @@
                 .row.first
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/local-market.jpg'
+                            = image_tag 'owner/services/local-market.jpg', alt: t('owner.section_2.services.service_1.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_1.title')
                             p.normal-text = t('owner.section_2.services.service_1.text')
 
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/website.jpg'
+                            = image_tag 'owner/services/website.jpg', alt: t('owner.section_2.services.service_2.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_2.title')
                             p.normal-text = t('owner.section_2.services.service_2.text')
 
                     
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/mobile.jpg'
+                            = image_tag 'owner/services/mobile.jpg', alt: t('owner.section_2.services.service_3.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_3.title')
                             p.normal-text = t('owner.section_2.services.service_3.text')
 
                 .row.second
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/reservation.jpg'
+                            = image_tag 'owner/services/reservation.jpg', alt: t('owner.section_2.services.service_4.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_4.title')
                             p.normal-text = t('owner.section_2.services.service_4.text')
 
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/concierge.jpg'
+                            = image_tag 'owner/services/concierge.jpg', alt: t('owner.section_2.services.service_5.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_5.title')
                             p.normal-text = t('owner.section_2.services.service_5.text')
 
                     .col-lg-4
                         .service
-                            = image_tag 'owner/services/billing.jpg'
+                            = image_tag 'owner/services/billing.jpg', alt: t('owner.section_2.services.service_6.title')
                             h4.secondary-font.medium-text.font-italic = t('owner.section_2.services.service_6.title')
                             p.normal-text = t('owner.section_2.services.service_6.text')
 
@@ -83,9 +83,9 @@
         #questions.custom-section
             .container
                 .title-with-text
-                    h3.title = t('owner.section_3.title')
+                    h2.title = t('owner.section_3.title')
                     
-                    h4.text.secondary-font = t('owner.section_3.subtitle') 
+                    h3.text.secondary-font = t('owner.section_3.subtitle') 
                         
                 #questions-accordion.accordion
                     = render @questions
@@ -94,9 +94,9 @@
         .intro-banner.type2
             .container
                 .title-with-text
-                    h3.title = t('owner.section_4.title')
+                    h2.title = t('owner.section_4.title')
                     
-                    h4.text.secondary-font = t('owner.section_4.subtitle')
+                    h3.text.secondary-font = t('owner.section_4.subtitle')
 
         .request-form.custom-form
             .container
