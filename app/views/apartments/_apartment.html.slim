@@ -1,5 +1,5 @@
 = link_to apartment_path(apartment), class: 'apartment custom-card' do
-    .image style="background-image: url('#{rails_blob_path(apartment.main_image)}')"
+    .image style="background-image: url('#{rails_blob_url(apartment.main_image)}')"
     
     .info
         h3.name.secondary-font.font-italic.text-medium = apartment.name

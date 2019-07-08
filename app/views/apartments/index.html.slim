@@ -3,7 +3,7 @@
         #preload
             - if @apartments.any?
                 - @apartments.each do |a|
-                    .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_path(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(a.price_default)}"
+                    .apartment data-lat="#{a.lat}" data-lng="#{a.lng}" data-name="#{a.name}" data-image="#{rails_blob_url(a.main_image)}" data-capacity="#{t('apartment.capacity', count: a.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: a.bedrooms)}" data-rooms="#{t('apartment.rooms', count: a.rooms)}" data-toilette="#{t('apartment.toilette', count: a.toilette)}" data-minimumprice="#{price(a.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(a.price_default)}"
 
         #map
 

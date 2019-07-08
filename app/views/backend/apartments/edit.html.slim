@@ -185,7 +185,7 @@
 
                     .all-previews
                         - if @apartment.main_image.attached?
-                            .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_path(@apartment.main_image)}')"
+                            .box-preview id="image-#{@apartment.main_image.id}" style="background-image: url('#{rails_blob_url(@apartment.main_image)}')"
                                 = link_to remove_main_photo_backend_apartment_path, method: :delete, remote: true do
                                     .round = image_tag 'close.png', alt: 'Close'
 
@@ -201,7 +201,7 @@
                     .all-previews
                         - if @apartment.images.attached?
                             - @apartment.images.each do |i|
-                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_url(i)}')"
                                     = link_to remove_photo_backend_apartment_path(image_id: i.id), method: :delete, remote: true do
                                         .round = image_tag 'close.png', alt: 'Close'
 

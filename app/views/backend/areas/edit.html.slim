@@ -54,7 +54,7 @@
 
                     .all-previews
                         - if @area.image.attached?
-                            .box-preview id="image-#{@area.image.id}" style="background-image: url('#{rails_blob_path(@area.image)}')"
+                            .box-preview id="image-#{@area.image.id}" style="background-image: url('#{rails_blob_url(@area.image)}')"
                                 = link_to remove_main_image_area_backend_area_path, method: :delete, remote: true
                                     .round = image_tag 'close.png', alt: 'Close'
 
@@ -70,7 +70,7 @@
                     .all-previews
                         - if @area.images.attached?
                             - @area.images.each do |i|
-                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_path(i)}')"
+                                .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_url(i)}')"
                                     = link_to remove_photo_area_backend_area_path(image_id: i.id), method: :delete, remote: true
                                         .round = image_tag 'close.png', alt: 'Close'
 
