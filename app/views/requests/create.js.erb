@@ -10,7 +10,7 @@ $('#informations #message-container .errors' ).text('');
     $('#informations #phone-number' ).val('');
     $('#informations #message').val('');
 
-    $('#informations .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>');
+    $('#informations .request-form .form-respond').html("<p class='alert alert-success'><%= t('messages.email_sent') %></p>");
 <% else %>
     <% if(@request.errors[:name].any?) %>
         $('#informations #name-container .errors' ).html('<%= error_messages(@request, :name) %>')

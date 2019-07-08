@@ -1,7 +1,7 @@
 #homepage
     .intro-banner.type1
         .container
-            h2.text.font-italic.giant-text.secondary-font
+            h1.text.font-italic.giant-text.secondary-font
                 |
                 = t('homepage.section_0.title.part_1')
                 br
@@ -22,7 +22,7 @@
                                         #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             span = t('search_form.select')
 
-                                            .icon = image_tag 'dropdown-arrow.png'
+                                            .icon = image_tag 'dropdown-arrow.png', alt: 'Down'
                                             
                                         .dropdown-menu aria-labelledby="area"
                                             - Area.all.each do |a|
@@ -66,7 +66,7 @@
                                                 span = t('apartment.capacity', count: @guests)
                                             - else
                                                 span = t('search_form.select')
-                                            .icon = image_tag 'dropdown-arrow.png'
+                                            .icon = image_tag 'dropdown-arrow.png', alt: 'Down'
                                             
                                         .dropdown-menu aria-labelledby="guests"
                                             - @max_guests&.times do |a|
@@ -79,13 +79,16 @@
     #about-us.custom-section
         .container
             .title-with-text
-                h3.title = t('homepage.section_1.title')
+                h2.title = t('homepage.section_1.title')
                 
-                h4.text.secondary-font
+                h3.text.secondary-font
                     | 
                     = t('homepage.section_1.subtitle.part_1') 
                     br
                     = t('homepage.section_1.subtitle.part_2')
+                    br
+                    = t('homepage.section_1.subtitle.part_3')
+
 
             .row
                 .col-lg-6
@@ -103,17 +106,17 @@
                 .swiper-container
                     .title-with-text.with-navigation
                         .text
-                            h3.title = t('homepage.section_2.title')
+                            h2.title = t('homepage.section_2.title')
 
-                            h4.text.secondary-font = t('homepage.section_2.subtitle')
+                            h3.text.secondary-font = t('homepage.section_2.subtitle')
 
                         .text-right
 
                             .nav.prev.dark
-                                = image_tag('navigation-arrow-right-white.png')
+                                = image_tag('navigation-arrow-right-white.png', alt: 'Prev')
 
                             .nav.next.dark
-                                = image_tag('navigation-arrow-left-white.png')
+                                = image_tag('navigation-arrow-left-white.png', alt: 'Next')
 
                 
                     .swiper-wrapper
@@ -125,9 +128,9 @@
             .row
                 .col-lg-5
                     .title-with-text
-                        h3.title = t('homepage.section_2.title')
+                        h2.title = t('homepage.section_3.title')
                 
-                        h4.text.secondary-font
+                        h3.text.secondary-font
                             |
                             = t('homepage.section_3.subtitle.part_1') 
                             br
@@ -142,37 +145,37 @@
                     .row.services
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'H24 Assistance')
                                 h4.normal-text = t('homepage.section_3.services.service_1.title') 
                                 p = t('homepage.section_3.services.service_1.text')
 
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'Hospitality')
                                 h4.normal-text = t('homepage.section_3.services.service_2.title')
                                 p = t('homepage.section_3.services.service_2.text')
 
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'Your Guide')
                                 h4.normal-text = t('homepage.section_3.services.service_3.title')
                                 p = t('homepage.section_3.services.service_3.text')
 
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'Linen')
                                 h4.normal-text = t('homepage.section_3.services.service_4.title')
                                 p = t('homepage.section_3.services.service_4.text')
 
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'Cleaning')
                                 h4.normal-text = t('homepage.section_3.services.service_5.title')
                                 p = t('homepage.section_3.services.service_5.text')
 
                         .col-sm-6.col-xl-4
                             .service
-                                = image_tag('homepage/service-fake.png')
+                                = image_tag('homepage/service-fake.png', alt: 'Internet')
                                 h4.normal-text = t('homepage.section_3.services.service_6.title')
                                 p = t('homepage.section_3.services.service_6.text')
 
@@ -181,9 +184,9 @@
         #destinations.custom-section
             .container
                 .title-with-text
-                    h3.title = t('homepage.section_4.title')
+                    h2.title = t('homepage.section_4.title')
                     
-                    h4.text.secondary-font
+                    h3.text.secondary-font
                         |
                         = t('homepage.section_4.subtitle.part_1')
                         br
@@ -197,9 +200,9 @@
         #apartments-map.custom-section.desktop
             .container
                 .title-with-text
-                    h3.title = t('homepage.section_map.title')
+                    h2.title = t('homepage.section_map.title')
                     
-                    h4.text.secondary-font
+                    h3.text.secondary-font
                         |
                         = t('homepage.section_map.subtitle')
 
@@ -214,9 +217,9 @@
         .intro-banner.type2
             .container
                 .title-with-text
-                    h3.title = t('homepage.section_5.title')
+                    h2.title = t('homepage.section_5.title')
                     
-                    h4.text.secondary-font = t('homepage.section_5.subtitle')
+                    h3.text.secondary-font = t('homepage.section_5.subtitle')
 
         .request-form.custom-form
             .container

@@ -1,4 +1,7 @@
 en:
+  site:
+    description: All we do and think is to make your stay as simple and pleasant as possible.
+
   header:
     menu:
       about: About
@@ -14,14 +17,16 @@ en:
         part_2: best locations
 
     section_1:
-      title: 'About us'
+      title: 'Welcome'
       subtitle:
-        part_1: 10 years of experience 
-        part_2: in touristic accommodation
+        part_1: Live your experience  
+        part_2: not as a guest 
+        part_3: but as a friend! 
 
       text_1: Lorem ipsum dolor sit amet
-      text_2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      text_3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text_2: Trust us to better organize your 360° vacation between the Sorrento Coast, the Amalfi Coast, Capri and Naples. Explore our possible solutions all selected to ensure maximum comfort.
+
+      text_3: Ask for advice about tours, trips, restaurants and more, we will be happy to put our experience of the area at your disposal, offering you many useful tips and our "local point of view".
 
     section_2:
       title: Do you know where do you want to go?
@@ -31,33 +36,33 @@ en:
       title: Our services
       subtitle:
         part_1: Everything we think
-        part_2: It’s about you
+        part_2: is for you
 
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      text: Choosing us and our accommodations you will also choose our standards. All we do and think is to make your stay as simple and pleasant as possible.
 
       services:
         service_1:
-          title: Service 1
+          title: H24 Assistance
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         service_2:
-          title: Service 2
+          title: Hospitality
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         service_3:
-          title: Service 3
+          title: Your Guide
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         service_4:
-          title: Service 4
+          title: Linen
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         service_5:
-          title: Service 5
+          title: Cleaning
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
         service_6:
-          title: Service 6
+          title: Internet
           text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
     section_map:
@@ -71,15 +76,16 @@ en:
         part_2: dolor sit amet
 
     section_5:
-      title: Do you need informations?
-      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      title: How can we help you?
+      subtitle: Take the opportunity to ask us what you need using our experience and knowledge of the area.
+      text: Write us a period and we will personalize your stay by offering you the solutions available. Ask us to organize your vacation from accommodation to things to visit.
+
 
       form:
         name: 'Name (required)'
         email: 'Email (required)'
         phone_number: 'Phone number'
-        message: 'Messaggio (required)'
+        message: 'Message (required)'
         submit: 'Send request'
 
   owner:
@@ -279,6 +285,7 @@ en:
         content: Content
 
       edited: "Area %{area} successfully edited"
+      created: "Area %{area} successfully created"
 
     questions:
       index:
@@ -455,6 +462,8 @@ en:
 
     questions:
       no-found: There are no questions for the selected search criteria
+
+    email_sent: We have received your email. We will contact you as soon as possible.
 
 
     

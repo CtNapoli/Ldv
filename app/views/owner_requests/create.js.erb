@@ -11,7 +11,7 @@ $('#owner-request #message-container .errors' ).text('');
     $('#owner-request #phone-number' ).val('');
     $('#owner-request #message').val('');
 
-    $('#owner-request .request-form .form-respond').html('<p class="text-success">Email inviata con successo.</p>')
+    $('#owner-request .request-form .form-respond').html("<p class='alert alert-success'><%= t('messages.email_sent') %></p>");
 <% else %>
     <% if(@owner_request.errors[:name].any?) %>
         $('#owner-request #name-container .errors' ).html('<%= error_messages(@owner_request, :name) %>')
