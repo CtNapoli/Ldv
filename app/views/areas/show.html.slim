@@ -45,17 +45,18 @@
                                     - Area.all.each do |a|
                                         .dropdown-item data-value="#{a.name}" = a.name
 
-                        .form-group.no-border.no-margin
-                            label.tag = t('search_form.guests')
-                            #guests_dropdown.dropdown
-                                = f.hidden_field :guests, class: 'form-control'
-                                #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
-                                    span Seleziona
-                                    .icon = image_tag 'dropdown-arrow.png'
-                                    
-                                .dropdown-menu aria-labelledby="guests"
-                                    - @max_guests.times do |a|
-                                        .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+                        - if @max_guests.present?
+                            .form-group.no-border.no-margin
+                                label.tag = t('search_form.guests')
+                                #guests_dropdown.dropdown
+                                    = f.hidden_field :guests, class: 'form-control'
+                                    #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                                        span Seleziona
+                                        .icon = image_tag 'dropdown-arrow.png'
+                                        
+                                    .dropdown-menu aria-labelledby="guests"
+                                        - @max_guests.times do |a|
+                                            .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
 
                         = f.submit t('search_form.search'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
@@ -105,24 +106,25 @@
                             - Area.all.each do |a|
                                 .dropdown-item data-value="#{a.name}" = a.name
 
-                .form-group.no-border.no-margin
-                    label.tag = t('search_form.guests')
-                    #guests_dropdown.dropdown
-                        - if @guests.present?
-                            = f.hidden_field :guests, value: @guests, class: 'form-control'
-                        - else
-                            = f.hidden_field :guests, class: 'form-control'
-
-                        #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                - if @max_guests.present?
+                    .form-group.no-border.no-margin
+                        label.tag = t('search_form.guests')
+                        #guests_dropdown.dropdown
                             - if @guests.present?
-                                span = t('apartment.capacity', count: @guests)
+                                = f.hidden_field :guests, value: @guests, class: 'form-control'
                             - else
-                                span Seleziona
-                            .icon = image_tag 'dropdown-arrow.png'
-                            
-                        .dropdown-menu aria-labelledby="guests"
-                            - @max_guests&.times do |a|
-                                .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+                                = f.hidden_field :guests, class: 'form-control'
+
+                            #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                - if @guests.present?
+                                    span = t('apartment.capacity', count: @guests)
+                                - else
+                                    span Seleziona
+                                .icon = image_tag 'dropdown-arrow.png'
+                                
+                            .dropdown-menu aria-labelledby="guests"
+                                - @max_guests&.times do |a|
+                                    .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
                 = f.button t('search_form.search'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
                         

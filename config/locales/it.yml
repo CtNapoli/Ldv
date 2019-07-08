@@ -273,6 +273,7 @@ it:
         content: Contenuto
 
       edited: "Area %{area} modificata con successo"
+      created: "Area %{area} create con successo"
 
     questions:
       index:
@@ -497,6 +498,12 @@ it:
   messages:
     apartments:
       no-found: Non sono presenti appartamenti per i criteri di ricerca selezionati
+
+    services:
+      no-found: Non sono presenti servizi per i criteri di ricerca selezionati
+
+    areas:
+      no-found: Non sono presenti aree per i criteri di ricerca selezionati
 
     questions:
       no-found: Non sono presenti domande per i criteri di ricerca selezionati
