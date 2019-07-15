@@ -15,6 +15,23 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:url" content="http://www.ldvhomes.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LDV Homes">
+    <meta property="og:description" content="<%= t('site.description') %>">
+    <meta property="og:image" content="<%= asset_url('ldv-og.jpg') %>">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_url('favicon/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_url('favicon/favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_url('favicon/favicon-16x16.png') %>">
+    <link rel="manifest" href="<%= asset_url('favicon/site.webmanifest') %>">
+    <link rel="mask-icon" href="<%= asset_url('favicon/safari-pinned-tab.svg') %>" color="#032a58">
+    <link rel="shortcut icon" href="<%= asset_url('favicon/favicon.ico') %>">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="<%= asset_url('favicon/browserconfig.xml') %>">
+    <meta name="theme-color" content="#ffffff">
+
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
@@ -24,10 +41,10 @@
     <script src='https://unpkg.com/vue/dist/vue.js'></script>
     <script src='https://unpkg.com/v-calendar'></script>
     <script src="https://unpkg.com/moment@2.24.0"></script>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl" />
-    
-    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl">
 
+    
+    
     <% if Rails.env.development? %>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <% elsif Rails.env.production? %>
