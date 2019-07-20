@@ -1,7 +1,8 @@
 class ApartmentsController < ApplicationController
     before_action :load_areas, only: [:index, :show]
     before_action :load_apartments, only: [:show]
-    before_action :load_apartment, only: [:show]
+    before_action :load_apartment, only: [:show, :block_private_apartment]
+    before_action :block_private_apartment, only: [:show]
     
     def index 
         if params[:where] || params[:guests]
@@ -43,7 +44,11 @@ class ApartmentsController < ApplicationController
         @prices = @apartment.prices.map{|p| {start: p.start, end: p.end, price: p.value}}.to_json
     end
 
+    def block_private_apartment
+        redirect_to apartments_path unless @apartment.published?
+    end
+
     def load_apartment
-        @apartment = Apartment.find_by_id(params[:id])
+        @apartment = Apartment.friendly.find(params[:id])
     end
 end

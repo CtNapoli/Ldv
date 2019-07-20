@@ -27,6 +27,10 @@ class Apartment < ApplicationRecord
 
     validate :main_image_presence
 
+    def main_image_full_hd
+        self.main_image.variant(resize: '1920x1080')
+    end
+
     def busy_in_this_range?(from, to)
         self.reservations.where(status: 'confirmed', date_start: from.beginning_of_day..to.end_of_day).any?
     end

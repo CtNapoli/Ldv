@@ -190,6 +190,7 @@ it:
     success: "Richiesta prenotazione inviata a %{apartment} per le seguenti date: %{from} - %{to}"
     reservation_success: "Prenotazione confermata per %{apartment} per le seguenti date: %{from} - %{to}"
     reservation_reject: "Prenotazione rifiutata per %{apartment} per le seguenti date: %{from} - %{to}"
+    button: Richiesta prenotazione
   
 
 

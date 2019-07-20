@@ -192,6 +192,7 @@ en:
     success: "Booking request sent to %{apartment} for the following dates: %{from} - %{to}"
     reservation_success: "Reservation confirmed for %{apartment} on the following dates: %{from} - %{to}"
     reservation_reject: "Reservation refused for %{apartment} on the following dates: %{from} - %{to}"
+    button: Booking request
 
 
   mobile_buttons:

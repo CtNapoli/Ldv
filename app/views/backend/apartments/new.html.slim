@@ -48,13 +48,13 @@
                     .col-6
                         .form-group
                             label = t('backend.apartments.new.lat')
-                            = f.number_field :lat, step: 0.01, class: 'form-control'
+                            = f.number_field :lat, step: 0.000001, class: 'form-control'
                             = error_messages(@apartment, :lat)
 
                     .col-6
                         .form-group
                             label = t('backend.apartments.new.lng')
-                            = f.number_field :lng, step: 0.01, class: 'form-control'
+                            = f.number_field :lng, step: 0.000001, class: 'form-control'
                             = error_messages(@apartment, :lng)
 
             .section
@@ -156,13 +156,13 @@
                     .col-lg-6
                         .form-group
                             label.medium = t('backend.apartments.price_default')
-                            = f.number_field :price_default, class: 'form-control'
+                            = f.number_field :price_default, step: 0.01, class: 'form-control'
                             = error_messages(@apartment, :price_default)
 
                     .col-lg-6
                         .form-group
                             label.medium = t('backend.apartments.price_cleaning_service')
-                            = f.number_field :price_cleaning_service, class: 'form-control'
+                            = f.number_field :price_cleaning_service, step: 0.01, class: 'form-control'
                             = error_messages(@apartment, :price_cleaning_service)
 
                 #services.form-group

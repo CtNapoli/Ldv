@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     before_action :load_apartments
 
     def home
-        @featured_apartments = Apartment.where(in_evidence: true).order(created_at: :desc)
+        @featured_apartments = Apartment.where(published: true, in_evidence: true).order(created_at: :desc)
     end
 
     def owners
