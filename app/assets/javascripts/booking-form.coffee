@@ -30,11 +30,11 @@ document.addEventListener 'turbolinks:load', () ->
                         if this.prices.length > 0
                             for value in this.prices
                                 if start >= new Date(value.start) && start <= new Date(value.end)
-                                    this.priceForNights += parseFloat(value.price)
+                                    this.priceForNights = parseFloat(this.priceForNights) + parseFloat(value.price)
                                 else
-                                    this.priceForNights += parseFloat(this.defaultPrice)
+                                    this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
                         else
-                            this.priceForNights += parseFloat(this.defaultPrice)
+                            this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
 
 
 
@@ -44,7 +44,7 @@ document.addEventListener 'turbolinks:load', () ->
                         start = new Date(newDate)
 
                     this.priceForNights = parseFloat(this.priceForNights)
-                    this.servicePrice = (this.priceForNights/parseFloat(this.servicePerc))
+                    this.servicePrice = (parseFloat(this.priceForNights)/parseFloat(this.servicePerc))
                     this.total = (this.priceForNights + this.servicePrice + this.priceCleaningService)
 
                     $('#start').val(this.selectedDate.start)
