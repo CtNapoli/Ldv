@@ -12,11 +12,13 @@ class Area < ApplicationRecord
 
     validate :main_image_presence
 
+    def main_image_full_hd
+        self.image.variant(resize: '1920x1080')
+    end
+
     private
 
     def main_image_presence
         errors.add(:image, :blank) unless image.attached?
     end
-
-    
 end

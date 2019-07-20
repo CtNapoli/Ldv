@@ -5,7 +5,7 @@
                 .swiper-wrapper
                     - @area.images.each do |image|
                         .swiper-slide
-                            .image style="background-image: url('#{rails_blob_url(image)}')"
+                            = image_tag image.variant(resize: '1920x1080'), alt: @area.name
 
                 .navigation.prev
                     = image_tag('navigation-arrow-left.png')
@@ -14,7 +14,7 @@
                     = image_tag('navigation-arrow-right.png')
 
         - else
-            .image style="background-image: url('#{rails_blob_url(@area.image)}')"
+            = image_tag @area.main_image_full_hd, alt: @area.name
 
     .container
         .row

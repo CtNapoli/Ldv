@@ -5,7 +5,7 @@
                 .swiper-wrapper
                     - @apartment.images.each do |image|
                         .swiper-slide
-                            .image style="background-image: url('#{rails_blob_url(image)}')"
+                            .= image_tag image.variant(resize: '1920x1080'), alt: @apartment.name
 
                 .navigation.prev
                     = image_tag('navigation-arrow-left.png')
@@ -14,7 +14,7 @@
                     = image_tag('navigation-arrow-right.png')
 
         - else
-            .image style="background-image: url('#{rails_blob_url(@apartment.main_image)}')"
+            = image_tag @apartment.main_image_full_hd, alt: @apartment.name
             
     .container
         .row
@@ -40,11 +40,11 @@
 
                     .property
                         = image_tag('apartments/rooms.png')
-                        h3 = t('apartment.room', count: @apartment.rooms)
+                        h3 = t('apartment.rooms', count: @apartment.rooms)
 
                     .property
                         = image_tag('apartments/bedrooms.png')
-                        h3 = t('apartment.bedroom', count: @apartment.bedrooms)
+                        h3 = t('apartment.bedrooms', count: @apartment.bedrooms)
 
                     .property
                         = image_tag('apartments/toilette.png')
@@ -158,7 +158,7 @@
                                                         | {{totalFixed}}
 
 
-                                        .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" Request booking
+                                        .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" = t('booking.button')
 
                                     #collapseTwo.collapse. data-parent="#accordionExample"
                                         label.tag Completa la tua prenotazione
