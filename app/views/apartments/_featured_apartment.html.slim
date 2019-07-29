@@ -1,7 +1,10 @@
 .swiper-slide
     = link_to apartment_path(apartment), class: 'apartment' do
         .box
-            .box-image style="background-image: url('#{rails_blob_url(apartment.main_image)}')"
+            - if apartment.main_image.attached?
+                .box-image style="background-image: url('#{rails_blob_url(apartment.main_image)}')"
+            - else
+                .box-image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"
 
         .box-text
             .info
