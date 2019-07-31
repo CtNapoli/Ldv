@@ -1,0 +1,42 @@
+@import variables
+@import mixins
+    
+
+#about
+    .intro-banner
+        background-image: url(asset_path('about/intro.jpg'))
+
+    #about-us
+        .medium-text
+            margin-bottom: 30px
+
+        img
+            width: 100%
+            margin-top: 40px
+
+            +media($lg)
+                margin-top: 0
+        
+
+    #our-services
+        .services
+            margin-top: 40px
+
+            +media($xl)
+                margin-top: 0
+
+            .service
+                margin-bottom: 70px
+
+                img
+                    width: 46px
+                    margin-bottom: 25px
+
+                h4
+                    font-weight: 700
+                    margin-bottom: 10px
+
+
+    #informations
+        .intro-banner
+            background-image: url(asset_path('about/contact.jpg'))
