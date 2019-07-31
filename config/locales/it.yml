@@ -2,6 +2,9 @@ it:
   site:
     description: Tutto ciò che facciamo e pensiamo è per rendere il tuo soggiorno quanto più semplice e piacevole possibile.
 
+  about:
+    title: About
+
   header:
     menu:
       about: About
@@ -18,10 +21,7 @@ it:
 
     section_1:
       title: Benvenuto
-      subtitle:
-        part_1: Vivi la tua esperienza 
-        part_2: non come un ospite 
-        part_3: ma come un amico!
+      subtitle: Vivi la tua esperienza non come un ospite ma come un amico!
 
       text_1: Lorem ipsum dolor sit amet
       text_2: Affidati a noi per organizzare al meglio la tua vacanza a 360° tra Costiera Sorrentina, Costiera Amalfitana, Capri e Napoli. Esplora le nostre possibili soluzioni tutte selezionate per garantire il massimo del comfort.
@@ -192,7 +192,6 @@ it:
     reservation_reject: "Prenotazione rifiutata per %{apartment} per le seguenti date: %{from} - %{to}"
     button: Richiesta prenotazione
   
-
 
   mobile_buttons:
     filters: 'Filtri'
@@ -515,8 +514,6 @@ it:
       no-found: Non sono presenti domande per i criteri di ricerca selezionati
 
     email_sent: Abbiamo ricevuto la tua email. Ti ricontatteremo al più presto.
-
-
 
   views:
     pagination:

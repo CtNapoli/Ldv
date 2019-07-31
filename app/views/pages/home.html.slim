@@ -76,30 +76,6 @@
                                     = f.submit t('search_form.check_availability'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
 
 
-    #about-us.custom-section
-        .container
-            .title-with-text
-                h2.title = t('homepage.section_1.title')
-                
-                h3.text.secondary-font
-                    | 
-                    = t('homepage.section_1.subtitle.part_1') 
-                    br
-                    = t('homepage.section_1.subtitle.part_2')
-                    br
-                    = t('homepage.section_1.subtitle.part_3')
-
-
-            .row
-                .col-lg-6
-                    p.medium-text.font-italic.secondary-font = t('homepage.section_1.text_1')
-
-                .col-lg-3
-                    p.normal-text = t('homepage.section_1.text_2')
-
-                .col-lg-3
-                    p.normal-text = t('homepage.section_1.text_3')
-
     - if @featured_apartments.any?
         #featured-apartments.custom-section
             .container
@@ -121,64 +97,6 @@
                 
                     .swiper-wrapper
                         = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
-
-
-    #our-services.custom-section
-        .container
-            .row
-                .col-lg-5
-                    .title-with-text
-                        h2.title = t('homepage.section_3.title')
-                
-                        h3.text.secondary-font
-                            |
-                            = t('homepage.section_3.subtitle.part_1') 
-                            br
-                            |
-                            = t('homepage.section_3.subtitle.part_2') 
-
-                    p = t('homepage.section_3.text') 
-
-                .col-lg-1
-
-                .col-lg-6
-                    .row.services
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'H24 Assistance')
-                                h4.normal-text = t('homepage.section_3.services.service_1.title') 
-                                p = t('homepage.section_3.services.service_1.text')
-
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'Hospitality')
-                                h4.normal-text = t('homepage.section_3.services.service_2.title')
-                                p = t('homepage.section_3.services.service_2.text')
-
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'Your Guide')
-                                h4.normal-text = t('homepage.section_3.services.service_3.title')
-                                p = t('homepage.section_3.services.service_3.text')
-
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'Linen')
-                                h4.normal-text = t('homepage.section_3.services.service_4.title')
-                                p = t('homepage.section_3.services.service_4.text')
-
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'Cleaning')
-                                h4.normal-text = t('homepage.section_3.services.service_5.title')
-                                p = t('homepage.section_3.services.service_5.text')
-
-                        .col-sm-6.col-xl-4
-                            .service
-                                = image_tag('homepage/service-fake.png', alt: 'Internet')
-                                h4.normal-text = t('homepage.section_3.services.service_6.title')
-                                p = t('homepage.section_3.services.service_6.text')
-
 
     - if @areas.any?
         #destinations.custom-section

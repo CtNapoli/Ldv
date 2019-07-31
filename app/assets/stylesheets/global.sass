@@ -3,11 +3,22 @@
 
 body
     font-family: 'Lato', sans-serif
+    
+    &.pages
+        &.home, &.owners, &.about
+            +media($xl)
+                margin-top: -110px
+
+            header
+                +media($xl)
+                    margin-top: 30px
+
 
     &.site
-        max-width: 1440px
-        width: 100%
-        margin: 0 auto
+        //max-width: 1440px
+        //width: 100%
+        //margin: 0 auto
+        
 
         +media($md)
             padding:
@@ -15,7 +26,7 @@ body
                 right: 100px
 
         header
-            max-width: 1440px
+            //max-width: 1440px
             margin: 0 auto
 
     h1,h2,h3,h4,h5,h6,p,span,a,i,label,div,ul,li,select,textarea

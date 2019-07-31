@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|\./  do
     root 'pages#home'
 
+    get 'about'          => 'pages#about'
+
     get 'owners'         => 'pages#owners'
 
     resources :requests, only: [:create]
