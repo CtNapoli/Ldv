@@ -28,3 +28,14 @@ document.addEventListener 'turbolinks:load', () ->
         }
       });
 
+    fixMenuTop = () ->
+      if $(window).scrollTop() > 0
+        $('header').addClass('inScroll')
+      else
+        $('header').removeClass('inScroll')
+
+    fixMenuTop()
+    $(window).scroll(() ->
+      fixMenuTop()
+    )
+

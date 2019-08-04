@@ -88,13 +88,13 @@
 
 
     #map-and-filters-mobile
-        .map-icon.icon-container
-            .icon = image_tag 'map-mobile.png', alt: 'Map'
-            .text = t('mobile_buttons.map')
-
         .filters-icon.icon-container
             .icon = image_tag 'filters-mobile.png', alt: 'Filters'
             .text = t('mobile_buttons.filters')
+
+        .map-icon.icon-container
+            .icon = image_tag 'map-mobile.png', alt: 'Map'
+            //.text = t('mobile_buttons.map')
 
 
     .mobile-modal

@@ -28,6 +28,10 @@ body
         header
             //max-width: 1440px
             margin: 0 auto
+            transition: all .2s ease-out
+
+            &.inScroll
+                margin-top: 0
 
     h1,h2,h3,h4,h5,h6,p,span,a,i,label,div,ul,li,select,textarea
         color: $brandColor
@@ -91,13 +95,13 @@ body
             left: 0
             top: 100vh
             width: 100%
-            height: calc(100% - 108px)
+            height: calc(100% - 105px)
             background-color: white
             transition: all .3s linear
 
         &.mobile-opened
             #main-menu-mobile
-                top: 108px
+                top: 105px
 
             #toggle-menu
                 top: 10px

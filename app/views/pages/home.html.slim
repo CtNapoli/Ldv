@@ -79,40 +79,55 @@
     - if @featured_apartments.any?
         #featured-apartments.custom-section
             .container
-                .swiper-container
-                    .title-with-text.with-navigation
-                        .text
-                            h2.title = t('homepage.section_2.title')
+                .title-with-text.with-navigation
+                    .text
+                        h2.title = t('homepage.section_2.title')
 
-                            h3.text.secondary-font = t('homepage.section_2.subtitle')
+                        h3.text.secondary-font = t('homepage.section_2.subtitle')
 
-                        .text-right
+                    / .text-right
+                    /     .nav.prev.dark
+                    /         = image_tag('navigation-arrow-right-white.png', alt: 'Prev')
 
-                            .nav.prev.dark
-                                = image_tag('navigation-arrow-right-white.png', alt: 'Prev')
-
-                            .nav.next.dark
-                                = image_tag('navigation-arrow-left-white.png', alt: 'Next')
+                    /     .nav.next.dark
+                    /         = image_tag('navigation-arrow-left-white.png', alt: 'Next')
 
                 
-                    .swiper-wrapper
-                        = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
+                .row
+                    = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
 
     - if @areas.any?
         #destinations.custom-section
             .container
                 .title-with-text
-                    h2.title = t('homepage.section_4.title')
-                    
-                    h3.text.secondary-font
-                        |
-                        = t('homepage.section_4.subtitle.part_1')
-                        br
-                        = t('homepage.section_4.subtitle.part_2')
+                            h2.title = t('homepage.section_4.title')
+                            
+                            h3.text.secondary-font
+                                |
+                                = t('homepage.section_4.subtitle.part_1')
+                                br
+                                = t('homepage.section_4.subtitle.part_2')
 
-                .swiper-container
-                    .swiper-wrapper
-                        = render @areas
+                .desktop
+                    .row
+                        - @areas.each do |area|
+                            .col-sm-6.col-lg-3
+                                = link_to area_path(area), class: 'destination intro-banner type2' do
+                                    - if area.image.attached?
+                                        .bg style="background-image: url(#{rails_representation_url(area.image.variant(resize: '1000x1000'))})"
+                                    - else
+                                        .bg style="background-image: url('#{asset_path('areas/default-area.jpg')}')"
+
+                                    .text
+                                        h4.medium-text.secondary-font.text-capitalize.font-italic = area.name
+                                        p.normal-text = area.description
+
+                    
+                .mobile
+                    .swiper-container
+                        .swiper-wrapper
+                            = render @areas
+
 
     - if @apartments.any?
         #apartments-map.custom-section.desktop
@@ -181,13 +196,13 @@
                                 
 
     #map-and-filters-mobile
-            .map-icon.icon-container
-                .icon = image_tag 'map-mobile.png', alt: 'Map'
-                .text = t('mobile_buttons.map')
-
             .filters-icon.icon-container
                 .icon = image_tag 'filters-mobile.png', alt: 'Filters'
                 .text = t('mobile_buttons.filters')
+
+            .map-icon.icon-container
+                .icon = image_tag 'map-mobile.png', alt: 'Map'
+                //.text = t('mobile_buttons.map')
 
 
     .mobile-modal

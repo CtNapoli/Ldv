@@ -74,7 +74,7 @@
                   <%= active_link_to t('header.menu.about'), about_path, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
-                  <%= active_link_to t('header.menu.services'), root_path + '#our-services', class: 'nav-link' %>
+                  <%= active_link_to t('header.menu.services'), about_path + '#our-services', class: 'nav-link' %>
                 </li>
                 <% if @areas.any? %>
                   <li class="nav-item">
@@ -107,7 +107,7 @@
                   <%= active_link_to t('header.menu.about'), about_path, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
-                  <%= active_link_to t('header.menu.services'), root_path + '#our-services', class: 'nav-link' %>
+                  <%= active_link_to t('header.menu.services'), about_path + '#our-services', class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
                   <%= active_link_to t('header.menu.destinations'), root_path + '#destinations', class: 'nav-link' %>

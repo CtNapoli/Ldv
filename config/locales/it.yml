@@ -5,6 +5,30 @@ it:
   about:
     title: About
 
+    concierge:
+      title: Concierge
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    assistance:
+      title: Assistenza H24
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    transfer:
+      title: Servizio transfer
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    linen:
+      title: Pulizia/biancheria
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    guide:
+      title: La tua guida
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    events:
+      title: Eventi
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
   header:
     menu:
       about: About
@@ -39,31 +63,6 @@ it:
         part_2: è per voi
 
       text: Scegliendo noi e le nostre sistemazioni sceglierete anche i nostri standard. Tutto ciò che facciamo e pensiamo è per rendere il tuo soggiorno quanto più semplice e piacevole possibile.
-
-      services:
-        service_1:
-          title: Assistenza H24
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_2:
-          title: Ospitalità
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_3:
-          title: La tua guida
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_4:
-          title: Biancheria
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_5:
-          title: Pulizia
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_6:
-          title: Internet
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
     section_map:
       title: LDV mappa
@@ -194,7 +193,7 @@ it:
   
 
   mobile_buttons:
-    filters: 'Filtri'
+    filters: Ricerca case
     map: 'Mappa'
 
   search_form:
@@ -242,6 +241,7 @@ it:
       search_form:
         apartment_name: Cerca per appartamento
         reservation_status: Filtra per stato richiesta
+        
       
     services:
       index:
@@ -268,6 +268,7 @@ it:
         title: Aree
         name: Nome
         description: Descrizione
+        cta: Nuova area
 
       edit:
         title: Modifica area

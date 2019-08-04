@@ -14,7 +14,10 @@
                     = image_tag('navigation-arrow-right.png')
 
         - else
-            = image_tag @area.main_image_full_hd, alt: @area.name
+            - if @area.image.attached?
+                = image_tag @area.main_image_full_hd, alt: @area.name
+            - else
+                = image_tag asset_path('areas/default-area.jpg'), alt: @area.name
 
     .container
         .row
@@ -73,13 +76,13 @@
 
 
     #map-and-filters-mobile
-        .map-icon.icon-container
-            .icon = image_tag 'map-mobile.png', alt: 'Map'
-            .text = t('mobile_buttons.map')
-
         .filters-icon.icon-container
             .icon = image_tag 'filters-mobile.png', alt: 'Filters'
             .text = t('mobile_buttons.filters')
+
+        .map-icon.icon-container
+            .icon = image_tag 'map-mobile.png', alt: 'Map'
+            //.text = t('mobile_buttons.map')
 
 
     .mobile-modal

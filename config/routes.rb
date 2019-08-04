@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       
       resources :services
   
-      resources :areas, only: [:index, :edit, :update] do
+      resources :areas, only: [:index, :new, :create, :edit, :update] do
         member do
           delete  '/modifica/rimuovi-immagine-principale' =>  'areas#remove_main_photo', as: 'remove_main_image_area'
           delete  '/modifica/rimuovi-immagine'            =>  'areas#remove_photo', as: 'remove_photo_area'
