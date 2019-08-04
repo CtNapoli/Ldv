@@ -2,7 +2,7 @@
     = link_to apartment_path(apartment), class: 'apartment' do
         .box
             - if apartment.main_image.attached?
-                .box-image style="background-image: url(#{rails_representation_url(apartment.main_image.variant(resize: '1000x1000'))})"
+                .box-image style="background-image: url('#{rails_representation_url(apartment.main_image.variant(resize: '1000x1000'))}')"
             - else
                 .box-image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"
 

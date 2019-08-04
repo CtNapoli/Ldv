@@ -114,7 +114,7 @@
                             .col-sm-6.col-lg-3
                                 = link_to area_path(area), class: 'destination intro-banner type2' do
                                     - if area.image.attached?
-                                        .bg style="background-image: url(#{rails_representation_url(area.image.variant(resize: '1000x1000'))})"
+                                        .bg style="background-image: url('#{rails_representation_url(area.image.variant(resize: '1000x1000'))}')"
                                     - else
                                         .bg style="background-image: url('#{asset_path('areas/default-area.jpg')}')"
 
