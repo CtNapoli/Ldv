@@ -103,4 +103,6 @@ Rails.application.configure do
     enable_starttls_auto: true }
 
   config.action_mailer.asset_host = '68.183.215.32'
+
+  config.force_ssl = true
 end
