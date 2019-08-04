@@ -161,30 +161,30 @@
                                         .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" = t('booking.button')
 
                                     #collapseTwo.collapse. data-parent="#accordionExample"
-                                        label.tag Completa la tua prenotazione
+                                        label.tag = t('booking.intro')
 
                                         #name.form-group
-                                            = f.text_field :name, class: 'form-control', placeholder: 'Nome'
+                                            = f.text_field :name, class: 'form-control', placeholder: t('booking.name')
 
                                             .errors
 
                                         #email.form-group
-                                            = f.email_field :email, class: 'form-control', placeholder: 'Email'
+                                            = f.email_field :email, class: 'form-control', placeholder: t('booking.email')
 
                                             .errors
 
                                         #phone_number.form-group
-                                            = f.text_field :phone_number, class: 'form-control', placeholder: 'Telefono'
+                                            = f.text_field :phone_number, class: 'form-control', placeholder: t('booking.phone_number')
 
                                             .errors
 
                                         #more_info.form-group
-                                            = f.text_area :more_info, class: 'form-control', placeholder: 'Hai domande? Scrivi qui!'
+                                            = f.text_area :more_info, class: 'form-control', placeholder: t('booking.text')
 
                                             .errors
 
                                         .form-group.action
-                                            = f.button 'Invia richiesta', class: 'btn btn-primary small full'
+                                            = f.button t('booking.send'), class: 'btn btn-primary small full'
 
                                             .text-center
                                                 a.back.small-text data-toggle="collapse" role="button" aria-controls="collapseOne" aria-expanded="true" data-target="#collapseOne" Back

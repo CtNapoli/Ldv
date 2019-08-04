@@ -10,7 +10,7 @@ module Ldv
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    config.i18n.default_locale = :it
+    config.i18n.default_locale = :en
     config.i18n.available_locales = [:it, :en]
     config.i18n.fallbacks = true
 

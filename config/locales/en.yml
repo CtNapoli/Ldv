@@ -194,6 +194,14 @@ en:
     button: Booking request
 
 
+    intro: Complete your booking request
+    name: Name
+    email: Email
+    phone_number: Phone number
+    text: Do you have questions? Write here!
+    send: Send request
+
+
   mobile_buttons:
     filters: Search homes
     map: 'Map'

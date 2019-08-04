@@ -190,6 +190,13 @@ it:
     reservation_success: "Prenotazione confermata per %{apartment} per le seguenti date: %{from} - %{to}"
     reservation_reject: "Prenotazione rifiutata per %{apartment} per le seguenti date: %{from} - %{to}"
     button: Richiesta prenotazione
+
+    intro: Completa la tua prenotazione
+    name: Nome
+    email: Email
+    phone_number: Telefono
+    text: Hai domande? Scrivi qui!
+    send: Invia richiesta
   
 
   mobile_buttons:
