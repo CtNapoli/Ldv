@@ -2,6 +2,33 @@ en:
   site:
     description: All we do and think is to make your stay as simple and pleasant as possible.
 
+  about:
+    title: About
+
+    concierge:
+      title: Concierge
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    assistance:
+      title: Assistance H24
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    transfer:
+      title: Transfer service
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    linen:
+      title: Cleaning/linen
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    guide:
+      title: Your guide
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    events:
+      title: Events
+      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
   header:
     menu:
       about: About
@@ -36,31 +63,6 @@ en:
         part_2: is for you
 
       text: Choosing us and our accommodations you will also choose our standards. All we do and think is to make your stay as simple and pleasant as possible.
-
-      services:
-        service_1:
-          title: H24 Assistance
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_2:
-          title: Hospitality
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_3:
-          title: Your Guide
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_4:
-          title: Linen
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_5:
-          title: Cleaning
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-        service_6:
-          title: Internet
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
     section_map:
       title: LDV map
@@ -193,7 +195,7 @@ en:
 
 
   mobile_buttons:
-    filters: 'Filters'
+    filters: Search homes
     map: 'Map'
 
   search_form:
@@ -273,6 +275,7 @@ en:
         title: Areas
         name: Name
         description: Description
+        cta: New area
 
       edit:
         title: Edit area

@@ -7,6 +7,20 @@ class Backend::AreasController < BackendController
         @areas = Area.all
     end
 
+    def new
+        @area = Area.new
+    end
+
+    def create
+        @area = Area.new(area_params)
+        if @area.save
+            flash.notice = t('backend.services.created', service: @area.name)
+            redirect_to backend_areas_path
+        else
+            render :new
+        end
+    end
+
     def edit
     
     end

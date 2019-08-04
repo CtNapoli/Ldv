@@ -1,6 +1,10 @@
 .swiper-slide
     = link_to area_path(area), class: 'destination intro-banner type2' do
-        .bg style="background-image: url('#{rails_blob_url(area.image)}')"
+        - if area.image.attached?
+            .bg style="background-image: url('#{rails_blob_url(area.image)}')"
+        - else
+            .bg style="background-image: url('#{asset_path('areas/default-area.jpg')}')"
+
             
         .text
             h4.medium-text.secondary-font.text-capitalize.font-italic = area.name
