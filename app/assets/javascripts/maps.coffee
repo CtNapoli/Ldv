@@ -2,7 +2,7 @@ document.addEventListener 'turbolinks:load', () ->
 
     #FUNCTIONS ------------------------------------------------------------------------------------------------------
     markersArray = []
-    window.initMap = (apartments) ->
+    window.initMap = (apartments, zoom = 10) ->
         if apartments.length == 1
             centerPoint = {lat: parseFloat(apartments[0].lat), lng: parseFloat(apartments[0].lng)}
         else
@@ -11,7 +11,7 @@ document.addEventListener 'turbolinks:load', () ->
         map = new google.maps.Map(
             document.querySelector('#map'), 
             {
-                zoom: 6, 
+                zoom: zoom, 
                 center: centerPoint,
                 styles: [
                     {
