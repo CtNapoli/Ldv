@@ -107,7 +107,9 @@ document.addEventListener 'turbolinks:load', () ->
                                         <div class='image' style='background-image: url(" + img + ")'></div>
                                     </div>
                                     <div class='window-marker-info'> 
-                                        <h5>" + markers[i].name + "</h5>
+                                        <a href='" + markers[i].link + "'>
+                                            <span class='title'>" + markers[i].name + "</span>
+                                        </a>
                                         <div class='info'>
                                             <div class='features'>
                                                 <div class='feature'><span class='normal-text'>" + markers[i].capacity + "</span></div>
@@ -170,6 +172,7 @@ document.addEventListener 'turbolinks:load', () ->
                 minimumpricestring: $(this).data('minimumpricestring')
                 minimumprice: $(this).data('minimumprice')
                 defaultprice: $(this).data('defaultprice')
+                link: $(this).data('link')
             }
         ).get()
 
