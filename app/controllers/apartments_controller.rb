@@ -9,7 +9,7 @@ class ApartmentsController < ApplicationController
             @where = Area.with_translations(I18n.locale).where("cast(area_translations as text) ilike ?", "%#{params[:where]}%").last
             @guests = params[:guests].to_i
 
-            @apartments = Apartment.with_translations(I18n.locale).includes(:reservations).where(area_id: @where, published: true).order('created_at desc').distinct
+            @apartments = Apartment.with_translations(I18n.locale).where(area_id: @where.id, published: true).order('created_at desc').distinct
 
             if params[:start] && params[:end]
                 @start = params[:start].to_date

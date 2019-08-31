@@ -19,7 +19,7 @@
                 #apartments-form.search-form.custom-card.desktop
                     .form-apartment-desktop-container
                         .search-form-container
-                            = form_with url: apartments_path, method: :get do |f|
+                            = form_with url: apartments_path, method: :get, local: true do |f|
                                 .form-group
                                     label.tag = t('search_form.where')
                                     #area_dropdown.dropdown
