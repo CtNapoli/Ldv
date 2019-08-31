@@ -24,13 +24,13 @@
                                     label.tag = t('search_form.where')
                                     #area_dropdown.dropdown
                                         - if @where.present?
-                                            = f.hidden_field :where, value: @where.id, class: 'form-control'
+                                            = f.hidden_field :where, value: @where, class: 'form-control'
                                         - else
                                             = f.hidden_field :where, class: 'form-control'
 
                                         #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             - if @where.present?
-                                                span = @where.name
+                                                span = Area.find_by_id(@where)&.name
                                             - else 
                                                 span = t('search_form.select')
 
@@ -38,7 +38,7 @@
                                             
                                         .dropdown-menu aria-labelledby="area"
                                             - Area.all.each do |a|
-                                                .dropdown-item data-value="#{a.name}" = a.name
+                                                .dropdown-item data-value="#{a.id}" = a.name
 
                                 .form-group
                                     label.tag = t('search_form.dates')

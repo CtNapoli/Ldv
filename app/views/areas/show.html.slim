@@ -38,7 +38,7 @@
                         .form-group
                             label.tag = t('search_form.where')
                             #area_dropdown.dropdown
-                                = f.hidden_field :where, value: @area.name, class: 'form-control'
+                                = f.hidden_field :where, value: @area.id, class: 'form-control'
 
                                 #area.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
                                     span = @area.name
@@ -46,7 +46,7 @@
                                     
                                 .dropdown-menu aria-labelledby="area"
                                     - Area.all.each do |a|
-                                        .dropdown-item data-value="#{a.name}" = a.name
+                                        .dropdown-item data-value="#{a.id}" = a.name
 
                         - if @max_guests.present?
                             .form-group.no-border.no-margin
