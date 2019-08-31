@@ -4,21 +4,19 @@ class ApartmentsController < ApplicationController
     before_action :load_apartment, only: [:show, :block_private_apartment]
     before_action :block_private_apartment, only: [:show]
     
-    def index 
-        if params[:where] || params[:guests]
-            #@where = Area.with_translations(I18n.locale).where("cast(area_translations as text) ilike ?", "%#{params[:where]}%").last
-            @where = params[:where].to_i
-            @guests = params[:guests].to_i
+    def index
+        @where = params[:where].to_i
+        @guests = params[:guests].to_i
 
-            @apartments = Apartment.with_translations(I18n.locale).where(area_id: @where, published: true).order('created_at desc').distinct
+        @apartments = Apartment.with_translations(I18n.locale).where(published: true).order('created_at desc')
 
-            if params[:start] && params[:end]
-                @start = params[:start].to_date
-                @end = params[:end].to_date
-                @apartments = @apartments.reject {|a| a.busy_in_this_range?(@start, @end)}
-            end
-        else
-            @apartments = Apartment.with_translations(I18n.locale).where(published: true).order('created_at desc').distinct
+        @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
+        @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
+
+        if params[:start] && params[:end]
+            @start = params[:start].to_date
+            @end = params[:end].to_date
+            @apartments = @apartments.reject {|a| a.busy_in_this_range?(@start, @end)}
         end
 
         respond_to do |format|
