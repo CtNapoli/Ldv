@@ -100,8 +100,8 @@ document.addEventListener 'turbolinks:load', () ->
 
     window.setMarkers = (map, markers) ->
         i = 0
-        img = '"' + markers[i].image + '"'
         while (i < markers.length)
+            img = '"' + markers[i].image + '"'
             contentString = "<div class='window-marker-container'>
                                     <div class='window-marker-image'>
                                         <div class='image' style='background-image: url(" + img + ")'></div>
