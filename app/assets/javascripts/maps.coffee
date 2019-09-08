@@ -107,9 +107,7 @@ document.addEventListener 'turbolinks:load', () ->
                                         <div class='image' style='background-image: url(" + img + ")'></div>
                                     </div>
                                     <div class='window-marker-info'> 
-                                        <a href='" + markers[i].link + "'>
-                                            <span class='title'>" + markers[i].name + "</span>
-                                        </a>
+                                        <span class='title'>" + markers[i].name + "</span>
                                         <div class='info'>
                                             <div class='features'>
                                                 <div class='feature'><span class='normal-text'>" + markers[i].capacity + "</span></div>
@@ -120,12 +118,13 @@ document.addEventListener 'turbolinks:load', () ->
                                                 <div class='dot-separator'></div>
                                                 <div class='feature'><span class='normal-text'>" + markers[i].toilette + "</span></div>
                                             </div>
-                                            <div class='apartment' style='margin-top: 20px;'>
+                                            <div class='apartment' style='margin: 10px 0;'>
                                                 <div class='price'>
                                                     <p class='secondary-font font-italic'>" + markers[i].minimumpricestring + "</p>
                                                     <p class='digit secondary-font font-italic'>" + markers[i].defaultprice + "</p>
                                                 </div>
                                             </div>
+                                            <a href='" + markers[i].link + "' class='btn btn-primary ultra-small'>Verifica disponibilità</a>
                                         </div>
                                     </div>
                                 </div>"
