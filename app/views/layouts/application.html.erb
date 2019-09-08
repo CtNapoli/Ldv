@@ -12,7 +12,13 @@
     <%= javascript_tag "window.locale = #{I18n.locale.to_s.inspect};" %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8"></script>
+    
+
+    <% if I18n.locale == :it %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8&language=it"></script>
+    <% else %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnn0NaW--_66eWxAn8kc5PdTLFeJDYcf8&language=en"></script>
+    <% end %> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
