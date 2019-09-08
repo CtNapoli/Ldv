@@ -73,7 +73,7 @@
                     #preload
                         .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{@apartment.main_image.attached? ? rails_blob_url(@apartment.main_image) : asset_path('apartments/default-apartment.jpg')}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.rooms', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}" data-minimumprice="#{price(@apartment.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(@apartment.price_default)}" data-link=apartment_path(@apartment)
 
-                    #map style="height: 400px"
+                    #map style="height: 600px"
 
             .col-lg-1
             .col-lg-3
