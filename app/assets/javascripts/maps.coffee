@@ -124,7 +124,7 @@ document.addEventListener 'turbolinks:load', () ->
                                                     <p class='digit secondary-font font-italic'>" + markers[i].defaultprice + "</p>
                                                 </div>
                                             </div>
-                                            <a href='" + markers[i].link + "' class='btn btn-primary ultra-small'>Verifica disponibilità</a>
+                                            <a href='" + markers[i].link + "' class='btn btn-primary ultra-small'>" + $('body').data('booking-window-map-cta') + "</a>
                                         </div>
                                     </div>
                                 </div>"

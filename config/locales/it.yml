@@ -1,6 +1,9 @@
 it:
   site:
     description: Tutto ciò che facciamo e pensiamo è per rendere il tuo soggiorno quanto più semplice e piacevole possibile.
+    map:
+      window:
+        cta: Verifica disponibilità
 
   about:
     title: About
@@ -539,3 +542,5 @@ it:
           other: "Displaying <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+
+  

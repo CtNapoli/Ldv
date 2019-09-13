@@ -1,6 +1,9 @@
 en:
   site:
     description: All we do and think is to make your stay as simple and pleasant as possible.
+    map:
+      window:
+        cta: Check availability
 
   about:
     title: About
