@@ -118,7 +118,7 @@ document.addEventListener 'turbolinks:load', () ->
                                                 <div class='dot-separator'></div>
                                                 <div class='feature'><span class='normal-text'>" + markers[i].toilette + "</span></div>
                                             </div>
-                                            <div class='apartment' style='margin: 10px 0;'>
+                                            <div class='apartment'>
                                                 <div class='price'>
                                                     <p class='secondary-font font-italic'>" + markers[i].minimumpricestring + "</p>
                                                     <p class='digit secondary-font font-italic'>" + markers[i].defaultprice + "</p>

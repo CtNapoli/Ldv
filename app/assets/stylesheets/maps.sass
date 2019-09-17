@@ -16,6 +16,12 @@
     #preload
         display: none
 
+.gm-style-iw
+    max-width: 200px !important
+
+    +media($md)
+        max-width: inherit !important
+
 .gm-style-iw-d
     overflow: auto !important
     max-width: 100% !important
@@ -31,7 +37,10 @@
     .window-marker-image
         .image
             +bg
-            height: 100px
+            height: 80px
+
+            +media($md)
+                height: 100px
 
             +media($lg)
                 height: 200px
@@ -43,14 +52,34 @@
     .window-marker-info
         padding: 15px
 
+        .apartment
+            margin: 5px 0
+
+            +media($md)
+                margin: 10px 0
+
         span
             font-family: Lora
             font-style: italic
+            font-size: 14px
+            line-height: 24px
 
         .title
             display: block
-            font-size: 18px
-            margin-bottom: 10px
+            margin-bottom: 5px
+            font-size: 16px
+            line-height: 26px
+
+            +media($md)
+                font-size: 18px
+                margin-bottom: 10px
+
+        .digit
+            font-size: 26px
+            line-height: 36px
+
+        .btn
+            font-size: 10px
 
         .features
             margin: 0
