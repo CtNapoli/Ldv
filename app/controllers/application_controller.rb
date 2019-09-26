@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
     before_action :set_locale
     before_action :max_guests
     before_action :waiting_reservations
+
+    before_action :redirect_subdomain
+
+    def redirect_subdomain
+        if request.host == 'www.ldvhomes.com'
+          redirect_to 'https://ldvhomes.com' + request.fullpath, status: 301
+        end
+    end
  
     def set_locale
         I18n.locale = params[:locale].presence || I18n.default_locale
