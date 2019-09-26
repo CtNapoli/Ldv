@@ -15,7 +15,7 @@ class Backend::ApartmentsController < BackendController
 
 
         if params[:apartment_area] && params[:apartment_name] && params[:apartment_status]
-            @apartments = Apartment.with_translations(I18n.locale).order('created_at DESC').page params[:page]
+            @apartments = Apartment.with_translations(I18n.locale).order('updated_at DESC').page params[:page]
 
             if @apartment_area.present? && @apartment_name.present? && @apartment_status != ""
                 @apartments = @apartments.where('apartment_translations.name ILIKE ?', "%#{@apartment_name}%").where(area_id: @founded_area, published: @apartment_status)
@@ -41,7 +41,7 @@ class Backend::ApartmentsController < BackendController
                 @apartments = @apartments.where(area_id: @founded_area, published: @apartment_status)
             end
         else
-            @apartments = Apartment.all.order('created_at DESC').page params[:page]
+            @apartments = Apartment.all.order('updated_at DESC').page params[:page]
         end
 
         
@@ -68,7 +68,7 @@ class Backend::ApartmentsController < BackendController
     def update
         if @apartment.update(apartment_params)
             flash.notice = t('backend.apartments.edited', apartment: @apartment.name)
-            redirect_to backend_apartments_path
+            redirect_to edit_backend_apartment_path(@apartment)
         else
             render :edit
         end
