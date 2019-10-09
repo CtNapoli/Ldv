@@ -1,5 +1,5 @@
 class Backend::AreasController < BackendController
-    skip_before_action :verify_authenticity_token, only: [:update]
+    skip_before_action :verify_authenticity_token, only: [:create, :update]
     before_action :authenticate_admin!
     before_action :load_area, only: [:edit, :update, :remove_main_photo, :remove_photo]
 
