@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     end
 
     def load_areas
-        @areas = Area.all
+        @areas = Area.all.order('updated_at DESC')
     end
 
     def waiting_reservations
