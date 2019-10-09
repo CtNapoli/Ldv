@@ -8,7 +8,7 @@ class ApartmentsController < ApplicationController
         @where = params[:where].to_i
         @guests = params[:guests].to_i
 
-        @apartments = Apartment.with_translations(I18n.locale).where(published: true).order('created_at desc')
+        @apartments = Apartment.with_translations(I18n.locale).where(published: true).order('updated_at DESC')
 
         @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
         @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
