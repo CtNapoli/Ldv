@@ -4,7 +4,7 @@ class Backend::AreasController < BackendController
     before_action :load_area, only: [:edit, :update, :remove_main_photo, :remove_photo]
 
     def index
-        @areas = Area.all
+        @areas = Area.all.order('updated_at DESC')
     end
 
     def new
