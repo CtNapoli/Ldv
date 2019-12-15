@@ -10,27 +10,27 @@ en:
 
     concierge:
       title: Concierge
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Whatever your desire is, we will realize it.
 
     assistance:
       title: Assistance H24
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: We will always be at your service for any need.
 
     transfer:
       title: Transfer service
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: We will be happy to advise you on the choices that best suit your needs.
 
     linen:
       title: Cleaning/linen
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: We guarantee high standards for each proposed solution.
 
     guide:
       title: Your guide
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: With our experience we can help you organize your perfect holiday.
 
     events:
       title: Events
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Trust us to organize your important moments.
 
   header:
     menu:
@@ -51,13 +51,14 @@ en:
       subtitle: Live your experience not as a guest but as a friend!
 
       text_1: Lorem ipsum dolor sit amet
-      text_2: Trust us to better organize your 360° vacation between the Sorrento Coast, the Amalfi Coast, Capri and Naples. Explore our possible solutions all selected to ensure maximum comfort.
 
-      text_3: Ask for advice about tours, trips, restaurants and more, we will be happy to put our experience of the area at your disposal, offering you many useful tips and our "local point of view".
+      text_2: Trust us to better organize your 360 ° vacation. Explore our proposals, all selected to ensure maximum comfort.
+
+      text_3: Ask for advice about tours, trips, restaurants and much more, we will be happy to put our experience and knowledge of the area at your disposal, offering you many useful tips and our "local point of view".
 
     section_2:
       title: Do you know where do you want to go?
-      subtitle: Let us inspire you
+      subtitle: Our proposals
 
     section_3:
       title: Our services
@@ -69,18 +70,16 @@ en:
 
     section_map:
       title: LDV map
-      subtitle: Lorem ipsum dolor sit amet
+      subtitle: Where you can find LDV homes
 
     section_4:
       title: Destinations
-      subtitle:
-        part_1: Lorem ipsum
-        part_2: dolor sit amet
+      subtitle: Where do you want to go?
 
     section_5:
       title: How can we help you?
-      subtitle: Take the opportunity to ask us what you need using our experience and knowledge of the area.
-      text: Write us a period and we will personalize your stay by offering you the solutions available. Ask us to organize your vacation from accommodation to things to visit.
+      subtitle: Ask us what you need using our experience and knowledge of the area.
+      text: Send us a request and we will personalize your stay by offering you the solutions available. Ask us to organize your entire vacation from accommodation to things to visit.
 
 
       form:
@@ -93,53 +92,53 @@ en:
   owner:
     section_0:
       title: 
-        part_1: Partnering with
-        part_2: LDV Homes Collection
+        part_1: Collaborates with
+        part_2: the experts of LDV Homes
 
     section_1:
       properties:
         property_1:
-          title: The right guests
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: The guests you deserve
+          text: Access to our international customers in complete safety.
 
         property_2:
-          title: Simplify your life
-          text: As a full-service vacation rental company, we provide you with a turnkey booking solution, streamlining communication at every step.
+          title: Facilitate your life
+          text: Trust us and we will take your proposal step by step to the standards it deserves.
 
         property_3:
-          title: No risks proposition
-          text: We believe in a pay-for-performance model so there are no sign-up fees or costs. We’re successful when you’re successful.
+          title: No risk
+          text: No registration fees. Your success is our success.
 
     section_2:
-      title: Making it works for you
+      title: At your service
       subtitle:
-        part_1: A fully-integrated
-        part_2: luxury hospitality company
+        part_1: A team of experts who will take care of every detail
+        part_2: to maximize your profit.
 
       services:
         service_1:
-          title: Local market presence
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: Presence in the global market
+          text: We will promote your property in several languages and countries in order to reduce seasonality.
 
         service_2:
-          title: Website presence
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: Multi Channel Online Presence
+          text: We are digital marketing experts providing you with multi channel strategy including social media channels.
 
         service_3:
-          title: Mobile ready
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: Mobile Responsive Site
+          text: Our webistes are all mobile responsive for the best user experience on your mobile devices.
 
         service_4:
-          title: Reservation service
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: Personalized Response
+          text: Once we receive your request we will reply in just a few hours with a personalized proposal that suits your needs.
 
         service_5:
-          title: Concierge services
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: 24h Concierge Service
+          text: We are at your complete disposal on site for any requests you might have and organize your stay.
 
         service_6:
-          title: Billing and payment
-          text: Our success has enabled us to build a loyal following of global clientele who comes back to Luxury Retreats time and again.
+          title: Methods of payment and invoicing
+          text: We provide you flexibility with payments and invoicing with no additional cost or commission.
 
     section_3:
       title: Faq
@@ -147,8 +146,8 @@ en:
 
     section_4:
       title: Application form
-      subtitle: Interested? Apply to the Collection
-      text: We select only the finest properties to be a part of our exclusive LDV Homes Collection. If you think your vacation home would be a good fit, please send us more details so that we might evaluate your property. Note that only a very select number of properties will be invited in any given destination to ensure that each of our vacation rental partners receives the exposure and attention they deserve.
+      subtitle: Become our partner. Send us a request
+      text: We select only the finest properties to become part of our exclusive LDV home collection. If you believe your vacation home is suitable, please send us more details so that we can evaluate your property.
 
       form:
         name: 'Name (required)'
