@@ -43,8 +43,8 @@ it:
   homepage:
     section_0:
       title:
-        part_1: Le migliori vacanze,
-        part_2: le migliori locations
+        part_1: Le Migliori Case Vacanza dei
+        part_2: Migliori Posti in Italia
 
     section_1:
       title: Benvenuto
@@ -58,7 +58,7 @@ it:
 
     section_2:
       title: Sai dove vuoi andare?
-      subtitle: Le nostre proposte
+      subtitle: La notra Collezione di Case
 
     section_3:
       title: I nostri servizi
@@ -74,7 +74,7 @@ it:
 
     section_4:
       title: Destinazioni
-      subtitle: Dove vuoi andare?
+      subtitle: Dove ti piacerebbe andare?
 
 
     section_5:

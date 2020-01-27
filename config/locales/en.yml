@@ -43,8 +43,8 @@ en:
   homepage:
     section_0:
       title:
-        part_1: Best vacations,
-        part_2: best locations
+        part_1: Best Vacations Homes of the
+        part_2: Best Locations in Italy
 
     section_1:
       title: 'Welcome'
@@ -57,8 +57,8 @@ en:
       text_3: Ask for advice about tours, trips, restaurants and much more, we will be happy to put our experience and knowledge of the area at your disposal, offering you many useful tips and our "local point of view".
 
     section_2:
-      title: Do you know where do you want to go?
-      subtitle: Our proposals
+      title: Do you know where you want to go?
+      subtitle: Our Home Collection
 
     section_3:
       title: Our services
@@ -74,7 +74,7 @@ en:
 
     section_4:
       title: Destinations
-      subtitle: Where do you want to go?
+      subtitle: Where would you like to go?
 
     section_5:
       title: How can we help you?
@@ -92,7 +92,7 @@ en:
   owner:
     section_0:
       title: 
-        part_1: Collaborates with
+        part_1: Work with
         part_2: the experts of LDV Homes
 
     section_1:
