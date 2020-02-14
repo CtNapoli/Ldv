@@ -100,7 +100,7 @@
                         .paragraph-title.form-group
                             label = t('backend.apartments.new.title_par')
                             = text_field_tag "p_title", "", class: 'form-control', 'v-model': "p.title", '@change': 'updateParagraphs'
-                        
+
                         .paragraph-text.form-group
                             label Paragrafo
                             = text_area_tag "p_text", "", class: 'form-control', 'v-model': "p.text", '@change': 'updateParagraphs'
