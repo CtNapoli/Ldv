@@ -30,28 +30,21 @@ document.addEventListener 'turbolinks:load', () ->
                         if this.prices.length > 0
                             for value in this.prices
                                 if start >= new Date(value.start) && start <= new Date(value.end)
-                                    this.priceForNights = parseFloat(this.priceForNights) + parseFloat(value.price)
+                                    this.priceForNights = this.priceForNights + parseFloat(value.price)
                                     break
 
                                 else
-                                    this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
+                                    this.priceForNights = this.priceForNights + parseFloat(this.defaultPrice)
                                     break
-
-                        else
-                            this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
-
-
 
                         this.nights += 1
                         newDate = start.setDate(start.getDate() + 1)
-
-                        console.log(start, 'passo')
                         start = new Date(newDate)
 
 
-                    this.priceForNights = parseFloat(this.priceForNights)
-                    this.servicePrice = (parseFloat(this.priceForNights)/parseFloat(this.servicePerc))
-                    this.total = (this.priceForNights + this.servicePrice + this.priceCleaningService)
+                    #this.priceForNights = parseFloat(this.priceForNights)
+                    this.servicePrice = this.priceForNights/this.servicePerc
+                    this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
 
                     $('#start').val(this.selectedDate.start)
                     $('#end').val(this.selectedDate.end)
@@ -95,7 +88,7 @@ document.addEventListener 'turbolinks:load', () ->
                     return moment(String(value)).format('DD/MM/YYYY') if (value)
             },
             mounted: () ->
-                # this.disabledDates = $('#apartment-properties').data('dates')
+                this.disabledDates = $('#apartment-properties').data('dates')
                 this.prices = $('#apartment-properties').data('prices')
                 this.defaultPrice = parseFloat($('#apartment-properties').data('defaultprice'))
                 this.priceCleaningService = parseFloat($('#apartment-properties').data('pricecleaningservice'))
