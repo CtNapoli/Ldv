@@ -29,6 +29,8 @@ document.addEventListener 'turbolinks:load', () ->
     if $('#paragraphs').length
         allParagraphs = JSON.parse($('#paragraphs input[type=hidden]').val())
 
+        console.log(allParagraphs)
+
         paragraphsApp = new Vue({
             el: '#paragraphs',
             data: {
@@ -44,7 +46,7 @@ document.addEventListener 'turbolinks:load', () ->
                 removeParagraph: (index) ->
                     this.paragraphs.splice(index,1)
                     this.updateParagraphs()
-                    
+
 
 
                 updateParagraphs: () ->

@@ -52,6 +52,6 @@ class ApplicationController < ActionController::Base
     end
 
     def load_apartments
-        @apartments = Apartment.all
+        @apartments = Apartment.where(published: true)
     end
 end
