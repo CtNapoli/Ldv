@@ -25,23 +25,29 @@ document.addEventListener 'turbolinks:load', () ->
                     this.priceForNights = 0
                     start = new Date(this.selectedDate.start)
                     end = new Date(this.selectedDate.end)
-                    
+
                     while start < end
                         if this.prices.length > 0
                             for value in this.prices
                                 if start >= new Date(value.start) && start <= new Date(value.end)
                                     this.priceForNights = parseFloat(this.priceForNights) + parseFloat(value.price)
+                                    break
+
                                 else
                                     this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
+                                    break
+
                         else
                             this.priceForNights = parseFloat(this.priceForNights) + parseFloat(this.defaultPrice)
 
 
 
                         this.nights += 1
-
                         newDate = start.setDate(start.getDate() + 1)
+
+                        console.log(start, 'passo')
                         start = new Date(newDate)
+
 
                     this.priceForNights = parseFloat(this.priceForNights)
                     this.servicePrice = (parseFloat(this.priceForNights)/parseFloat(this.servicePerc))
@@ -64,7 +70,6 @@ document.addEventListener 'turbolinks:load', () ->
 
                 guests: () ->
                     this.enabled()
-                   
             },
             computed: {
                 nightsString: () ->
@@ -90,7 +95,7 @@ document.addEventListener 'turbolinks:load', () ->
                     return moment(String(value)).format('DD/MM/YYYY') if (value)
             },
             mounted: () ->
-                this.disabledDates = $('#apartment-properties').data('dates')
+                # this.disabledDates = $('#apartment-properties').data('dates')
                 this.prices = $('#apartment-properties').data('prices')
                 this.defaultPrice = parseFloat($('#apartment-properties').data('defaultprice'))
                 this.priceCleaningService = parseFloat($('#apartment-properties').data('pricecleaningservice'))
