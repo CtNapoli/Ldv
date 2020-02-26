@@ -10,27 +10,27 @@ it:
 
     concierge:
       title: Concierge
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Qualunque sia il tuo desiderio noi lo realizzeremo.
 
     assistance:
       title: Assistenza H24
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Saremo sempre a tua disposizione per qualsiasi necessità.
 
     transfer:
       title: Servizio transfer
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Saremo felici di consigliarti la scelta più adatta alle tue esigenze.
 
     linen:
       title: Pulizia/biancheria
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Garantiamo standard elevati per ogni soluzione proposta.
 
     guide:
       title: La tua guida
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Con la nostra esperienza possiamo aiutarti ad organizzare la tua vacanza perfetta.
 
     events:
       title: Eventi
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      text: Affidati a noi per organizzare i tuoi momenti importanti.
 
   header:
     menu:
@@ -43,21 +43,22 @@ it:
   homepage:
     section_0:
       title:
-        part_1: Le migliori vacanze,
-        part_2: le migliori locations
+        part_1: Le Migliori Case Vacanza dei
+        part_2: Migliori Posti in Italia
 
     section_1:
       title: Benvenuto
       subtitle: Vivi la tua esperienza non come un ospite ma come un amico!
 
       text_1: Lorem ipsum dolor sit amet
-      text_2: Affidati a noi per organizzare al meglio la tua vacanza a 360° tra Costiera Sorrentina, Costiera Amalfitana, Capri e Napoli. Esplora le nostre possibili soluzioni tutte selezionate per garantire il massimo del comfort.
 
-      text_3: Chiedi consiglio riguardo a tours, spostamenti, ristoranti ed altro, saremo lieti di mettere a tua disposizione la nostra esperienza della zona offrendoti tanti utili consigli ed il nostro “punto di vista locale”.
+      text_2: Affidati a noi per organizzare al meglio la tua vacanza a 360°. Esplora le nostre proposte, tutte selezionate per garantire il massimo del comfort.
+
+      text_3: Chiedi consiglio riguardo a tours, spostamenti, ristoranti ed tanto altro, saremo lieti di mettere a tua disposizione la nostra esperienza e conoscenza della zona offrendoti tanti utili consigli ed il nostro "punto di vista locale".
 
     section_2:
       title: Sai dove vuoi andare?
-      subtitle: Lascia che ti ispiriamo
+      subtitle: La notra Collezione di Case
 
     section_3:
       title: I nostri servizi
@@ -69,17 +70,16 @@ it:
 
     section_map:
       title: LDV mappa
-      subtitle: Lorem ipsum dolor sit amet
+      subtitle: Dove si trovano le case LDV
 
     section_4:
       title: Destinazioni
-      subtitle:
-        part_1: Lorem ipsum
-        part_2: dolor sit amet
+      subtitle: Dove ti piacerebbe andare?
+
 
     section_5:
       title: Come possiamo aiutarti?
-      subtitle: Cogli l'occasione di chiederci quello di cui hai bisogno sfruttando la nostra esperienza e conoscenza della zona.
+      subtitle: Chiedici quello di cui hai bisogno sfruttando la nostra esperienza e conoscenza della zona.
       text: Scrivici un periodo e noi ti personalizzeremo il tuo soggiorno offrendoti le soluzioni disponibili. Chiedi a noi di organizzarti tutta la vacanza dalla sistemazione alle cose da visitare.
 
       form:
@@ -92,53 +92,53 @@ it:
   owner:
     section_0:
       title: 
-        part_1: Collaborazione con
-        part_2: LDV Homes Collection
+        part_1: Collabora con 
+        part_2: gli esperti di LDV Homes
 
     section_1:
       properties:
         property_1:
-          title: Gli ospiti giusti
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Gli ospiti che meriti
+          text: Avrai accesso alla nostra clientela di ospiti di livello internazionale in tutta sicurezza.
 
         property_2:
-          title: Semplifica la tua vita
-          text: Come società di noleggio di vacanze a servizio completo, ti forniamo una soluzione di prenotazione chiavi in mano, semplificando la comunicazione ad ogni passo.
+          title: Facilita la tua vita
+          text: Affidati a noi e passo dopo passo porteremo la tua proposta agli standard che merita.
 
         property_3:
-          title: Nessuna proposta di rischi
-          text: Crediamo in un modello pay-for-performance, quindi non ci sono costi di iscrizione o costi. Abbiamo successo quando hai successo.
+          title: Nessun rischio
+          text: Nessuno costo di iscrizione. Il nostro successo è il tuo successo.
 
     section_2:
-      title: Funzionale per te
+      title: Al tuo servizio
       subtitle:
-        part_1: Una compagnia di ospitalità, 
-        part_2: di lusso, completamente integrata
+        part_1: Una squadra di esperti che si occuperà di ogni dettaglio
+        part_2: per massimizzare il tuo profitto.
 
       services:
         service_1:
-          title: Presenza sul mercato locale
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Presenza sul mercato globale
+          text: La promozione della tua struttura avverrà in mercati e lingue diverse in modo da ridurre la stagionalità.
 
         service_2:
-          title: Presenza sul sito
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Presenza su tutti i canali Online 
+          text: Siamo esperti di Digital marketing e utlizziamo canali diversi tra cui i Social Media come Instagram e Facebook.
 
         service_3:
-          title: Pronto per il cellulare
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Sito Mobile Responsive
+          text: I nostri siti sono tutti ottimizzati per la migliore esperienza di consultazione mobile.
 
         service_4:
-          title: Servizio di prenotazione
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Personalizzazione delle richieste
+          text: Una volta ricevuta la tua richiesta ti risponderemo entro poche ore con una proposta personalizzata adatta alla tue esigenze.
 
         service_5:
-          title: Servizi di portineria
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Servizio Concierge 24h 
+          text: Siamo a disposizione 24h per rispondere alle tue richieste sul posto ed organizzare tutto ciò di cui hai bisogno.
 
         service_6:
-          title: Fatturazione e pagamento
-          text: Il nostro successo ci ha permesso di costruire un seguito fedele della clientela globale che torna più volte al Luxury Retreats.
+          title: Modalità di pagamento e fatturazione
+          text: Offriamo molteplici modalità di pagamento e fatturazione senza l’aggiunta di alcuna commissione.
 
     section_3:
       title: Faq
@@ -146,8 +146,8 @@ it:
 
     section_4:
       title: Modulo di domanda
-      subtitle: Sei interessato? Diventa partner
-      text: We select only the finest properties to be a part of our exclusive LDV Homes Collection. If you think your vacation home would be a good fit, please send us more details so that we might evaluate your property. Note that only a very select number of properties will be invited in any given destination to ensure that each of our vacation rental partners receives the exposure and attention they deserve.
+      subtitle: Diventa nostro partners. Inviaci una richiesta
+      text: Selezioniamo solo le migliori proprietà per far parte della nostra esclusiva collezione di case LDV. Se ritieni che la tua casa vacanza sia adatta, ti preghiamo di inviarci maggiori dettagli in modo da poter valutare la tua proprietà.
 
       form:
         name: 'Nome (richiesto)'

@@ -26,8 +26,6 @@ document.addEventListener 'turbolinks:load', () ->
                     start = new Date(this.selectedDate.start)
                     end = new Date(this.selectedDate.end)
 
-                    console.log(this.prices)
-
                     while start < end
                         if this.prices.length > 0
                             for value in this.prices
@@ -43,7 +41,6 @@ document.addEventListener 'turbolinks:load', () ->
 
 
                     this.servicePrice = this.priceForNights/this.servicePerc
-                    console.log(this.priceForNights, this.servicePrice, this.priceCleaningService)
                     this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
 
                     $('#start').val(this.selectedDate.start)

@@ -3,7 +3,11 @@
         .head
             .row
                 .col-12
-                    h3.big-text.underline.secondary-font.font-italic = service.name
+                    h3.big-text.underline.secondary-font.font-italic
+                        - if service.name.nil?
+                            = service.slug
+                        - else
+                            = service.name
 
         .foot
             .row.align-items-center
