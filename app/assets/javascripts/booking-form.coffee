@@ -16,7 +16,7 @@ document.addEventListener 'turbolinks:load', () ->
                 priceForNights: 0,
                 total: 0,
                 nights: 0,
-                servicePerc: 10,
+                servicePerc: 15,
                 servicePrice: 0,
             },
             methods: {
@@ -29,16 +29,13 @@ document.addEventListener 'turbolinks:load', () ->
                     console.log(this.prices)
 
                     while start < end
-                        console.log(start)
                         if this.prices.length > 0
                             for value in this.prices
-                                if start >= new Date(value.start) && start < new Date(value.end)
+                                if start >= new Date(value.start) && start <= new Date(value.end)
                                     this.priceForNights += parseFloat(value.price)
-                                    break
 
-                                else
-                                    this.priceForNights += parseFloat(this.defaultPrice)
-                                    break
+                        else
+                            this.priceForNights += parseFloat(this.defaultPrice)
 
                         this.nights += 1
                         newDate = start.setDate(start.getDate() + 1)
