@@ -16,7 +16,7 @@ document.addEventListener 'turbolinks:load', () ->
                 priceForNights: 0,
                 total: 0,
                 nights: 0,
-                servicePerc: 10,
+                servicePerc: 0.15,
                 servicePrice: 0,
             },
             methods: {
@@ -27,7 +27,6 @@ document.addEventListener 'turbolinks:load', () ->
                     end = new Date(this.selectedDate.end)
 
                     while start < end
-                        console.log(start)
                         if this.prices.length > 0
                             for value in this.prices
                                 if start >= new Date(value.start) && start < new Date(value.end)
@@ -42,9 +41,9 @@ document.addEventListener 'turbolinks:load', () ->
                         newDate = start.setDate(start.getDate() + 1)
                         start = new Date(newDate)
 
-
-                    this.servicePrice = this.priceForNights/this.servicePerc
-                    this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
+                    this.servicePrice = parseFloat(parseFloat(this.priceForNights*this.servicePerc).toFixed(2))
+                    this.total = parseFloat(this.priceForNights + this.servicePrice + this.priceCleaningService).toFixed(2)
+                    
 
                     $('#start').val(this.selectedDate.start)
                     $('#end').val(this.selectedDate.end)
@@ -78,8 +77,8 @@ document.addEventListener 'turbolinks:load', () ->
             mounted: () ->
                 this.disabledDates = $('#apartment-properties').data('dates')
                 this.prices = $('#apartment-properties').data('prices')
-                this.defaultPrice = $('#apartment-properties').data('defaultprice')
-                this.priceCleaningService = parseFloat($('#apartment-properties').data('pricecleaningservice'))
+                this.defaultPrice = parseFloat($('#apartment-properties').data('defaultprice'))
+                this.priceCleaningService = parseFloat(parseFloat($('#apartment-properties').data('pricecleaningservice')).toFixed(2))
                 this.calculatePrices()
         })
 
