@@ -1,15 +1,9 @@
 class OwnerRequestMailer < ApplicationMailer
-    default from: "ldvwebsite1@gmail.com"
+    default from: "info@ldvhomes.com"
 
     def owner_request_sent
         @owner_request = params[:owner_request]
-
-        if Rails.env.production?
-            @to = 'info@ldv.it'
-        else
-            @to = 'criscialfonso92@gmail.com'
-        end
-        
+        @to = 'info@ldvhomes.com'
         @subject = 'Richiesta partnership'
         mail(to: @to, subject: @subject)
     end

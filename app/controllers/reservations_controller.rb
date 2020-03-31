@@ -5,10 +5,9 @@ class ReservationsController < ApplicationController
         
         if @reservation.save
             flash.notice = t('booking.success', apartment: @reservation.apartment.name, from: l(@reservation.date_start, format: '%d %B %Y'), to: l(@reservation.date_end, format: '%d %B %Y'))
+            BookingRequestMailer.with(booking_request: @reservation).booking_request_sent.deliver_now
             redirect_to apartment_path(@reservation.apartment) 
         end
-
-        puts @reservation.errors.inspect
 
         respond_to do |format|
             format.js

@@ -1,0 +1,38 @@
+.header
+    = image_tag 'logo.png'
+
+.intro
+    p.title 
+        | Richiesta prenotazione per
+        =<> @booking_request.apartment.name
+
+.content
+    p
+        | Richiedente:
+        b =< @booking_request.name
+        | ,
+        =< link_to @booking_request.email, @booking_request.email
+        | ,
+        =< link_to @booking_request.phone_number, "tel:#{@booking_request.phone_number}"
+
+    p
+        | Date: da
+        b =<> l(@booking_request.date_start, format: "%d %b %Y")
+        | a
+        b =<> l(@booking_request.date_end, format: "%d %b %Y")
+
+    p
+        | Numero ospiti:
+        b =<> @booking_request.guests
+
+    p
+        | Prezzo:
+        b =<> "#{@booking_request.total_price}€"
+
+    p
+        | Ulteriori informazioni:
+        b =<> @booking_request.more_info
+
+
+
+.footer

@@ -1,15 +1,9 @@
 class RequestMailer < ApplicationMailer
-    default from: "ldvwebsite1@gmail.com"
+    default from: "info@ldvhomes.com"
 
     def request_sent
         @request = params[:request]
-
-        if Rails.env.production?
-            @to = 'info@ldv.it'
-        else
-            @to = 'criscialfonso92@gmail.com'
-        end
-        
+        @to = 'info@ldvhomes.com'
         @subject = 'Richiesta da website'
         mail(to: @to, subject: @subject)
     end
