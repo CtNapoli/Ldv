@@ -94,16 +94,16 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.aruba.it',
-    port:                 465,
-    domain:               'ldvhomes.com',
-    user_name:            'info@ldvhomes.com',
-    password:             'Gaiola2020',
-    authentication:       'login',
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'ldvwebsite1@gmail.com',
+    password:             'ldvitalia2019',
+    authentication:       'plain',
     enable_starttls_auto: true
   }
 
-  config.action_mailer.asset_host = '68.183.215.32'
+  config.action_mailer.asset_host = 'http://ldvhomes.com'
 
   config.force_ssl = true
 end

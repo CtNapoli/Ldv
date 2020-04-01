@@ -1,9 +1,9 @@
 class BookingRequestMailer < ApplicationMailer
-    default from: "info@ldvhomes.com"
+    default from: "ldvwebsite1@gmail.com"
 
     def booking_request_sent
         @booking_request = params[:booking_request]
-        @to = 'criscialfonso92@gmail.com'
+        @to = 'info@ldvhomes.com'
         @subject = 'Richiesta prenotazione'
         mail(to: @to, subject: @subject)
     end

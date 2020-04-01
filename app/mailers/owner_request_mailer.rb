@@ -1,5 +1,5 @@
 class OwnerRequestMailer < ApplicationMailer
-    default from: "info@ldvhomes.com"
+    default from: "ldvwebsite1@gmail.com"
 
     def owner_request_sent
         @owner_request = params[:owner_request]
