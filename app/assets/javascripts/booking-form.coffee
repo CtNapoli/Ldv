@@ -25,17 +25,19 @@ document.addEventListener 'turbolinks:load', () ->
                     this.priceForNights = 0
                     start = new Date(this.selectedDate.start)
                     end = new Date(this.selectedDate.end)
+                    ex = false
 
                     while start < end
                         if this.prices.length > 0
+                            founded = false
                             for value in this.prices
                                 if start >= new Date(value.start) && start < new Date(value.end)
                                     this.priceForNights += parseFloat(value.price)
+                                    founded = true
                                     break
 
-                                else
-                                    this.priceForNights += parseFloat(this.defaultPrice)
-                                    break
+                            if !founded
+                                this.priceForNights += parseFloat(this.defaultPrice)
 
                         this.nights += 1
                         newDate = start.setDate(start.getDate() + 1)

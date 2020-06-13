@@ -44,5 +44,4 @@ class Apartment < ApplicationRecord
     def main_image_presence
         errors.add(:main_image, :blank) unless main_image.attached?
     end
-
 end

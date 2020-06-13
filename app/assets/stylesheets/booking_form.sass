@@ -57,3 +57,22 @@
 
             button,div
                 flex-basis: 50%
+
+.vc-arrows-container
+    & > div
+        position: relative
+        font-family: Fontawesome
+
+        &:before
+            display: inline-block
+            position: absolute
+
+        &:first-child
+            &:before
+                content: '\f060'
+
+        &:last-child
+            &:before
+                content: '\f061'
+                
+               
