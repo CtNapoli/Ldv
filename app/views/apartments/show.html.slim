@@ -110,7 +110,8 @@
                                                         span.secondary-font.font-italic
                                                             | {{selectedDate.end | formatDate}}
 
-                                                v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                                //v-date-picker mode='range' :min-date='new Date.now()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                                v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate' readonly="true"
                                         
 
                                         .form-group.no-border.no-margin
