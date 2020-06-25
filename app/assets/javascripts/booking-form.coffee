@@ -93,6 +93,5 @@ document.addEventListener 'turbolinks:load', () ->
         $('.dropdown .dropdown-menu .dropdown-item').on 'click', () ->
             setValueDropdown($(this).data('value'), $(this).text(), $(this).parent().parent().attr('id'), bookingForm)
 
-        $('.from_to input').on 'keypress', (event) ->
-            event.preventDefault()
-            return false
+        $('.from_to input').on 'click', () ->
+            $('.from_to input').attr('readonly', true)
