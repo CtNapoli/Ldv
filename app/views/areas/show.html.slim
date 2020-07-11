@@ -3,7 +3,7 @@
         - if @area.images.any?
             .swiper-container
                 .swiper-wrapper
-                    - @area.images.each do |image|
+                    - @area.images.order('blob_id ASC').each do |image|
                         .swiper-slide
                             = image_tag image.variant(resize: '1920x1080'), alt: @area.name
 

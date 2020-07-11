@@ -3,7 +3,7 @@
         - if @apartment.images.count > 1
             .swiper-container
                 .swiper-wrapper
-                    - @apartment.images.each do |image|
+                    - @apartment.images.order('blob_id ASC').each do |image|
                         .swiper-slide
                             = image_tag image.variant(resize: '1920x1080'), alt: @apartment.name
 

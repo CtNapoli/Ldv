@@ -200,7 +200,7 @@
 
                     .all-previews
                         - if @apartment.images.attached?
-                            - @apartment.images.each do |i|
+                            - @apartment.images.order('blob_id ASC').each do |i|
                                 .box-preview id="image-#{i.id}" style="background-image: url('#{rails_blob_url(i)}')"
                                     = link_to remove_photo_backend_apartment_path(image_id: i.id), method: :delete, remote: true do
                                         .round = image_tag 'close.png', alt: 'Close'
