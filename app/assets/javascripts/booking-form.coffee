@@ -26,11 +26,6 @@ document.addEventListener 'turbolinks:load', () ->
                     progressDate = new Date(this.selectedDate.start)
                     endDateCopy = new Date(this.selectedDate.end)
 
-                    console.log(this.prices)
-
-                    console.log(progressDate)
-                    console.log(endDateCopy)
-
                     if this.prices.length > 0
                         while progressDate < endDateCopy
                             founded = false
