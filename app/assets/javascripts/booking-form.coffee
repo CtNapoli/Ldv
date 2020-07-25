@@ -23,15 +23,19 @@ document.addEventListener 'turbolinks:load', () ->
                 calculatePrices: () ->
                     this.nights = 0
                     this.priceForNights = 0
-                    start = new Date(this.selectedDate.start)
-                    end = new Date(this.selectedDate.end)
-                    ex = false
+                    progressDate = new Date(this.selectedDate.start)
+                    endDateCopy = new Date(this.selectedDate.end)
 
-                    while start < end
-                        if this.prices.length > 0
+                    console.log(this.prices)
+
+                    console.log(progressDate)
+                    console.log(endDateCopy)
+
+                    if this.prices.length > 0
+                        while progressDate < endDateCopy
                             founded = false
                             for value in this.prices
-                                if start >= new Date(value.start) && start < new Date(value.end)
+                                if progressDate >= new Date(value.start) && progressDate <= new Date(value.end)
                                     this.priceForNights += parseFloat(value.price)
                                     founded = true
                                     break
@@ -39,9 +43,9 @@ document.addEventListener 'turbolinks:load', () ->
                             if !founded
                                 this.priceForNights += parseFloat(this.defaultPrice)
 
-                        this.nights += 1
-                        newDate = start.setDate(start.getDate() + 1)
-                        start = new Date(newDate)
+                            this.nights += 1
+                            newDate = progressDate.setDate(progressDate.getDate() + 1)
+                            progressDate = new Date(newDate)
 
                     this.servicePrice = parseFloat(parseFloat(this.priceForNights*this.servicePerc).toFixed(2))
                     this.total = parseFloat(this.priceForNights + this.servicePrice + this.priceCleaningService).toFixed(2)
