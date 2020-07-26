@@ -23,6 +23,8 @@ document.addEventListener 'turbolinks:load', () ->
                 calculatePrices: () ->
                     this.nights = 0
                     this.priceForNights = 0
+                    
+                    console.log(this.prices)
                     progressDate = new Date(this.selectedDate.start)
                     endDateCopy = new Date(this.selectedDate.end)
 
@@ -30,11 +32,12 @@ document.addEventListener 'turbolinks:load', () ->
                         while progressDate < endDateCopy
                             i = 0
                             while i < this.prices.length 
-                                start = new Date(this.prices[i].start)
-                                end = new Date(this.prices[i].end)
+                                start = new moment(this.prices[i].start, "YYYY-MM-DD").toDate()
+                                end = new moment(this.prices[i].end, "YYYY-MM-DD").toDate()
 
                                 if progressDate >= start && progressDate <= end
                                     this.priceForNights += parseFloat(this.prices[i].price)
+                                    founded = true
 
                                 i++
 
