@@ -33,7 +33,7 @@ document.addEventListener 'turbolinks:load', () ->
                                 start = new Date(this.prices[i].start)
                                 end = new Date(this.prices[i].end)
 
-                                if progressDate >= start && progressDate <= end
+                                if progressDate <= end
                                     this.priceForNights += parseFloat(this.prices[i].price)
 
                                 i++
