@@ -31,7 +31,7 @@ document.addEventListener 'turbolinks:load', () ->
                             console.log('progress', progressDate)
                             console.log('end', endDateCopy)
                             for value in this.prices
-                                founded = false
+                                #founded = false
                                 start = new Date(value.start)
                                 end = new Date(value.end)
                                 console.log('start', start)
@@ -39,8 +39,8 @@ document.addEventListener 'turbolinks:load', () ->
                                 console.log('val', value)
                                 if progressDate <= end
                                     this.priceForNights += parseFloat(value.price)
-                                    founded = true
-                                    break
+                                    #founded = true
+                                    #break
 
                             # if !founded
                             #     this.priceForNights += parseFloat(this.defaultPrice)
