@@ -28,10 +28,15 @@ document.addEventListener 'turbolinks:load', () ->
 
                     if this.prices.length > 0
                         while progressDate < endDateCopy
+                            console.log('progress', progressDate)
+                            console.log('end', endDateCopy)
                             for value in this.prices
                                 founded = false
                                 start = new Date(value.start)
                                 end = new Date(value.end)
+                                console.log('start', start)
+                                console.log('end', end)
+                                console.log('val', value)
                                 if progressDate <= end
                                     this.priceForNights += parseFloat(value.price)
                                     founded = true
