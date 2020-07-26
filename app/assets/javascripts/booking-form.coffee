@@ -29,19 +29,19 @@ document.addEventListener 'turbolinks:load', () ->
                     if this.prices.length > 0
                         while progressDate < endDateCopy
                             i = 0
-                            founded = false
-                            while !founded && i < this.prices.length 
+                            ex = false
+                            while !ex && i < this.prices.length 
                                 start = new Date(this.prices[i].start)
                                 end = new Date(this.prices[i].end)
 
                                 if progressDate <= end
                                     this.priceForNights += parseFloat(this.prices[i].price)
-                                    founded = true
+                                    ex = true
 
                                 i++
 
-                            if !founded
-                                this.priceForNights += parseFloat(this.defaultPrice)
+                            # if !founded
+                            #     this.priceForNights += parseFloat(this.defaultPrice)
 
                             this.nights += 1
                             newDate = progressDate.setDate(progressDate.getDate() + 1)
