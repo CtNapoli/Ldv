@@ -42,8 +42,8 @@ document.addEventListener 'turbolinks:load', () ->
                                     founded = true
                                     break
 
-                            if !founded
-                                this.priceForNights += parseFloat(this.defaultPrice)
+                            # if !founded
+                            #     this.priceForNights += parseFloat(this.defaultPrice)
 
                             this.nights += 1
                             newDate = progressDate.setDate(progressDate.getDate() + 1)
