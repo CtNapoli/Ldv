@@ -24,7 +24,6 @@ document.addEventListener 'turbolinks:load', () ->
                     this.nights = 0
                     this.priceForNights = 0
                     
-                    console.log(this.prices)
                     progressDate = new Date(this.selectedDate.start)
                     endDateCopy = new Date(this.selectedDate.end)
 
@@ -41,15 +40,15 @@ document.addEventListener 'turbolinks:load', () ->
 
                                 i++
 
-                            # if !founded
-                            #     this.priceForNights += parseFloat(this.defaultPrice)
+                            if !founded
+                                this.priceForNights += parseFloat(this.defaultPrice)
 
                             this.nights += 1
                             newDate = progressDate.setDate(progressDate.getDate() + 1)
                             progressDate = new Date(newDate)
 
-                    this.servicePrice = parseFloat(parseFloat(this.priceForNights*this.servicePerc).toFixed(2))
-                    this.total = parseFloat(this.priceForNights + this.servicePrice + this.priceCleaningService).toFixed(2)
+                    this.servicePrice = parseFloat((this.priceForNights*this.servicePerc).toFixed(2))
+                    this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
                     
 
                     $('#start').val(this.selectedDate.start)
