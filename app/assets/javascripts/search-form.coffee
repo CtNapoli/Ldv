@@ -10,11 +10,18 @@ document.addEventListener 'turbolinks:load', () ->
                     start: new Date()
                     end: new Date()
                 },
+                range: {
+                    start: new Date(),
+                    end: new Date(),
+                },
+                masks: {
+                    input: 'YYYY-MM-DD',
+                },
                 submittable: false
             },
             methods: {
                 enabled: () ->
-                    this.submittable = this.guests != null && this.selectedDate.start != null && this.selectedDate.end != null && this.where != null
+                    this.submittable = this.guests != null && this.range.start != null && this.range.end != null && this.where != null
             },
             watch: {
                 selectedDate: () ->

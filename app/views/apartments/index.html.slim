@@ -42,8 +42,8 @@
 
                                 .form-group
                                     label.tag = t('search_form.dates')
-                                    = f.hidden_field :start, class: 'form-control', 'v-model': 'selectedDate.start' 
-                                    = f.hidden_field :end, class: 'form-control', 'v-model': 'selectedDate.end'
+                                    = f.hidden_field :start, class: 'form-control', 'v-model': 'range.start' 
+                                    = f.hidden_field :end, class: 'form-control', 'v-model': 'range.end'
 
                                     .from_to
                                         .row.align-items-center
@@ -52,7 +52,7 @@
                                             
                                             .col-9.text-right
                                                 span.secondary-font.font-italic
-                                                    | {{selectedDate.start | formatDate}}
+                                                    | {{range.start | formatDate}}
 
                                         .row.align-items-center
                                             .col-3
@@ -60,10 +60,30 @@
 
                                             .col-9.text-right
                                                 span.secondary-font.font-italic
-                                                    | {{selectedDate.end | formatDate}}
+                                                    | {{range.end | formatDate}}
 
                                         //v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
-                                        v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate'
+                                        //v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate'
+                                        template
+                                            |  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8" @submit.prevent> 
+                                            .mb-4
+                                                span.block.text-gray-600.text-sm.text-left.font-bold.mb-2
+                                                | Select Range
+                                                v-date-picker[v-model="range" mode="date" :min-date='new Date()' :masks="masks" is-range]
+                                                template[v-slot="{ inputValue, inputEvents, isDragging }"]
+                                                    .flex.flex-col.sm:flex-row.justify-start.items-center
+                                                        .relative.flex-grow
+                                                            svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
+                                                            path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
+                                                            input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.start" v-on="inputEvents.start"]
+                                                        span.flex-shrink-0.m-2
+                                                            svg.w-4.h-4.stroke-current.text-gray-600[viewbox="0 0 24 24"]
+                                                            path[stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"]
+                                                        .relative.flex-grow
+                                                            svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
+                                                            path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
+                                                            input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.end" v-on="inputEvents.end"]
+
                                 
 
                                 .form-group.no-border.no-margin

@@ -2,14 +2,59 @@
 # yarn lockfile v1
 
 
-fecha@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
-  integrity sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg==
+"@popperjs/core@^2.4.0":
+  "integrity" "sha512-ZpKr+WTb8zsajqgDkvCEWgp6d5eJT6Q63Ng2neTbzBO76Lbe91vX/iVIW9dikq+Fs3yEo+ls4cxeXABD2LtcbQ=="
+  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.5.4.tgz"
+  "version" "2.5.4"
 
-vue2-datepicker@^2.11.2:
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-2.11.2.tgz#535aa55c32813edc2be689cbe940305b83354195"
-  integrity sha512-xGyIN5pMMdaKMnndSrzqW6LDST/e7PHcFt2uIp73OOMZMDAlhEmzroNtoYBwJEEzKnCNMo+ktcykgYljrE8y8Q==
+"core-js@^3.6.5":
+  "integrity" "sha512-NwS7fI5M5B85EwpWuIwJN4i/fbisQUwLwiSNUWeXlkAZ0sbBjLEvLvFLf1uzAUV66PcEPt4xCGCmOZSxVf3xzA=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.7.0.tgz"
+  "version" "3.7.0"
+
+"date-fns-tz@^1.0.12":
+  "integrity" "sha512-Ca+9pjGkU90XDHnclfSjz9o7g/ZqyYyYI0aCYmbf65P75oy8gktuaRslO3UPXl3ADgAnF9/KCykQkpU3/xvtWQ=="
+  "resolved" "https://registry.npmjs.org/date-fns-tz/-/date-fns-tz-1.0.12.tgz"
+  "version" "1.0.12"
+
+"date-fns@^2.8.1", "date-fns@>=2.0.0-alpha.13":
+  "integrity" "sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ=="
+  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.16.1.tgz"
+  "version" "2.16.1"
+
+"fecha@^2.3.3":
+  "integrity" "sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg=="
+  "resolved" "https://registry.npmjs.org/fecha/-/fecha-2.3.3.tgz"
+  "version" "2.3.3"
+
+"lodash@^4.17.15":
+  "integrity" "sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA=="
+  "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz"
+  "version" "4.17.20"
+
+"moment@^2.29.1":
+  "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
+  "version" "2.29.1"
+
+"v-calendar@^2.0.2":
+  "integrity" "sha512-Nd7qd0JHrFAof+7Oyp3x2mmXC2kBd0VSsNFTvcjwlUqmKRlyXbIaS6rN7T9+Sd3FBcYX052MgCkVRInumjebMg=="
+  "resolved" "https://registry.npmjs.org/v-calendar/-/v-calendar-2.0.2.tgz"
+  "version" "2.0.2"
   dependencies:
-    fecha "^2.3.3"
+    "core-js" "^3.6.5"
+    "date-fns" "^2.8.1"
+    "date-fns-tz" "^1.0.12"
+    "lodash" "^4.17.15"
+
+"vue@^2.5.18", "vue@>=2.4.0":
+  "integrity" "sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg=="
+  "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.12.tgz"
+  "version" "2.6.12"
+
+"vue2-datepicker@^2.11.2":
+  "integrity" "sha512-xGyIN5pMMdaKMnndSrzqW6LDST/e7PHcFt2uIp73OOMZMDAlhEmzroNtoYBwJEEzKnCNMo+ktcykgYljrE8y8Q=="
+  "resolved" "https://registry.npmjs.org/vue2-datepicker/-/vue2-datepicker-2.11.2.tgz"
+  "version" "2.11.2"
+  dependencies:
+    "fecha" "^2.3.3"

@@ -9,6 +9,13 @@ document.addEventListener 'turbolinks:load', () ->
                     start: new Date()
                     end: new Date()
                 },
+                range: {
+                    start: new Date(),
+                    end: new Date(),
+                },
+                masks: {
+                    input: 'YYYY-MM-DD',
+                },
                 prices: '',
                 defaultPrice: 0,
                 priceCleaningService: 0,
@@ -24,8 +31,8 @@ document.addEventListener 'turbolinks:load', () ->
                     this.nights = 0
                     this.priceForNights = 0
                     
-                    progressDate = new Date(this.selectedDate.start)
-                    endDateCopy = new Date(this.selectedDate.end)
+                    progressDate = new Date(this.range.start)
+                    endDateCopy = new Date(this.range.end)
 
                     if this.prices.length > 0
                         while progressDate < endDateCopy
@@ -51,18 +58,18 @@ document.addEventListener 'turbolinks:load', () ->
                     this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
                     
 
-                    $('#start').val(this.selectedDate.start)
-                    $('#end').val(this.selectedDate.end)
+                    $('#start').val(this.range.start)
+                    $('#end').val(this.range.end)
                     $('#total_price').val(this.total)
 
 
 
                 enabled: () ->
-                    this.submittable = this.guests != null && this.selectedDate.start != null && this.selectedDate.end != null 
+                    this.submittable = this.guests != null && this.range.start != null && this.range.end != null 
 
             }
             watch: {
-                selectedDate: () ->
+                range: () ->
                     this.calculatePrices()
                     this.enabled()
 

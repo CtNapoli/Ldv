@@ -2,6 +2,8 @@
   "name": "ldv",
   "private": true,
   "dependencies": {
+    "moment": "^2.29.1",
+    "v-calendar": "^2.0.2",
     "vue2-datepicker": "^2.11.2"
   }
 }
