@@ -1,4 +1,4 @@
-server '68.183.215.32', user: 'ldv', roles: %w{app db web}
+server '10.114.0.2', user: 'ldv', roles: %w{app db web}
 set :deploy_to, "/srv/ldv/production"
 
 set :branch, 'master'
