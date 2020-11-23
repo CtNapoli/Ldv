@@ -1,5 +1,5 @@
 server '46.101.241.78', user: 'ldv', roles: %w{app db web}
-set :deploy_to, "/srv/ldv/production"
+set :deploy_to, "/srv/rails/ldv/production"
 
 set :branch, 'master'
 # server-based syntax
