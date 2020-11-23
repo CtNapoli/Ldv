@@ -82,7 +82,8 @@ gem 'friendly_id-globalize'
 gem 'capistrano', '3.8.2'
 gem 'capistrano-passenger'
 gem 'capistrano-rails'
-gem 'capistrano-rbenv'
+#gem 'capistrano-rbenv'
+gem 'capistrano-rvm'
 
 gem 'kaminari'
 
