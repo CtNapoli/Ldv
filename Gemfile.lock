@@ -68,6 +68,7 @@ GEM
     autoprefixer-rails (10.0.2.0)
       execjs
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
@@ -223,6 +224,10 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rbnacl (4.0.2)
+      ffi
+    rbnacl-libsodium (1.0.16)
+      rbnacl (>= 3.0.1)
     regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -299,6 +304,7 @@ DEPENDENCIES
   active_link_to
   activemodel-serializers-xml
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf (< 2.0)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
@@ -325,6 +331,8 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.2)
   rails-i18n
+  rbnacl (< 5.0)
+  rbnacl-libsodium
   sass-rails (~> 5.0)
   selenium-webdriver
   slim

@@ -89,3 +89,7 @@ gem 'kaminari'
 
 gem "mini_magick"
 gem 'image_processing', '~> 1.2'
+
+gem 'rbnacl', '< 5.0', :require => false                                                                                                                                                                
+gem 'rbnacl-libsodium', :require => false                                                                                                                                                               
+gem 'bcrypt_pbkdf', '< 2.0', :require => false
