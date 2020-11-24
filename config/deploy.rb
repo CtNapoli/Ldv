@@ -5,7 +5,7 @@ set :application, "ldv"
 set :repo_url, "git@github.com:Alf1992/ldv.git"
 
 set :passenger_restart_with_touch, true
-set :rvm_ruby_version, 'ruby-2.6.1'
+set :rvm_ruby_version, 'ruby-2.6.5'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
