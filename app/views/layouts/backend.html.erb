@@ -62,7 +62,7 @@
     <footer>
       <% if Rails.env.development? %>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <% else %>
+      <% elsif Rails.env.production? %>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
       <% end %>
     </footer>
