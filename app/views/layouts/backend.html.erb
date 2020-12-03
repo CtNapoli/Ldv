@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
+    <% if Rails.env.development? %>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <% elsif Rails.env.production? %>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <% end %>
+
   </head>
 
   <body id="backend">
@@ -60,11 +66,6 @@
       </div>
     </main>
     <footer>
-      <% if Rails.env.development? %>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <% elsif Rails.env.production? %>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-      <% end %>
     </footer>
   </body>
 </html>
