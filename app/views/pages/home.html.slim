@@ -25,7 +25,7 @@
                                             .icon = image_tag 'dropdown-arrow.png', alt: 'Down'
                                             
                                         .dropdown-menu aria-labelledby="area"
-                                            - Area.all.each do |a|
+                                            - @areas.each do |a|
                                                 .dropdown-item data-value="#{a.id}" 
                                                     p = a.name
 

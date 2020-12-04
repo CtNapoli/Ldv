@@ -45,7 +45,7 @@
                                     .icon = image_tag 'dropdown-arrow.png'
                                     
                                 .dropdown-menu aria-labelledby="area"
-                                    - Area.all.each do |a|
+                                    - @areas.each do |a|
                                         .dropdown-item data-value="#{a.id}" = a.name
 
                         - if @max_guests.present?
@@ -106,7 +106,7 @@
                             .icon = image_tag 'dropdown-arrow.png'
                             
                         .dropdown-menu aria-labelledby="area"
-                            - Area.all.each do |a|
+                            - @areas.each do |a|
                                 .dropdown-item data-value="#{a.name}" = a.name
 
                 - if @max_guests.present?

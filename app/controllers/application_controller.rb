@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
     end
 
     def load_areas
-        @areas = Area.all.order('updated_at DESC')
+        #@areas = Area.all.order('updated_at DESC')
+        @areas = Area.joins(:apartments).where('apartments.published': true).group('areas.id').having('count(area_id) > 0')
     end
 
     def waiting_reservations
