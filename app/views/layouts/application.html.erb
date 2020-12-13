@@ -138,5 +138,8 @@
       <%= yield %>
       <%= render "pages/footer" %>
     </main>
+
+    <%= render 'cookies_eu/consent_banner', link: 'https://www.aboutcookies.org.uk/', target: '_blank' %>
+
   </body>
 </html>
