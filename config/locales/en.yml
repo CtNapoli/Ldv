@@ -40,6 +40,9 @@ en:
       owners: Owners
       houses: Houses
 
+  page_not_found:
+    title: Page not found.    
+
   homepage:
     section_0:
       title:

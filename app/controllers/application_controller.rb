@@ -55,4 +55,12 @@ class ApplicationController < ActionController::Base
     def load_apartments
         @apartments = Apartment.where(published: true)
     end
+
+    rescue_from ActionController::RoutingError, with: :page_not_found
+
+    def page_not_found
+        @areas = Area.all.order('updated_at DESC')
+        @apartments = Apartment.where(published: true)
+        render '404.html', status: 404
+    end
 end

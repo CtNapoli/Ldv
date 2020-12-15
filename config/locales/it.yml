@@ -40,6 +40,9 @@ it:
       owners: Proprietari
       houses: Case
 
+  page_not_found:
+    title: Pagina non trovata.     
+
   homepage:
     section_0:
       title:
