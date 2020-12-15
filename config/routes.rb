@@ -52,5 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/sitemap" => "sitemap#show"
+
   match '*unmatched_route', :to => 'application#page_not_found', :via => :all, constraints: lambda { |request| !request.path_parameters[:unmatched_route].start_with?('rails/') }
 end
