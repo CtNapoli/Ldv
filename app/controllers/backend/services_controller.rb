@@ -6,8 +6,18 @@ class Backend::ServicesController < BackendController
     def index
         @service_name = params[:service_name]
 
-        @services = Service.order('created_at DESC').page params[:page]
-        @services = Service.with_translations(I18n.locale).where("service_translations.name ILIKE ?", "%#{@service_name}%") if @service_name.present?
+        #@services = Service.order('created_at DESC').page params[:page]
+        #@services = Service.with_translations(I18n.locale).where("service_translations.name ILIKE ?", "%#{@service_name}%") if @service_name.present?
+    
+        if params[:service_name]
+            @services = Service.with_translations(I18n.locale).order('updated_at DESC').page params[:page]
+
+            if @service_name.present?
+                @services = @services.where("service_translations.name ILIKE ?", "%#{@service_name}%")
+            end
+        else
+            @services = Service.all.order('updated_at DESC').page params[:page]
+        end
     end
 
     def new
