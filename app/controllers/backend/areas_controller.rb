@@ -26,6 +26,9 @@ class Backend::AreasController < BackendController
     end
 
     def update
+        if @area.update(name: params[:area][:name])
+            @area.update(slug: params[:area][:name].parameterize(separator: '-'))
+        end
         if @area.update(area_params)
             flash.notice = t('backend.areas.created', area: @area.name)
             redirect_to backend_areas_path

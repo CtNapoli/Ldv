@@ -66,6 +66,9 @@ class Backend::ApartmentsController < BackendController
     end
 
     def update
+        if @apartment.update(name: params[:apartment][:name])
+            @apartment.update(slug: params[:apartment][:name].parameterize(separator: '-'))
+        end
         if @apartment.update(apartment_params)
             flash.notice = t('backend.apartments.edited', apartment: @apartment.name)
             redirect_to edit_backend_apartment_path(@apartment)
