@@ -19,6 +19,16 @@
         p,input,span,i
             color: white
 
+.more-padding
+    +media($lg)
+        padding-top: 200px
+
+.vc-container.vc-blue
+    display: flex
+
+    +media($xl)
+        position: absolute
+
 .primary-font
     font-family: 'Lato', sans-serif
 
@@ -330,7 +340,7 @@
 
     &.op
         top: 0
-        overflow: hidden
+        overflow: auto
 
     +media($xl)
         display: none
