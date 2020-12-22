@@ -8,7 +8,8 @@ class ApartmentsController < ApplicationController
         @where = params[:where].to_i
         @guests = params[:guests].to_i
 
-        @apartments = Apartment.with_translations(I18n.locale).where(published: true).order('updated_at DESC')
+        #@apartments = Apartment.with_translations(I18n.locale).where(published: true).order('updated_at DESC')
+        @apartments = Apartment.where(published: true).order('updated_at DESC')
 
         @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
         @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
@@ -49,5 +50,8 @@ class ApartmentsController < ApplicationController
 
     def load_apartment
         @apartment = Apartment.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+        render '404.html', status: 404
     end
+
 end
