@@ -2,6 +2,9 @@
     .container
         .row
             .col-12
-                h1.text-center.title = t('page_not_found.title')
-                //h1.text-center La pagina che stavi cercando non esiste.
-                //h2.text-center Potresti aver sbagliato a digitare l'indirizzo o la pagina potrebbe essersi spostata.
+                h2.text-center.title = t('page_not_found.title')
+                .pt-5
+                    h2.text-center.title = t('page_not_found.second_title')
+                    h2.text-center.text-underlined = link_to "Homepage", root_path
+                    h2.text-center = t('page_not_found.subtitle')
+                    h2.text-center.text-underlined = link_to t('header.menu.destinations'), root_path + '#destinations'

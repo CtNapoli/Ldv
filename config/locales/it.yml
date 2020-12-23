@@ -41,7 +41,9 @@ it:
       houses: Case
 
   page_not_found:
-    title: Pagina non trovata.     
+    title: Siamo spiacenti, ma la pagina che stavi cercando non è stata trovata. 
+    second_title: Prova a controllare l’url della pagina oppure torna alla     
+    subtitle: o visita le nostre 
 
   homepage:
     section_0:

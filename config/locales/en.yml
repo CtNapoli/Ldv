@@ -41,7 +41,9 @@ en:
       houses: Houses
 
   page_not_found:
-    title: Page not found.    
+    title: We're sorry, the page you were looking for could not be found. 
+    second_title: Try checking the url of the page or go back to the  
+    subtitle: otherwise you can visit our
 
   homepage:
     section_0:
