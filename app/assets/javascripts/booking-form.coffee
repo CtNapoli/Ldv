@@ -34,7 +34,27 @@ document.addEventListener 'turbolinks:load', () ->
                     progressDate = new Date(this.range.start)
                     endDateCopy = new Date(this.range.end)
 
-                    if this.prices.length > 0
+                    #if this.prices.length > 0
+                    while progressDate < endDateCopy
+                        i = 0
+                        while i < this.prices.length 
+                            start = new moment(this.prices[i].start, "YYYY-MM-DD").toDate()
+                            end = new moment(this.prices[i].end, "YYYY-MM-DD").toDate()
+
+                            if progressDate >= start && progressDate <= end
+                                this.priceForNights += parseFloat(this.prices[i].price)
+                                founded = true
+
+                            i++
+
+                        if !founded
+                            this.priceForNights += parseFloat(this.defaultPrice)
+
+                        this.nights += 1
+                        newDate = progressDate.setDate(progressDate.getDate() + 1)
+                        progressDate = new Date(newDate)
+
+                    ### else 
                         while progressDate < endDateCopy
                             i = 0
                             while i < this.prices.length 
@@ -52,7 +72,7 @@ document.addEventListener 'turbolinks:load', () ->
 
                             this.nights += 1
                             newDate = progressDate.setDate(progressDate.getDate() + 1)
-                            progressDate = new Date(newDate)
+                            progressDate = new Date(newDate) ###
 
                     this.servicePrice = parseFloat((this.priceForNights*this.servicePerc).toFixed(2))
                     this.total = this.priceForNights + this.servicePrice + this.priceCleaningService
