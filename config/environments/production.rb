@@ -100,7 +100,7 @@ Rails.application.configure do
     user_name:            'ldvwebsite1@gmail.com',
     password:             'ldvitalia2019',
     authentication:       'plain',
-    enable_starttls_auto: true
+    #enable_starttls_auto: true
   }
 
   config.action_mailer.asset_host = 'http://ldvhomes.com'
