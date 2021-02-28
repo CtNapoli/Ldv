@@ -23,7 +23,7 @@ document.addEventListener 'turbolinks:load', () ->
                 priceForNights: 0,
                 total: 0,
                 nights: 0,
-                servicePerc: 0.15,
+                servicePerc: 0.10,
                 servicePrice: 0,
             },
             methods: {
