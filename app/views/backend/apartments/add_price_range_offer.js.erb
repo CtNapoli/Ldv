@@ -1,0 +1,19 @@
+$('#price-offer-start .errors').html('');
+$('#price-offer-end .errors').html('');
+$('#price-offer-value .errors').html('');
+
+<% if(@success) %>
+    $('#special-prices .all').html('<%= j render('prices_offer') %>')
+<% else %>
+    <% if(@price.errors[:price_offer_start].any?) %>
+        $('#price-offer-start .errors' ).html('<%= error_messages(@price, :price_offer_start) %>')
+    <% end %>
+
+    <% if(@price.errors[:price_offer_end].any?) %>
+        $('#price-offer-end .errors' ).html('<%= error_messages(@price, :price_offer_end) %>')
+    <% end %>
+
+    <% if(@price.errors[:price_offer_value].any?) %>
+        $('#price-offer-value .errors' ).html('<%= error_messages(@price, :price_offer_value) %>')
+    <% end %>
+<% end %>

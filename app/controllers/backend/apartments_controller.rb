@@ -2,7 +2,7 @@ class Backend::ApartmentsController < BackendController
     skip_before_action :verify_authenticity_token, only: [:create, :update]
     before_action :authenticate_admin!
     before_action :load_all_areas, only: [:index]
-    before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo, :add_price_range, :remove_price_range, :edit_price_range, :update_price_range]
+    before_action :load_apartment, only: [:edit, :update, :destroy, :remove_main_photo, :remove_photo, :add_price_range, :add_price_range_offer, :remove_price_range, :remove_price_range_offer, :edit_price_range, :update_price_range, :edit_price_range_offer, :update_price_range_offer]
     
     def index
         @apartment_area = params[:apartment_area]
@@ -93,7 +93,7 @@ class Backend::ApartmentsController < BackendController
 
     def add_price_range
         @success = false
-        @price = Price.new(start: params[:start], end: params[:end], value: params[:value], apartment_id: @apartment.id)
+        @price = Price.new(skip_save: true, start: params[:start], end: params[:end], value: params[:value], apartment_id: @apartment.id)
 
         @success = @price.save unless @price.range_already_exist?(@apartment)
 
@@ -102,7 +102,27 @@ class Backend::ApartmentsController < BackendController
         end
     end
 
+    def add_price_range_offer
+        @success = false
+        @price = Price.new(skip_save: true, price_offer_start: params[:price_offer_start], price_offer_end: params[:price_offer_end], price_offer_value: params[:price_offer_value], apartment_id: @apartment.id)
+
+        @success = @price.save unless @price.range_already_exist_for_offer?(@apartment)
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
     def remove_price_range
+        @price = @apartment.prices.find_by_id(params[:price_id])
+        @price.delete
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def remove_price_range_offer
         @price = @apartment.prices.find_by_id(params[:price_id])
         @price.delete
 
@@ -122,7 +142,25 @@ class Backend::ApartmentsController < BackendController
     def update_price_range
         @price = @apartment.prices.find_by_id(params[:price_id])
 
-        @success = @price.update(value: params[:price][:value])
+        @success = @price.update(skip_save: true, value: params[:price][:value])
+        
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def edit_price_range_offer
+        @price = @apartment.prices.find_by_id(params[:price_id])
+
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def update_price_range_offer
+        @price = @apartment.prices.find_by_id(params[:price_id])
+
+        @success = @price.update(skip_save: true, price_offer_value: params[:price][:price_offer_value])
         
         respond_to do |format|
             format.js

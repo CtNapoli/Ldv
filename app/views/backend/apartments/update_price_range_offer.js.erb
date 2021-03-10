@@ -1,0 +1,11 @@
+$('#price-value-offer-modal .errors').html('');
+var customModal = $('#custom-modal');
+
+<% if(@success) %>
+    customModal.modal('hide');
+    $('#special-prices .all').html('<%= j render('prices_offer') %>');
+<% else %>
+    <% if(@price.errors[:price_offer_value].any?) %>
+        $('#price-value-offer-modal .errors' ).html('<%= error_messages(@price, :price_offer_value) %>')
+    <% end %>
+<% end %>

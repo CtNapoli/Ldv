@@ -28,15 +28,47 @@
             .feature
                 span.normal-text = t('apartment.toilette', count: apartment.toilette)
 
-        .price
-            p.secondary-font.font-italic = t('apartment.price')
-            p.digit.secondary-font.font-italic 
-                - if apartment.has_prices?
-                    = price(apartment.prices.minimum(:value))
-                - else
-                    = price(apartment.price_default)
+        - if controller_name == 'apartments' && action_name == 'index'
+            .price
+                p.secondary-font.font-italic = t('apartment.price')
+                p.digit.secondary-font.font-italic 
+                    - if !apartment.has_prices?
+                        = price(apartment.price_default)
+                    - else
+                        - if !apartment.prices.minimum(:value).nil?
+                            = price(apartment.prices.minimum(:value))
+                        - else 
+                            = price(apartment.price_default)
+        - else
+            .price.row
+                .col-4
+                    p.secondary-font.font-italic = t('apartment.price')
+                    p.digit.secondary-font.font-italic 
+                        - if controller_name == 'apartments' && action_name == 'index'
+                            - if !apartment.has_prices?
+                                = price(apartment.price_default)
+                            - else
+                                - if !apartment.prices.minimum(:value).nil?
+                                    = price(apartment.prices.minimum(:value))
+                                - else 
+                                    = price(apartment.price_default)
+                        - else 
+                            - if !apartment.prices.minimum(:value).nil?
+                                = price(apartment.prices.minimum(:value)) 
+                            - else 
+                                = price(apartment.price_default)
+                .col-4
+                    p = t('messages.apartments.special-price')
+                    p.digit.secondary-font.font-italic = price(apartment.prices.minimum(:price_offer_value))
                     
-
-
-
-
+                / - if apartment.has_prices? 
+                /     - if !apartment.prices.minimum(:value).nil?
+                /         = price(apartment.prices.minimum(:value))
+                /         p Caso 1
+                /         p = apartment.prices.collect(&:value).reject(&:blank?)
+                /     - else 
+                /         = price(apartment.prices.minimum(:price_offer_value))
+                /         p Caso 2
+                /         p = p = apartment.prices.collect(&:price_offer_value)
+                / - else
+                /     = price(apartment.price_default)

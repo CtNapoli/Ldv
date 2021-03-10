@@ -1,6 +1,6 @@
 class ApartmentsController < ApplicationController
-    before_action :load_areas, only: [:index, :show]
-    before_action :load_apartments, only: [:show]
+    before_action :load_areas, only: [:index, :show, :special_offer]
+    before_action :load_apartments, only: [:show, :special_offer]
     before_action :load_apartment, only: [:show, :block_private_apartment]
     before_action :block_private_apartment, only: [:show]
     
@@ -54,4 +54,26 @@ class ApartmentsController < ApplicationController
         render '404.html', status: 404
     end
 
+    def special_offer
+        @where = params[:where].to_i
+        @guests = params[:guests].to_i
+
+        @apartments = Apartment.where(published: true).includes(:prices).references(:prices) 
+        .where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_end) > ?", Time.now.to_i)
+        .order('price_offer_start ASC')
+
+        @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
+        @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
+
+        if params[:price_offer_start] && params[:price_offer_end]
+            @start = params[:price_offer_start].to_date
+            @end = params[:price_offer_end].to_date
+            @apartments = @apartments.reject {|a| a.busy_in_this_range?(@start, @end)}
+        end
+
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_111449) do
+ActiveRecord::Schema.define(version: 2021_03_04_205546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_111449) do
     t.text "content", default: "[]"
     t.float "price_default"
     t.float "price_cleaning_service"
+    t.string "old_slug"
     t.index ["area_id"], name: "index_apartments_on_area_id"
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end
@@ -139,6 +140,9 @@ ActiveRecord::Schema.define(version: 2020_02_14_111449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "apartment_id"
+    t.date "price_offer_start"
+    t.date "price_offer_end"
+    t.float "price_offer_value"
     t.index ["apartment_id"], name: "index_prices_on_apartment_id"
   end
 

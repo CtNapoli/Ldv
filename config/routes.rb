@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :apartments, only: [:index, :show] do
       resources :reservations, only: [:create]
     end
+
+    get 'special-offer'   => 'apartments#special_offer'
     
     resources :areas, only: [:show]
 
@@ -28,9 +30,13 @@ Rails.application.routes.draw do
           delete  '/modifica/rimuovi-immagine-principale' =>  'apartments#remove_main_photo', as: 'remove_main_photo'
           delete  '/modifica/rimuovi-immagine'            =>  'apartments#remove_photo', as: 'remove_photo'
           post    '/aggiungi-range-prezzo'                =>  'apartments#add_price_range', as: 'add_price_range'
+          post    '/aggiungi-range-prezzo-offerta'        =>  'apartments#add_price_range_offer', as: 'add_price_range_offer'
           delete  '/rimuovi_range_prezzo/:price_id'       =>  'apartments#remove_price_range', as: 'remove_price_range'
+          delete  '/rimuovi_range_prezzo-offerta/:price_id' =>  'apartments#remove_price_range_offer', as: 'remove_price_range_offer'
           get     '/modifica-range-prezzo/:price_id'      =>  'apartments#edit_price_range', as: 'edit_price_range'
           patch   '/aggiorna-range-prezzo/:price_id'      =>  'apartments#update_price_range', as: 'update_price_range'
+          get     '/modifica-range-prezzo-offerta/:price_id' =>  'apartments#edit_price_range_offer', as: 'edit_price_range_offer'
+          patch   '/aggiorna-range-prezzo-offerta/:price_id' =>  'apartments#update_price_range_offer', as: 'update_price_range_offer'
         end
       end
 

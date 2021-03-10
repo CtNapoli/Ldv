@@ -28,6 +28,22 @@ document.addEventListener 'turbolinks:load', () ->
         }
       });
 
+    if $('#special-offer-apartments').length
+      featuredApartmentsSwiper = new Swiper('#special-offer-apartments .swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 'auto'
+          }
+        }
+      });
+
     fixMenuTop = () ->
       if $(window).scrollTop() > 0
         $('header').addClass('inScroll')

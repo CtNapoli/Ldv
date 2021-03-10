@@ -1,0 +1,23 @@
+- @apartment.prices.order(:price_offer_start).each do |p|
+    - unless p.price_offer_value.nil? || p.price_offer_start.nil? || p.price_offer_end.nil?
+        .price-box
+            p
+                = t('backend.apartments.edit.prices.value')
+                =< price(p.price_offer_value)
+
+            p 
+                = t('backend.apartments.edit.prices.start')
+                =< l(p.price_offer_start, format: '%d/%m/%Y', default: '-')
+
+            p 
+                = t('backend.apartments.edit.prices.end')
+                =< l(p.price_offer_end, format: '%d/%m/%Y', default: '-')
+
+            .actions
+                = link_to edit_price_range_offer_backend_apartment_path(price_id: p.id), remote: true do
+                    = fa_icon "edit"
+                    
+
+                = link_to remove_price_range_offer_backend_apartment_path(price_id: p.id), remote: true, method: :delete, data: {confirm: "#{t('backend.delete_alert')} questo range di prezzo?"} do
+                    = fa_icon "trash"
+                    

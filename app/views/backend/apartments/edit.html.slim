@@ -239,3 +239,36 @@
 
     .all
         = render 'prices'
+
+#special-prices.section
+    label.big = t('backend.apartments.special-prices')
+        
+    .new
+        = form_with url: add_price_range_offer_backend_apartment_path do |f|
+            .row
+                .col-12
+                    .row.align-items-end
+                        .col-lg-2
+                            #price-offer-start.form-group
+                                label = t('backend.apartments.edit.prices.start')
+                                = f.date_field :price_offer_start, step: 0.01, class: 'form-control'
+                                .errors
+
+                        .col-lg-2
+                            #price-offer-end.form-group
+                                label = t('backend.apartments.edit.prices.end')
+                                = f.date_field :price_offer_end, step: 0.01, class: 'form-control'
+                                .errors
+
+                        .col-lg-2
+                            #price-offer-value.form-group
+                                label = t('backend.apartments.edit.prices.value')
+                                = f.number_field :price_offer_value, step: 0.01, class: 'form-control'
+                                .errors
+
+                        .col-lg-4
+                            .form-group
+                                = f.button 'Aggiungi range prezzo', class: 'btn btn-primary btn-small'
+
+    .all
+        = render 'prices_offer'

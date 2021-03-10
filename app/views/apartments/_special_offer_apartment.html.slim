@@ -1,0 +1,21 @@
+.swiper-slide
+    = link_to apartment_path(apartment), class: 'apartment' do
+        .box
+            - if apartment.main_image.attached?
+                .box-image style="background-image: url('#{rails_representation_url(apartment.main_image.variant(resize: '1000x1000'))}')"
+                .special-offer
+                    p = t('apartment.special_price')
+            - else
+                .box-image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"
+                .special-offer 
+                    p = t('apartment.special_price')
+
+        .box-text
+            .info
+                h4.normal-text = apartment.area.name
+                h5.medium-text.secondary-font.font-italic = apartment.name
+
+
+            .price.text-right
+                p.secondary-font.font-italic = t('apartment.price')
+                p.digit.secondary-font.font-italic = price(apartment.prices.minimum(:price_offer_value))  

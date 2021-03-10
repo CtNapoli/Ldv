@@ -9,6 +9,12 @@
         +media($xl)
             position: static
             margin-bottom: 70px
+
+    .text-for-offer
+        padding: 50px 0
+
+        h1 
+            text-align: center
         
     .apartment
         text-decoration: none
@@ -151,6 +157,25 @@
 #featured-apartments
     .swiper-slide
         width: 300px
+
+#special-offer-apartments
+    .swiper-slide
+        overflow: hidden
+
+        .special-offer
+            position: absolute
+            transform: rotate(-45deg)
+            background-color: $secondaryColor
+            top: 10%
+            left: -40px
+            width: 190px
+
+            +media($lg)
+                width: 170px
+
+            p
+                text-align: center
+                font-size: 18px
 
 
 .info

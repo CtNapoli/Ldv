@@ -117,6 +117,20 @@
                 .row
                     = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
 
+    - if @apartment_offer.any?
+        #special-offer-apartments.custom-section.more-padding
+            .container
+                .title-with-text.with-navigation
+                    .text
+                        /h3.text.secondary-font = t('homepage.offer_section.title')
+                        = link_to t('homepage.offer_section.title'), special_offer_path
+                
+                .row
+                    .col-12
+                        .swiper-container
+                            .swiper-wrapper
+                                = render collection: @apartment_offer, partial: 'apartments/special_offer_apartment', as: :apartment
+
     - if @areas.any?
         #destinations.custom-section.more-padding
             .container

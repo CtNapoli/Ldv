@@ -65,6 +65,9 @@ en:
       title: Do you know where you want to go?
       subtitle: Our Home Collection
 
+    offer_section:
+      title: Our homes in special offer
+
     section_3:
       title: Our services
       subtitle:
@@ -187,6 +190,8 @@ en:
     services: "services"
 
     price: starting from
+
+    special_price: Special offer
 
     cleaning_cost: Cleaning cost
     service_cost: Service cost
@@ -382,6 +387,7 @@ en:
       location_informations: Location informations
       apartment_informations: Apartment informations
       prices: Prices
+      special-prices: Special Offer
       description: Description
       visibility: Visibility
       public: Public
@@ -453,6 +459,10 @@ en:
               start_greater_end: Start date after end date
               range_already_exist: Data range already existing
 
+            price_offer_start:
+              blank: Start date required
+              start_greater_end: Start date after end date
+              range_already_exist: Data range already existing
 
             end: 
               blank: End date required
@@ -475,6 +485,8 @@ en:
   messages:
     apartments:
       no-found: There are no apartments for the selected search criteria
+      in-offer: The apartments on special offer
+      special-price: Now at the price
 
     questions:
       no-found: There are no questions for the selected search criteria

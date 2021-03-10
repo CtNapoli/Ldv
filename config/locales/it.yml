@@ -68,6 +68,9 @@ it:
       title: Sai dove vuoi andare?
       subtitle: La notra Collezione di Case
 
+    offer_section:
+      title: Le nostre case in offerta speciale
+
     section_3:
       title: I nostri servizi
       subtitle:
@@ -189,6 +192,8 @@ it:
     services: "servizi"
 
     price: "a partire da"
+
+    special_price: Offerta speciale
 
     cleaning_cost: Costo pulizia
     service_cost: Costo del servizio
@@ -382,6 +387,7 @@ it:
       location_informations: Informazioni località
       apartment_informations: Informazioni appartamento
       prices: Prezzi
+      special-prices: Offerta speciale
       description: Descrizione
       visibility: Visibilità
       public: Pubblico
@@ -522,6 +528,8 @@ it:
   messages:
     apartments:
       no-found: Non sono presenti appartamenti per i criteri di ricerca selezionati
+      in-offer: Gli appartamenti in offerta speciale
+      special-price: Ora al prezzo
 
     services:
       no-found: Non sono presenti servizi per i criteri di ricerca selezionati
