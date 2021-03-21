@@ -39,6 +39,7 @@ it:
       destinations: Destinazioni
       owners: Proprietari
       houses: Case
+      special-offers: Offerte Speciali 
 
   page_not_found:
     title: Siamo spiacenti, ma la pagina che stavi cercando non è stata trovata. 
@@ -69,7 +70,8 @@ it:
       subtitle: La notra Collezione di Case
 
     offer_section:
-      title: Le nostre case in offerta speciale
+      pre-title: Non perdere l'occasione
+      title: Le nostre offerte speciali
 
     section_3:
       title: I nostri servizi

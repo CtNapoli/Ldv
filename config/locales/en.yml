@@ -39,6 +39,7 @@ en:
       destinations: Destinations
       owners: Owners
       houses: Houses
+      special-offers: Special Offers
 
   page_not_found:
     title: We're sorry, the page you were looking for could not be found. 
@@ -66,7 +67,8 @@ en:
       subtitle: Our Home Collection
 
     offer_section:
-      title: Our homes in special offer
+      pre-title: Don't miss the opportunity
+      title: Our Special Offers
 
     section_3:
       title: Our services
@@ -485,7 +487,7 @@ en:
   messages:
     apartments:
       no-found: There are no apartments for the selected search criteria
-      in-offer: The apartments on special offer
+      in-offer: The apartments on special offers
       special-price: Now at the price
 
     questions:
