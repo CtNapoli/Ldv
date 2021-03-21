@@ -96,6 +96,20 @@
                                 .form-group
                                     = f.submit t('search_form.check_availability'), class: 'btn btn-primary full', 'v-bind:class': "{ activated: submittable }"
 
+    - if @apartment_offer.any?
+        #special-offer-apartments.custom-section.more-padding
+            .container
+                .title-with-text.with-navigation
+                    .text
+                        h2.title = t('homepage.offer_section.pre-title')
+
+                        u.text.secondary-font = link_to t('homepage.offer_section.title'), special_offer_path
+                
+                .row
+                    .col-12
+                        .swiper-container
+                            .swiper-wrapper
+                                = render collection: @apartment_offer, partial: 'apartments/special_offer_apartment', as: :apartment
 
     - if @featured_apartments.any?
         #featured-apartments.custom-section.more-padding
@@ -116,20 +130,6 @@
                 
                 .row
                     = render collection: @featured_apartments, partial: 'apartments/featured_apartment', as: :apartment
-
-    - if @apartment_offer.any?
-        #special-offer-apartments.custom-section.more-padding
-            .container
-                .title-with-text.with-navigation
-                    .text
-                        /h3.text.secondary-font = t('homepage.offer_section.title')
-                        = link_to t('homepage.offer_section.title'), special_offer_path
-                
-                .row
-                    .col-12
-                        .swiper-container
-                            .swiper-wrapper
-                                = render collection: @apartment_offer, partial: 'apartments/special_offer_apartment', as: :apartment
 
     - if @areas.any?
         #destinations.custom-section.more-padding
