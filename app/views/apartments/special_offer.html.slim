@@ -6,7 +6,66 @@
                     h1 = t('messages.apartments.in-offer')
             .col-xl-9.list
                 - if @apartments.any?
-                    = render @apartments
+                    /= render @apartments                   
+                    - @apartments.each do |apartment|                                              
+                        = link_to apartment_path(apartment), class: 'apartment custom-card' do
+                            .box-image
+                                - if apartment.main_image.attached?
+                                    .image style="background-image: url('#{rails_blob_url(apartment.main_image)}')"
+                                - else
+                                    .image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"
+                            
+                            .info
+                                h3.name.secondary-font.font-italic.text-medium = apartment.name
+                                p.address.small-text = full_address(apartment.address, apartment.city, apartment.postal_code, apartment.province)
+
+                                .features
+                                    .feature
+                                        span.normal-text = t('apartment.capacity', count: apartment.capacity)
+
+                                    .dot-separator
+
+                                    .feature
+                                        span.normal-text = t('apartment.rooms', count: apartment.rooms)
+
+                                    .dot-separator
+
+                                    .feature
+                                        span.normal-text = t('apartment.bedrooms', count: apartment.bedrooms)
+
+                                    .dot-separator
+
+                                    .feature
+                                        span.normal-text = t('apartment.toilette', count: apartment.toilette)
+
+                                - apartment.prices.map do |p| 
+                                    - unless p.price_offer_start.nil?         
+                                        .price.row
+                                            .col-6                                              
+                                                / p.secondary-font.font-italic = 'dal ' + apartment.prices.collect(&:price_offer_start)[0].strftime('%d-%m-%Y').to_s + ' al ' + apartment.prices.collect(&:price_offer_end)[0].strftime('%d-%m-%Y').to_s
+                                                / p.digit.secondary-font.font-italic
+                                                /     strike = price((apartment.prices.collect(&:price_offer_end)[0] - apartment.prices.collect(&:price_offer_start)[0]).to_i * apartment.price_default + (apartment.price_default * 0.1) + apartment.price_cleaning_service).to_s
+                                                p.secondary-font.font-italic = t('apartment.from') + ' ' + p.price_offer_start.strftime('%d-%m-%Y').to_s + ' ' + t('apartment.to') + ' ' + p.price_offer_end.strftime('%d-%m-%Y').to_s
+                                                p.digit.secondary-font.font-italic
+                                                    strike = price((p.price_offer_end - p.price_offer_start).to_i * apartment.price_default + (apartment.price_default * 0.1) + apartment.price_cleaning_service).to_s
+                                                
+                                                span.normal-text = t('apartment.no_special_price')
+
+                                            .col-6
+                                                /.d-flex
+                                                    /p.secondary-font.font-italic = 'dal ' + apartment.prices.collect(&:price_offer_start)[0].strftime('%d-%m-%Y').to_s + ' al ' + apartment.prices.collect(&:price_offer_end)[0].strftime('%d-%m-%Y').to_s
+
+                                                /p.digit.secondary-font.font-italic = price((apartment.prices.collect(&:price_offer_end)[0] - apartment.prices.collect(&:price_offer_start)[0]).to_i * apartment.prices.collect(&:price_offer_value)[0] + (apartment.prices.collect(&:price_offer_value)[0] * 0.1) + apartment.price_cleaning_service).to_s + ' *'                                                   
+
+                                                .d-flex
+                                                    p.secondary-font.font-italic = t('apartment.from') + ' ' + p.price_offer_start.strftime('%d-%m-%Y').to_s + ' ' + t('apartment.to') + ' ' + p.price_offer_end.strftime('%d-%m-%Y').to_s
+
+                                                p.digit.secondary-font.font-italic = price((p.price_offer_end - p.price_offer_start).to_i * p.price_offer_value + (p.price_offer_value * 0.1) + apartment.price_cleaning_service).to_s + ' *'
+
+                                                span.normal-text = t('apartment.info_special_price')
+
+                                                /p = apartment.prices.map{|p| {price_offer_start: p.price_offer_start, price_offer_end: p.price_offer_end, price_offer_value: p.price_offer_value} unless p.price_offer_start.nil? }                      
+
                 - else
                     p = t('messages.apartments.no-found')
 

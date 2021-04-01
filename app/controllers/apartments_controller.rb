@@ -58,9 +58,19 @@ class ApartmentsController < ApplicationController
         @where = params[:where].to_i
         @guests = params[:guests].to_i
 
+        #mostra un unico appartamento
         @apartments = Apartment.where(published: true).includes(:prices).references(:prices) 
-        .where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_end) > ?", Time.now.to_i)
+        .where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_start) > ?", Time.now.to_i)
         .order('price_offer_start ASC')
+
+        #mostra più appartamenti
+        #@apartments = Apartment.where(published: true).joins(:prices)
+        #.where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_start) > ?", Time.now.to_i)
+        #.order('price_offer_start ASC')
+
+        # @price = Price.includes(:apartment).references(:apartment)
+        # .where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_start) > ?", Time.now.to_i)
+        # .order('price_offer_start ASC')
 
         @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
         @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
