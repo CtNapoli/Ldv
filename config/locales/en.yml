@@ -201,6 +201,14 @@ en:
 
     check_availability: Check availability
 
+    from: from
+
+    to: to
+
+    no_special_price: Price without offer
+
+    info_special_price: '* The price includes cleaning and services costs'
+
   booking:
     success: "Booking request sent to %{apartment} for the following dates: %{from} - %{to}"
     reservation_success: "Reservation confirmed for %{apartment} on the following dates: %{from} - %{to}"

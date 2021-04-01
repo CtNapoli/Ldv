@@ -203,6 +203,14 @@ it:
 
     check_availability: Controlla disponibilità
 
+    from: dal
+
+    to: al
+
+    no_special_price: Prezzo senza offerta
+
+    info_special_price: '* I prezzi includono costi di servizio e di pulizia'
+
   booking:
     success: "Richiesta prenotazione inviata a %{apartment} per le seguenti date: %{from} - %{to}"
     reservation_success: "Prenotazione confermata per %{apartment} per le seguenti date: %{from} - %{to}"
