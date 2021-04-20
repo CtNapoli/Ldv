@@ -209,7 +209,7 @@ it:
 
     no_special_price: Prezzo senza offerta
 
-    info_special_price: '* I prezzi includono costi di servizio e di pulizia'
+    info_special_price: '(*) I prezzi includono costi di servizio e di pulizia'
 
   booking:
     success: "Richiesta prenotazione inviata a %{apartment} per le seguenti date: %{from} - %{to}"
