@@ -104,7 +104,7 @@ class Backend::ApartmentsController < BackendController
 
     def add_price_range_offer
         @success = false
-        @price = Price.new(skip_save: true, price_offer_start: params[:price_offer_start], price_offer_end: params[:price_offer_end], price_offer_value: params[:price_offer_value], apartment_id: @apartment.id)
+        @price = Price.new(skip_save: true, price_offer_start: params[:price_offer_start], price_offer_end: params[:price_offer_end], price_offer_value: params[:price_offer_value], price_without_offer: params[:price_without_offer], apartment_id: @apartment.id)
 
         @success = @price.save unless @price.range_already_exist_for_offer?(@apartment)
 
@@ -160,7 +160,7 @@ class Backend::ApartmentsController < BackendController
     def update_price_range_offer
         @price = @apartment.prices.find_by_id(params[:price_id])
 
-        @success = @price.update(skip_save: true, price_offer_value: params[:price][:price_offer_value])
+        @success = @price.update(skip_save: true, price_offer_value: params[:price][:price_offer_value], price_without_offer: params[:price][:price_without_offer])
         
         respond_to do |format|
             format.js

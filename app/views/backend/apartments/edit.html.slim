@@ -266,6 +266,12 @@
                                 = f.number_field :price_offer_value, step: 0.01, class: 'form-control'
                                 .errors
 
+                        .col-lg-2
+                            #price-without-offer.form-group
+                                label = t('backend.apartments.edit.prices.value-without-offer')
+                                = f.number_field :price_without_offer, step: 0.01, class: 'form-control'
+                                .errors
+
                         .col-lg-4
                             .form-group
                                 = f.button 'Aggiungi range prezzo', class: 'btn btn-primary btn-small'

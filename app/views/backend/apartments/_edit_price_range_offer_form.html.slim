@@ -11,6 +11,10 @@ label.big
         = f.number_field :price_offer_value, class: 'form-control'
         .errors
 
+    #price-without-offer-modal.form-group
+        = f.number_field :price_without_offer, class: 'form-control'
+        .errors
+
     .form-group.actions
         = link_to 'Annulla', '', class: 'btn btn-delete', 'data-dismiss': 'modal'
         = f.button t('backend.edit'), class: 'btn btn-primary'

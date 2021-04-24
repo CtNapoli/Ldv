@@ -1,6 +1,7 @@
 $('#price-offer-start .errors').html('');
 $('#price-offer-end .errors').html('');
 $('#price-offer-value .errors').html('');
+$('#price-without-offer .errors').html('');
 
 <% if(@success) %>
     $('#special-prices .all').html('<%= j render('prices_offer') %>')
@@ -15,5 +16,9 @@ $('#price-offer-value .errors').html('');
 
     <% if(@price.errors[:price_offer_value].any?) %>
         $('#price-offer-value .errors' ).html('<%= error_messages(@price, :price_offer_value) %>')
+    <% end %>
+
+    <% if(@price.errors[:price_without_offer].any?) %>
+        $('#price-without-offer .errors' ).html('<%= error_messages(@price, :price_without_offer) %>')
     <% end %>
 <% end %>

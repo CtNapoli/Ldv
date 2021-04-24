@@ -5,6 +5,11 @@
                 = t('backend.apartments.edit.prices.value')
                 =< price(p.price_offer_value)
 
+            p
+                = t('backend.apartments.edit.prices.value-without-offer')
+                br
+                =< price(p.price_without_offer)
+
             p 
                 = t('backend.apartments.edit.prices.start')
                 =< l(p.price_offer_start, format: '%d/%m/%Y', default: '-')

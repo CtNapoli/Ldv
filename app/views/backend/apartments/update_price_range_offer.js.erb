@@ -1,4 +1,5 @@
 $('#price-value-offer-modal .errors').html('');
+$('#price-without-offer-modal .errors').html('');
 var customModal = $('#custom-modal');
 
 <% if(@success) %>
@@ -7,5 +8,9 @@ var customModal = $('#custom-modal');
 <% else %>
     <% if(@price.errors[:price_offer_value].any?) %>
         $('#price-value-offer-modal .errors' ).html('<%= error_messages(@price, :price_offer_value) %>')
+    <% end %>
+
+    <% if(@price.errors[:price_without_offer].any?) %>
+        $('#price-without-offer-modal .errors' ).html('<%= error_messages(@price, :price_without_offer) %>')
     <% end %>
 <% end %>
