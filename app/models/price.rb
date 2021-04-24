@@ -12,6 +12,7 @@ class Price < ApplicationRecord
     validates :price_offer_start, presence: true, unless: :skip_save
     validates :price_offer_end, presence: true, unless: :skip_save
     validates :price_offer_value, presence: true, unless: :skip_save
+    validates :price_without_offer, presence: true, unless: :skip_save
 
     validate :end_grater_or_equal_start?
     validate :end_grater_or_equal_start_for_offer?
