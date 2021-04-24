@@ -47,7 +47,7 @@
                                                 /     strike = price((apartment.prices.collect(&:price_offer_end)[0] - apartment.prices.collect(&:price_offer_start)[0]).to_i * apartment.price_default + (apartment.price_default * 0.1) + apartment.price_cleaning_service).to_s
                                                 p.secondary-font.font-italic = t('apartment.from') + ' ' + p.price_offer_start.strftime('%d-%m-%Y').to_s + ' ' + t('apartment.to') + ' ' + p.price_offer_end.strftime('%d-%m-%Y').to_s
                                                 p.digit.secondary-font.font-italic
-                                                    strike = price((p.price_offer_end - p.price_offer_start).to_i * apartment.price_default + (apartment.price_default * 0.1) + apartment.price_cleaning_service).to_s
+                                                    strike = price(p.price_without_offer).to_s
                                                 
                                                 span.normal-text = t('apartment.no_special_price')
 

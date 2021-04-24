@@ -30,11 +30,11 @@ document.addEventListener 'turbolinks:load', () ->
 
     if $('#special-offer-apartments').length
       featuredApartmentsSwiper = new Swiper('#special-offer-apartments .swiper-container', {
-        slidesPerView: 3,
-        spaceBetween: 20,
+        #slidesPerView: 3,
+        #spaceBetween: 20,
         loop: true,
         autoplay: {
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         },
         breakpoints: {
