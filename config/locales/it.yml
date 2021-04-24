@@ -389,6 +389,7 @@ it:
           start: Valido da
           end: Valido fino a
           value: Prezzo per notte
+          value-without-offer: Prezzo totale senza offerta
 
         search_form:
           apartment_name: Cerca per appartamento

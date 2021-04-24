@@ -393,6 +393,7 @@ en:
           start: Valid from
           end: Valido until
           value: Price for night
+          value-without-offer: Total price without offer
 
       location_informations: Location informations
       apartment_informations: Apartment informations
