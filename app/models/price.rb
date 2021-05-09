@@ -26,17 +26,17 @@ class Price < ApplicationRecord
         self.errors.add(:start, :start_greater_end) if self.start >= self.end if start_and_end_exist?
     end
 
-    def range_already_exist?(apartment)
-        if start_and_end_exist?
-            apartment.prices.each do |p|
-                if (self.start..self.end).overlaps?(p.start..p.end)
-                    self.errors.add(:start, :range_already_exist)
-                    return true
-                end
-            end
-            return false
-        end
-    end
+    # def range_already_exist?(apartment)
+    #     if start_and_end_exist?
+    #         apartment.prices.each do |p|
+    #             if (self.start..self.end).overlaps?(p.start..p.end)
+    #                 self.errors.add(:start, :range_already_exist)
+    #                 return true
+    #             end
+    #         end
+    #         return false
+    #     end
+    # end
 
     def start_and_end_exist_for_offer?
         self.price_offer_start.present? && self.price_offer_end.present?
@@ -47,15 +47,15 @@ class Price < ApplicationRecord
         self.errors.add(:price_offer_start, :start_greater_end) if self.price_offer_start >= self.price_offer_end if start_and_end_exist_for_offer?
     end
 
-    def range_already_exist_for_offer?(apartment)
-        if start_and_end_exist_for_offer?
-            apartment.prices.each do |p|
-                if (self.price_offer_start..self.price_offer_end).overlaps?(p.price_offer_start..p.price_offer_end)
-                    self.errors.add(:start, :range_already_exist_for_offer)
-                    return true
-                end
-            end
-            return false
-        end
-    end
+    # def range_already_exist_for_offer?(apartment)
+    #     if start_and_end_exist_for_offer?
+    #         apartment.prices.each do |p|
+    #             if (self.price_offer_start..self.price_offer_end).overlaps?(p.price_offer_start..p.price_offer_end)
+    #                 self.errors.add(:start, :range_already_exist_for_offer)
+    #                 return true
+    #             end
+    #         end
+    #         return false
+    #     end
+    # end
 end

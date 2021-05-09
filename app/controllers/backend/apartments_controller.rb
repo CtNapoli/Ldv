@@ -95,7 +95,8 @@ class Backend::ApartmentsController < BackendController
         @success = false
         @price = Price.new(skip_save: true, start: params[:start], end: params[:end], value: params[:value], apartment_id: @apartment.id)
 
-        @success = @price.save unless @price.range_already_exist?(@apartment)
+        #@success = @price.save unless @price.range_already_exist?(@apartment)
+        @success = @price.save
 
         respond_to do |format|
             format.js
@@ -106,7 +107,8 @@ class Backend::ApartmentsController < BackendController
         @success = false
         @price = Price.new(skip_save: true, price_offer_start: params[:price_offer_start], price_offer_end: params[:price_offer_end], price_offer_value: params[:price_offer_value], price_without_offer: params[:price_without_offer], apartment_id: @apartment.id)
 
-        @success = @price.save unless @price.range_already_exist_for_offer?(@apartment)
+        #@success = @price.save unless @price.range_already_exist_for_offer?(@apartment)
+        @success = @price.save
 
         respond_to do |format|
             format.js
