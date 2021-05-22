@@ -50,7 +50,7 @@ it:
     section_0:
       title:
         part_1: Le Migliori Case Vacanza
-        part_2: in Italia
+        part_2: a Capri ed in Costiera Sorrentina
 
         
 
@@ -341,7 +341,7 @@ it:
         address: Indirizzo
         capacity: Capienze
         square_meters: Metri quadrati
-        rooms: Camere
+        rooms: Vani
         bedrooms: Camere da letto
         bathrooms: Bagni
 
@@ -356,7 +356,7 @@ it:
         lng: Longitudine
         capacity: Capienza
         square_meters: Metri quadrati
-        rooms: Camere
+        rooms: Vani
         bedrooms: Camere da letto
         bathrooms: Bagni
         title_par: Titolo
@@ -379,7 +379,7 @@ it:
         lng: Longitudine
         capacity: Capienza
         square_meters: Metri quadrati
-        rooms: Camere
+        rooms: Vani
         bedrooms: Camere da letto
         bathrooms: Bagni
         title_par: Titolo
