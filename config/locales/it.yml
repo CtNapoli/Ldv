@@ -178,8 +178,8 @@ it:
       other: "%{count} ospiti"
 
     rooms:
-      one: "1 camera"
-      other: "%{count} camere"
+      one: "1 vano"
+      other: "%{count} vani"
 
     bedrooms:
       one: "1 camera da letto"
