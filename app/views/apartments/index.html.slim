@@ -52,7 +52,10 @@
                                             
                                             .col-9.text-right
                                                 span.secondary-font.font-italic
-                                                    | {{range.start | formatDate}}
+                                                    - if @start.nil?
+                                                        | {{range.start | formatDate}}
+                                                    - else                                                        
+                                                        = @start.strftime('%d-%m-%Y')
 
                                         .row.align-items-center
                                             .col-3
@@ -60,7 +63,10 @@
 
                                             .col-9.text-right
                                                 span.secondary-font.font-italic
-                                                    | {{range.end | formatDate}}
+                                                    - if @end.nil?
+                                                        | {{range.end | formatDate}}
+                                                    - else 
+                                                        = @end.strftime('%d-%m-%Y')
 
                                         //v-date-picker mode='range' :min-date='new Date()' :disabled-dates="disabledDates" v-model='selectedDate'
                                         //v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate'
