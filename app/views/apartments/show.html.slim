@@ -1,6 +1,6 @@
 #apartment
     .gallery
-        - if @apartment.images.count > 1
+        - if @apartment.images.count >= 1
             .swiper-container
                 .swiper-wrapper
                     - @apartment.images.order('blob_id ASC').each do |image|
