@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-    <script src='https://cdn.jsdelivr.net/npm/vue@3'></script>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14'></script>
     <script src='https://unpkg.com/v-calendar'></script>
     <script src="https://unpkg.com/moment@2.24.0"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl">
@@ -51,7 +51,7 @@
     <% if Rails.env.development? %>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <% elsif Rails.env.production? %>
-      <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <% end %>
 
   <% if Rails.env.production? %>
