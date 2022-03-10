@@ -1,3 +1,4 @@
+import Vue from 'vue'
 document.addEventListener 'turbolinks:load', () ->
     iconDelete = $('#main-image').data('icon-delete');
     $('#backend #main-image input[type=file]').on 'change', () ->
