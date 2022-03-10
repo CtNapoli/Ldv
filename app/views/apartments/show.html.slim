@@ -12,9 +12,7 @@
 
                 .navigation.next
                     = image_tag('navigation-arrow-right.png')
-        
-        - elsif @apartment.images.count = 1
-            = image_tag image.variant(resize: '1920x1080'), alt: @apartment.name
+                    
         - else
             - if @apartment.main_image.attached?
                 = image_tag @apartment.main_image_full_hd, alt: @apartment.name
