@@ -30,7 +30,7 @@ document.addEventListener 'turbolinks:load', () ->
         allParagraphs = JSON.parse($('#paragraphs input[type=hidden]').val())
 
         console.log(allParagraphs)
-        import Vue from 'vue'
+
         paragraphsApp = new Vue({
             el: '#paragraphs',
             data: {
