@@ -3,6 +3,7 @@ class ApartmentsController < ApplicationController
     before_action :load_apartments, only: [:show, :special_offer]
     before_action :load_apartment, only: [:show, :block_private_apartment]
     before_action :block_private_apartment, only: [:show]
+    before_action :load_previous_date, only: [:index, :show]
     
     def index
         @where = params[:where].to_i
@@ -31,6 +32,9 @@ class ApartmentsController < ApplicationController
         @paragraphs = JSON.parse @apartment.content
         @guests_limit = @apartment.capacity
 
+        params[:date_start] = cookies[:start_from_index]
+        params[:date_end] = cookies[:end_from_index]
+
         days = @apartment.reservations.where(status: 'confirmed').select{|a| a.date_start.present?}
 
         @busy_days = []
@@ -44,6 +48,11 @@ class ApartmentsController < ApplicationController
         @prices = @apartment.prices.map{|p| {start: p.start, end: p.end, price: p.value}}.to_json
     end
 
+    def load_previous_date
+        cookies[:start_from_index] = params[:start] if params[:start].present?
+        cookies[:end_from_index] = params[:end] if params[:end].present?
+    end
+    
     def block_private_apartment
         redirect_to apartments_path unless @apartment.published?
     end
