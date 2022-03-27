@@ -100,7 +100,10 @@
                                                     
                                                     .col-9.text-right
                                                         span.secondary-font.font-italic
-                                                            = cookies[:start_from_index].to_date.strftime('%d-%m-%Y')
+                                                            - if cookies[:start_from_index].nil? 
+                                                                | {{range.start | formatDate}}
+                                                            - else
+                                                                = cookies[:start_from_index].to_date.strftime('%d-%m-%Y')
 
                                                 .row.align-items-center
                                                     .col-3
@@ -108,7 +111,10 @@
 
                                                     .col-9.text-right
                                                         span.secondary-font.font-italic
-                                                            = cookies[:end_from_index].to_date.strftime('%d-%m-%Y')
+                                                            - if cookies[:end_from_index].nil?
+                                                                | {{range.end | formatDate}}
+                                                            - else
+                                                                = cookies[:end_from_index].to_date.strftime('%d-%m-%Y')
 
                                                 //v-date-picker mode='range' :min-date='new Date.now()' :disabled-dates="disabledDates" v-model='selectedDate'
                                                 //v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate' readonly="true"
