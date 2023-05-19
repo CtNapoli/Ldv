@@ -2,7 +2,8 @@
 lock "3.8.2"
 
 set :application, "ldv"
-set :repo_url, "git@github.com:Alf1992/ldv.git"
+#set :repo_url, "git@github.com:Alf1992/ldv.git"
+set :repo_url, "git@github.com:CtNapoli/Ldv.git"
 
 set :passenger_restart_with_touch, true
 set :rvm_ruby_version, 'ruby-2.6.5'
