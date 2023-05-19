@@ -1,7 +1,8 @@
 server '46.101.241.78', user: 'ldv', roles: %w{app db web}
 set :deploy_to, "/srv/rails/ldv/production"
 
-set :branch, 'master'
+#set :branch, 'master'
+set :branch, 'main'
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
