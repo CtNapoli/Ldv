@@ -39,7 +39,8 @@ it:
       destinations: Destinazioni
       owners: Proprietari
       houses: Case
-      special-offers: Offerte Speciali 
+      special-offers: Offerte Speciali
+      informations: Contatti 
 
   page_not_found:
     title: Siamo spiacenti, ma la pagina che stavi cercando non è stata trovata. 
