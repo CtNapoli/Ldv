@@ -101,7 +101,6 @@ Rails.application.configure do
     password:             'ldvitalia2019',
     authentication:       'plain',
     enable_starttls_auto: true,
-    :openssl_verify_mode => 'none'
   }
 
   config.action_mailer.asset_host = 'http://ldvhomes.com'
