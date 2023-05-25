@@ -98,7 +98,8 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'ldvwebsite1@gmail.com',
-    password:             'ldvitalia2019',
+    password:             'ldvitalia2023',
+    #password:             'ldvitalia2019',
     authentication:       'plain',
     enable_starttls_auto: true,
   }
