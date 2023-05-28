@@ -1,13 +1,51 @@
 #homepage
-    .intro-banner.type1
-        .container
-            h1.text.font-italic.giant-text.secondary-font
-                |
-                = t('homepage.section_0.title.part_1')
-                br
-                = t('homepage.section_0.title.part_2')
-                br
-                = t('homepage.section_0.title.part_3')
+    / .intro-banner.type1
+    /     .container
+    /         h1.text.font-italic.giant-text.secondary-font
+    /             |
+    /             = t('homepage.section_0.title.part_1')
+    /             br
+    /             = t('homepage.section_0.title.part_2')
+    /             br
+    /             = t('homepage.section_0.title.part_3')
+
+    / .gallery
+    /     .swiper-container
+    /         .swiper-wrapper
+    /             - @apartments.last.images.order('blob_id ASC').each do |image|
+    /                 .swiper-slide
+    /                     /= image_tag asset_path('apartments/default-apartment.jpg')
+    /                     = image_tag image.variant(resize: '1920x1080'), alt: @apartments.name
+
+    /         .navigation.prev
+    /             = image_tag('navigation-arrow-left.png')
+
+    /         .navigation.next
+    /             = image_tag('navigation-arrow-right.png')
+
+    .gallery
+        .swiper-container
+            .swiper-wrapper
+                - @apartments.each do |apartments|
+                    .swiper-slide  
+                        = link_to apartment_path(apartments) do
+                            /- apartments.images.each do |apartment|
+                            .box-image style="background-image: url('#{rails_representation_url(apartments.main_image.variant(resize: '1000x1000'))}')"                                  
+                                .type1
+                                    .container
+                                        h1.text.font-italic.giant-text.secondary-font.text-white
+                                            |
+                                            = t('homepage.section_0.title.part_1')
+                                            br
+                                            = t('homepage.section_0.title.part_2')
+                                            br
+                                            = t('homepage.section_0.title.part_3')
+
+            .navigation.prev
+                = image_tag('navigation-arrow-left.png')
+
+            .navigation.next
+                = image_tag('navigation-arrow-right.png')
 
     #apartments-form.desktop
         .form-apartment-desktop-container

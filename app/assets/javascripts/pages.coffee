@@ -13,6 +13,20 @@ document.addEventListener 'turbolinks:load', () ->
         }
       });
 
+    if $('#homepage .gallery .swiper-container').length
+        homePageGallerySwiper = new Swiper('#homepage .swiper-container', {
+            autoHeight: true,
+            loop: true,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.navigation.next',
+                prevEl: '.navigation.prev',
+            },
+        });
+
     if $('#featured-apartments').length
       featuredApartmentsSwiper = new Swiper('#featured-apartments .swiper-container', {
         slidesPerView: 3,
