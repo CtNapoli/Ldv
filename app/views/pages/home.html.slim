@@ -9,20 +9,6 @@
     /             br
     /             = t('homepage.section_0.title.part_3')
 
-    / .gallery
-    /     .swiper-container
-    /         .swiper-wrapper
-    /             - @apartments.last.images.order('blob_id ASC').each do |image|
-    /                 .swiper-slide
-    /                     /= image_tag asset_path('apartments/default-apartment.jpg')
-    /                     = image_tag image.variant(resize: '1920x1080'), alt: @apartments.name
-
-    /         .navigation.prev
-    /             = image_tag('navigation-arrow-left.png')
-
-    /         .navigation.next
-    /             = image_tag('navigation-arrow-right.png')
-
     .gallery
         .swiper-container
             .swiper-wrapper
@@ -35,11 +21,7 @@
                                     .container
                                         h1.text.font-italic.giant-text.secondary-font.text-white
                                             |
-                                            = t('homepage.section_0.title.part_1')
-                                            br
-                                            = t('homepage.section_0.title.part_2')
-                                            br
-                                            = t('homepage.section_0.title.part_3')
+                                            = apartments.name
 
             .navigation.prev
                 = image_tag('navigation-arrow-left.png')
