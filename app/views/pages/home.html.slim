@@ -22,6 +22,7 @@
                                         h1.text.font-italic.giant-text.secondary-font.text-white
                                             |
                                             = apartments.name
+                                        p.font-italic.secondary-font.text-white = t('homepage.section_0.title.more_info')
 
             .navigation.prev
                 = image_tag('navigation-arrow-left.png')
@@ -200,13 +201,13 @@
                 #map
 
 
-    #informations.custom-section.invert.form-section
+    .custom-section.invert.form-section
         .intro-banner.type2
             .container
                 .title-with-text
                     h2.title = t('homepage.section_5.title')
                     
-                    h3.text.secondary-font = t('homepage.section_5.subtitle')
+                    h3.text.secondary-font#informations = t('homepage.section_5.subtitle')
 
         .request-form.custom-form
             .container
@@ -248,7 +249,7 @@
                                     
                                     .form-group
                                         = f.submit t('homepage.section_5.form.submit'), class: 'btn btn-secondary'
-                                
+                                    
 
     #map-and-filters-mobile
             .filters-icon.icon-container
