@@ -4,7 +4,7 @@
     <title>LDV Homes</title>
     <%# <meta name="description" content="<%= t('site.description') %>"> %>
     <meta name="description" content="Soggiornate con LDV homes e scoprite le bellezze di Capri e Costiera Amalfitana nel modo migliore possibile: case, ville esclusive e servizi di concierge sul posto">
-
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -72,13 +72,13 @@
     <div itemprop="name" content="LDV Homes Ville di lusso a Capri e Costiera Amalfitana"></div>
     <div itemprop="description" content="Soggiornate con LDV homes e scoprite le bellezze di Capri e Costiera Amalfitana nel modo migliore possibile: case, ville esclusive e servizi di concierge sul posto"></div>
 
-    <% if Rails.env.production? %>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDHDK7S
-      "
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-    <% end %>
+  <% if Rails.env.production? %>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDHDK7S
+    "
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <% end %>
 
     <%= render 'layouts/social_banner' %>
     <header class="fixed-top">
