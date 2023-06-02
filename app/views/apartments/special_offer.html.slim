@@ -60,7 +60,8 @@
                                                 .d-flex
                                                     p.secondary-font.font-italic = t('apartment.from') + ' ' + p.price_offer_start.strftime('%d-%m-%Y').to_s + ' ' + t('apartment.to') + ' ' + p.price_offer_end.strftime('%d-%m-%Y').to_s
 
-                                                p.digit.secondary-font.font-italic = price((p.price_offer_end - p.price_offer_start).to_i * p.price_offer_value).to_s + ' (*)'
+                                                /p.digit.secondary-font.font-italic = price((p.price_offer_end - p.price_offer_start).to_i * p.price_offer_value).to_s + ' (*)'
+                                                p.digit.secondary-font.font-italic = p.price_offer_value.to_s + ' (*)'
 
                                                 span.normal-text = t('apartment.info_special_price')
 
