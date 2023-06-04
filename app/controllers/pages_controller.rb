@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     before_action :load_apartments
 
     def home
-        @apartments = Apartment.where(published: true).order('RANDOM()')
+        @apartments = Apartment.where(published: true, in_evidence: true).order('RANDOM()')
 
         @featured_apartments = Apartment.where(published: true, in_evidence: true).order('updated_at DESC').first(6)
 
