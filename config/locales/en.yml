@@ -191,6 +191,8 @@ en:
       one: "1 toilette"
       other: "%{count} toilette"
 
+    share: 'Share the link:'
+
     where: 'where'
 
     services: "services"

@@ -190,6 +190,8 @@ it:
       one: "1 bagno"
       other: "%{count} bagni"
 
+    share: 'Condividi il link:'
+
     where: 'dove'
     
     services: "servizi"
