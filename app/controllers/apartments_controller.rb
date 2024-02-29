@@ -46,6 +46,8 @@ class ApartmentsController < ApplicationController
         end
         
         @prices = @apartment.prices.map{|p| {start: p.start, end: p.end, price: p.value}}.to_json
+
+        @link = request.url
     end
 
     def load_previous_date
