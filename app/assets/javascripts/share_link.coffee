@@ -1,7 +1,22 @@
-document.addEventListener 'turbolinks:load', () ->
+### document.addEventListener 'turbolinks:load', () ->
     # Funzione per gestire il clic sul pulsante
     $('#copy-link-button').click ->
         copyToClipboard(window.location.href)
+        $('#sharing').css('display', 'block')
+
+    $('#send-email-button').click ->
+        email = $('#email').val()
+        link = $('#link').val()
+
+        $.ajax
+            type: 'POST'
+            url: '/apartments_controller/send_email'
+            data: { email: email, link: link }
+            success: (response) ->
+                if response.success
+                    alert('Email inviata con successo!')
+                else
+                    alert('Si è verificato un errore durante l\'invio dell\'email.')
 
     # Funzione per copiare il testo negli appunti
     copyToClipboard = (text) ->
@@ -19,4 +34,4 @@ document.addEventListener 'turbolinks:load', () ->
         tempInput.remove()
 
         # Notifica utente di copia avvenuta
-        alert('Link copiato con successo!')
+        alert('Link copiato con successo!') ###

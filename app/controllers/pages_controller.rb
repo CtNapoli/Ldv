@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     def home
         @apartments = Apartment.where(published: true, in_evidence: true).order('RANDOM()')
 
-        @featured_apartments = Apartment.where(published: true, in_evidence: true).order('updated_at DESC').first(6)
+        @featured_apartments = Apartment.where(published: true, in_evidence: true).where("on_selling IS NULL OR on_selling = ?", false).order('updated_at DESC').first(6)
 
         @apartment_offer = Apartment.where(published: true).includes(:prices).references(:prices) 
         .where("prices.price_offer_start IS not NULL and extract(epoch from prices.price_offer_start) > ?", Time.now.to_i)

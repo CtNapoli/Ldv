@@ -148,10 +148,31 @@
                                 span = t('backend.apartments.no')
 
                 .form-group
+                    label.medium = t('backend.apartments.on_selling')
+                    .custom-marker-collection
+                        .custom-marker
+                            label for="apartment_on_selling_true"
+                                = f.radio_button :on_selling, true
+                                .marker.radio
+                                span = t('backend.apartments.y')
+
+                        .custom-marker
+                            label for="apartment_on_selling_false"
+                                = f.radio_button :on_selling, false
+                                .marker.radio
+                                span = t('backend.apartments.no')
+
+                .row
+                    .col-lg-6
+                        .form-group
+                            label.medium = t('backend.apartments.price_selling')
+                            = f.number_field :price_selling, step: 0.01, class: 'form-control'
+                            = error_messages(@apartment, :price_selling)
+
+                .form-group
                     label.medium = t('backend.area')
                     = f.collection_select :area_id, Area.all, :id, :name, {:selected => Area.first}, {class: 'form-control'}
                     
-
                 .row
                     .col-lg-6
                         .form-group

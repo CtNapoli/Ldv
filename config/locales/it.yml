@@ -40,6 +40,7 @@ it:
       owners: Proprietari
       houses: Case
       special-offers: Offerte Speciali
+      on_selling: In Vendita
       informations: Contatti 
 
   page_not_found:
@@ -189,6 +190,8 @@ it:
     toilette:
       one: "1 bagno"
       other: "%{count} bagni"
+
+    price_selling: Prezzo di vendita
 
     share: 'Condividi il link:'
 
@@ -407,10 +410,12 @@ it:
       public: Pubblico
       private: Privato
       in_evidence: In evidenza
+      on_selling: In vendita
       y: "si"
       no: "no"
       area: Area
       services: Servizi
+      price_selling: Prezzo di vendita
       price_default: Prezzo per notte
       price_cleaning_service: Prezzo servizio pulizia
 
@@ -542,6 +547,7 @@ it:
   messages:
     apartments:
       no-found: Non sono presenti appartamenti per i criteri di ricerca selezionati
+      on-selling: The apartments on selling
       in-offer: Gli appartamenti in offerta speciale
       special-price: Ora al prezzo
 

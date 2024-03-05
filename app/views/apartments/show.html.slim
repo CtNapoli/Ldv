@@ -72,11 +72,6 @@
                                 h4.tag = p['title']
                                 p = p['text']
 
-                .d-flex
-                    p  = t('apartment.share') 
-                    i.fa.fa-share-alt#copy-link-button 
-                        #{@link}
-
                 #apartments-map
                     #preload
                         .apartment data-lat="#{@apartment.lat}" data-lng="#{@apartment.lng}" data-name="#{@apartment.name}" data-image="#{@apartment.main_image.attached? ? rails_blob_url(@apartment.main_image) : asset_path('apartments/default-apartment.jpg')}" data-capacity="#{t('apartment.capacity', count: @apartment.capacity)}" data-bedrooms="#{t('apartment.bedrooms', count: @apartment.bedrooms)}" data-rooms="#{t('apartment.rooms', count: @apartment.rooms)}" data-toilette="#{t('apartment.toilette', count: @apartment.toilette)}" data-minimumprice="#{price(@apartment.prices.minimum(:value))}" data-minimumpricestring="#{t('apartment.price')}" data-defaultprice="#{price(@apartment.price_default)}" data-link=apartment_path(@apartment)
@@ -84,145 +79,175 @@
                     #map style="height: 600px"
 
             .col-lg-1
-            .col-lg-3
-                #desktop-booking-container
-                    #booking-form-container
-                        #apartment-properties data-dates=@busy_days data-prices=@prices data-defaultprice=@apartment.price_default data-pricecleaningservice=@apartment.price_cleaning_service
-                        #booking-form.search-form.custom-card.desktop 
-                            #accordionExample.accordion
-                                = form_with url: apartment_reservations_path(apartment_id: @apartment.id) do |f|
-                                    #collapseOne.collapse.show data-parent="#accordionExample"
-                                        .form-group
-                                            label.tag = t('search_form.dates')
-                                            = f.hidden_field :date_start, 'v-model': 'range.start' 
-                                            = f.hidden_field :date_end, 'v-model': 'range.end'
-                                            = f.hidden_field :total_price, 'v-model': 'total'
+            - if @apartment.on_selling == true
+                .col-lg-3
+                    #desktop-booking-container
+                        #booking-form-container
+                            #booking-form.search-form.custom-card.desktop 
+                                = form_with(model: @request, url: create_request_for_apartment_path(apartment_id: @apartment), remote: true) do |f|
+                                    label.tag = t('booking.intro')
+                                    #name.form-group
+                                        = f.text_field :name, class: 'form-control', placeholder: t('booking.name')
 
-                                            .from_to
-                                                .row.align-items-center
-                                                    .col-3
-                                                        p.small-text = t('search_form.from')
-                                                    
-                                                    .col-9.text-right
-                                                        span.secondary-font.font-italic
-                                                            - if cookies[:start_from_index].nil? 
-                                                                | {{range.start | formatDate}}
-                                                            - else
-                                                                = cookies[:start_from_index].to_date.strftime('%d-%m-%Y')
+                                        .errors
 
-                                                .row.align-items-center
-                                                    .col-3
-                                                        p.small-text = t('search_form.to')
+                                    #email.form-group
+                                        = f.email_field :email, class: 'form-control', placeholder: t('booking.email')
 
-                                                    .col-9.text-right
-                                                        span.secondary-font.font-italic
-                                                            - if cookies[:end_from_index].nil?
-                                                                | {{range.end | formatDate}}
-                                                            - else
-                                                                = cookies[:end_from_index].to_date.strftime('%d-%m-%Y')
+                                        .errors
 
-                                                //v-date-picker mode='range' :min-date='new Date.now()' :disabled-dates="disabledDates" v-model='selectedDate'
-                                                //v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate' readonly="true"
-                                                template
-                                                    |  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8" @submit.prevent> 
-                                                    .mb-4
-                                                        span.block.text-gray-600.text-sm.text-left.font-bold.mb-2
-                                                        | Select Range
-                                                        v-date-picker[v-model="range" mode="date" :min-date='new Date()' :masks="masks" is-range]
-                                                        template[v-slot="{ inputValue, inputEvents, isDragging }"]
-                                                            .flex.flex-col.sm:flex-row.justify-start.items-center
-                                                                .relative.flex-grow
-                                                                    svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
-                                                                    path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
-                                                                    input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.start" v-on="inputEvents.start"]
-                                                                span.flex-shrink-0.m-2
-                                                                    svg.w-4.h-4.stroke-current.text-gray-600[viewbox="0 0 24 24"]
-                                                                    path[stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"]
-                                                                .relative.flex-grow
-                                                                    svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
-                                                                    path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
-                                                                    input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.end" v-on="inputEvents.end"]
+                                    #phone_number.form-group
+                                        = f.text_field :phone_number, class: 'form-control', placeholder: t('booking.phone_number')
 
+                                        .errors
 
-                                        .form-group.no-border.no-margin
-                                            label.tag = t('search_form.guests')
-                                            #guests_dropdown.dropdown
-                                                = f.hidden_field :guests, value: @guests_limit, class: 'form-control', 'v-model': 'guests' 
+                                    #more_info.form-group
+                                        = f.text_area :message, class: 'form-control', placeholder: t('booking.text')
 
-                                                #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                    span = t('apartment.capacity', count: @guests_limit)
-                                                    .icon = image_tag 'dropdown-arrow.png'
-                                                    
-                                                .dropdown-menu aria-labelledby="guests"
-                                                    - @guests_limit&.times do |a|
-                                                        .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
+                                        .errors
 
-                                        #apartment-prices.form-group v-if="nights > 0"
-                                            .price-row
-                                                .title
-                                                    p
-                                                        | {{nightsString}}
+                                    .form-group.action
+                                        = f.button t('booking.send'), class: 'btn btn-primary small full'
 
-                                                .value
-                                                    p
-                                                        | {{priceForNights}}€
+            - else 
+                .col-lg-3
+                    #desktop-booking-container
+                        #booking-form-container
+                            #apartment-properties data-dates=@busy_days data-prices=@prices data-defaultprice=@apartment.price_default data-pricecleaningservice=@apartment.price_cleaning_service
+                            #booking-form.search-form.custom-card.desktop 
+                                #accordionExample.accordion
+                                    = form_with url: apartment_reservations_path(apartment_id: @apartment.id) do |f|
+                                        #collapseOne.collapse.show data-parent="#accordionExample"
+                                            .form-group
+                                                label.tag = t('search_form.dates')
+                                                = f.hidden_field :date_start, 'v-model': 'range.start' 
+                                                = f.hidden_field :date_end, 'v-model': 'range.end'
+                                                = f.hidden_field :total_price, 'v-model': 'total'
 
-                                            .price-row
-                                                .title
-                                                    p = t('apartment.cleaning_cost')
+                                                .from_to
+                                                    .row.align-items-center
+                                                        .col-3
+                                                            p.small-text = t('search_form.from')
+                                                        
+                                                        .col-9.text-right
+                                                            span.secondary-font.font-italic
+                                                                - if cookies[:start_from_index].nil? 
+                                                                    | {{range.start | formatDate}}
+                                                                - else
+                                                                    = cookies[:start_from_index].to_date.strftime('%d-%m-%Y')
 
-                                                .value
-                                                    p
-                                                        | {{priceCleaningService}}€
+                                                    .row.align-items-center
+                                                        .col-3
+                                                            p.small-text = t('search_form.to')
 
-                                            .price-row
-                                                .title
-                                                    p = t('apartment.service_cost')
+                                                        .col-9.text-right
+                                                            span.secondary-font.font-italic
+                                                                - if cookies[:end_from_index].nil?
+                                                                    | {{range.end | formatDate}}
+                                                                - else
+                                                                    = cookies[:end_from_index].to_date.strftime('%d-%m-%Y')
 
-                                                .value
-                                                    p
-                                                        | {{servicePrice}}€
-
-                                            .price-row.strong
-                                                .title
-                                                    p = t('apartment.total')
-
-                                                .value
-                                                    p
-                                                        | {{total}}€
+                                                    //v-date-picker mode='range' :min-date='new Date.now()' :disabled-dates="disabledDates" v-model='selectedDate'
+                                                    //v-date-picker mode='range' :min-date='new Date()' v-model='selectedDate' readonly="true"
+                                                    template
+                                                        |  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8" @submit.prevent> 
+                                                        .mb-4
+                                                            span.block.text-gray-600.text-sm.text-left.font-bold.mb-2
+                                                            | Select Range
+                                                            v-date-picker[v-model="range" mode="date" :min-date='new Date()' :masks="masks" is-range]
+                                                            template[v-slot="{ inputValue, inputEvents, isDragging }"]
+                                                                .flex.flex-col.sm:flex-row.justify-start.items-center
+                                                                    .relative.flex-grow
+                                                                        svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
+                                                                        path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
+                                                                        input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.start" v-on="inputEvents.start"]
+                                                                    span.flex-shrink-0.m-2
+                                                                        svg.w-4.h-4.stroke-current.text-gray-600[viewbox="0 0 24 24"]
+                                                                        path[stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"]
+                                                                    .relative.flex-grow
+                                                                        svg.text-gray-600.w-4.h-full.mx-2.absolute.pointer-events-none[fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor"]
+                                                                        path[d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"]
+                                                                        input.flex-grow.pl-8.pr-2.py-1.bg-gray-100.border.rounded.w-full[:class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.end" v-on="inputEvents.end"]
 
 
-                                        .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" = t('booking.button')
+                                            .form-group.no-border.no-margin
+                                                label.tag = t('search_form.guests')
+                                                #guests_dropdown.dropdown
+                                                    = f.hidden_field :guests, value: @guests_limit, class: 'form-control', 'v-model': 'guests' 
 
-                                    #collapseTwo.collapse. data-parent="#accordionExample"
-                                        label.tag = t('booking.intro')
+                                                    #guests.dropdown-button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                        span = t('apartment.capacity', count: @guests_limit)
+                                                        .icon = image_tag 'dropdown-arrow.png'
+                                                        
+                                                    .dropdown-menu aria-labelledby="guests"
+                                                        - @guests_limit&.times do |a|
+                                                            .dropdown-item data-value="#{a+1}" = t('apartment.capacity', count: a+1)
 
-                                        #name.form-group
-                                            = f.text_field :name, class: 'form-control', placeholder: t('booking.name')
+                                            #apartment-prices.form-group v-if="nights > 0"
+                                                .price-row
+                                                    .title
+                                                        p
+                                                            | {{nightsString}}
 
-                                            .errors
+                                                    .value
+                                                        p
+                                                            | {{priceForNights}}€
 
-                                        #email.form-group
-                                            = f.email_field :email, class: 'form-control', placeholder: t('booking.email')
+                                                .price-row
+                                                    .title
+                                                        p = t('apartment.cleaning_cost')
 
-                                            .errors
+                                                    .value
+                                                        p
+                                                            | {{priceCleaningService}}€
 
-                                        #phone_number.form-group
-                                            = f.text_field :phone_number, class: 'form-control', placeholder: t('booking.phone_number')
+                                                .price-row
+                                                    .title
+                                                        p = t('apartment.service_cost')
 
-                                            .errors
+                                                    .value
+                                                        p
+                                                            | {{servicePrice}}€
 
-                                        #more_info.form-group
-                                            = f.text_area :more_info, class: 'form-control', placeholder: t('booking.text')
+                                                .price-row.strong
+                                                    .title
+                                                        p = t('apartment.total')
 
-                                            .errors
+                                                    .value
+                                                        p
+                                                            | {{total}}€
 
-                                        .form-group.action
-                                            = f.button t('booking.send'), class: 'btn btn-primary small full'
 
-                                            .text-center
-                                                a.back.small-text data-toggle="collapse" role="button" aria-controls="collapseOne" aria-expanded="true" data-target="#collapseOne" Back
+                                            .btn.btn-primary.fake-disabled.small.full data-toggle="collapse" role="button" aria-controls="collapseTwo" aria-expanded="true" data-target="#collapseTwo" :class="{ enabled: nights != 0 }" = t('booking.button')
 
+                                        #collapseTwo.collapse. data-parent="#accordionExample"
+                                            label.tag = t('booking.intro')
+
+                                            #name.form-group
+                                                = f.text_field :name, class: 'form-control', placeholder: t('booking.name')
+
+                                                .errors
+
+                                            #email.form-group
+                                                = f.email_field :email, class: 'form-control', placeholder: t('booking.email')
+
+                                                .errors
+
+                                            #phone_number.form-group
+                                                = f.text_field :phone_number, class: 'form-control', placeholder: t('booking.phone_number')
+
+                                                .errors
+
+                                            #more_info.form-group
+                                                = f.text_area :more_info, class: 'form-control', placeholder: t('booking.text')
+
+                                                .errors
+
+                                            .form-group.action
+                                                = f.button t('booking.send'), class: 'btn btn-primary small full'
+
+                                                .text-center
+                                                    a.back.small-text data-toggle="collapse" role="button" aria-controls="collapseOne" aria-expanded="true" data-target="#collapseOne" Back
 
     #map-and-filters-mobile.single
         .btn.btn-primary.full = t('apartment.check_availability')

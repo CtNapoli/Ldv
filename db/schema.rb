@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_074416) do
+ActiveRecord::Schema.define(version: 2024_03_02_154216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_074416) do
     t.float "price_default"
     t.float "price_cleaning_service"
     t.string "old_slug"
+    t.float "price_selling"
+    t.boolean "on_selling", default: false
     t.index ["area_id"], name: "index_apartments_on_area_id"
     t.index ["slug"], name: "index_apartments_on_slug", unique: true
   end

@@ -40,6 +40,7 @@ en:
       owners: Owners
       houses: Rentals
       special-offers: Special Offers
+      on_selling: Sales
       informations: Enquiry
 
   page_not_found:
@@ -179,6 +180,10 @@ en:
       one: "1 guest"
       other: "%{count} guests"
 
+    square_meters:
+      one: "1 square meters"
+      other: "%{count} square meters"
+
     rooms:
       one: "1 room"
       other: "%{count} rooms"
@@ -190,6 +195,8 @@ en:
     toilette:
       one: "1 toilette"
       other: "%{count} toilette"
+
+    price_selling: Selling Price
 
     share: 'Share the link:'
 
@@ -410,10 +417,12 @@ en:
       public: Public
       private: Private
       in_evidence: In evidence
+      on_selling: On sale
       y: "yes"
       no: "no"
       area: Area
       services: Services
+      price_selling: Selling Price
       price_default: Price for night
       price_cleaning_service: Cleaning service price
 
@@ -502,6 +511,7 @@ en:
   messages:
     apartments:
       no-found: There are no apartments for the selected search criteria
+      on-selling: The apartments on selling
       in-offer: The apartments on special offers
       special-price: Now at the price
 

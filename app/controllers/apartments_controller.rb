@@ -1,7 +1,7 @@
 class ApartmentsController < ApplicationController
-    before_action :load_areas, only: [:index, :show, :special_offer]
-    before_action :load_apartments, only: [:show, :special_offer]
-    before_action :load_apartment, only: [:show, :block_private_apartment]
+    before_action :load_areas, only: [:index, :show, :special_offer, :on_selling]
+    before_action :load_apartments, only: [:show, :special_offer, :request_form, :create_request]
+    before_action :load_apartment, only: [:show, :block_private_apartment, :request_form, :create_request]
     before_action :block_private_apartment, only: [:show]
     before_action :load_previous_date, only: [:index, :show]
     
@@ -10,7 +10,7 @@ class ApartmentsController < ApplicationController
         @guests = params[:guests].to_i
 
         #@apartments = Apartment.with_translations(I18n.locale).where(published: true).order('updated_at DESC')
-        @apartments = Apartment.where(published: true).order('updated_at DESC')
+        @apartments = Apartment.where(published: true).where("on_selling IS NULL OR on_selling = ?", false).order('updated_at DESC')
 
         @apartments = @apartments.where(area_id: @where).distinct if params[:where].present?
         @apartments = @apartments.where("capacity >= ?", params[:guests]) if params[:guests].present?
@@ -96,5 +96,9 @@ class ApartmentsController < ApplicationController
             format.html
             format.js
         end
+    end
+
+    def on_selling
+        @apartments = Apartment.where(on_selling: true).order('price_selling ASC')
     end
 end

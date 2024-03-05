@@ -16,7 +16,18 @@ Rails.application.routes.draw do
       resources :reservations, only: [:create]
     end
 
+    # resources :apartments do
+    #   member do
+    #     get 'request_form'
+    #     post 'create_request'
+    #   end
+    # end
+
+    post '/apartments/:apartment_id', to: 'requests#create_request', as: 'create_request_for_apartment'
+
     get 'special-offer'   => 'apartments#special_offer'
+
+    get 'on-selling'   => 'apartments#on_selling'
     
     resources :areas, only: [:show]
 
