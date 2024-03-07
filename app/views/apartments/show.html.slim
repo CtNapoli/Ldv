@@ -28,6 +28,7 @@
             .col-lg-8
                 h1.secondary-font.big-text.font-italic = @apartment.name
                 h2.address.normal-text = full_address(@apartment.address, @apartment.city, @apartment.postal_code, @apartment.province)
+                p = social_share_button_tag(@apartment.name)
                 .properties
                     .property
                         = image_tag('apartments/capacity.png')

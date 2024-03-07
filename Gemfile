@@ -95,3 +95,5 @@ gem 'rbnacl-libsodium', :require => false
 gem 'bcrypt_pbkdf', '< 2.0', :require => false
 
 gem 'cookies_eu'
+
+gem 'social-share-button'

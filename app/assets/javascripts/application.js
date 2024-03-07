@@ -20,3 +20,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require cookies_eu
+//= require social-share-button
