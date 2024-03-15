@@ -30,9 +30,10 @@
                 h2.address.normal-text = full_address(@apartment.address, @apartment.city, @apartment.postal_code, @apartment.province)
                 p = social_share_button_tag(@apartment.name)
                 .properties
-                    .property
-                        = image_tag('apartments/capacity.png')
-                        h3 = t('apartment.capacity', count: @apartment.capacity)
+                    - if @apartment.on_selling == false
+                        .property
+                            = image_tag('apartments/capacity.png')
+                            h3 = t('apartment.capacity', count: @apartment.capacity)
                            
 
                     .property
@@ -53,6 +54,11 @@
                     .property
                         = image_tag('apartments/toilette.png')
                         h3 = t('apartment.toilette', count: @apartment.toilette)
+
+                - if @apartment.on_selling == true
+                    .price-selling
+                        h4 = t('apartment.price_selling')
+                        h5 = sprintf("%.0f", @apartment.price_selling) + ' €'
 
 
                 - if @apartment.services.any?
