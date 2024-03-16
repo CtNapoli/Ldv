@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://www.ldvhomes.com/sitemap.xml
+Sitemap: https://ldvhomes.com/sitemap.xml
