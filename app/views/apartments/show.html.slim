@@ -1,3 +1,6 @@
+- content_hash = JSON.parse(@apartment.content).first
+meta name="description" content="#{content_hash['text'] if content_hash}"
+meta name="robots" content="index,follow"
 #apartment
     .gallery
         - if @apartment.images.count > 1
