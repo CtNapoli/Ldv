@@ -547,7 +547,7 @@ it:
   messages:
     apartments:
       no-found: Non sono presenti appartamenti per i criteri di ricerca selezionati
-      on-selling: The apartments on selling
+      on-selling: Gli appartamenti in vendita
       in-offer: Gli appartamenti in offerta speciale
       special-price: Ora al prezzo
 

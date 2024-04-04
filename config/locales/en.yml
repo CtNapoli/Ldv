@@ -511,7 +511,7 @@ en:
   messages:
     apartments:
       no-found: There are no apartments for the selected search criteria
-      on-selling: The apartments on selling
+      on-selling: Properties on Sale
       in-offer: The apartments on special offers
       special-price: Now at the price
 

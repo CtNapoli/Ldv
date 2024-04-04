@@ -61,7 +61,8 @@ meta name="robots" content="index,follow"
                 - if @apartment.on_selling == true
                     .price-selling
                         h4 = t('apartment.price_selling')
-                        h5 = sprintf("%.0f", @apartment.price_selling) + ' €'
+                        / h5 = sprintf("%.0f", @apartment.price_selling) + ' €'
+                        h5 = sprintf("%.2f", @apartment.price_selling).gsub('.', ',') + ' €'
 
 
                 - if @apartment.services.any?
