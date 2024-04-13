@@ -62,7 +62,8 @@ meta name="robots" content="index,follow"
                     .price-selling
                         h4 = t('apartment.price_selling')
                         / h5 = sprintf("%.0f", @apartment.price_selling) + ' €'
-                        h5 = sprintf("%.2f", @apartment.price_selling).gsub('.', ',') + ' €'
+                        / h5 = sprintf("%.2f", @apartment.price_selling).gsub('.', ',') + ' €'
+                        h5 = '€ ' + sprintf("%0.2f", @apartment.price_selling).gsub(',', '.').reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse.sub('.', ',') 
 
 
                 - if @apartment.services.any?

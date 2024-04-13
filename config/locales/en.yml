@@ -38,9 +38,9 @@ en:
       services: Concierge Services
       destinations: Destinations
       owners: Owners
-      houses: Rentals
+      houses: Villa Rentals
       special-offers: Special Offers
-      on_selling: Sales
+      on_selling: Real Estate
       informations: Enquiry
 
   page_not_found:
@@ -229,7 +229,7 @@ en:
     button: Booking request
 
 
-    intro: Complete your booking request
+    intro: Send us a request
     name: Name
     email: Email
     phone_number: Phone number

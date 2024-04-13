@@ -41,8 +41,8 @@
 
                                 .price 
                                     p.secondary-font.font-italic = t('apartment.price_selling') + ': '
-                                    p.digit.secondary-font.font-italic  = sprintf("%.2f", apartment.price_selling).gsub('.', ',') + ' €'
-                                    / p.digit.secondary-font.font-italic  = sprintf("%.0f", apartment.price_selling) + ' €'         
+                                    / p.digit.secondary-font.font-italic  = sprintf("%.2f", apartment.price_selling).gsub('.', ',') + ' €'
+                                    p.digit.secondary-font.font-italic  = '€ ' + sprintf("%0.2f", apartment.price_selling).gsub(',', '.').reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse.sub('.', ',')        
 
                 - else
                     p = t('messages.apartments.no-found')

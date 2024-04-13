@@ -38,9 +38,9 @@ it:
       services: Servizi
       destinations: Destinazioni
       owners: Proprietari
-      houses: Case
+      houses: Case in Affitto
       special-offers: Offerte Speciali
-      on_selling: In Vendita
+      on_selling: Case in Vendita
       informations: Contatti 
 
   page_not_found:
