@@ -1,0 +1,17 @@
+.header
+    = image_tag 'logo.png'
+
+.intro
+    p.title Richiesta informazioni appartamento in vendita
+
+.content
+    p = @request.message
+
+.footer
+    p 
+        | Il mio nome
+        b =< @request.name
+        | , la mia mail 
+        b =< @request.email
+        | , il mio numero di telefono
+        b =< @request.phone_number
