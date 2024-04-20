@@ -4,15 +4,22 @@
     <% if controller_name == 'pages' && action_name == 'about'%>
       <title>Trust us to better organize your 360 ° vacation in Capri and Amalfi Coast</title>
       <meta name="description" content="Ask for advice about villa rentals, tours, trips, restaurants and things to do in Capri and Amalfi Coast, we will be happy to put our experience and knowledge of the area at your disposal, offering you many useful tips in Capri and Amalfi Coast">
+      <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : "default, keywords" %>">
     <% elsif controller_name == 'pages' && action_name == 'owners'%>
       <title>Do you want to rent your villa in Italy?</title>
       <meta name="description" content="We are a team of experts and we will take care of every detail to maximize your profit when renting your villa.">
-    <% elsif controller_name == 'apartments' && action_name == 'index'%>
+    <% elsif controller_name == 'apartments' && action_name == 'index' || action_name == 'show'%>
       <title>Apartments and villas in Capri and Amalfi Coast</title>
       <meta name="description" content="View a list of villas and apartments in Capri and Amalfi Coast with prices by season and send a request to our team of experts">
+      <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : "default, keywords" %>">
+    <% elsif controller_name == 'apartments' && action_name == 'on_selling'%>
+      <title>Apartments and villas to buy in Capri and Amalfi Coast</title>
+      <meta name="description" content="Invest in villas and apartments in Capri and Amalfi Coast contact our sales representative in Italy for a free consultation">
+      <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : "default, keywords" %>">
     <% else controller_name == 'pages' && action_name == 'home'%>
       <title>Villa Rentals in Capri and Amalfi Coast</title>
       <meta name="description" content="Rent a Villa in Capri and Amalfi Coast — Luxury villas to rent in the island of Capri. High end concierge services, book villas, request a quote for villas">
+      <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : "default, keywords" %>">
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -84,9 +91,12 @@
     <% elsif controller_name == 'pages' && action_name == 'owners'%>
       <div itemprop="name" content="Do you want to rent your villa in Italy?"></div>
       <div itemprop="description" content="We are a team of experts and we will take care of every detail to maximize your profit when renting your villa."></div>
-    <% elsif controller_name == 'apartments' && action_name == 'index'%>
+    <% elsif controller_name == 'apartments' && action_name == 'index' || action_name == 'show'%>
       <div itemprop="name" content="Apartments and villas in Capri and Amalfi Coast"></div>
       <div itemprop="description" content="View a list of villas and apartments in Capri and Amalfi Coast with prices by season and send a request to our team of experts"></div>
+    <% elsif controller_name == 'apartments' && action_name == 'on_selling'%>
+      <div itemprop="name" content="Apartments and villas to buy in Capri and Amalfi Coast"></div>
+      <div itemprop="description" content="Invest in villas and apartments in Capri and Amalfi Coast contact our sales representative in Italy for a free consultation"></div>
     <% else %>
       <div itemprop="name" content="Villa Rentals in Capri and Amalfi Coast"></div>
       <div itemprop="description" content="Rent a Villa in Capri and Amalfi Coast — Luxury villas to rent in the island of Capri. High end concierge services, book villas, request a quote for villas"></div>

@@ -1,6 +1,10 @@
 - content_hash = JSON.parse(@apartment.content).first
-meta name="description" content="#{content_hash['text'] if content_hash}"
-meta name="robots" content="index,follow"
+    meta name="description" content="#{content_hash['text'] if content_hash}"
+    meta name="robots" content="index,follow"
+
+- content_for :keywords do
+    'Book a villa in capri, villa in capri, book holidays in Capri, reserve Amalfi coast villas, apartment in capri, villas in positan, holiday rentals in capri'
+
 #apartment
     .gallery
         - if @apartment.images.count > 1
