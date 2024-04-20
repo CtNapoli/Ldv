@@ -1,4 +1,4 @@
-Sitemap::Generator.instance.load host: "ldvhomes.com" do
+Sitemap::Generator.instance.load host: "http:\\ldvhomes.com" do
     path :root, priority: 1
     path :about, :priority => 0.8
     path :owners, :priority => 0.8
