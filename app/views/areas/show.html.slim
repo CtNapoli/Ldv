@@ -5,7 +5,7 @@
                 .swiper-wrapper
                     - @area.images.order('blob_id ASC').each do |image|
                         .swiper-slide
-                            = image_tag image.variant(resize: '1920x1080'), alt: @area.name
+                            = image_tag image.variant(resize: '1920x1080'), alt: @area.name, rel: "preload"
 
                 .navigation.prev
                     = image_tag('navigation-arrow-left.png')
@@ -15,7 +15,7 @@
 
         - else
             - if @area.image.attached?
-                = image_tag @area.main_image_full_hd, alt: @area.name
+                = image_tag @area.main_image_full_hd, alt: @area.name, rel: "preload"
             - else
                 = image_tag asset_path('areas/default-area.jpg'), alt: @area.name
 

@@ -9,20 +9,26 @@
     /             br
     /             = t('homepage.section_0.title.part_3')
 
+    - # Aggiungi i tag <link> per pre-caricare le immagini di background
+    - @apartments.each do |apartment|
+        - if apartment.main_image.attached?
+            - content_for :head do
+                link rel="preload" href="#{rails_representation_url(apartment.main_image.variant(resize: '1000x1000'))}" as="image"
+
     .gallery
         .swiper-container
             .swiper-wrapper
-                - @apartments.each do |apartments|
-                    .swiper-slide  
-                        = link_to apartment_path(apartments) do
-                            /- apartments.images.each do |apartment|
-                            .box-image style="background-image: url('#{rails_representation_url(apartments.main_image.variant(resize: '1000x1000'))}')"                                  
+                - @apartments.each do |apartment|
+                    .swiper-slide
+                        = link_to apartment_path(apartment) do
+                            .box-image(style="background-image: url('#{rails_representation_url(apartment.main_image.variant(resize: '1000x1000'))}')")  
                                 .type1
                                     .container
                                         h1.text.font-italic.giant-text.secondary-font.text-white
-                                            |
-                                            = apartments.name
-                                        p.font-italic.secondary-font.text-white = t('homepage.section_0.title.more_info')
+                                            = apartment.name
+                                        p.font-italic.secondary-font.text-white
+                                            = t('homepage.section_0.title.more_info')
+
 
             .navigation.prev
                 = image_tag('navigation-arrow-left.png')

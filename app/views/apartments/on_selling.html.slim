@@ -5,14 +5,19 @@
                 .text-for-offer
                     h1 = t('messages.apartments.on-selling')
             .col-xl-9.list
-                - if @apartments.any?                  
-                    - @apartments.each do |apartment|                                              
+                - if @apartments.any?
+                    - @apartments.each do |apartment|
+                        - # Aggiungi il tag <link> per pre-caricare l'immagine di background
+                        - if apartment.main_image.attached?
+                            - content_for :head do
+                                link rel="preload" href="#{rails_blob_url(apartment.main_image)}" as="image"
+
                         = link_to apartment_path(apartment), class: 'apartment custom-card' do
                             .box-image
                                 - if apartment.main_image.attached?
                                     .image style="background-image: url('#{rails_blob_url(apartment.main_image)}')"
                                 - else
-                                    .image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"
+                                    .image style="background-image: url('#{asset_path('apartments/default-apartment.jpg')}')"                       
                             
                             .info
                                 h3.name.secondary-font.font-italic.text-medium = apartment.name
