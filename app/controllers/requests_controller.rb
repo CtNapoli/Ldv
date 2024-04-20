@@ -5,15 +5,12 @@ class RequestsController < ApplicationController
         if @request.save
             @success = true
             RequestMailer.with(request: @request).request_sent.deliver_now
+            redirect_to request.referer || root_path
         end
         respond_to do |format|
             format.js{}
         end
     end
-
-    # def request_form
-    #     @request = Request.new
-    # end
     
     def create_request
         puts 'sono prima di @request'
