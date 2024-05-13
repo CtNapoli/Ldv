@@ -18,7 +18,7 @@
     <% @apartment.each do |apartment| %>
         <%= cache(apartment) do %>
             <url>
-                <loc><%= apartment_path(apartment) %></loc>
+                <loc><%= apartment_url(apartment) %></loc>
                 <lastmod><%= apartment.updated_at.strftime(time_format) %></lastmod>
                 <changefreq>daily</changefreq>
                 <priority>0.8</priority>
